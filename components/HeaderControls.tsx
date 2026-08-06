@@ -110,7 +110,6 @@ export function HeaderControls({
   const mobileMenuRef = useRef<HTMLElement>(null);
   const nav = HOME_COPY[lang].nav;
   const ui = HEADER_UI_COPY[lang];
-  const landingPath = `${BASE_PATH}/${lang}/`;
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -261,7 +260,7 @@ export function HeaderControls({
           aria-label={ui.navigation}
         >
           <a href="https://edenlabs.booth.pm/items/7721082" target="_blank" rel="noreferrer" onClick={() => setMobileOpen(false)}>{nav.booth} ↗</a>
-          <a href={`${landingPath}#reviews`} onClick={() => setMobileOpen(false)}>{nav.reviews}</a>
+          <a href={`${BASE_PATH}/${lang}/reviews/`} onClick={() => setMobileOpen(false)}>{nav.reviews}</a>
           <a href={`${BASE_PATH}/${lang}/docs/getting-started/`} onClick={() => setMobileOpen(false)}>{nav.guide}</a>
           <a href={`${BASE_PATH}/${lang}/docs/faq/`} onClick={() => setMobileOpen(false)}>{nav.faq}</a>
           <a href="https://discord.com/invite/JFzDGrN2bF" target="_blank" rel="noreferrer" onClick={() => setMobileOpen(false)}>{nav.discord} ↗</a>

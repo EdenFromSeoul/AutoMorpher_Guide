@@ -11,8 +11,12 @@ export type HomeCopy = {
     videoLabel: string;
   };
   marquee: string[];
-  intro: { heading: string; description: string };
-  features: Array<{ title: string; text: string; detail: string }>;
+  manualFitting: {
+    label: string;
+    title: [string, string];
+    description: string;
+    items: Array<{ kind: string; title: string; text: string; video: string; videoLabel: string }>;
+  };
   reviews: {
     heading: string;
     description: string;
@@ -22,6 +26,8 @@ export type HomeCopy = {
     items: Array<{ quote: string; source: string; image?: string; imageAlt?: string }>;
   };
   guide: {
+    label: string;
+    itemLabel: string;
     heading: string;
     description: string;
     steps: Array<{ title: string; text: string }>;
@@ -33,8 +39,8 @@ export type HomeCopy = {
     cards: Array<{ title: string; text: string; slug: string }>;
   };
   faq: {
+    label: string;
     heading: string;
-    description: string;
     items: Array<{ question: string; answer: string }>;
   };
   support: {
@@ -50,27 +56,25 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
     nav: { reviews: "使用レビュー", guide: "使用ガイド", faq: "Q&A", booth: "Booth", discord: "Discord" },
     hero: {
       title: ["非対応衣装を、", "好きなアバターへ。"],
-      description: "きせった（Kisetter）は、VRChatのアバター改変・衣装改変を支えるUnity衣装対応ツールです。Humanoidアバター間の体型差を解析し、衣装のボーン、メッシュ、ウェイトをまとめて調整します。",
+      description: "きせった（Kisetter）は、特定のアバター向けに制作された衣装を、その衣装に対応していない別のアバターでも着用できるように変換する、Unity向けの非対応衣装変換ツールです。\n\n複雑な作業は必要ありません。アバターと衣装があれば変換できます。",
       primary: "Boothで購入する",
       secondary: "仕組みを見る",
       caption: "Unity Humanoid対応 · Windows / Linux · Auto / Manual Fitting",
       videoLabel: "きせったによる非対応衣装のフィッティングデモ",
     },
     marquee: ["AUTO FITTING", "MANUAL FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
-    intro: {
-      heading: "衣装対応にかかる時間を、つくる時間へ。",
-      description: "元のアバターと着せたいアバターの差を読み取り、繰り返しになりやすい調整を自動化。最後のシルエットはManual Fittingで直接追い込めます。",
+    manualFitting: {
+      label: "Manual Fitting Mode",
+      title: ["対応した結果に、物足りなさを感じますか？", "あなたの理想の形で着せられます。"],
+      description: "対応結果を、もっと理想の見た目に仕上げてみませんか？\nManual Fitting Modeなら、簡単な操作で衣装を好みの形に調整できます。",
+      items: [
+        { kind: "ボーン調整", title: "衣装を、思いどおりの形へ", text: "ボーンを直接調整し、袖の長さや靴のサイズ、衣装全体のシルエットを好みの形に整えられます。", video: "manual-bone-adjust.mp4", videoLabel: "Manual Fitting Modeで衣装のボーンとシルエットを調整するデモ" },
+        { kind: "メッシュ修正", title: "少しの補正で、より自然に", text: "変換後に生じる小さな貫通やメッシュの歪みを、専用の修正ツールで手軽に補正できます。", video: "manual-mesh-edit.mp4", videoLabel: "Manual Fitting Modeで衣装メッシュの貫通や歪みを修正するデモ" },
+      ],
     },
-    features: [
-      { title: "Auto Fitting", text: "体型差を解析し、衣装のBone・Mesh・Weightを自動調整します。", detail: "自動衣装対応" },
-      { title: "Manual Fitting", text: "ボーンを直接動かし、衣装のシルエットや細部を調整できます。", detail: "手動補正" },
-      { title: "Avatar Profiles", text: "対応Profileがあるアバターなら、元アバターを置かずに作業を始められます。", detail: "反復作業を短縮" },
-      { title: "BlendShape Tools", text: "アバターのBlendShapeを衣装へ追加し、まとめて操作できます。", detail: "表情・体型連動" },
-      { title: "FBX形式で出力", text: "調整した衣装をFBX形式で書き出し、Unityのワークフローで利用できます。", detail: "FBXエクスポート" },
-    ],
     reviews: {
       heading: "使った人の言葉で、使い心地を確認。",
-      description: "このエリアはBooth購入者の実レビューをハードコードで追加できるように用意しています。公開前に引用許可と表記を確認してください。",
+      description: "Xに投稿された利用者の声を、投稿者・本文・写真や動画とともに紹介します。カードを選択するとXの元投稿を確認できます。",
       previous: "前のレビュー",
       next: "次のレビュー",
       imageLabel: "レビュー画像",
@@ -81,35 +85,39 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       ],
     },
     guide: {
-      heading: "3ステップで、衣装対応を始める。",
-      description: "Unity上でSourceとTargetを指定し、Fittingを実行。結果を確認して必要な部分だけ調整します。",
+      label: "衣装変換",
+      itemLabel: "準備物",
+      heading: "衣装対応に必要なものは、たった3つ。",
+      description: "衣装対応に必要なものは3つだけです。衣装の対応元となるSourceアバター、着せたい衣装、そしてあなたのアバター。準備ができたら、きせった（Kisetter）ですぐに変換を始められます。",
       steps: [
-        { title: "Sourceを用意", text: "元のアバターと対応衣装、または対応Avatar Profileを準備します。" },
-        { title: "Targetを選択", text: "衣装を着せたいHumanoidアバターをシーンで指定します。" },
-        { title: "実行して仕上げる", text: "Auto Fittingを実行し、必要に応じてManual Fittingで整えます。" },
+        { title: "Sourceアバター", text: "衣装が対応している元のアバターを用意します。元のアバターがなくても対応できるよう、Avatar Profile機能を提供しています。" },
+        { title: "着せたい衣装", text: "あなたのアバターに着せたい衣装を用意します。" },
+        { title: "あなたのアバター", text: "Humanoidアバターであれば、きせった（Kisetter）を使って衣装対応できます。" },
       ],
       link: "Auto Fittingの詳しい手順を見る",
     },
     docs: {
-      heading: "迷ったときは、必要な答えへ。",
-      description: "導入から詳細設定、トラブルシューティングまで、言語別の公式ガイドを用意しています。",
+      heading: "お困りですか？",
+      description: "インストールから使い方、トラブルシューティングまで、多言語の公式ガイドを提供しています。Discordの専用サポートチャンネルでは、開発者が直接問題解決をお手伝いします。",
       cards: [
         { title: "インストールと開始", text: "UnityPackageの導入と初回セットアップ", slug: "getting-started" },
-        { title: "Manual Fitting", text: "ボーンを直接調整する仕上げ方", slug: "manual-fitting" },
-        { title: "パラメーター", text: "FittingとWeighting設定の詳細", slug: "parameters" },
-        { title: "Q&A・エラー解決", text: "よくある疑問とエラーへの対応", slug: "faq" },
+        { title: "Auto Fitting ガイド", text: "自動フィッティングの手順", slug: "auto-fitting" },
+        { title: "Manual Fitting ガイド", text: "ボーンとメッシュを調整する方法", slug: "manual-fitting" },
+        { title: "パラメーター説明", text: "FittingとWeighting設定の詳細", slug: "parameters" },
+        { title: "Q&A", text: "よくある疑問とエラーへの対応", slug: "faq" },
+        { title: "Discord", text: "専用チャンネルで開発者に相談", slug: "discord" },
       ],
     },
     faq: {
-      heading: "購入前に知りたいこと。",
-      description: "対応範囲とワークフローについて、よくある質問をまとめました。",
+      label: "QUICK Q&A",
+      heading: "気になることを、\nすぐに確認。",
       items: [
-        { question: "きせったは何をするツールですか？", answer: "あるHumanoidアバター向けの衣装を、別のHumanoidアバターへ対応させるためのUnity Editorツールです。" },
-        { question: "どのアバターでも使用できますか？", answer: "配布元にかかわらずHumanoidアバターを対象にできます。改変済みやキメラアバターにも対応しますが、モデル構造によって追加調整が必要です。" },
-        { question: "元のアバターは必ず必要ですか？", answer: "基本的にはTarget、衣装、Sourceが必要です。対応Avatar Profileが含まれている場合は、Sourceの代わりにProfileを利用できます。" },
-        { question: "すべて自動で完成しますか？", answer: "多くの調整を自動化しますが、衣装や体型によっては自然な仕上がりのためにManual Fittingやオプション調整が必要です。" },
-        { question: "対応するUnity環境は？", answer: "VRChat向けUnity 2022.3.22f1、Warudo向け2021.3.18f1、Unity 6000系を案内しています。WindowsとLinuxで利用できます。" },
-        { question: "問題が解決しない場合は？", answer: "公式ドキュメントのQ&Aを確認した後、Eden Labs公式DiscordのHelpチャンネルから問い合わせできます。" },
+        { question: "きせった（Kisetter）はどのようなツールですか？", answer: "きせった（Kisetter）は、Unity上で非対応衣装を別のアバターに対応させるツールです。衣装の元となるアバターと衣装があれば、衣装をあなたのアバターに合わせて自動で変形します。" },
+        { question: "どのアバターで使用できますか？", answer: "Booth、VRoid、Fury、Gumroad、Jinxxyなどの配布・販売プラットフォームを問わず、Unity Humanoid Animatorが設定された人型アバターであれば使用できます。" },
+        { question: "衣装の元アバターは必ず必要ですか？", answer: "基本的には衣装の元となるアバターが必要です。ただし、一部のアバターでは元アバターがなくても衣装を着せられるProfile機能を提供しています。提供中のProfile一覧はBoothページをご確認ください。" },
+        { question: "きせった（Kisetter）は何をしてくれますか？", answer: "対象アバターの体型に合わせて衣装のMeshを変形し、動きに自然に追従するようWeightを再計算します。さらに、衣装のArmatureを対象アバターの構造に合わせて再構成します。" },
+        { question: "対応環境は？", answer: "Unity 2021以降で使用できます。正式対応バージョンはUnity 2022.3.22f1とUnity 6000です。WindowsとLinuxで利用できます。" },
+        { question: "使用中に問題が発生しました。どこに問い合わせればよいですか？", answer: "公式ドキュメントのQ&Aで、さまざまな問題ごとの解決方法をご案内しています。解決しない場合は、公式DiscordのHelpチャンネルで開発者から直接サポートを受けられます。" },
       ],
     },
     support: {
@@ -123,27 +131,25 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
     nav: { reviews: "사용 후기", guide: "사용 가이드", faq: "Q&A", booth: "Booth", discord: "Discord" },
     hero: {
       title: ["비전용 의상을,", "원하는 아바타에."],
-      description: "きせった(Kisetter)는 VRChat 아바타 개변과 의상 개변을 위한 Unity 의상 대응 툴입니다. Humanoid 아바타 사이의 체형 차이를 분석해 의상 본, 메시와 웨이트를 한 번에 조정합니다.",
+      description: "きせった(Kisetter)는 특정 아바타용으로 제작된 의상을, 해당 의상을 지원하지 않는 다른 아바타도 착용할 수 있도록 변환해 주는 Unity용 미지원 의상 변환 도구입니다.\n\n복잡한 작업은 필요하지 않습니다. 아바타와 의상만 있다면 변환할 수 있습니다.",
       primary: "Booth에서 구매하기",
       secondary: "작동 방식 보기",
       caption: "Unity Humanoid 지원 · Windows / Linux · Auto / Manual Fitting",
       videoLabel: "きせった를 이용한 비전용 의상 피팅 데모",
     },
     marquee: ["AUTO FITTING", "MANUAL FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
-    intro: {
-      heading: "의상 대응에 쓰던 시간을, 창작하는 시간으로.",
-      description: "원본 아바타와 대상 아바타의 차이를 분석해 반복적인 조정을 자동화합니다. 마지막 실루엣은 Manual Fitting으로 직접 정교하게 다듬을 수 있습니다.",
+    manualFitting: {
+      label: "Manual Fitting Mode",
+      title: ["대응된 결과가 아쉬운가요?", "당신이 원하는 형태로 입히실 수 있습니다."],
+      description: "대응된 결과가 아쉬우셨나요? 당신이 원하는 모습으로 입혀보세요.\nManual Fitting Mode에서 간단하게 조작하여 당신이 원하는 형태로 의상을 수정할 수 있는 기능을 제공합니다.",
+      items: [
+        { kind: "Bone 조정", title: "의상을 원하는 형태로", text: "Bone을 직접 조정해 소매 길이, 신발 크기와 의상의 전체적인 실루엣을 원하는 형태로 다듬을 수 있습니다.", video: "manual-bone-adjust.mp4", videoLabel: "Manual Fitting Mode에서 Bone을 조정해 의상 실루엣을 변경하는 과정" },
+        { kind: "Mesh 수정", title: "간단하게 더 자연스럽게", text: "변환 후 발생할 수 있는 작은 뚫림이나 메시 왜곡을 전용 수정 도구로 손쉽게 보정할 수 있습니다.", video: "manual-mesh-edit.mp4", videoLabel: "Manual Fitting Mode에서 의상의 뚫림과 메시 왜곡을 수정하는 과정" },
+      ],
     },
-    features: [
-      { title: "Auto Fitting", text: "체형 차이를 분석해 의상의 Bone, Mesh와 Weight를 자동 조정합니다.", detail: "자동 의상 대응" },
-      { title: "Manual Fitting", text: "본을 직접 움직여 의상 실루엣과 세부 형태를 조정합니다.", detail: "수동 보정" },
-      { title: "Avatar Profiles", text: "지원 Profile이 있다면 원본 아바타를 배치하지 않고 작업을 시작할 수 있습니다.", detail: "반복 작업 단축" },
-      { title: "BlendShape Tools", text: "아바타 BlendShape를 의상에 추가하고 함께 제어할 수 있습니다.", detail: "표정·체형 연동" },
-      { title: "FBX 형태로 출력", text: "조정한 의상을 FBX 형태로 내보내 Unity 워크플로에서 사용할 수 있습니다.", detail: "FBX 내보내기" },
-    ],
     reviews: {
       heading: "사용한 사람의 말로 확인하세요.",
-      description: "Booth 구매자의 실제 후기를 하드 코딩으로 추가할 수 있도록 준비한 영역입니다. 공개 전 인용 허가와 표기를 확인해 주세요.",
+      description: "X에 게시된 실제 사용 후기를 작성자, 본문, 사진·영상과 함께 확인할 수 있습니다. 카드를 선택하면 X의 원문으로 이동합니다.",
       previous: "이전 후기",
       next: "다음 후기",
       imageLabel: "후기 이미지",
@@ -154,35 +160,39 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       ],
     },
     guide: {
-      heading: "세 단계로 의상 대응을 시작하세요.",
-      description: "Unity에서 Source와 Target을 지정해 Fitting을 실행하고, 결과를 확인한 뒤 필요한 부분만 조정합니다.",
+      label: "의상 변환",
+      itemLabel: "준비물",
+      heading: "대응에 필요한 것은 딱 3가지",
+      description: "의상 대응에 필요한 것은 세 가지뿐입니다. 의상의 원본에 대응되는 Source 아바타, 입히고 싶은 의상, 그리고 당신의 아바타. 준비가 끝나면 きせった(Kisetter)로 바로 변환을 시작할 수 있습니다.",
       steps: [
-        { title: "Source 준비", text: "원본 아바타와 대응 의상 또는 지원 Avatar Profile을 준비합니다." },
-        { title: "Target 선택", text: "의상을 입힐 Humanoid 아바타를 Scene에서 지정합니다." },
-        { title: "실행하고 마무리", text: "Auto Fitting 후 필요한 부분을 Manual Fitting으로 다듬습니다." },
+        { title: "Source 아바타", text: "의상의 원본에 대응되는 아바타를 준비합니다. 원본 아바타가 없어도 대응할 수 있도록 Avatar Profile 기능을 제공합니다." },
+        { title: "입힐 의상", text: "당신의 아바타에 입힐 의상을 준비합니다." },
+        { title: "당신의 아바타", text: "Humanoid 아바타라면 어떤 아바타든 きせった(Kisetter)를 통해 의상을 입힐 수 있습니다." },
       ],
       link: "Auto Fitting 상세 과정 보기",
     },
     docs: {
-      heading: "막히는 순간, 필요한 답으로.",
-      description: "설치부터 상세 설정과 문제 해결까지 언어별 공식 가이드를 제공합니다.",
+      heading: "도움이 필요하신가요?",
+      description: "설치부터 사용 방법과 문제 해결 방법까지 언어별 공식 가이드를 제공하며, Discord의 전용 문의 채널에서 개발자가 직접 문제 해결을 도와드립니다.",
       cards: [
         { title: "설치 및 시작", text: "UnityPackage 설치와 첫 설정", slug: "getting-started" },
-        { title: "Manual Fitting", text: "본을 직접 조정하는 마무리 방법", slug: "manual-fitting" },
-        { title: "파라미터", text: "Fitting과 Weighting 설정 상세", slug: "parameters" },
-        { title: "Q&A 및 오류 해결", text: "자주 묻는 질문과 오류 대응", slug: "faq" },
+        { title: "Auto Fitting 가이드", text: "자동 의상 대응 과정과 사용 방법", slug: "auto-fitting" },
+        { title: "Manual Fitting 가이드", text: "Bone과 Mesh를 직접 조정하는 방법", slug: "manual-fitting" },
+        { title: "파라미터 설명", text: "Fitting과 Weighting 설정 상세", slug: "parameters" },
+        { title: "Q&A", text: "자주 묻는 질문과 오류 해결 방법", slug: "faq" },
+        { title: "Discord", text: "전용 문의 채널에서 개발자에게 문의", slug: "discord" },
       ],
     },
     faq: {
-      heading: "구매 전에 알고 싶은 내용.",
-      description: "지원 범위와 실제 작업 흐름에 관한 자주 묻는 질문입니다.",
+      label: "QUICK Q&A",
+      heading: "궁금한 점을\n빠르게 확인하세요.",
       items: [
-        { question: "きせった는 어떤 도구인가요?", answer: "한 Humanoid 아바타용 의상을 다른 Humanoid 아바타에 대응시키는 Unity Editor 툴입니다." },
-        { question: "어떤 아바타에 사용할 수 있나요?", answer: "배포처와 관계없이 Humanoid 아바타를 대상으로 할 수 있습니다. 개변·키메라 아바타도 지원하지만 모델 구조에 따라 추가 조정이 필요합니다." },
-        { question: "원본 아바타가 반드시 필요한가요?", answer: "기본적으로 Target, 의상과 Source가 필요합니다. 지원 Avatar Profile이 포함된 경우 Source 대신 Profile을 사용할 수 있습니다." },
-        { question: "모든 작업이 자동으로 완성되나요?", answer: "많은 조정을 자동화하지만 의상과 체형에 따라 자연스러운 결과를 위해 Manual Fitting이나 옵션 조정이 필요할 수 있습니다." },
-        { question: "지원 Unity 환경은 무엇인가요?", answer: "VRChat용 Unity 2022.3.22f1, Warudo용 2021.3.18f1과 Unity 6000 계열을 안내하며 Windows와 Linux를 지원합니다." },
-        { question: "문제가 해결되지 않으면 어디에 문의하나요?", answer: "공식 문서의 Q&A를 확인한 뒤 Eden Labs 공식 Discord Help 채널에서 문의할 수 있습니다." },
+        { question: "きせった (Kisetter)는 어떤 도구인가요?", answer: "きせった (Kisetter)는 Unity에서 비전용 의상을 다른 아바타에 대응해 주는 툴입니다.\n원본이 되는 아바타와 의상만 있으면 의상을 당신의 아바타에 맞게 자동으로 변형해 줍니다." },
+        { question: "어떤 아바타에 사용할 수 있나요?", answer: "Booth, VRoid, Fury, Gumroad, Jinxxy 등의 배포·판매 플랫폼과 관계없이,\nUnity Humanoid Animator가 설정된 인간형 아바타라면 사용할 수 있습니다." },
+        { question: "의상의 원본 아바타가 반드시 필요한가요?", answer: "기본적으로는 의상의 원본이 되는 아바타가 필요합니다.\n다만, 일부 아바타는 원본 아바타가 없어도 의상을 입힐 수 있도록 Profile 기능을 제공하고 있습니다.\n제공 중인 Profile 목록은 Booth 페이지에서 확인해 주세요." },
+        { question: "きせった (Kisetter)는 어떤 걸 해주나요?", answer: "대상 아바타의 체형에 맞춰 의상 Mesh를 변형하고, 움직임을 자연스럽게 따라가도록 Weight를 재계산합니다. 또한 의상의 Armature를 대상 아바타 구조에 맞게 재구성합니다." },
+        { question: "지원하는 환경은 무엇인가요?", answer: "Unity Version: Unity 2021 이상의 버전에서 사용할 수 있습니다.\n정식 지원 Unity Version: Unity 2022.3.22f1 & Unity 6000\nOS: Windows와 Linux에서 사용할 수 있습니다." },
+        { question: "사용에 문제가 생겼어요. 어디에 문의하나요?", answer: "공식 문서의 Q&A에서 다양한 문제 상황별 해결 방법을 안내합니다.\n문서로 해결되지 않는 경우, 공식 Discord의 Help 채널에서 개발자에게 직접 도움을 받을 수 있습니다." },
       ],
     },
     support: {
@@ -196,27 +206,25 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
     nav: { reviews: "Reviews", guide: "User guide", faq: "Q&A", booth: "Booth", discord: "Discord" },
     hero: {
       title: ["Fit unsupported outfits", "to the avatar you want."],
-      description: "Kisetter is a Unity clothing fitting tool for VRChat avatar and outfit customization. It analyzes differences between Humanoid avatars and adjusts clothing bones, meshes, and weights together.",
+      description: "Kisetter is a Unity tool that converts outfits made for a specific avatar so they can be worn by other avatars the outfit does not officially support.\n\nNo complicated workflow is required. If you have the avatar and the outfit, you can convert it.",
       primary: "Buy on Booth",
       secondary: "See how it works",
       caption: "Unity Humanoid · Windows / Linux · Auto / Manual Fitting",
       videoLabel: "Unsupported avatar clothing fitting demo with Kisetter",
     },
     marquee: ["AUTO FITTING", "MANUAL FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
-    intro: {
-      heading: "Spend less time adapting outfits. More time creating.",
-      description: "Kisetter reads the differences between the source and target avatar, automates repetitive adjustments, and leaves final silhouette control in your hands with Manual Fitting.",
+    manualFitting: {
+      label: "Manual Fitting Mode",
+      title: ["Want to refine the fitted result?", "Make the outfit look the way you want."],
+      description: "Want to take the fitted result a little further? Shape the outfit around the look you want.\nManual Fitting Mode provides simple controls for refining the outfit directly.",
+      items: [
+        { kind: "Bone adjustment", title: "Shape the outfit your way", text: "Adjust bones directly to refine sleeve length, shoe size, and the outfit’s overall silhouette.", video: "manual-bone-adjust.mp4", videoLabel: "Adjusting outfit bones and silhouette in Manual Fitting Mode" },
+        { kind: "Mesh editing", title: "Small edits, a more natural fit", text: "Use dedicated editing tools to correct small clipping areas or mesh distortion after conversion.", video: "manual-mesh-edit.mp4", videoLabel: "Correcting clipping and mesh distortion in Manual Fitting Mode" },
+      ],
     },
-    features: [
-      { title: "Auto Fitting", text: "Analyzes body differences and adjusts clothing bones, meshes, and weights.", detail: "Automated conversion" },
-      { title: "Manual Fitting", text: "Move bones directly to refine the outfit silhouette and small details.", detail: "Precise correction" },
-      { title: "Avatar Profiles", text: "Start without placing the source avatar when a supported Profile is available.", detail: "Faster repeat work" },
-      { title: "BlendShape Tools", text: "Add avatar BlendShapes to clothing and control them together.", detail: "Shape synchronization" },
-      { title: "Export as FBX", text: "Export the fitted outfit as FBX and continue working with it in Unity.", detail: "FBX export" },
-    ],
     reviews: {
       heading: "See the workflow through the people who use it.",
-      description: "This area is ready for hard-coded reviews from verified Booth buyers. Confirm quotation permission and attribution before publishing.",
+      description: "See real user feedback shared on X, including the author, post text, photos, and video. Select a card to open the original post on X.",
       previous: "Previous review",
       next: "Next review",
       imageLabel: "Review image",
@@ -227,35 +235,39 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       ],
     },
     guide: {
-      heading: "Start fitting in three steps.",
-      description: "Choose a Source and Target in Unity, run Fitting, inspect the result, and refine only what needs attention.",
+      label: "Outfit conversion",
+      itemLabel: "ITEM",
+      heading: "Only three things are needed to fit an outfit.",
+      description: "You only need three things: the Source avatar the outfit was made for, the outfit you want to use, and your avatar. Once they are ready, you can start converting with Kisetter.",
       steps: [
-        { title: "Prepare the Source", text: "Use the original avatar and outfit, or a supported Avatar Profile." },
-        { title: "Choose the Target", text: "Select the Humanoid avatar that should wear the outfit." },
-        { title: "Run and refine", text: "Run Auto Fitting, then use Manual Fitting where necessary." },
+        { title: "Source avatar", text: "Prepare the avatar the outfit was originally made for. Avatar Profiles let you proceed even without the original avatar." },
+        { title: "Outfit to fit", text: "Prepare the outfit you want your avatar to wear." },
+        { title: "Your avatar", text: "Any Humanoid avatar can be used as the target for outfit conversion with Kisetter." },
       ],
       link: "View the full Auto Fitting guide",
     },
     docs: {
-      heading: "Find the answer when you need it.",
-      description: "The multilingual official guide covers installation, detailed controls, and troubleshooting.",
+      heading: "Need help?",
+      description: "Our official multilingual guides cover installation, usage, and troubleshooting. In the dedicated Discord support channel, the developer can help you resolve issues directly.",
       cards: [
         { title: "Install and start", text: "UnityPackage setup and your first workflow", slug: "getting-started" },
-        { title: "Manual Fitting", text: "Refine results by adjusting bones directly", slug: "manual-fitting" },
-        { title: "Parameters", text: "Detailed Fitting and Weighting settings", slug: "parameters" },
-        { title: "Q&A and errors", text: "Common questions and troubleshooting", slug: "faq" },
+        { title: "Auto Fitting guide", text: "Automatic fitting workflow and usage", slug: "auto-fitting" },
+        { title: "Manual Fitting guide", text: "Adjust bones and meshes directly", slug: "manual-fitting" },
+        { title: "Parameter guide", text: "Detailed Fitting and Weighting settings", slug: "parameters" },
+        { title: "Q&A", text: "Common questions and troubleshooting", slug: "faq" },
+        { title: "Discord", text: "Ask the developer in the support channel", slug: "discord" },
       ],
     },
     faq: {
-      heading: "What to know before buying.",
-      description: "Common questions about compatibility and the fitting workflow.",
+      label: "QUICK Q&A",
+      heading: "Find quick answers\nto common questions.",
       items: [
-        { question: "What does Kisetter do?", answer: "It is a Unity Editor tool for adapting clothing made for one Humanoid avatar to another Humanoid avatar." },
-        { question: "Can I use it with any avatar?", answer: "Humanoid avatars can be used regardless of marketplace. Modified and chimera avatars are supported, though some model structures need extra adjustment." },
-        { question: "Do I always need the source avatar?", answer: "Normally you need the target, clothing, and source. A bundled supported Avatar Profile can replace the source avatar." },
-        { question: "Does it finish everything automatically?", answer: "It automates many adjustments, but some outfit and body combinations need Manual Fitting or option changes for a natural result." },
-        { question: "Which Unity environments are supported?", answer: "The guide covers Unity 2022.3.22f1 for VRChat, 2021.3.18f1 for Warudo, and Unity 6000 on Windows and Linux." },
-        { question: "Where can I get help?", answer: "Check the official Q&A documentation, then contact the Help channel in the official Eden Labs Discord if needed." },
+        { question: "What kind of tool is Kisetter?", answer: "Kisetter is a Unity tool that adapts unsupported outfits to other avatars. With the source avatar and outfit, it automatically reshapes the outfit to fit your avatar." },
+        { question: "Which avatars can I use?", answer: "Any human-shaped avatar with a Unity Humanoid Animator can be used, regardless of whether it comes from Booth, VRoid, Fury, Gumroad, Jinxxy, or another distribution platform." },
+        { question: "Do I always need the outfit's source avatar?", answer: "The source avatar is normally required. For selected avatars, the Profile feature lets you fit outfits without owning the source avatar. Check the Booth page for the current list of available Profiles." },
+        { question: "What does Kisetter do during conversion?", answer: "Kisetter reshapes the outfit Mesh for the target avatar, recalculates Weight so the outfit follows its movement naturally, and rebuilds the outfit Armature for the target avatar's structure." },
+        { question: "Which environments are supported?", answer: "Kisetter works with Unity 2021 or later. Officially supported versions are Unity 2022.3.22f1 and Unity 6000, on Windows and Linux." },
+        { question: "I am having trouble. Where can I get help?", answer: "The official Q&A documentation provides solutions for a range of common issues. If the problem remains, the developer can help you directly in the official Discord Help channel." },
       ],
     },
     support: {

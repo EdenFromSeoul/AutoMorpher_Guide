@@ -17,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: lang === "ja" ? 1 : 0.9,
       alternates: { languages: languageAlternates() },
     };
+    const reviewsPage: MetadataRoute.Sitemap[number] = {
+      url: absoluteUrl(localizedPath(lang, "reviews")),
+      changeFrequency: "weekly",
+      priority: 0.8,
+      alternates: { languages: languageAlternates("reviews") },
+    };
     const docs = getDocs(lang).map((doc) => {
       const suffix = `docs/${doc.slug}`;
       return {
@@ -26,6 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: { languages: languageAlternates(suffix) },
       };
     });
-    return [landingPage, ...docs];
+    return [landingPage, reviewsPage, ...docs];
   });
 }

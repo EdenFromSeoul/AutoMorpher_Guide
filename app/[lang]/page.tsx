@@ -6,6 +6,8 @@ import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { HOME_COPY } from "@/lib/home-copy";
 import { homeMetadata, softwareApplicationJsonLd } from "@/lib/seo";
 import { BASE_PATH, LINKS, isLanguage, type Language } from "@/lib/site";
+import { X_REVIEW_POSTS } from "@/lib/x-review-posts";
+import { REVIEWS_COPY } from "@/lib/reviews-copy";
 
 export async function generateMetadata({
   params,
@@ -93,7 +95,7 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
       <section className="quick-guide-section" id="guide">
         <div className="quick-guide-inner">
           <div className="chapter-heading">
-            <p className="chapter-mark">From source to target</p>
+            <p className="chapter-mark">{copy.guide.label}</p>
             <h2>{copy.guide.heading}</h2>
             <p>{copy.guide.description}</p>
             <a className="guide-link" href={`${BASE_PATH}/${lang}/docs/auto-fitting/`}>
@@ -117,7 +119,7 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
           <ol className="quick-guide-list">
             {copy.guide.steps.map((step, index) => (
               <li key={step.title} data-motion-card>
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>{copy.guide.itemLabel} {String(index + 1).padStart(2, "0")}</span>
                 <div><h3>{step.title}</h3><p>{step.text}</p></div>
               </li>
             ))}
@@ -138,31 +140,42 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
           previousLabel={copy.reviews.previous}
           nextLabel={copy.reviews.next}
           imageLabel={copy.reviews.imageLabel}
+          postUrls={X_REVIEW_POSTS}
+          lang={lang}
         />
+        <a className="reviews-page-link" href={`${BASE_PATH}/${lang}/reviews/`}>
+          {REVIEWS_COPY[lang].viewAll}<span aria-hidden="true">→</span>
+        </a>
       </section>
 
-      <section className="landing-chapter product-intro" id="what-is-kisetter">
-        <div className="chapter-heading" data-reveal-copy>
-          <p className="chapter-mark">Kisetter for Unity Humanoid</p>
+      <section className="landing-chapter manual-fitting-section" id="manual-fitting">
+        <div className="manual-fitting-heading" data-reveal-copy>
+          <p className="chapter-mark">{copy.manualFitting.label}</p>
           <h2>
-            {revealSegments(copy.intro.heading, lang).map((segment, index) => (
-              <span data-reveal-word key={`${segment}-${index}`}>{segment}</span>
+            {copy.manualFitting.title.map((line, lineIndex) => (
+              <span className="manual-fitting-title-line" key={line}>
+                {revealSegments(line, lang).map((segment, segmentIndex) => (
+                  <span data-reveal-word key={lineIndex + "-" + segment + "-" + segmentIndex}>{segment}</span>
+                ))}
+              </span>
             ))}
           </h2>
-          <p>{copy.intro.description}</p>
+          <p>{copy.manualFitting.description}</p>
         </div>
 
-        <div className="feature-bento" data-motion-media>
-          {copy.features.map((feature, index) => (
-            <article className={`feature-bento-card feature-bento-${index + 1}`} key={feature.title} data-motion-card>
-              <p>{feature.detail}</p>
-              <h3>{feature.title}</h3>
-              <span>{feature.text}</span>
-              {index === 0 && (
-                <div className="fitting-visual" aria-hidden="true">
-                  <i /><i /><i /><b>Source</b><b>Target</b>
-                </div>
-              )}
+        <div className="manual-fitting-grid">
+          {copy.manualFitting.items.map((item) => (
+            <article className="manual-fitting-card" key={item.kind} data-motion-card>
+              <div className="manual-fitting-media" data-motion-media>
+                <video data-landing-video autoPlay muted loop playsInline preload="metadata" aria-label={item.videoLabel}>
+                  <source src={BASE_PATH + "/media/" + item.video} type="video/mp4" />
+                </video>
+              </div>
+              <div className="manual-fitting-copy">
+                <p>{item.kind}</p>
+                <h3>{item.title}</h3>
+                <span>{item.text}</span>
+              </div>
             </article>
           ))}
         </div>
@@ -177,20 +190,28 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
           <p>{copy.docs.description}</p>
         </div>
         <div className="resource-accordions">
-          {copy.docs.cards.map((card) => (
-            <a href={`${BASE_PATH}/${lang}/docs/${card.slug}/`} key={card.slug} data-motion-card>
-              <span aria-hidden="true">↗</span>
-              <div><h3>{card.title}</h3><p>{card.text}</p></div>
-            </a>
-          ))}
+          {copy.docs.cards.map((card) => {
+            const isDiscord = card.slug === "discord";
+            return (
+              <a
+                href={isDiscord ? LINKS.discord : `${BASE_PATH}/${lang}/docs/${card.slug}/`}
+                key={card.slug}
+                data-motion-card
+                target={isDiscord ? "_blank" : undefined}
+                rel={isDiscord ? "noreferrer" : undefined}
+              >
+                <span aria-hidden="true">↗</span>
+                <div><h3>{card.title}</h3><p>{card.text}</p></div>
+              </a>
+            );
+          })}
         </div>
       </section>
 
       <section className="landing-chapter faq-section" id="qa">
         <div className="chapter-heading">
-          <p className="chapter-mark">Questions before fitting</p>
+          <p className="chapter-mark">{copy.faq.label}</p>
           <h2>{copy.faq.heading}</h2>
-          <p>{copy.faq.description}</p>
         </div>
         <div className="faq-list">
           {copy.faq.items.map((item) => (

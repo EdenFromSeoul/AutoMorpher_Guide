@@ -26,7 +26,7 @@ export function SiteHeader({ lang, searchIndex }: { lang: Language; searchIndex:
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href={LINKS.booth} target="_blank" rel="noreferrer">{nav.booth} ↗</a>
-          <a href={`${landingPath}#reviews`}>{nav.reviews}</a>
+          <a href={`${BASE_PATH}/${lang}/reviews/`}>{nav.reviews}</a>
           <a href={`${BASE_PATH}/${lang}/docs/getting-started/`}>{nav.guide}</a>
           <a href={`${BASE_PATH}/${lang}/docs/faq/`}>{nav.faq}</a>
           <a href={LINKS.discord} target="_blank" rel="noreferrer">{nav.discord} ↗</a>

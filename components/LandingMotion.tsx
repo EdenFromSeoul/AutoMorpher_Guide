@@ -9,10 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 export function LandingMotion() {
   useGSAP(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const landingVideo = document.querySelector<HTMLVideoElement>("[data-landing-video]");
+    const landingVideos = gsap.utils.toArray<HTMLVideoElement>("[data-landing-video]");
 
     if (reduceMotion) {
-      landingVideo?.pause();
+      landingVideos.forEach((video) => video.pause());
       return;
     }
 
@@ -87,6 +87,29 @@ export function LandingMotion() {
         scrollTrigger: { trigger: card, start: "top 88%", once: true },
       });
     });
+
+    let refreshFrame = 0;
+    const refreshScrollTriggers = () => {
+      window.cancelAnimationFrame(refreshFrame);
+      refreshFrame = window.requestAnimationFrame(() => ScrollTrigger.refresh());
+    };
+    const landingRoot = document.querySelector(".landing-main");
+    const resizeObserver = landingRoot
+      ? new ResizeObserver(refreshScrollTriggers)
+      : null;
+
+    if (landingRoot) resizeObserver?.observe(landingRoot);
+    landingVideos.forEach((video) => video.addEventListener("loadedmetadata", refreshScrollTriggers));
+    window.addEventListener("load", refreshScrollTriggers);
+    document.fonts.ready.then(refreshScrollTriggers);
+    refreshScrollTriggers();
+
+    return () => {
+      window.cancelAnimationFrame(refreshFrame);
+      window.removeEventListener("load", refreshScrollTriggers);
+      landingVideos.forEach((video) => video.removeEventListener("loadedmetadata", refreshScrollTriggers));
+      resizeObserver?.disconnect();
+    };
   }, []);
 
   return null;

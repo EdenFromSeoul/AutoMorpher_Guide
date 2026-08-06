@@ -37,21 +37,21 @@ export const HOME_SEO: Record<Language, SeoCopy> = {
   ja: {
     title: "非対応衣装をアバターに対応させるUnityツール | きせった",
     description:
-      "きせった（Kisetter）は、VRChat向けの非対応衣装をHumanoidアバターへフィッティングするUnity衣装対応ツールです。ボーン、メッシュ、ウェイト調整を効率化します。",
+      "VRChatの衣装対応をもっと簡単に。きせった（Kisetter）は、アバターと衣装を用意するだけで、非対応衣装を手軽に着せられるUnity向け変換ツールです。複雑な作業は必要ありません。",
     locale: "ja_JP",
     keywords: SHARED_KEYWORDS,
   },
   ko: {
     title: "VRChat 비전용 의상 대응 Unity 툴 | きせった Kisetter",
     description:
-      "きせった(Kisetter)는 VRChat 비전용 의상을 Humanoid 아바타에 맞게 변환하는 Unity 의상 대응 툴입니다. 본, 메시, 웨이트 조정을 효율화합니다.",
+      "VRChat 의상 대응을 더 간단하게. きせった(Kisetter)는 아바타와 의상만 준비하면 비전용 의상을 손쉽게 입힐 수 있는 Unity용 변환 도구입니다. 복잡한 작업은 필요하지 않습니다.",
     locale: "ko_KR",
     keywords: ["VRChat 비전용 의상", "아바타 개변", "의상 개변", "Unity 의상 변환", ...SHARED_KEYWORDS],
   },
   en: {
     title: "VRChat Avatar Clothing Converter for Unity | Kisetter",
     description:
-      "Kisetter is a Unity clothing fitting tool that adapts unsupported outfits to Humanoid avatars for VRChat, adjusting bones, meshes, and weights efficiently.",
+      "Make VRChat outfit fitting easier. Kisetter is a Unity conversion tool that lets you fit unsupported outfits simply by preparing an avatar and outfit. No complicated workflow is required.",
     locale: "en_US",
     keywords: ["VRChat clothing converter", "Unity avatar outfit fitting", "avatar clothing conversion", ...SHARED_KEYWORDS],
   },
