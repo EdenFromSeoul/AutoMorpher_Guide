@@ -1,101 +1,221 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import { LandingMotion } from "@/components/LandingMotion";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { HOME_COPY } from "@/lib/home-copy";
-import { BASE_PATH, isLanguage, LINKS, VERSION } from "@/lib/site";
+import { homeMetadata, softwareApplicationJsonLd } from "@/lib/seo";
+import { BASE_PATH, LINKS, isLanguage, type Language } from "@/lib/site";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return isLanguage(lang) ? homeMetadata(lang) : {};
+}
+
+function safeJsonLd(value: object): string {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
+function revealSegments(text: string, lang: Language): string[] {
+  const segmenter = new Intl.Segmenter(lang, { granularity: "word" });
+  return Array.from(segmenter.segment(text), (segment) => segment.segment);
+}
 
 export default async function LanguageHomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLanguage(lang)) notFound();
   const copy = HOME_COPY[lang];
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: lang,
+    mainEntity: copy.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
 
   return (
-    <main>
-      <section className="hero">
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="hero-copy">
-          <span className="eyebrow">Eden Labs · Unity Editor Tool</span>
-          <h1>{copy.hero.title}<br /><em>{copy.hero.accent}</em></h1>
-          <p>{copy.hero.description}</p>
-          <div className="hero-actions">
-            <a className="button primary" href={`${BASE_PATH}/${lang}/docs/getting-started/`}>{copy.hero.start} <span>→</span></a>
-            <a className="button secondary" href={LINKS.booth} target="_blank" rel="noreferrer">{copy.hero.download}</a>
-          </div>
-          <div className="hero-meta">
-            <span><strong>v{VERSION}</strong> {copy.hero.latest}</span>
-            <span><strong>Unity</strong> Humanoid</span>
-            <span><strong>Windows · Linux</strong></span>
+    <main className="landing-main">
+      <LandingMotion />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(softwareApplicationJsonLd(lang)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
+      />
+
+      <section className="cinematic-hero" aria-labelledby="landing-title">
+        <div className="cinematic-hero-copy">
+          <p className="product-kicker"><i aria-hidden="true" />きせった <span>Kisetter</span></p>
+          <h1 id="landing-title">{copy.hero.title[0]}<br />{copy.hero.title[1]}</h1>
+          <p className="hero-lede">{copy.hero.description}</p>
+          <div className="cinematic-actions">
+            <a className="button landing-primary" href={LINKS.booth} target="_blank" rel="noreferrer">
+              {copy.hero.primary}<span aria-hidden="true">↗</span>
+            </a>
+            <a className="button landing-secondary" href="#guide">
+              {copy.hero.secondary}<span aria-hidden="true">↓</span>
+            </a>
           </div>
         </div>
-        <div className="hero-visual">
-          <div className="hero-image-frame">
-            <img src={`${BASE_PATH}/assets/brand/kisetter-thumbnail.png`} alt={copy.hero.imageAlt} />
+        <figure className="hero-editorial-visual" data-hero-media>
+          <div className="hero-editorial-frame">
+            <Image
+              src={`${BASE_PATH}/assets/brand/kisetter-thumbnail.png`}
+              alt={copy.hero.videoLabel}
+              fill
+              priority
+              sizes="(max-width: 1120px) 92vw, 46vw"
+            />
           </div>
+
+        </figure>
+      </section>
+
+      <div className="capability-marquee" aria-label={copy.marquee.join(", ")}>
+        <div className="capability-marquee-track">
+          {[0, 1].map((group) => (
+            <div className="capability-marquee-group" aria-hidden={group === 1} key={group}>
+              {copy.marquee.map((item) => <span key={`${group}-${item}`}>{item}</span>)}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <section className="quick-guide-section" id="guide">
+        <div className="quick-guide-inner">
+          <div className="chapter-heading">
+            <p className="chapter-mark">From source to target</p>
+            <h2>{copy.guide.heading}</h2>
+            <p>{copy.guide.description}</p>
+            <a className="guide-link" href={`${BASE_PATH}/${lang}/docs/auto-fitting/`}>
+              {copy.guide.link}<span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div className="quick-guide-video" data-motion-media>
+            <video
+              data-landing-video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={`${BASE_PATH}/assets/brand/kisetter-thumbnail.png`}
+              aria-label={copy.hero.videoLabel}
+            >
+              <source src={`${BASE_PATH}/media/kisetter-landing-demo.mp4`} type="video/mp4" />
+            </video>
+          </div>
+          <ol className="quick-guide-list">
+            {copy.guide.steps.map((step, index) => (
+              <li key={step.title} data-motion-card>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div><h3>{step.title}</h3><p>{step.text}</p></div>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section className="trust-strip" aria-label={copy.trustLabel}>
-        <span>Auto Fitting</span><i />
-        <span>Manual Fitting</span><i />
-        <span>BlendShape Generator</span><i />
-        <span>Profile Workflow</span>
+      <section className="landing-chapter testimonial-section" id="reviews">
+        <div className="chapter-heading split-heading">
+          <div>
+            <p className="chapter-mark">Verified voices</p>
+            <h2>{copy.reviews.heading}</h2>
+          </div>
+          <p>{copy.reviews.description}</p>
+        </div>
+        <TestimonialCarousel
+          items={copy.reviews.items}
+          previousLabel={copy.reviews.previous}
+          nextLabel={copy.reviews.next}
+          imageLabel={copy.reviews.imageLabel}
+        />
       </section>
 
-      <section className="home-section feature-section">
-        <div className="section-heading">
-          <span className="eyebrow">WHAT YOU CAN DO</span>
-          <h2>{copy.featuresHeading[0]}<br />{copy.featuresHeading[1]}</h2>
-          <p>{copy.featuresDescription}</p>
+      <section className="landing-chapter product-intro" id="what-is-kisetter">
+        <div className="chapter-heading" data-reveal-copy>
+          <p className="chapter-mark">Kisetter for Unity Humanoid</p>
+          <h2>
+            {revealSegments(copy.intro.heading, lang).map((segment, index) => (
+              <span data-reveal-word key={`${segment}-${index}`}>{segment}</span>
+            ))}
+          </h2>
+          <p>{copy.intro.description}</p>
         </div>
-        <div className="feature-grid">
+
+        <div className="feature-bento" data-motion-media>
           {copy.features.map((feature, index) => (
-            <article key={feature.title} className="feature-card">
-              <span className="feature-number">0{index + 1}</span>
-              <span className="feature-icon" aria-hidden="true">{feature.icon}</span>
+            <article className={`feature-bento-card feature-bento-${index + 1}`} key={feature.title} data-motion-card>
+              <p>{feature.detail}</p>
               <h3>{feature.title}</h3>
-              <p>{feature.text}</p>
+              <span>{feature.text}</span>
+              {index === 0 && (
+                <div className="fitting-visual" aria-hidden="true">
+                  <i /><i /><i /><b>Source</b><b>Target</b>
+                </div>
+              )}
             </article>
           ))}
         </div>
       </section>
 
-      <section className="home-section workflow-section">
-        <div className="workflow-panel">
-          <div className="section-heading">
-            <span className="eyebrow">QUICK WORKFLOW</span>
-            <h2>{copy.workflowHeading}</h2>
+      <section className="landing-chapter documentation-section">
+        <div className="chapter-heading split-heading">
+          <div>
+            <p className="chapter-mark">Documentation</p>
+            <h2>{copy.docs.heading}</h2>
           </div>
-          <ol className="workflow-list">
-            {copy.steps.map(([number, title, text]) => (
-              <li key={number}>
-                <span>{number}</span>
-                <div><strong>{title}</strong><p>{text}</p></div>
-              </li>
-            ))}
-          </ol>
-          <a className="text-link" href={`${BASE_PATH}/${lang}/docs/auto-fitting/`}>{copy.workflowLink}</a>
+          <p>{copy.docs.description}</p>
         </div>
-      </section>
-
-      <section className="home-section guide-cards-section">
-        <div className="section-heading centered">
-          <span className="eyebrow">DOCUMENTATION</span>
-          <h2>{copy.docsHeading}</h2>
-        </div>
-        <div className="guide-card-grid">
-          {copy.cards.map((card) => (
-            <a key={card.slug} href={`${BASE_PATH}/${lang}/docs/${card.slug}/`}>
-              <span>{card.label}</span><h3>{card.title}</h3><p>{card.text}</p><b>→</b>
+        <div className="resource-accordions">
+          {copy.docs.cards.map((card) => (
+            <a href={`${BASE_PATH}/${lang}/docs/${card.slug}/`} key={card.slug} data-motion-card>
+              <span aria-hidden="true">↗</span>
+              <div><h3>{card.title}</h3><p>{card.text}</p></div>
             </a>
           ))}
         </div>
       </section>
 
-      <section className="support-cta">
+      <section className="landing-chapter faq-section" id="qa">
+        <div className="chapter-heading">
+          <p className="chapter-mark">Questions before fitting</p>
+          <h2>{copy.faq.heading}</h2>
+          <p>{copy.faq.description}</p>
+        </div>
+        <div className="faq-list">
+          {copy.faq.items.map((item) => (
+            <details key={item.question} data-motion-card>
+              <summary>{item.question}<span aria-hidden="true">＋</span></summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section className="landing-action" id="discord">
         <div>
-          <span className="eyebrow">NEED HELP?</span>
-          <h2>{copy.support.title[0]}<br />{copy.support.title[1]}</h2>
+          <p className="chapter-mark">Eden Labs</p>
+          <h2>{copy.support.heading}</h2>
           <p>{copy.support.text}</p>
         </div>
-        <a className="button light" href={LINKS.discord} target="_blank" rel="noreferrer">{copy.support.button}</a>
+        <div className="landing-action-buttons">
+          <a className="button landing-primary" href={LINKS.booth} target="_blank" rel="noreferrer">
+            {copy.support.primary}<span aria-hidden="true">↗</span>
+          </a>
+          <a className="button landing-outline" href={LINKS.discord} target="_blank" rel="noreferrer">
+            {copy.support.secondary}<span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </section>
     </main>
   );

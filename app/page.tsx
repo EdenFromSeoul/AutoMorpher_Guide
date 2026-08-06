@@ -1,29 +1,29 @@
-"use client";
+import type { Metadata } from "next";
+import { HOME_SEO } from "@/lib/seo";
+import { absoluteUrl, localizedPath, withBasePath } from "@/lib/site";
 
-import { useEffect } from "react";
-import { BASE_PATH } from "@/lib/site";
+const target = withBasePath("/ja/");
 
-export default function LanguageRedirect() {
-  useEffect(() => {
-    const language = navigator.language.toLowerCase();
-    const target = language.startsWith("ko")
-      ? "ko"
-      : language.startsWith("ja")
-        ? "ja"
-        : "en";
-    window.location.replace(`${BASE_PATH}/${target}/`);
-  }, []);
+export const metadata: Metadata = {
+  title: HOME_SEO.ja.title,
+  description: HOME_SEO.ja.description,
+  robots: { index: false, follow: true },
+  alternates: { canonical: absoluteUrl(localizedPath("ja")) },
+};
 
+export default function DefaultLanguageRedirect() {
+  const redirectScript = `window.location.replace(${JSON.stringify(target)});`;
   return (
-    <main className="redirect-page">
+    <main className="redirect-page" lang="ja">
+      <script dangerouslySetInnerHTML={{ __html: redirectScript }} />
       <div className="redirect-card">
         <span className="loading-mark">き</span>
-        <h1>きせった (Kisetter) Guide</h1>
-        <p>브라우저 언어에 맞는 문서를 준비하고 있습니다.</p>
-        <nav aria-label="언어 직접 선택">
-          <a href={`${BASE_PATH}/ko/`}>한국어</a>
-          <a href={`${BASE_PATH}/ja/`}>日本語</a>
-          <a href={`${BASE_PATH}/en/`}>English</a>
+        <h1>きせった (Kisetter)</h1>
+        <p>日本語のページへ移動します。</p>
+        <nav aria-label="言語を選択">
+          <a href={withBasePath("/ja/")}>日本語</a>
+          <a href={withBasePath("/ko/")}>한국어</a>
+          <a href={withBasePath("/en/")}>English</a>
         </nav>
       </div>
     </main>

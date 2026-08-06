@@ -18,12 +18,16 @@ export default async function LanguageLayout({
   const { lang } = await params;
   if (!isLanguage(lang)) notFound();
   const searchIndex = getSearchIndex(lang);
+  const languageScript = `document.documentElement.lang=${JSON.stringify(lang)};`;
 
   return (
-    <div className="site-frame">
-      <SiteHeader lang={lang} searchIndex={searchIndex} />
-      {children}
-      <SiteFooter lang={lang} />
-    </div>
+    <>
+      <script dangerouslySetInnerHTML={{ __html: languageScript }} />
+      <div className="site-frame" lang={lang}>
+        <SiteHeader lang={lang} searchIndex={searchIndex} />
+        {children}
+        <SiteFooter lang={lang} />
+      </div>
+    </>
   );
 }

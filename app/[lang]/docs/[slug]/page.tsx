@@ -4,9 +4,28 @@ import { ArticleEnhancements } from "@/components/ArticleEnhancements";
 import { DocSidebar } from "@/components/DocSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getDoc, getDocs } from "@/lib/content";
-import { BASE_PATH, isLanguage, SUPPORTED_LANGUAGES, VERSION } from "@/lib/site";
+import { breadcrumbJsonLd, docMetadata, techArticleJsonLd } from "@/lib/seo";
+import { BASE_PATH, LINKS, isLanguage, SUPPORTED_LANGUAGES, VERSION, type Language } from "@/lib/site";
 
 export const dynamicParams = false;
+
+const UI_COPY: Record<Language, {
+  menu: string;
+  basedOn: string;
+  pagination: string;
+  previous: string;
+  next: string;
+  help: string;
+  contact: string;
+}> = {
+  ja: { menu: "ドキュメントメニュー", basedOn: "対応", pagination: "前後のドキュメント", previous: "前のドキュメント", next: "次のドキュメント", help: "問題が解決しませんか？", contact: "Discord Helpチャンネルで問い合わせる" },
+  ko: { menu: "문서 메뉴", basedOn: "기준", pagination: "이전 및 다음 문서", previous: "이전 문서", next: "다음 문서", help: "문제가 해결되지 않나요?", contact: "Discord Help 채널에서 문의하기" },
+  en: { menu: "Documentation menu", basedOn: "documentation", pagination: "Previous and next documents", previous: "Previous document", next: "Next document", help: "Still need help?", contact: "Ask in the Discord Help channel" },
+};
+
+function safeJsonLd(value: object): string {
+  return JSON.stringify(value).replace(/</g, "\\u003c");
+}
 
 export function generateStaticParams() {
   return SUPPORTED_LANGUAGES.flatMap((lang) =>
@@ -22,7 +41,7 @@ export async function generateMetadata({
   const { lang, slug } = await params;
   if (!isLanguage(lang)) return {};
   const doc = getDoc(lang, slug);
-  return doc ? { title: doc.title, description: doc.description } : {};
+  return doc ? docMetadata(lang, slug, doc.title, doc.description) : {};
 }
 
 export default async function DocPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
@@ -34,11 +53,20 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
   const index = docs.findIndex((item) => item.slug === slug);
   const previous = docs[index - 1];
   const next = docs[index + 1];
+  const ui = UI_COPY[lang];
 
   return (
     <main className="docs-main">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(techArticleJsonLd(lang, doc.title, doc.description, slug)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd(lang, doc.title, slug)) }}
+      />
       <details className="mobile-doc-nav">
-        <summary>문서 메뉴</summary>
+        <summary>{ui.menu}</summary>
         <DocSidebar docs={docs} lang={lang} activeSlug={slug} />
       </details>
       <div className="docs-layout">
@@ -48,18 +76,18 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
             <span>{doc.category}</span>
             <h1>{doc.title}</h1>
             <p>{doc.description}</p>
-            <small>きせった (Kisetter) {VERSION} 기준</small>
+            <small>きせった (Kisetter) {VERSION} {ui.basedOn}</small>
           </header>
           <div className="doc-content" dangerouslySetInnerHTML={{ __html: doc.html }} />
-          <nav className="doc-pagination" aria-label="이전 및 다음 문서">
+          <nav className="doc-pagination" aria-label={ui.pagination}>
             {previous ? (
-              <a href={`${BASE_PATH}/${lang}/docs/${previous.slug}/`}><small>이전 문서</small><strong>← {previous.title}</strong></a>
+              <a href={`${BASE_PATH}/${lang}/docs/${previous.slug}/`}><small>{ui.previous}</small><strong>← {previous.title}</strong></a>
             ) : <span />}
             {next ? (
-              <a className="next" href={`${BASE_PATH}/${lang}/docs/${next.slug}/`}><small>다음 문서</small><strong>{next.title} →</strong></a>
+              <a className="next" href={`${BASE_PATH}/${lang}/docs/${next.slug}/`}><small>{ui.next}</small><strong>{next.title} →</strong></a>
             ) : <span />}
           </nav>
-          <div className="doc-help">문제가 해결되지 않나요? <a href="https://discord.com/invite/JFzDGrN2bF" target="_blank" rel="noreferrer">Discord Help 채널에서 문의하기 ↗</a></div>
+          <div className="doc-help">{ui.help} <a href={LINKS.discord} target="_blank" rel="noreferrer">{ui.contact} ↗</a></div>
           <ArticleEnhancements />
         </article>
         <aside className="toc-column"><TableOfContents items={doc.toc} /></aside>
