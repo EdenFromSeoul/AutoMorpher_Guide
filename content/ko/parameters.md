@@ -75,13 +75,16 @@ order: 70
 - 아바타에 따라 신발 피팅이 정상적으로 적용되지 않거나, 신발 형태가 왜곡될 수 있습니다.
     - 피팅 후 신발 형태가 깨지거나 어색하게 변형될 경우, 해당 옵션을 활성화해 주세요.
 
-- **Good Case (Shinano → Sio)**
-
-![image.png]({{BASE_PATH}}/media/088422ae766e0202.png)
-
-- **Bad Case (Shinano → Airi)**
-
-![image.png]({{BASE_PATH}}/media/0353c26a99c4ac65.png)
+<div class="doc-media-grid doc-media-grid-2">
+  <figure>
+    <figcaption>Good Case (Shinano → Sio)</figcaption>
+    <img src="{{BASE_PATH}}/media/088422ae766e0202.png" alt="Good Case (Shinano → Sio)" />
+  </figure>
+  <figure>
+    <figcaption>Bad Case (Shinano → Airi)</figcaption>
+    <img src="{{BASE_PATH}}/media/0353c26a99c4ac65.png" alt="Bad Case (Shinano → Airi)" />
+  </figure>
+</div>
 
 ---
 
@@ -89,7 +92,7 @@ order: 70
 
 ![image.png]({{BASE_PATH}}/media/f3189ed48074c5d2.png)
 
-- 활성화 시, 대응할 때 Target Avatar에 이미 Auto Morpher로 대응된 의상들을 자동으로 삭제해줍니다.
+- 활성화 시, 대응할 때 Target Avatar에 이미 きせった (Kisetter)로 대응된 의상들을 자동으로 삭제해줍니다.
     - 불필요한 의상을 삭제하실 때 활성화 해주시면 되겠습니다.
 
 ## —————————————————————————

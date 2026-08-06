@@ -1,7 +1,9 @@
-export const SITE_NAME = "Auto Morpher Guide";
-export const PRODUCT_NAME = "Auto Morpher";
+import { LATEST_VERSION } from "./generated-version";
+
+export const SITE_NAME = "きせった (Kisetter) Guide";
+export const PRODUCT_NAME = "きせった (Kisetter)";
 export const COMPANY_NAME = "Eden Labs";
-export const VERSION = "3.0.7";
+export const VERSION = LATEST_VERSION;
 export const REPOSITORY_NAME = "AutoMorpher_Guide";
 export const SITE_ORIGIN = "https://edenfromseoul.github.io";
 export const SITE_URL = `${SITE_ORIGIN}/${REPOSITORY_NAME}`;

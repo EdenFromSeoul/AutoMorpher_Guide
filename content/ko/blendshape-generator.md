@@ -76,6 +76,6 @@ order: 40
 ## ETC. BlendShape 확인
 
 - Object 아래 모든 BlendShape를 통합하여 조절할 수 있는 [Eden BlendShape Controller]를
-Auto Morpher를 구매한 분들에게 무료로 배포 드리고 있습니다.
-    - Tool 실행 경로: [상단바] - [Auto Morpher] - [Eden BlendShape Controller]
+きせった (Kisetter)를 구매한 분들에게 무료로 배포 드리고 있습니다.
+    - Tool 실행 경로: [상단바] - [きせった (Kisetter)] - [Eden BlendShape Controller]
     - 사용 방법: [**BlendShape Controller**](../blendshape-controller/)

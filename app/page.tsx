@@ -17,8 +17,8 @@ export default function LanguageRedirect() {
   return (
     <main className="redirect-page">
       <div className="redirect-card">
-        <span className="loading-mark">AM</span>
-        <h1>Auto Morpher Guide</h1>
+        <span className="loading-mark">き</span>
+        <h1>きせった (Kisetter) Guide</h1>
         <p>브라우저 언어에 맞는 문서를 준비하고 있습니다.</p>
         <nav aria-label="언어 직접 선택">
           <a href={`${BASE_PATH}/ko/`}>한국어</a>

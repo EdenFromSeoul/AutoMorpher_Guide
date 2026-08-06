@@ -4,7 +4,7 @@ import { ArticleEnhancements } from "@/components/ArticleEnhancements";
 import { DocSidebar } from "@/components/DocSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getDoc, getDocs } from "@/lib/content";
-import { BASE_PATH, isLanguage, SUPPORTED_LANGUAGES } from "@/lib/site";
+import { BASE_PATH, isLanguage, SUPPORTED_LANGUAGES, VERSION } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -48,7 +48,7 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
             <span>{doc.category}</span>
             <h1>{doc.title}</h1>
             <p>{doc.description}</p>
-            <small>Auto Morpher 3.0.7 기준</small>
+            <small>きせった (Kisetter) {VERSION} 기준</small>
           </header>
           <div className="doc-content" dangerouslySetInnerHTML={{ __html: doc.html }} />
           <nav className="doc-pagination" aria-label="이전 및 다음 문서">

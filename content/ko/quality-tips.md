@@ -22,13 +22,16 @@ order: 80
 
 **예시) Shinano → Milltina**
 
-**기본 피팅 결과(BlendShape 미조절)**
-
-![image.png]({{BASE_PATH}}/media/79d070c14fc47913.png)
-
-**BlendShape 조절 결과(Big Breast 100)**
-
-![image.png]({{BASE_PATH}}/media/4f2ffb4ff1cc49bf.png)
+<div class="doc-media-grid doc-media-grid-2">
+  <figure>
+    <figcaption>기본 피팅 결과(BlendShape 미조절)</figcaption>
+    <img src="{{BASE_PATH}}/media/79d070c14fc47913.png" alt="기본 피팅 결과(BlendShape 미조절)" />
+  </figure>
+  <figure>
+    <figcaption>BlendShape 조절 결과(Big Breast 100)</figcaption>
+    <img src="{{BASE_PATH}}/media/4f2ffb4ff1cc49bf.png" alt="BlendShape 조절 결과(Big Breast 100)" />
+  </figure>
+</div>
 
 ### Mesh 편집 툴을 활용한 대응
 
@@ -53,13 +56,16 @@ order: 80
 
 **Source Avatar와 Target Avatar 간의 발 형태를 가능한 한 동일하게 조정**하는 것을 권장합니다.
 
-**Bad Case**
-
-![image.png]({{BASE_PATH}}/media/7307a7d1c11dca6e.png)
-
-**Good Case**
-
-![image.png]({{BASE_PATH}}/media/00934d0789ea93c5.png)
+<div class="doc-media-grid doc-media-grid-2">
+  <figure>
+    <figcaption>Bad Case</figcaption>
+    <img src="{{BASE_PATH}}/media/7307a7d1c11dca6e.png" alt="Bad Case" />
+  </figure>
+  <figure>
+    <figcaption>Good Case</figcaption>
+    <img src="{{BASE_PATH}}/media/00934d0789ea93c5.png" alt="Good Case" />
+  </figure>
+</div>
 
 ---
 
@@ -73,26 +79,32 @@ order: 80
 
 형태 변형을 건너뛰어 신발이 뭉개지는 현상을 방지할 수 있습니다.
 
-**기본 신발 피팅 결과(옵션 미적용)**
-
-![image.png]({{BASE_PATH}}/media/fccaf6469d47c205.png)
-
-**Skip Foot Fitting 적용 결과(옵션 적용)**
-
-![image.png]({{BASE_PATH}}/media/2386b5110acd4ad5.png)
+<div class="doc-media-grid doc-media-grid-2">
+  <figure>
+    <figcaption>기본 신발 피팅 결과(옵션 미적용)</figcaption>
+    <img src="{{BASE_PATH}}/media/fccaf6469d47c205.png" alt="기본 신발 피팅 결과(옵션 미적용)" />
+  </figure>
+  <figure>
+    <figcaption>Skip Foot Fitting 적용 결과(옵션 적용)</figcaption>
+    <img src="{{BASE_PATH}}/media/2386b5110acd4ad5.png" alt="Skip Foot Fitting 적용 결과(옵션 적용)" />
+  </figure>
+</div>
 
 ---
 
 ## 🥿 신발이 물 웅덩이처럼 납작해질 때
 
 - 만약 신발이 물 웅덩이처럼 납작해진다면, Source Avatar의 Foot 쪽에 Shrink가 걸려있지 않은 지를 확인해주세요.
-    - **Bad Case**
-
-        ![image.png]({{BASE_PATH}}/media/f2b4b7949a1fc65d.png)
-
-    - **Good Case**
-
-        ![image.png]({{BASE_PATH}}/media/883788331c7a228d.png)
+<div class="doc-media-grid doc-media-grid-2">
+  <figure>
+    <figcaption>Bad Case</figcaption>
+    <img src="{{BASE_PATH}}/media/f2b4b7949a1fc65d.png" alt="Bad Case" />
+  </figure>
+  <figure>
+    <figcaption>Good Case</figcaption>
+    <img src="{{BASE_PATH}}/media/883788331c7a228d.png" alt="Good Case" />
+  </figure>
+</div>
 
 
 ### a. 발 부분 수동 조절 방법
@@ -107,7 +119,7 @@ order: 80
 
 ## 🎩🧤 모자 · 장갑 Weighting 대응 방법
 
-현재 Auto Morpher는 **머리나 손에 부착된 의상 본의 자동 위치 조정 기능을 지원하지 않습니다.**
+현재 きせった (Kisetter)는 **머리나 손에 부착된 의상 본의 자동 위치 조정 기능을 지원하지 않습니다.**
 
 1. **[Manual Fitting Mode]**에서 장갑이나 모자의 위치를 본을 통해 수동으로 조정해 주세요.
 
@@ -115,7 +127,7 @@ order: 80
 
 ## 👕 기존 아바타가 입고 있는 의상 대응 방법
 
-Auto Morpher는 **의상이 자체적인 Armature를 가지고 있는 경우에만** 정상적으로 동작합니다.
+きせった (Kisetter)는 **의상이 자체적인 Armature를 가지고 있는 경우에만** 정상적으로 동작합니다.
 
 다만, 아바타가 이미 기본 의상을 입고 있거나, 의상이 별도의 Prefab으로 분리되어 있지 않은 경우에도
 
@@ -130,7 +142,7 @@ Auto Morpher는 **의상이 자체적인 Armature를 가지고 있는 경우에�
     1. 특히 VRC Avatar Descriptor, Pipeline Manager 등의 아바타 관련 Component를 삭제해야 VRChat Upload 시 문제가 발생하지 않습니다.
 3. **Body Mesh 등 불필요한 Mesh를 삭제**하여,의상만 남긴 형태로 정리합니다.
 4. 의상만 남긴 오브젝트를 기존의 아바타의 자식으로(Hierarchy상 밑으로) 옮겨줍니다.
-5. 해당 오브젝트를 **의상 Prefab으로 사용**하면 Auto Morpher를 통해 변형을 진행할 수 있습니다.
+5. 해당 오브젝트를 **의상 Prefab으로 사용**하면 きせった (Kisetter)를 통해 변형을 진행할 수 있습니다.
 
 이 방법을 활용하면, 별도로 분리되어 있지 않은 **아바타 기본 의상도 변형 대상으로 사용할 수 있습니다.**
 

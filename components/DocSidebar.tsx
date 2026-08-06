@@ -5,7 +5,7 @@ import { BASE_PATH, type Language } from "@/lib/site";
 export function DocSidebar({ docs, lang, activeSlug }: { docs: DocMeta[]; lang: Language; activeSlug: string }) {
   return (
     <nav className="doc-sidebar" aria-label="문서 탐색">
-      <a className="sidebar-home" href={`${BASE_PATH}/${lang}/`}>← Auto Morpher 홈</a>
+      <a className="sidebar-home" href={`${BASE_PATH}/${lang}/`}>← きせった (Kisetter) 홈</a>
       {groupDocs(docs).map(([category, items]) => (
         <section key={category}>
           <h2>{category}</h2>

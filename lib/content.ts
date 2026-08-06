@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { marked } from "marked";
-import { BASE_PATH, type Language } from "./site";
+import { BASE_PATH, VERSION, type Language } from "./site";
 
 export type TocItem = { depth: number; id: string; text: string };
 export type DocMeta = {
@@ -16,6 +16,17 @@ export type Doc = DocMeta & {
   html: string;
   toc: TocItem[];
   plainText: string;
+};
+
+export type SearchIndexItem = {
+  id: string;
+  title: string;
+  slug: string;
+  anchor?: string;
+  category: string;
+  description: string;
+  plainText: string;
+  documentTitle?: string;
 };
 
 const CONTENT_ROOT = path.join(/* turbopackIgnore: true */ process.cwd(), "content");
@@ -50,7 +61,7 @@ function parseFrontmatter(source: string): { meta: DocMeta; markdown: string } {
       title: values.title,
       slug: values.slug,
       category: values.category,
-      description: values.description,
+      description: values.description.replaceAll("{{VERSION}}", VERSION),
       order: Number(values.order),
     },
     markdown: match[2].trim(),
@@ -94,7 +105,7 @@ function renderMarkdown(markdown: string): { html: string; toc: TocItem[] } {
   const occurrences = new Map<string, number>();
 
   for (const line of markdown.split("\n")) {
-    const match = line.match(/^(#{2,3})\s+(.+)$/);
+    const match = line.match(/^(#{2,4})\s+(.+)$/);
     if (!match) continue;
     const text = stripMarkdown(match[2]);
     const base = slugify(text);
@@ -107,7 +118,9 @@ function renderMarkdown(markdown: string): { html: string; toc: TocItem[] } {
     });
   }
 
-  const resolvedMarkdown = transformAdmonitions(markdown).replaceAll("{{BASE_PATH}}", BASE_PATH);
+  const resolvedMarkdown = transformAdmonitions(markdown)
+    .replaceAll("{{BASE_PATH}}", BASE_PATH)
+    .replaceAll("{{VERSION}}", VERSION);
   let html = marked.parse(resolvedMarkdown, {
     async: false,
     gfm: true,
@@ -115,7 +128,7 @@ function renderMarkdown(markdown: string): { html: string; toc: TocItem[] } {
   }) as string;
 
   let headingIndex = 0;
-  html = html.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (full, depth, inner) => {
+  html = html.replace(/<h([234])>([\s\S]*?)<\/h\1>/g, (full, depth, inner) => {
     const item = toc[headingIndex++];
     if (!item) return full;
     return `<h${depth} id="${item.id}">${inner}<a class="heading-anchor" href="#${item.id}" aria-label="${item.text} 섹션 링크">#</a></h${depth}>`;
@@ -123,6 +136,7 @@ function renderMarkdown(markdown: string): { html: string; toc: TocItem[] } {
 
   html = html
     .replaceAll("{{BASE_PATH}}", BASE_PATH)
+    .replaceAll("{{VERSION}}", VERSION)
     .replace(
       /<a href="(https?:\/\/[^\"]+)"/g,
       '<a href="$1" target="_blank" rel="noreferrer"',
@@ -133,8 +147,7 @@ function renderMarkdown(markdown: string): { html: string; toc: TocItem[] } {
   return { html, toc };
 }
 
-function readDocs(lang: Language): Doc[] {
-  const directory = contentDirectory(lang);
+function readDocsFromDirectory(directory: string): Doc[] {
   return fs
     .readdirSync(directory)
     .filter((file) => file.endsWith(".md"))
@@ -149,8 +162,27 @@ function readDocs(lang: Language): Doc[] {
         toc,
         plainText: stripMarkdown(markdown.replace(/^#{1,6}\s+/gm, "")),
       };
-    })
-    .sort((a, b) => a.order - b.order);
+    });
+}
+
+function readDocs(lang: Language): Doc[] {
+  const fallbackDirectory = path.join(CONTENT_ROOT, "ko");
+  const requestedDirectory = path.join(CONTENT_ROOT, lang);
+  const fallbackDocs = readDocsFromDirectory(fallbackDirectory);
+
+  if (
+    lang === "ko" ||
+    !fs.existsSync(requestedDirectory) ||
+    !fs.readdirSync(requestedDirectory).some((file) => file.endsWith(".md"))
+  ) {
+    return fallbackDocs.sort((a, b) => a.order - b.order);
+  }
+
+  const merged = new Map(fallbackDocs.map((doc) => [doc.slug, doc]));
+  for (const doc of readDocsFromDirectory(requestedDirectory)) {
+    merged.set(doc.slug, doc);
+  }
+  return [...merged.values()].sort((a, b) => a.order - b.order);
 }
 
 export function getDocs(lang: Language): Doc[] {
@@ -161,14 +193,57 @@ export function getDoc(lang: Language, slug: string): Doc | undefined {
   return readDocs(lang).find((doc) => doc.slug === slug);
 }
 
-export function getSearchIndex(lang: Language) {
-  return readDocs(lang).map(({ title, slug, category, description, plainText }) => ({
-    title,
-    slug,
-    category,
-    description,
-    plainText,
-  }));
+function getSearchSections(doc: Doc): SearchIndexItem[] {
+  const sections: SearchIndexItem[] = [];
+  const lines = doc.markdown.split("\n");
+  let tocIndex = 0;
+  let active: { item: TocItem; lines: string[] } | undefined;
+
+  const flush = () => {
+    if (!active || /^[\s\[\]—―─-]+$/u.test(active.item.text)) return;
+    const plainText = stripMarkdown(active.lines.join("\n"))
+      .replace(/\s+/g, " ")
+      .trim();
+    const description = plainText
+      ? `${plainText.slice(0, 180)}${plainText.length > 180 ? "…" : ""}`
+      : doc.description;
+    sections.push({
+      id: `${doc.slug}#${active.item.id}`,
+      title: active.item.text,
+      slug: doc.slug,
+      anchor: active.item.id,
+      category: doc.category,
+      description,
+      plainText,
+      documentTitle: doc.title,
+    });
+  };
+
+  for (const line of lines) {
+    if (/^#{2,4}\s+/.test(line)) {
+      flush();
+      const item = doc.toc[tocIndex++];
+      active = item ? { item, lines: [] } : undefined;
+      continue;
+    }
+    active?.lines.push(line);
+  }
+  flush();
+  return sections;
+}
+
+export function getSearchIndex(lang: Language): SearchIndexItem[] {
+  return readDocs(lang).flatMap((doc) => [
+    {
+      id: doc.slug,
+      title: doc.title,
+      slug: doc.slug,
+      category: doc.category,
+      description: doc.description,
+      plainText: doc.plainText,
+    },
+    ...getSearchSections(doc),
+  ]);
 }
 
 export function groupDocs(docs: DocMeta[]) {

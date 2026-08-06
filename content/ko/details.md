@@ -2,7 +2,7 @@
 title: "제품 정보 및 이용약관"
 slug: "details"
 category: "참조"
-description: "Auto Morpher의 주요 기능, 사용 조건, 시스템 요구사항과 공식 이용약관입니다."
+description: "きせった (Kisetter)의 주요 기능, 사용 조건, 시스템 요구사항과 공식 이용약관입니다."
 order: 75
 ---
 
@@ -22,6 +22,7 @@ order: 75
 - Source Avatar와 Target Avatar의 Foot Heel 각도를 최대한 비슷하게 설정하면 발 매칭 품질이 좋아집니다.
 - 아바타에는 **Unity Avatar - Humanoid**가 설정되어 있어야 합니다.
 - 장갑과 모자 변형은 Weighting 방식으로 대응할 수 있으며 자세한 방법은 [변형 품질을 높이는 팁](../quality-tips/)을 확인하세요.
+- Humanoid로 자동 인식되지 않는 아바타나 Body Mesh가 여러 개인 아바타는 Body Mesh 자동 할당을 비활성화하고, 체형 기준으로 사용할 Body Skinned Mesh Renderer를 수동 지정해 주세요. 변형 대상은 **Mesh List**에서 필요한 Mesh만 선택할 수 있습니다.
 
 ## 사용할 수 있는 아바타
 
@@ -52,4 +53,4 @@ order: 75
 - 본 데이터의 저작권은 Eden Labs에 속합니다.
 - 본 데이터의 저작권 및 지적재산권을 침해하는 행위를 금지합니다.
 
-문의가 필요한 경우 [Eden Labs Discord](https://discord.com/invite/JFzDGrN2bF)의 Help 채널을 이용해 주세요.
+문의가 필요한 경우 [문의 방법](../contact/)을 확인한 뒤 Eden Labs Discord의 Help 채널을 이용해 주세요.

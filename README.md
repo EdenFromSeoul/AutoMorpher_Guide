@@ -1,6 +1,6 @@
-# Auto Morpher Guide
+# きせった (Kisetter) Guide
 
-Eden Labs의 **Auto Morpher 3.0.7 공식 가이드 사이트**입니다. 한국어 문서를 기준으로 구성하며, 일본어와 영어 경로는 번역이 준비될 때까지 한국어 문서를 표시합니다.
+Eden Labs의 **きせった (Kisetter) 최신 버전 공식 가이드 사이트**입니다. 한국어 문서를 기준으로 구성하며, 일본어와 영어 경로는 번역이 준비될 때까지 한국어 문서를 표시합니다.
 
 ## 주요 기능
 
@@ -43,11 +43,13 @@ order: 10
 
 미디어 파일은 `public/media/`, 브랜드 이미지는 `public/assets/brand/`에 보관합니다. GitHub의 일반 저장소 단일 파일 제한을 고려해 미디어 파일 하나가 100MB를 넘지 않도록 합니다.
 
-Notion 내보내기 ZIP을 다시 반영하려면 ZIP 파일을 `work/source/`에 두고 아래 명령을 실행합니다. `work/`는 Git에 포함되지 않습니다.
+한·영·일 통합 Notion 내보내기 ZIP을 다시 반영하려면 `きせった (Kisetter) Guide.zip` 파일을 `work/source/`에 두고 아래 명령을 실행합니다. `work/`는 Git에 포함되지 않습니다.
 
 ```bash
 pnpm import:content
 ```
+
+ZIP 안의 `한국어`, `日本語`, `English` 문서는 각각 `content/ko/`, `content/ja/`, `content/en/`에 반영됩니다. 번역본에 없는 보조 문서는 한국어 원문을 대신 표시합니다.
 
 100MB를 넘는 영상은 가져오기 과정에서 제외되며 문서에 YouTube 교체 안내가 표시됩니다.
 

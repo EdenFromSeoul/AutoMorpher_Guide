@@ -16,6 +16,8 @@ order: 90
 
 또한, 체형 기준으로 사용할 수 있는 **몸통에 해당하는 Mesh**를 가지고 있어야 합니다.
 
+Unity Humanoid로 자동 인식되지 않는 아바타를 사용하거나 Body Mesh가 여러 개인 경우에는 자동 탐색 결과가 정확하지 않을 수 있습니다. 이때는 **Body Mesh 자동 할당 옵션을 비활성화한 뒤, 체형 기준으로 사용할 Body Skinned Mesh Renderer를 수동으로 지정**해 주세요. 여러 Mesh 중 변형 대상은 **Mesh List**에서 확인하고 필요한 항목만 선택할 수 있습니다.
+
 ---
 
 ## 🧍‍♂️ A Pose 아바타도 사용 가능한가요?
@@ -98,9 +100,7 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 ## ❗사용하다 오류가 발생했어요. 어디로 문의해야 하나요?
 
-사용하시다가 오류가 발생하실 경우 아래 링크의 **Discord 서버의 [❓｜help_質問]** 채널로 문의해주세요.
-
-- Discord Link: [https://discord.com/invite/JFzDGrN2bF](https://discord.com/invite/JFzDGrN2bF)
+사용 중 발생한 문제는 [문의 방법](../contact/)에서 안내하는 정보를 준비한 뒤, Eden Labs Discord의 **[❓｜help_質問]** 채널로 문의해 주세요.
 
 ## ———————————————————————
 
@@ -168,6 +168,8 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 1. Tool이 Body Mesh를 자동으로 찾지 못하는 경우 다음과 같이 설정해 주세요.
 - **자동 Body Mesh 탐색 옵션을 비활성화**한 후 **Body Mesh를 수동으로 직접 할당**해 주세요.
 
+- Body Mesh가 여러 개인 경우에는 체형 기준이 되는 Mesh를 수동으로 지정하고, **Mesh List**에서 변형할 Mesh만 선택해 주세요.
+
     ![image.png]({{BASE_PATH}}/media/13adc48cf815771b.png)
 
 
@@ -190,9 +192,9 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 ## ⚠️ [Transform resides in a Prefab asset and cannot be set to prevent data corruption] 오류가 발생합니다.
 
-이 오류는 **Project 창에 있는 Prefab 원본 아바타/의상을 Auto Morpher에 직접 할당했을 때** 발생할 수 있습니다.
+이 오류는 **Project 창에 있는 Prefab 원본 아바타/의상을 きせった (Kisetter)에 직접 할당했을 때** 발생할 수 있습니다.
 
-Project 창의 아바타/의상을 바로 할당하지 말고, 먼저 **Hierarchy에 배치한 뒤**, Hierarchy에 있는 오브젝트를 Auto Morpher에 할당해 주세요.
+Project 창의 아바타/의상을 바로 할당하지 말고, 먼저 **Hierarchy에 배치한 뒤**, Hierarchy에 있는 오브젝트를 きせった (Kisetter)에 할당해 주세요.
 
 ---
 
@@ -241,7 +243,7 @@ Hip, Chest 등 **아바타 바디에 해당하는 본의 Weight가 Avatar의 Arm
 
 **[Basic Option] - Remove AutoMorphed Other Clothes** 옵션을 활성화한 상태로 대응을 진행하면,
 
-Target Avatar에 이미 존재하는 **Auto Morpher로 대응된 의상**이 자동으로 삭제됩니다.
+Target Avatar에 이미 존재하는 **きせった (Kisetter)로 대응된 의상**이 자동으로 삭제됩니다.
 
 한 아바타에 **두 개 이상의 의상**을 대응하고 싶으시다면, 해당 옵션을 **비활성화한 상태**로 사용해 주세요.
 
