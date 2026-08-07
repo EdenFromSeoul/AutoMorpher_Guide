@@ -10,7 +10,7 @@ order: 40
 ⚫ This feature adds BlendShapes from a specific mesh on the avatar to other meshes as well.
 ```
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/f00f010315c1e2c6.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/xugZuRPVhkg" title="BlendShape Generator demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Things to Check Before Setting the BlendShape Mesh
 

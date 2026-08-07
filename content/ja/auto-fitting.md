@@ -11,7 +11,7 @@ order: 20
 ⚫ ボーンを調整する機能が必要な場合は、Manual Fitting Mode を使用してください。
 ```
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/5f6d33328f9d377a.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/WWmrMpkvZdM" title="Auto Fitting demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## [1] 準備
 

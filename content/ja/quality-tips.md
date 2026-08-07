@@ -136,7 +136,7 @@ order: 80
 
 このような場合は、添付の動画のように、以下の手順で対応できます。
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/12d3891b5e38ec25.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/FgtGvQu43Rg" title="Quality Tips demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 1. **既存のアバターをコピーします**。
 2. コピーしたアバターから、Animatorおよび不要なComponentを削除します。
@@ -157,7 +157,7 @@ BlendShape Generatorは、基本的に**1つのBlendShapeを単独で使用す�
 
 - 以下の動画は、`Breast_Small`と`Breast_Flat（With Small)`を作成する場合の例です。
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/868d0bf7dced00c7.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/zTOce_H2Kds" title="Quality Tips demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 1. ベースとなるBlendShapeがまだ存在しない場合は、先にBlendShape GeneratorでベースBlendShapeを作成します。
     - 動画では`Breast_Small`を作成しています。

@@ -292,6 +292,7 @@ kbd { border: 1px solid var(--line); background: var(--surface-soft); border-rad
 .doc-content .doc-media-grid img { width: 100%; height: auto; margin: 0; border-radius: 9px; object-fit: contain; }
 .doc-content .doc-media-grid figure img + img { margin-top: 10px; }
 .doc-content video { display: block; width: 100%; margin: 22px 0; border: 1px solid var(--line); border-radius: 14px; background: #05090f; box-shadow: var(--small-shadow); }
+.youtube-embed { display: block; width: 100%; aspect-ratio: 16 / 9; margin: 22px 0; border: 1px solid var(--line); border-radius: 14px; background: #05090f; box-shadow: var(--small-shadow); }
 .doc-content blockquote { margin: 20px 0; padding: 14px 18px; border-left: 3px solid var(--blue-500); background: var(--blue-50); border-radius: 0 10px 10px 0; }
 .doc-content blockquote p { margin: 0; }
 .doc-content pre { position: relative; overflow-x: auto; margin: 22px 0; padding: 20px; border-radius: 13px; background: var(--code-bg); color: #dceaff; font-size: 12px; line-height: 1.65; }

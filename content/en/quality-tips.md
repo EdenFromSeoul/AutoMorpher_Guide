@@ -136,7 +136,7 @@ you may still want to modify that outfit.
 
 In such cases, you can follow the steps shown in the attached video.
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/12d3891b5e38ec25.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/FgtGvQu43Rg" title="Quality Tips demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 1. **Copy the existing avatar**.
 2. **Remove the Animator and any unnecessary components**from the copied avatar.
@@ -157,7 +157,7 @@ If you want to create a BlendShape that is used while another specific BlendShap
 
 - The video below shows an example of creating `Breast_Small` and `Breast_Flat (With Small)`.
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/868d0bf7dced00c7.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/zTOce_H2Kds" title="Quality Tips demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 1. If the base BlendShape does not exist yet, first create the base BlendShape with BlendShape Generator.
     - In the video, `Breast_Small` is created first.

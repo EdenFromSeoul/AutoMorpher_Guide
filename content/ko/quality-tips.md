@@ -135,7 +135,7 @@ order: 80
 
 이러한 경우에는, 첨부된 영상과 같이 다음 과정을 통해 대응할 수 있습니다.
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/12d3891b5e38ec25.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/FgtGvQu43Rg" title="Quality Tips demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 1. **기존 아바타를 복사**합니다.
 2. 복사한 아바타에서 **Animator 및 불필요한 Component를 제거**합니다.
@@ -156,7 +156,7 @@ BlendShape Generator는 기본적으로 **단독으로 BlendShape를 상정하�
 
 - 아래의 영상은  Breast_Small과 Breast_Flat(With Small)을 생성하는 예시입니다.
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/868d0bf7dced00c7.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/zTOce_H2Kds" title="Quality Tips demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 1. 기본이 되는 BlendShape가 아직 없다면, 먼저 BlendShape Generator에서 기본 BlendShape(영상에서는 Breast_Small)를 생성합니다.
 2. 아바타와 의상에서 기본 BlendShape의 Weight 값을 **100**으로 설정합니다.

@@ -11,7 +11,7 @@ order: 20
 ⚫ 본을 조정하는 기능이 필요하시다면 **Manual Fitting Mode**를 사용해주세요.
 ```
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/64f241b81ab83929.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/SKhABOKsuQM" title="Auto Fitting demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## [1] 준비
 

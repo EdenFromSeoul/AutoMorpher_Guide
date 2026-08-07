@@ -11,7 +11,7 @@ order: 20
 ⚫ If you need to adjust bones manually, please use Manual Fitting Mode.
 ```
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/f08250d6b8efb420.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/NGmrRP2BJxk" title="Auto Fitting demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## [1] Preparation
 

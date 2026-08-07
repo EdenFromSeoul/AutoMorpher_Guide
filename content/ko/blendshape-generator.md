@@ -10,7 +10,7 @@ order: 40
 ⚫ 아바타의 특정 Mesh가 가지고 있는 BlendShape를 다른 Mesh에도 추가해주는 기능입니다.
 ```
 
-<video controls preload="metadata" src="{{BASE_PATH}}/media/f00f010315c1e2c6.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/xugZuRPVhkg" title="BlendShape Generator demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## BlendShape Mesh 설정 전 확인 사항
 

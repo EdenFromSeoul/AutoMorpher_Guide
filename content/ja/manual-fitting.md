@@ -12,9 +12,7 @@ order: 30
 ⚫ 対応中に Bone Adjustment ウィンドウから必要な部分を追加で調整することで、より精密な変形ができます。
 ```
 
-!!! warning "영상 링크 준비 중"
-    이 단계의 원본 영상은 GitHub 파일 크기 제한을 초과하여 현재 배포본에서 제외되었습니다. YouTube 영상으로 교체될 예정입니다.
-
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/uywPpQZlpVo" title="Manual Fitting Mode demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ## [1] 準備
 
 ### 1. 🧍‍♂️Source Avatar Setup
