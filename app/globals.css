@@ -785,6 +785,7 @@ kbd { border: 1px solid var(--line); background: var(--surface-soft); border-rad
 .quick-guide-list p { margin: 7px 0 0; color: rgba(255,255,255,.58); font-size: 15px; line-height: 1.7; }
 
 .documentation-section { padding-top: 180px; }
+.documentation-section .split-heading { grid-template-columns: 1fr 1fr; gap: 48px; }
 .resource-accordions {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
