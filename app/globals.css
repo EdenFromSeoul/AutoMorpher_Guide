@@ -1338,9 +1338,7 @@ kbd { border: 1px solid var(--line); background: var(--surface-soft); border-rad
 }
 .reviews-grid-card > a:hover { color: #245eae; background: rgba(47,105,202,.05); }
 .reviews-grid-card > a span { color: #2869cf; font-size: 16px; }
-.reviews-load-more { display: flex; justify-content: center; margin: 32px 0 0; }
-.reviews-load-more button { padding: 14px 40px; border: 1.5px solid rgba(21,23,25,.18); border-radius: 100px; background: transparent; font-size: 15px; font-weight: 700; cursor: pointer; transition: background .2s ease, border-color .2s ease; }
-.reviews-load-more button:hover { background: rgba(40,105,207,.06); border-color: rgba(40,105,207,.4); }
+.reviews-feed-sentinel { height: 1px; margin-top: 32px; }
 .reviews-shop-column { position: sticky; top: calc(var(--header-height) + 32px); align-self: start; height: max-content; }
 .reviews-shop-card {
   overflow: hidden;

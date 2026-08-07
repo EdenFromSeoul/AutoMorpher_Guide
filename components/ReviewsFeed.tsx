@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { XEmbeddedPost } from "./XEmbeddedPost";
 
 const PAGE_SIZE = 12;
@@ -9,16 +9,38 @@ export function ReviewsFeed({
   posts,
   originalNotice,
   originalLink,
-  loadMore,
 }: {
   posts: readonly string[];
   originalNotice: string;
   originalLink: string;
-  loadMore: string;
 }) {
   const [visible, setVisible] = useState(PAGE_SIZE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
   const visiblePosts = posts.slice(0, visible);
   const hasMore = visible < posts.length;
+
+  useEffect(() => {
+    if (!hasMore) return;
+    if (!("IntersectionObserver" in window)) {
+      setVisible(posts.length);
+      return;
+    }
+
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        setVisible((current) => Math.min(current + PAGE_SIZE, posts.length));
+      },
+      { rootMargin: "0px 0px 720px" },
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [hasMore, posts.length]);
 
   return (
     <div className="reviews-feed-wrapper">
@@ -32,13 +54,7 @@ export function ReviewsFeed({
           </article>
         ))}
       </div>
-      {hasMore && (
-        <div className="reviews-load-more">
-          <button type="button" onClick={() => setVisible((v) => v + PAGE_SIZE)}>
-            {loadMore}
-          </button>
-        </div>
-      )}
+      {hasMore && <div ref={sentinelRef} className="reviews-feed-sentinel" aria-hidden="true" />}
     </div>
   );
 }

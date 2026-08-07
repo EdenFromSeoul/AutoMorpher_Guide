@@ -96,7 +96,6 @@ export default async function ReviewsPage({ params }: { params: Promise<{ lang: 
           posts={X_REVIEW_POSTS}
           originalNotice={copy.originalNotice}
           originalLink={copy.originalLink}
-          loadMore={copy.loadMore}
         />
 
         <aside className="reviews-shop-column">
