@@ -12,4 +12,6 @@ export const X_REVIEW_POSTS = [
   "https://x.com/kyon_gdgd/status/2083812378526020055",
   "https://x.com/noinourat/status/2083840101138993559",
   "https://x.com/salenavrc/status/2071405889270239472",
+  "https://x.com/tayuta_vrc/status/2083763746502262844",
+  "https://x.com/penta_vrc/status/2083477848451383576",
 ] as const;

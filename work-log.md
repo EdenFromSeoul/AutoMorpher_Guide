@@ -28,19 +28,36 @@
 ### X 포스트 목록 업데이트
 **변경 파일**: `lib/x-review-posts.ts`
 
-- 기존 4개 포스트가 중복으로 8개 등록된 상태였음
-- 중복 4개 슬롯을 새 포스트 URL로 교체 → 총 8개 고유 포스트로 구성
+- 기존 중복 포스트 정리 후 허락받은 포스트만 수집
+- 최종 15개 포스트 등록 (추가될 때마다 갱신)
 
-| # | 계정 | URL |
-|---|---|---|
-| 1 | @EDEN_LABS_JP | `/status/2083417440411673048` |
-| 2 | @BuriVrchat | `/status/2084401423081710064` |
-| 3 | @Nina_A_A27 | `/status/2083779831960093078` |
-| 4 | @noinourat | `/status/2083757459550978477` |
-| 5 | @noinourat | `/status/2085345139086750195` |
-| 6 | @9railu | `/status/2083428895194501501` |
-| 7 | @MayaSirFish | `/status/2083750887001125277` |
-| 8 | @Komine_Shion | `/status/2083537287896596753` |
+| # | 계정 |
+|---|---|
+| 1 | @noinourat |
+| 2 | @mizuki_vrc_ |
+| 3 | @SnowSkyFireWork |
+| 4 | @kyon_gdgd |
+| 5 | @jiisoo_chan |
+| 6 | @ERR0R4444_ |
+| 7 | @MayaSirFish |
+| 8 | @9railu |
+| 9 | @NabiVRC |
+| 10 | @ToruvaVRC |
+| 11 | @kyon_gdgd |
+| 12 | @noinourat |
+| 13 | @salenavrc |
+| 14 | @tayuta_vrc |
+| 15 | @penta_vrc |
+
+### 후기 페이지 ReviewsFeed 컴포넌트 및 레이아웃 개선
+**변경 파일**: `components/ReviewsFeed.tsx` (신규), `app/globals.css`, `lib/reviews-copy.ts`, `app/[lang]/reviews/page.tsx`
+
+- `ReviewsFeed` 컴포넌트 신규 생성
+  - 처음 12개만 표시 후 **더보기 버튼**으로 추가 12개씩 로드
+  - X 포스트 순서는 `x-review-posts.ts` 배열 순서로 제어
+- 레이아웃: CSS columns → **CSS Grid** (`repeat(4, 1fr)`) 변경
+  - 더보기 클릭 시 기존 포스트 재배치 문제 해결
+- `reviews-copy.ts`에 `loadMore` 다국어 필드 추가 (ja: もっと見る / ko: 더보기 / en: Load more)
 
 ---
 
