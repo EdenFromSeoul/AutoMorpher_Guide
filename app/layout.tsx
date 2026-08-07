@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   creator: "Eden Labs",
   publisher: "Eden Labs",
   robots: { index: true, follow: true },
-  verification: { google: "tRBKOUaTFbd_qiJgAG7VZt3CxCYs2iBuhHSTnhgH9ac" },
   icons: { icon: `${BASE_PATH}/assets/brand/kisetter-logo.png` },
 };
 
