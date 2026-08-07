@@ -35,21 +35,21 @@ const SHARED_KEYWORDS = [
 
 export const HOME_SEO: Record<Language, SeoCopy> = {
   ja: {
-    title: "非対応衣装をアバターに対応させるUnityツール | きせった",
+    title: "きせった (Kisetter)",
     description:
       "VRChatの衣装対応をもっと簡単に。きせった（Kisetter）は、アバターと衣装を用意するだけで、非対応衣装を手軽に着せられるUnity向け変換ツールです。複雑な作業は必要ありません。",
     locale: "ja_JP",
     keywords: SHARED_KEYWORDS,
   },
   ko: {
-    title: "VRChat 비전용 의상 대응 Unity 툴 | きせった Kisetter",
+    title: "きせった (Kisetter)",
     description:
       "VRChat 의상 대응을 더 간단하게. きせった(Kisetter)는 아바타와 의상만 준비하면 비전용 의상을 손쉽게 입힐 수 있는 Unity용 변환 도구입니다. 복잡한 작업은 필요하지 않습니다.",
     locale: "ko_KR",
     keywords: ["VRChat 비전용 의상", "아바타 개변", "의상 개변", "Unity 의상 변환", ...SHARED_KEYWORDS],
   },
   en: {
-    title: "VRChat Avatar Clothing Converter for Unity | Kisetter",
+    title: "きせった (Kisetter)",
     description:
       "Make VRChat outfit fitting easier. Kisetter is a Unity conversion tool that lets you fit unsupported outfits simply by preparing an avatar and outfit. No complicated workflow is required.",
     locale: "en_US",

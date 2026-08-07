@@ -5,13 +5,16 @@ export const PRODUCT_NAME = "きせった (Kisetter)";
 export const COMPANY_NAME = "Eden Labs";
 export const VERSION = LATEST_VERSION;
 export const REPOSITORY_NAME = "AutoMorpher_Guide";
-export const SITE_ORIGIN = (
-  process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://edenfromseoul.github.io"
-).replace(/\/$/, "");
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
 export const BASE_PATH = (
   configuredBasePath ??
   (process.env.NODE_ENV === "production" ? `/${REPOSITORY_NAME}` : "")
+).replace(/\/$/, "");
+export const SITE_ORIGIN = (
+  process.env.NEXT_PUBLIC_SITE_ORIGIN ??
+  (BASE_PATH
+    ? "https://edenfromseoul.github.io"
+    : "https://kisetter.edenlabs.workers.dev")
 ).replace(/\/$/, "");
 export const SITE_URL = `${SITE_ORIGIN}${BASE_PATH}`;
 
