@@ -105,6 +105,43 @@
   - SEO + GEO + AEO 통합 단일 스킬, Python 의존성 없음
   - 기존 팀장님 `seo-audit/`은 `D:\GuidePage\_skills_backup\` 에 백업
 
+### UI 및 CSS 개선
+**변경 파일**: `app/globals.css`, `app/[lang]/page.tsx`, `app/[lang]/reviews/page.tsx`
+
+#### 폰트 크기 조정
+- `product-kicker`: 12px → 20px
+- `chapter-mark`: 11px → 13px
+- 히어로 캡션(`hero-caption`): 11px → 13px
+- 랜딩 버튼(`button`): 13px → 15px
+- Quick Guide 단계 설명(`quick-guide-list p`): 13px → 15px
+- Docs 카드 설명(`resource-accordions p`): 13px → 15px
+- FAQ 답변(`faq-list details > p`): 14px → 16px
+
+#### 일본어 전용 줄간격 재정의 (`:lang(ja)`)
+- `cinematic-hero h1`: `line-height: 1.3`
+- `chapter-heading h2`, `landing-action h2`, `manual-fitting-heading h2`: `line-height: 1.4`
+- `hero-lede`: `line-height: 1.9`
+- `quick-guide-list p`: `line-height: 1.8`
+- `faq-list details > p`: `line-height: 2.0`
+- `manual-fitting-copy h3`: `line-height: 1.35` (줄바꿈 타이틀 간격 조정)
+
+#### Testimonial 캐러셀 컨트롤 버튼 재배치
+- 컨트롤 버튼을 슬라이드 영역 좌우 중앙에 절대 위치로 배치
+- 버튼 배경 흰색, 그림자 추가, 폰트 크기 21px
+- `.testimonial-carousel`에 `position: relative` 추가
+
+#### Hero 이미지 오버레이·필터 제거
+- `hero-editorial-frame::before` (어두운 오버레이) 제거
+- `img`에 적용된 `filter: saturate / contrast / brightness` 및 hover 효과 제거
+
+#### 기타 레이아웃
+- Testimonial 카드 `max-height: 800px` 제한 추가
+- `reviews-page-link` 여백 조정 (`margin: 42px auto 0` → `32px auto 36px`)
+- 랜딩 페이지 reviews 섹션: 더 보기 링크 위치를 캐러셀 **위**로 이동
+- 후기 페이지 히어로 타이틀에서 인라인 이미지(`<i>`) 제거
+- `quick-guide-section h2`, `hero-lede`: `white-space: pre-line` 추가
+- `reviews-shop-copy > span`: `white-space: pre-line` 추가 (줄바꿈 문구 대응)
+
 ---
 
 ## 진행 예정

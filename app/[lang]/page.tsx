@@ -135,6 +135,9 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
           </div>
           <p>{copy.reviews.description}</p>
         </div>
+        <a className="reviews-page-link" href={`${BASE_PATH}/${lang}/reviews/`}>
+          {REVIEWS_COPY[lang].viewAll}<span aria-hidden="true">→</span>
+        </a>
         <TestimonialCarousel
           items={copy.reviews.items}
           previousLabel={copy.reviews.previous}
@@ -143,9 +146,6 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
           postUrls={X_REVIEW_POSTS}
           lang={lang}
         />
-        <a className="reviews-page-link" href={`${BASE_PATH}/${lang}/reviews/`}>
-          {REVIEWS_COPY[lang].viewAll}<span aria-hidden="true">→</span>
-        </a>
       </section>
 
       <section className="landing-chapter manual-fitting-section" id="manual-fitting">

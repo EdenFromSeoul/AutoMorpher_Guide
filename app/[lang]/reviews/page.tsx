@@ -67,10 +67,6 @@ export default async function ReviewsPage({ params }: { params: Promise<{ lang: 
           <h1>
             <span>{copy.title[0]}</span>
             <span className="reviews-title-with-image">
-              <i
-                aria-hidden="true"
-                style={{ backgroundImage: `url(${BASE_PATH}/assets/brand/kisetter-thumbnail.png)` }}
-              />
               {copy.title[1]}
             </span>
           </h1>
