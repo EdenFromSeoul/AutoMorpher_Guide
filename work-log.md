@@ -79,6 +79,34 @@
 - `geo/`, `geo-audit/`, `geo-llmstxt/`, `geo-schema/`, `geo-technical/`
 - TheSmokeDev/geo-skills (MIT) 기반
 
+### SEO / AEO / GEO 스키마 보강 및 스킬 교체
+
+**변경 파일**: `lib/seo.ts`, `app/layout.tsx`, `app/[lang]/docs/[slug]/page.tsx`, `app/[lang]/reviews/page.tsx`, `app/[lang]/page.tsx`, `lib/home-copy.ts`, `.agents/skills/`
+
+#### 스키마 추가
+- **Organization JSON-LD** — `app/layout.tsx` 전역 삽입. Eden Labs 브랜드 엔티티 선언 (name, url, logo, sameAs)
+- **FAQPage JSON-LD (FAQ 문서 페이지)** — `/docs/faq/` 마크다운을 파싱해 Q&A 추출 후 스키마 자동 생성. `slug === "faq"`일 때만 적용
+- **ItemList JSON-LD (후기 페이지)** — `X_REVIEW_POSTS` 목록 기반으로 `/reviews/` 페이지에 삽입
+
+#### html lang 수정
+- `app/layout.tsx`의 `<html lang="ja">` 제거 → `<html>`(lang 없음)
+- `app/[lang]/layout.tsx`의 JS 스크립트가 이미 동기적으로 올바른 lang 설정 중
+- ko·en 페이지 정적 HTML에 `lang="ja"`가 잘못 들어가는 문제 해결
+
+#### 챕터 마크 다국어화
+- `app/[lang]/page.tsx`의 `"Verified voices"`, `"Documentation"` 하드코딩 제거
+- `lib/home-copy.ts`에 `reviews.label`, `docs.label` 필드 추가
+  - ko: "이용자 후기", "가이드 문서"
+  - ja·en: "Verified voices", "Documentation" 유지
+
+#### SEO/GEO 스킬 교체 (`.agents/skills/`)
+- 기존 `geo/`, `geo-audit/`, `geo-llmstxt/`, `geo-schema/`, `geo-technical/`, `seo-audit/` 삭제
+- **SNLabat/SEO-GEO-AEO-Skill** 설치 (`seo-geo-aeo/SKILL.md`)
+  - SEO + GEO + AEO 통합 단일 스킬, Python 의존성 없음
+  - 기존 팀장님 `seo-audit/`은 `D:\GuidePage\_skills_backup\` 에 백업
+
+---
+
 ## 진행 예정
 
 - [ ] 전체 텍스트 크기·문맥 검토

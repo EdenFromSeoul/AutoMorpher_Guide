@@ -5,6 +5,7 @@ import { ReviewsFeed } from "@/components/ReviewsFeed";
 import { ReviewsMotion } from "@/components/ReviewsMotion";
 import { REVIEWS_COPY } from "@/lib/reviews-copy";
 import { X_REVIEW_POSTS } from "@/lib/x-review-posts";
+import { reviewsItemListJsonLd } from "@/lib/seo";
 import {
   BASE_PATH,
   LINKS,
@@ -54,6 +55,10 @@ export default async function ReviewsPage({ params }: { params: Promise<{ lang: 
 
   return (
     <main className="reviews-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsItemListJsonLd(lang, X_REVIEW_POSTS)).replace(/</g, "\\u003c") }}
+      />
       <ReviewsMotion />
 
       <section className="reviews-hero">

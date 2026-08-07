@@ -180,6 +180,51 @@ export function breadcrumbJsonLd(lang: Language, title: string, slug: string) {
   };
 }
 
+export function reviewsItemListJsonLd(lang: Language, posts: readonly string[]) {
+  const names: Record<Language, string> = {
+    ja: "きせった ユーザーレビュー",
+    ko: "きせった 사용자 후기",
+    en: "Kisetter User Reviews",
+  };
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: names[lang],
+    inLanguage: lang,
+    url: absoluteUrl(localizedPath(lang, "reviews")),
+    numberOfItems: posts.length,
+    itemListElement: posts.map((url, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url,
+    })),
+  };
+}
+
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: COMPANY_NAME,
+    url: absoluteUrl("/"),
+    logo: absoluteUrl("/assets/brand/kisetter-logo.png"),
+    sameAs: ["https://x.com/EDEN_LABS_JP", "https://edenlabs.booth.pm/"],
+  };
+}
+
+export function faqDocJsonLd(lang: Language, items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: lang,
+    mainEntity: items.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+}
+
 export function techArticleJsonLd(
   lang: Language,
   title: string,

@@ -130,7 +130,7 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
       <section className="landing-chapter testimonial-section" id="reviews">
         <div className="chapter-heading split-heading">
           <div>
-            <p className="chapter-mark">Verified voices</p>
+            <p className="chapter-mark">{copy.reviews.label}</p>
             <h2>{copy.reviews.heading}</h2>
           </div>
           <p>{copy.reviews.description}</p>
@@ -184,7 +184,7 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
       <section className="landing-chapter documentation-section">
         <div className="chapter-heading split-heading">
           <div>
-            <p className="chapter-mark">Documentation</p>
+            <p className="chapter-mark">{copy.docs.label}</p>
             <h2>{copy.docs.heading}</h2>
           </div>
           <p>{copy.docs.description}</p>

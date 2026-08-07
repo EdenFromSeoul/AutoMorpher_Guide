@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { HOME_SEO } from "@/lib/seo";
+import { HOME_SEO, organizationJsonLd } from "@/lib/seo";
 import { BASE_PATH, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -28,8 +28,14 @@ const themeScript = `(() => {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ja" suppressHydrationWarning>
-      <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
+    <html suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()).replace(/</g, "\\u003c") }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

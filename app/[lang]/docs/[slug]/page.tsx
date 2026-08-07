@@ -4,7 +4,7 @@ import { ArticleEnhancements } from "@/components/ArticleEnhancements";
 import { DocSidebar } from "@/components/DocSidebar";
 import { TableOfContents } from "@/components/TableOfContents";
 import { getDoc, getDocs } from "@/lib/content";
-import { breadcrumbJsonLd, docMetadata, techArticleJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, docMetadata, faqDocJsonLd, techArticleJsonLd } from "@/lib/seo";
 import { BASE_PATH, LINKS, isLanguage, SUPPORTED_LANGUAGES, VERSION, type Language } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -25,6 +25,26 @@ const UI_COPY: Record<Language, {
 
 function safeJsonLd(value: object): string {
   return JSON.stringify(value).replace(/</g, "\\u003c");
+}
+
+function parseFaqItems(markdown: string): { question: string; answer: string }[] {
+  const items: { question: string; answer: string }[] = [];
+  const parts = markdown.split(/^###\s+(.+)/m);
+  for (let i = 1; i < parts.length; i += 2) {
+    const question = parts[i].trim();
+    const content = parts[i + 1] ?? "";
+    const answer = content
+      .split(/^(?:---+|##)/m)[0]
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+      .replace(/\*\*?([^*]+)\*\*?/g, "$1")
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/\{\{[^}]+\}\}/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (question && answer) items.push({ question, answer });
+  }
+  return items;
 }
 
 export function generateStaticParams() {
@@ -55,6 +75,8 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
   const next = docs[index + 1];
   const ui = UI_COPY[lang];
 
+  const faqItems = slug === "faq" ? parseFaqItems(doc.markdown) : null;
+
   return (
     <main className="docs-main">
       <script
@@ -65,6 +87,12 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd(lang, doc.title, slug)) }}
       />
+      {faqItems && faqItems.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqDocJsonLd(lang, faqItems)) }}
+        />
+      )}
       <details className="mobile-doc-nav">
         <summary>{ui.menu}</summary>
         <DocSidebar docs={docs} lang={lang} activeSlug={slug} />

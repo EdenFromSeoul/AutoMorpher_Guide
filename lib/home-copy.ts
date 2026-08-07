@@ -18,6 +18,7 @@ export type HomeCopy = {
     items: Array<{ kind: string; title: string; text: string; video: string; videoLabel: string }>;
   };
   reviews: {
+    label: string;
     heading: string;
     description: string;
     previous: string;
@@ -34,6 +35,7 @@ export type HomeCopy = {
     link: string;
   };
   docs: {
+    label: string;
     heading: string;
     description: string;
     cards: Array<{ title: string; text: string; slug: string }>;
@@ -73,6 +75,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       ],
     },
     reviews: {
+      label: "Verified voices",
       heading: "使った人の言葉で、使い心地を確認。",
       description: "Xに投稿された利用者の声を、投稿者・本文・写真や動画とともに紹介します。カードを選択するとXの元投稿を確認できます。",
       previous: "前のレビュー",
@@ -97,6 +100,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       link: "Auto Fittingの詳しい手順を見る",
     },
     docs: {
+      label: "Documentation",
       heading: "お困りですか？",
       description: "インストールから使い方、トラブルシューティングまで、多言語の公式ガイドを提供しています。Discordの専用サポートチャンネルでは、開発者が直接問題解決をお手伝いします。",
       cards: [
@@ -148,6 +152,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       ],
     },
     reviews: {
+      label: "이용자 후기",
       heading: "사용한 사람의 말로 확인하세요.",
       description: "X에 게시된 실제 사용 후기를 작성자, 본문, 사진·영상과 함께 확인할 수 있습니다. 카드를 선택하면 X의 원문으로 이동합니다.",
       previous: "이전 후기",
@@ -172,6 +177,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       link: "Auto Fitting 상세 과정 보기",
     },
     docs: {
+      label: "가이드 문서",
       heading: "도움이 필요하신가요?",
       description: "설치부터 사용 방법과 문제 해결 방법까지 언어별 공식 가이드를 제공하며, Discord의 전용 문의 채널에서 개발자가 직접 문제 해결을 도와드립니다.",
       cards: [
@@ -223,6 +229,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       ],
     },
     reviews: {
+      label: "Verified voices",
       heading: "See the workflow through the people who use it.",
       description: "See real user feedback shared on X, including the author, post text, photos, and video. Select a card to open the original post on X.",
       previous: "Previous review",
@@ -247,6 +254,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       link: "View the full Auto Fitting guide",
     },
     docs: {
+      label: "Documentation",
       heading: "Need help?",
       description: "Our official multilingual guides cover installation, usage, and troubleshooting. In the dedicated Discord support channel, the developer can help you resolve issues directly.",
       cards: [
