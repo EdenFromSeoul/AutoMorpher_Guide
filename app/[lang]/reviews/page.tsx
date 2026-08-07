@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ReviewsFeed } from "@/components/ReviewsFeed";
 import { ReviewsMotion } from "@/components/ReviewsMotion";
-import { XEmbeddedPost } from "@/components/XEmbeddedPost";
 import { REVIEWS_COPY } from "@/lib/reviews-copy";
 import { X_REVIEW_POSTS } from "@/lib/x-review-posts";
 import {
@@ -91,16 +91,12 @@ export default async function ReviewsPage({ params }: { params: Promise<{ lang: 
       </div>
 
       <section className="reviews-content" aria-label={copy.countLabel}>
-        <div className="reviews-feed">
-          {X_REVIEW_POSTS.map((url) => (
-            <article className="reviews-grid-card" key={url}>
-              <XEmbeddedPost url={url} fallbackLabel={copy.originalLink} />
-              <a href={url} target="_blank" rel="noreferrer">
-                {copy.originalNotice}<span aria-hidden="true">↗</span>
-              </a>
-            </article>
-          ))}
-        </div>
+        <ReviewsFeed
+          posts={X_REVIEW_POSTS}
+          originalNotice={copy.originalNotice}
+          originalLink={copy.originalLink}
+          loadMore={copy.loadMore}
+        />
 
         <aside className="reviews-shop-column">
           <div className="reviews-shop-card">

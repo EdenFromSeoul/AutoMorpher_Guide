@@ -12,6 +12,7 @@ export type ReviewsCopy = {
   shopDescription: string;
   boothButton: string;
   viewAll: string;
+  loadMore: string;
   finalTitle: string;
   finalDescription: string;
   backToLanding: string;
@@ -32,6 +33,7 @@ export const REVIEWS_COPY: Record<Language, ReviewsCopy> = {
     shopDescription: "アバターと衣装があれば、きせったですぐに衣装対応を始められます。",
     boothButton: "Boothで購入する",
     viewAll: "すべての使用レビューを見る",
+    loadMore: "もっと見る",
     finalTitle: "次に着せたい衣装を、あなたのアバターへ。",
     finalDescription: "ユーザーの仕上がりを確認したら、きせったであなたの衣装対応を始めましょう。",
     backToLanding: "きせったの機能を見る",
@@ -50,6 +52,7 @@ export const REVIEWS_COPY: Record<Language, ReviewsCopy> = {
     shopDescription: "아바타와 의상만 준비하면 きせった로 바로 의상 대응을 시작할 수 있습니다.",
     boothButton: "Booth에서 구매하기",
     viewAll: "모든 사용 후기 보기",
+    loadMore: "더보기",
     finalTitle: "다음에 입히고 싶은 의상을, 당신의 아바타에.",
     finalDescription: "사용자들의 결과를 확인했다면, 이제 きせった로 당신의 의상 대응을 시작해 보세요.",
     backToLanding: "きせった 기능 살펴보기",
@@ -68,6 +71,7 @@ export const REVIEWS_COPY: Record<Language, ReviewsCopy> = {
     shopDescription: "With an avatar and an outfit ready, you can start fitting immediately with Kisetter.",
     boothButton: "Buy on Booth",
     viewAll: "View all user reviews",
+    loadMore: "Load more",
     finalTitle: "Bring the next outfit to your avatar.",
     finalDescription: "Once you have seen what users create, start your own outfit fitting workflow with Kisetter.",
     backToLanding: "Explore Kisetter features",
