@@ -140,6 +140,22 @@ export function softwareApplicationJsonLd(lang: Language) {
     url: absoluteUrl(localizedPath(lang)),
     author: { "@type": "Organization", name: COMPANY_NAME },
     sameAs: ["https://edenlabs.booth.pm/items/7721082", "https://x.com/EDEN_LABS_JP"],
+    offers: [
+      {
+        "@type": "Offer",
+        name: "きせった (Kisetter)",
+        price: "1500",
+        priceCurrency: "JPY",
+        url: "https://edenlabs.booth.pm/items/7721082",
+      },
+      {
+        "@type": "Offer",
+        name: "Full Set: きせった (Kisetter) + Mesh Studio",
+        price: "2500",
+        priceCurrency: "JPY",
+        url: "https://edenlabs.booth.pm/items/7721082",
+      },
+    ],
   };
 }
 

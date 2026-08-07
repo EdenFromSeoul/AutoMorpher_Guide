@@ -44,7 +44,25 @@
 
 ---
 
+### GEO(AI 검색 최적화) 작업
+
+**변경 파일**: `public/llms.txt` (신규), `lib/seo.ts`
+
+#### llms.txt 생성
+- AI 크롤러(ChatGPT, Perplexity 등)에게 사이트 구조와 제품 정보를 안내하는 파일
+- 영어+일본어 혼용으로 작성 (AI 검색 범용성 확보)
+- 현재 URL: GitHub Pages 기준 (`edenfromseoul.github.io/AutoMorpher_Guide`)
+- **⚠️ Cloudflare 도메인 확정 후 파일 내 URL 일괄 업데이트 필요**
+
+#### SoftwareApplication 스키마 offers 필드 추가
+- 가격 정보를 구조화 데이터에 등록 → Google/AI가 가격 인식 가능
+- 단품 1,500 JPY / Full Set 2,500 JPY 2개 플랜 등록
+
+#### GEO 스킬 파일 추가 (`.agents/skills/`)
+- `geo/`, `geo-audit/`, `geo-llmstxt/`, `geo-schema/`, `geo-technical/`
+- TheSmokeDev/geo-skills (MIT) 기반
+
 ## 진행 예정
 
-- [ ] `home-copy.ts` 후기 패널 실제 내용 입력
 - [ ] 전체 텍스트 크기·문맥 검토
+- [ ] Cloudflare 도메인 확정 후 `public/llms.txt` URL 업데이트
