@@ -27,6 +27,8 @@ export const LANGUAGE_LABELS: Record<Language, string> = {
 
 export const LINKS = {
   booth: "https://edenlabs.booth.pm/items/7721082",
+  boothLanding: "https://edenlabs.booth.pm/items/7721082?utm_source=kisetter_site&utm_medium=referral&utm_campaign=kisetter_landing_page&utm_content=main_page",
+  boothReviews: "https://edenlabs.booth.pm/items/7721082?utm_source=kisetter_site&utm_medium=referral&utm_campaign=kisetter_landing_page&utm_content=reviews_page",
   discord: "https://discord.com/invite/JFzDGrN2bF",
   x: "https://x.com/EDEN_LABS_JP",
 } as const;

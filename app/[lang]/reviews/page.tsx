@@ -117,7 +117,7 @@ export default async function ReviewsPage({ params }: { params: Promise<{ lang: 
               <p>{copy.shopLabel}</p>
               <h2>{copy.shopTitle}</h2>
               <span>{copy.shopDescription}</span>
-              <a href={LINKS.booth} target="_blank" rel="noreferrer">
+              <a href={LINKS.boothReviews} target="_blank" rel="noreferrer">
                 {copy.boothButton}<b aria-hidden="true">↗</b>
               </a>
             </div>

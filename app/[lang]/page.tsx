@@ -60,7 +60,7 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
           <h1 id="landing-title">{copy.hero.title[0]}<br />{copy.hero.title[1]}</h1>
           <p className="hero-lede">{copy.hero.description}</p>
           <div className="cinematic-actions">
-            <a className="button landing-primary" href={LINKS.booth} target="_blank" rel="noreferrer">
+            <a className="button landing-primary" href={LINKS.boothLanding} target="_blank" rel="noreferrer">
               {copy.hero.primary}<span aria-hidden="true">↗</span>
             </a>
             <a className="button landing-secondary" href="#guide">
@@ -230,7 +230,7 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
           <p>{copy.support.text}</p>
         </div>
         <div className="landing-action-buttons">
-          <a className="button landing-primary" href={LINKS.booth} target="_blank" rel="noreferrer">
+          <a className="button landing-primary" href={LINKS.boothLanding} target="_blank" rel="noreferrer">
             {copy.support.primary}<span aria-hidden="true">↗</span>
           </a>
           <a className="button landing-outline" href={LINKS.discord} target="_blank" rel="noreferrer">
