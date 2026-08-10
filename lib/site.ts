@@ -5,6 +5,8 @@ export const PRODUCT_NAME = "きせった (Kisetter)";
 export const COMPANY_NAME = "Eden Labs";
 export const VERSION = LATEST_VERSION;
 export const REPOSITORY_NAME = "AutoMorpher_Guide";
+export const GOOGLE_ANALYTICS_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-7MCVGKJKCF";
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
 export const BASE_PATH = (
   configuredBasePath ??
