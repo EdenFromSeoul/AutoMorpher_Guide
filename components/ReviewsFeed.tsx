@@ -22,8 +22,8 @@ export function ReviewsFeed({
   useEffect(() => {
     if (!hasMore) return;
     if (!("IntersectionObserver" in window)) {
-      setVisible(posts.length);
-      return;
+      const fallbackTimer = globalThis.setTimeout(() => setVisible(posts.length), 0);
+      return () => globalThis.clearTimeout(fallbackTimer);
     }
 
     const sentinel = sentinelRef.current;
@@ -49,7 +49,8 @@ export function ReviewsFeed({
           <article className="reviews-grid-card" key={url}>
             <XEmbeddedPost url={url} fallbackLabel={originalLink} />
             <a href={url} target="_blank" rel="noreferrer">
-              {originalNotice}<span aria-hidden="true">↗</span>
+              <span className="reviews-original-notice">{originalNotice}</span>
+              <span className="reviews-original-arrow" aria-hidden="true">↗</span>
             </a>
           </article>
         ))}
