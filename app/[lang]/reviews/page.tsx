@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ReviewsFeed } from "@/components/ReviewsFeed";
 import { ReviewsMotion } from "@/components/ReviewsMotion";
+import { ReviewSectionTabs } from "@/components/ReviewSectionTabs";
 import { REVIEWS_COPY } from "@/lib/reviews-copy";
 import { X_REVIEW_POSTS } from "@/lib/x-review-posts";
 import { reviewsItemListJsonLd } from "@/lib/seo";
@@ -92,11 +93,14 @@ export default async function ReviewsPage({ params }: { params: Promise<{ lang: 
       </div>
 
       <section className="reviews-content" aria-label={copy.countLabel}>
-        <ReviewsFeed
-          posts={X_REVIEW_POSTS}
-          originalNotice={copy.originalNotice}
-          originalLink={copy.originalLink}
-        />
+        <div className="reviews-primary-column">
+          <ReviewSectionTabs lang={lang} active="all" />
+          <ReviewsFeed
+            posts={X_REVIEW_POSTS}
+            originalNotice={copy.originalNotice}
+            originalLink={copy.originalLink}
+          />
+        </div>
 
         <aside className="reviews-shop-column">
           <div className="reviews-shop-card">
