@@ -9,6 +9,7 @@ order: 20
 <div class="guide-intro">
   <p>⚫ 衣装を<strong>Target Avatarに合わせて自動対応する全体の手順</strong>です。</p>
   <p>⚫ 基本的には<strong>事前調整をスキップ</strong>して進め、必要に応じて<strong>事前調整を行う</strong>を選択して、変形前にボーンとMeshを追加調整できます。</p>
+  <p>⚫ 以前の<strong>Manual Fitting Mode</strong>で使用していたボーン調整機能は、<strong>事前調整を行う</strong>を選択すると変形前に使用できます。</p>
 </div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/5f6d33328f9d377a.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>

@@ -9,6 +9,7 @@ order: 20
 <div class="guide-intro">
   <p>⚫ 의상을 <strong>Target Avatar에 맞게 자동으로 대응하는 전체 작업 흐름</strong>입니다.</p>
   <p>⚫ 기본적으로 <strong>사전 조정 skip</strong>으로 진행하며, 필요한 경우 <strong>사전 조정 진행</strong>을 선택해 변형 전에 본과 Mesh를 추가로 조정할 수 있습니다.</p>
+  <p>⚫ 기존 <strong>Manual Fitting Mode</strong>에서 사용하던 본 조정 기능은 <strong>사전 조정 진행</strong>을 선택하면 변형 전에 사용할 수 있습니다.</p>
 </div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/64f241b81ab83929.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>

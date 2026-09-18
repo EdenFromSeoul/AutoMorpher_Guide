@@ -55,7 +55,7 @@ If an earlier version is already installed, import the new UnityPackage over the
 ## Choose Your First Task
 
 - To automatically fit an outfit to the target avatar, see the [Automatic Outfit Fitting Guide](../auto-fitting/).
-- If needed, use the Pre-adjustment option in the guide to make additional bone and Mesh adjustments.
+- The bone adjustment feature from the former **Manual Fitting Mode** is available before the transformation when you select **Enable Pre-adjustment**.
 - To add an avatar's BlendShapes to clothing, see [BlendShape Generator](../blendshape-generator/).
 
 If you encounter a problem, check [Q&A and Troubleshooting](../faq/) or follow [How to Contact Support](../contact/).

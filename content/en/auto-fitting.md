@@ -9,6 +9,7 @@ order: 20
 <div class="guide-intro">
   <p>⚫ This guide covers the <strong>complete workflow for automatically fitting an outfit to the Target Avatar</strong>.</p>
   <p>⚫ The default is <strong>Skip Pre-adjustment</strong>. When needed, select <strong>Enable Pre-adjustment</strong> to make additional bone and Mesh adjustments before the transformation.</p>
+  <p>⚫ The bone adjustment feature from the former <strong>Manual Fitting Mode</strong> is available before the transformation when you select <strong>Enable Pre-adjustment</strong>.</p>
 </div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/f08250d6b8efb420.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
