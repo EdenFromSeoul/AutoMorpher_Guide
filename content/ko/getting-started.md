@@ -47,8 +47,8 @@ Assets/@Eden_Tools/Eden_AutoMorpher
 
 ## 첫 작업 선택
 
-- 빠르게 자동 대응하려면 [Auto Fitting Mode](../auto-fitting/)를 시작하세요.
-- 자동 변형 후 본을 직접 조정하려면 [Manual Fitting Mode](../manual-fitting/)를 사용하세요.
+- 의상을 대상 아바타에 자동으로 대응하려면 [의상 자동 대응 가이드](../auto-fitting/)를 확인하세요.
+- 필요한 경우 가이드의 사전 조정 옵션에서 본과 Mesh를 추가로 조정할 수 있습니다.
 - 기존 아바타의 BlendShape를 의상에 추가하려면 [BlendShape 생성](../blendshape-generator/)을 확인하세요.
 
 문제가 발생하면 [Q&A 및 오류 해결](../faq/)을 확인하거나 [문의 방법](../contact/)에 따라 지원을 요청해 주세요.

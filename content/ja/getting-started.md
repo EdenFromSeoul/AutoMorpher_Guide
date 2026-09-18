@@ -47,8 +47,8 @@ Assets/@Eden_Tools/Eden_AutoMorpher
 
 ## 最初の作業を選ぶ
 
-- すばやく自動で対応する場合は、[Auto Fitting Mode](../auto-fitting/)から開始してください。
-- 自動変形後にボーンを手動調整する場合は、[Manual Fitting Mode](../manual-fitting/)を使用してください。
+- 衣装を対象アバターに自動で対応させる場合は、[衣装自動対応ガイド](../auto-fitting/)を確認してください。
+- 必要に応じて、ガイドの事前調整オプションでボーンとMeshを追加調整できます。
 - アバターのBlendShapeを衣装に追加する場合は、[BlendShapeの作成](../blendshape-generator/)を確認してください。
 
 問題が発生した場合は、[Q&A・トラブルシューティング](../faq/)を確認するか、[お問い合わせ方法](../contact/)をご覧ください。

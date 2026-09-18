@@ -66,34 +66,31 @@ Fittingは、衣装をTarget Avatarに合わせて自然に変形する段階で
 
 <div class="stage-diagram" role="list" aria-label="Fittingの処理の流れ">
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">01</span><strong>衣装Meshの情報を収集</strong></div>
-  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">02</span><strong>補助ボーンを追加調整</strong><small>Manual</small></div>
+  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">02</span><strong>事前調整を行う場合の補助ボーン調整</strong><small>オプション</small></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">03</span><strong>体型差を補正</strong><small>オプション</small></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">04</span><strong>Fitting Iterationの回数だけ衣装を変形</strong></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">05</span><strong>Body Correlation Iterationの回数だけ貫通を補正</strong></div>
-  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">06</span><strong>Meshを編集</strong><small>Manual</small></div>
+  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">06</span><strong>必要に応じてMeshを追加編集</strong><small>オプション</small></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">07</span><strong>ボーン位置・名前とPhysBoneを調整</strong></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">08</span><strong>MeshをAssetとして保存</strong></div>
 </div>
 
-### Auto FittingとManual Fittingの違い
+### 事前調整（オプション）
 
-| モード | 自動で行う処理 | 手動で調整できる処理 |
-| --- | --- | --- |
-| Auto Fitting | 体型補正、Mesh変形、貫通補正、保存 | なし |
-| Manual Fitting | Auto Fittingと同じ基本処理 | 変形前の補助ボーン調整、変形後のMesh編集 |
+初期設定は **事前調整をスキップ** です。変形前に衣装のボーンを調整する場合は **事前調整を行う** を選択してください。
 
 ### 処理順序
 
 1. **Mesh情報を収集** — 各衣装Meshの頂点位置と接続関係を読み取ります。
-2. **補助ボーンを調整（Manual Fitting）** — 変形前に補助ボーンを動かし、衣装全体のシルエットを整えます。
+2. **事前調整を行う場合のボーン調整** — 変形前に補助ボーンを動かし、衣装全体のシルエットを整えます。
 3. **体型差を補正** — `Body Shape Matching`が有効な場合、差が大きい体型同士を追加で補正します。
 4. **衣装を変形** — 衣装の頂点とBody Meshの位置関係を基準に、`Fitting Iteration`で指定した回数だけMeshを変形します。
 5. **Bodyの貫通を補正** — Body Meshを貫通する頂点を探し、`Body Correlation Iteration`で指定した回数だけ交差を減らします。
-6. **Meshを編集（Manual Fitting）** — 肌が見える部分を修正したり、形状復元で歪んだ部分を戻したりします。
+6. **Meshの追加編集（必要な場合）** — 変形結果に追加の調整が必要な場合は、Mesh編集機能で補正します。
 7. **ボーンを仕上げる** — 対象アバターに合わせてHumanoid Boneの位置と名前を変更し、PhysBoneの位置とColliderの大きさも調整します。
 8. **Meshを保存** — 結果をMesh Assetとして保存し、Weightingへ渡します。
 
-体型差は可能な範囲で自動計算されますが、衣装の構造や体型差によっては追加の調整が必要です。その場合は[Manual Fitting Mode](../manual-fitting/)でボーンやMeshを直接調整してください。
+体型差は可能な範囲で自動計算されます。必要に応じて **事前調整を行う** を選択してボーンを調整するか、Mesh編集機能で追加の補正を行ってください。
 
 **この段階の結果：** 対象アバターの外形に合わせて変形され、Assetとして保存された衣装Meshが作成されます。
 
@@ -124,4 +121,4 @@ Weightingは、変形した衣装が対象アバターの動きに自然に追�
 - Hierarchyで、変換した衣装が対象アバターの下に正しく配置されているか確認します。
 - Sceneで腕や脚などの主な関節を動かし、貫通や大きな歪みがないか確認します。
 - `Assets/@Eden_Mesh/<アバター名>/<衣装名>`に結果Assetが作成されているか確認します。
-- 修正が必要な場合は[Manual Fitting Mode](../manual-fitting/)で補正し、品質の問題が続く場合は[変形品質を向上させるヒント](../quality-tips/)を確認します。
+- 修正が必要な場合は事前調整またはMesh編集機能で補正し、品質の問題が続く場合は[変形品質を向上させるヒント](../quality-tips/)を確認します。

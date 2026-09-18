@@ -68,3 +68,38 @@ const DISABLED_DOC_SLUGS = new Set([]);
 - `pnpm build`: 성공
 - Manual Fitting 직접 경로: 404 처리
 - 문서 본문 내부 Manual Fitting 링크: 비활성 텍스트 처리
+
+### 7. 모드 구분이 사라진 자동 대응 흐름 반영
+
+- `Auto Fitting Mode`와 `Manual Fitting Mode`를 하나의 자동 의상 대응 흐름으로 통합했습니다.
+- 기본값은 자동 대응으로 안내하고, 필요한 경우에만 **사전 조정 진행**을 선택하도록 세 언어 문서를 수정했습니다.
+- 한국어·일본어·영어의 `auto-fitting`, `getting-started`, `how-kisetter-works` 문서를 함께 갱신했습니다.
+- 기존 Manual Fitting 문서로 연결되던 안내와 모드 비교표는 제거했습니다.
+
+### 8. 옵션명과 관련 문구 갱신
+
+- 사전 조정 옵션명을 언어별 실제 UI 표기에 맞췄습니다.
+  - 한국어: `사전 조정 skip`, `사전 조정 진행`
+  - 일본어: `事前調整をスキップ`, `事前調整を行う`
+  - 영어: `Skip Pre-adjustment`, `Enable Pre-adjustment`
+- 신발 옵션을 `신발 형태 유지` / `靴の形状を維持` / `Preserve Shoe Shape` 중심으로 정리했습니다.
+- 품질 팁, FAQ, 파라미터 설명, 문의 문서의 기존 모드 표현도 새 구조에 맞게 수정했습니다.
+
+### 9. 홈페이지와 문서 메타데이터 갱신
+
+- 홈페이지의 자동 대응 카드·캡션·CTA를 새 명칭으로 변경했습니다.
+- `public/llms.txt`에서 Manual Fitting 설명과 링크를 제거했습니다.
+- Notion import 목록에서 Manual Fitting 페이지를 제외하고 자동 대응 가이드의 제목과 설명을 갱신했습니다.
+
+### 10. 최신 옵션 화면 이미지 반영
+
+- 기존 `Skip Foot Fitting` 체크박스 이미지 대신 최신 UI 스크린샷을 사용하도록 변경했습니다.
+- 한국어·일본어·영어 파라미터 문서에 각각 해당 언어의 옵션 화면을 연결했습니다.
+- 기존 이미지는 삭제하지 않고 보존했습니다.
+
+### 11. 최종 확인
+
+- `pnpm build`: 성공
+- 정적 경로 44개 생성 확인
+- 원격 버전 동기화가 불가능한 환경에서도 기존 버전 `3.1.1` fallback으로 빌드 성공
+- 현재 사용자 노출 영역에서 Auto/Manual Fitting 모드 표현이 검색되지 않음을 확인했습니다.

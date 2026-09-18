@@ -35,9 +35,9 @@ Assets/@Eden_Mesh/<Avatar 명>/<의상 명>
 !!! warning "변환 완료 전에 취소한 경우"
     변환이 완료되기 전에 취소하면 현재 Mesh는 아직 Asset으로 저장되지 않은 작업용 Mesh일 수 있습니다. 이 상태에서 Unity를 재시작하거나 VRChat에 업로드하면 Mesh가 사라질 수 있습니다.
 
-아바타 사이의 체형 차이는 가능한 범위에서 자동으로 계산하고 보정하지만, 의상에 따라 결과가 충분하지 않을 수 있습니다.
+아바타 사이의 체형 차이는 가능한 범위에서 자동으로 계산하고 보정합니다.
 
-이 경우 Manual Fitting에서 본 위치나 Mesh를 직접 조정하면 더 나은 결과를 얻을 수 있습니다.
+필요한 경우 자동 변형 전에 **사전 조정 진행**을 선택해 의상의 본을 미리 조정할 수 있습니다.
 
 ## 1. Pose Setup
 
@@ -84,23 +84,17 @@ Pose Setup은 변형을 진행하기 전 의상을 최대한 Target Avatar에 �
 
 Fitting은 의상을 Target Avatar에 맞춰서 자연스럽게 변형하는 단계입니다.
 
-### Auto Fitting
+### 선택 사항: 사전 조정
 
-의상 변환 과정을 자동으로 진행합니다.
-
-### Manual Fitting
-
-Auto Fitting 과정에 보조 본 조정과 Mesh 직접 편집 단계가 추가됩니다.
-
-Auto Fitting 결과에 추가 조정이 필요할 때 사용합니다.
+기본값은 **사전 조정 skip**입니다. 변형 전에 의상의 본을 미리 조정하려면 **사전 조정 진행**을 선택하세요.
 
 <div class="stage-diagram" role="list" aria-label="Fitting 처리 흐름">
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">01</span><strong>의상의 각 Mesh별 정보 수집</strong></div>
-  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">02</span><strong>[Manual Fitting] 보조 본 추가 조정</strong></div>
+  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">02</span><strong>사전 조정 진행을 선택한 경우 보조 본 추가 조정</strong><small>선택 사항</small></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">03</span><strong>(체형 차이 보정 옵션을 사용한 경우) 체형 차이 보정 진행</strong></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">04</span><strong>Fitting Iteration만큼 의상 변형 진행</strong></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">05</span><strong>Body Correlation Iteration만큼 Body Mesh 관통 보정 진행</strong></div>
-  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">06</span><strong>[Manual Fitting] Mesh 편집 진행</strong></div>
+  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">06</span><strong>필요한 경우 Mesh 추가 편집</strong><small>선택 사항</small></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">07</span><strong>Target Avatar에 맞춰 본 위치 조정 및 이름 수정</strong></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">08</span><strong>Mesh를 Asset으로 저장</strong></div>
 </div>
@@ -109,9 +103,9 @@ Auto Fitting 결과에 추가 조정이 필요할 때 사용합니다.
 
 - 각 의상 Mesh의 정점 위치와 연결 관계 등의 정보를 수집합니다.
 
-### [Manual Fitting] 보조 본 추가 조정
+### 사전 조정 진행을 선택한 경우: 보조 본 추가 조정
 
-- Manual Fitting에서는 변형을 시작하기 전에 보조 본을 추가로 조정할 수 있습니다.
+- 변형을 시작하기 전에 보조 본을 추가로 조정할 수 있습니다.
   - 이를 통해 변환될 의상의 전체적인 실루엣을 미리 조정할 수 있습니다.
 
 ### 체형 차이 보정 진행
@@ -126,10 +120,9 @@ Auto Fitting 결과에 추가 조정이 필요할 때 사용합니다.
 
 - Body Mesh를 관통하는 의상 정점을 찾아 교차가 줄어들도록 보정합니다.
 
-### [Manual Fitting] Mesh 편집 진행
+### 필요한 경우 Mesh 추가 편집
 
-- Manual Fitting에서는 자동 Fitting이 끝난 후 Mesh를 추가로 편집할 수 있습니다.
-  - 일부 뚫린 부분을 수정하거나, 형상 복원 기능으로 왜곡된 부분을 되돌릴 수 있습니다.
+- 변환 결과에 추가 조정이 필요한 경우 Mesh 편집 기능으로 보정합니다.
 
 ### Target Avatar에 맞춰 본 위치 및 이름 수정
 

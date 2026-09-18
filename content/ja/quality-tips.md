@@ -35,9 +35,9 @@ order: 80
 
 ### Mesh編集ツールを活用した調整
 
-**また、[Manual Mode]で、体型差が大きい部位を先に調整しておくことで、より自然なフィッティング結果を得ることができます。**
+**「事前調整を行う」を選択すると、体型差が大きい部位を先に調整でき、より自然なフィッティング結果を得ることができます。**
 
-- **[Manual Fitting Mode]**で、まず**[Auto Setup]**を実行します。
+- **「事前調整を行う」**を選択し、Bone AdjustmentとMeshの追加補正で衣装の形状を調整します。
 - その後、**Mesh StudioなどのMesh編集**ツールを使用して、Target Clothes Objectを追加で調整します。
     - 特に胸など、体型差が大きい部位は、Source Clothes Objectに近い形状になるように調整してください。
 - このように調整することで、全体的にアバターの体型により自然にフィットした結果を得ることができます。
@@ -73,20 +73,20 @@ order: 80
 
 足の形状を合わせた後も、靴が潰れたり形状が崩れたりする場合は、
 
-「**Advanced Option」の** 「**`Skip Foot Fitting`」を有効にしてください**。
+**Basic Optionの「靴の形状を維持」を選択してください**。
 
-このオプションを使用すると、足の**位置とサイズの調整のみが適用され**、
+このオプションを選択すると、足周辺のMeshの形状が維持され、
 
-形状の変形処理をスキップすることで、靴が潰れる現象を防ぐことができます。
+靴が潰れたり、元の形状が崩れたりする現象を防ぐことができます。
 
 <div class="doc-media-grid doc-media-grid-2">
   <figure>
-    <figcaption>デフォルトの靴フィッティング結果（オプション未適用）</figcaption>
-    <img src="{{BASE_PATH}}/media/fccaf6469d47c205.png" alt="デフォルトの靴フィッティング結果（オプション未適用）" />
+    <figcaption>「足に合わせて変形」適用結果（オプション選択）</figcaption>
+    <img src="{{BASE_PATH}}/media/fccaf6469d47c205.png" alt="「足に合わせて変形」適用結果（オプション選択）" />
   </figure>
   <figure>
-    <figcaption>「Skip Foot Fitting」適用結果（オプション適用）</figcaption>
-    <img src="{{BASE_PATH}}/media/2386b5110acd4ad5.png" alt="「Skip Foot Fitting」適用結果（オプション適用）" />
+    <figcaption>「靴の形状を維持」適用結果（オプション選択）</figcaption>
+    <img src="{{BASE_PATH}}/media/2386b5110acd4ad5.png" alt="「靴の形状を維持」適用結果（オプション選択）" />
   </figure>
 </div>
 
@@ -107,9 +107,9 @@ order: 80
 </div>
 
 
-### a. 足部分の手動調整方法
+### a. 事前調整で足部分を調整する方法
 
-- **[Manual Fitting Mode]で[0. Auto Setup]を実行した後、足のサイズを手動で調整できます。**
+- **「事前調整を行う」**を選択すると、足のサイズを直接調整できます。
     - Target Clothes ObjectのArmature配下、Footボーンの直上に、靴のスケール調整**用のscaleSupportBoneが**生成されます。
     - 該当するボーンの**ScaleとPosition**を調整すると、足まわりをより簡単に合わせることができます。
 
@@ -121,7 +121,7 @@ order: 80
 
 現在、きせった (Kisetter)は**頭や手に取り付けられた衣装ボーンの自動位置調整機能には対応していません。**
 
-1. **[Manual Fitting Mode]**で**[0. Auto Setup]**を実行した後、手袋や帽子の位置をボーンを操作して手動で調整してください。
+1. **「事前調整を行う」**を選択した後、手袋や帽子の位置をボーンで調整してください。
 2. **[Advanced Option] - [Weighting] - [Transfer Weight To Avatar]**を無効にしている場合は、対応後にボーンの位置を直接調整して、希望する位置に合わせることができます。
 
 ---

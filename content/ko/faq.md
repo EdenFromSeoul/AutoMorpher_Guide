@@ -150,7 +150,7 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 - 문제가 지속적으로 발생할 경우
 
-    → **Advanced 옵션의 `Skip Foot Fitting`을 활성화**하여 발 보정 과정을 건너뛸 수 있습니다.
+    → **Basic 옵션의 `신발 형태 유지`를 선택**하여 발 주변 Mesh의 형태를 유지할 수 있습니다.
 
     [변형 품질을 높이는 팁](https://app.notion.com/p/34c1bca8582e81e08585f7820c82c01b?pvs=21)  의 **[발 변형을 안정적으로 진행하는 방법]** 를 참고해주세요.
 

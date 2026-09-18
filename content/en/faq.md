@@ -133,7 +133,7 @@ If the foot shape looks unusual, check the following.
 
   Adjust both avatars so their Foot BlendShapes produce the same shape.
 
-- If the problem continues, enable `Skip Foot Fitting` in Advanced Options to skip detailed foot fitting.
+- If the problem continues, select **Preserve Shoe Shape** in the Basic Option to keep the shape of meshes around the feet.
 
 See the foot section in [Tips for Improving Fit](../quality-tips/).
 

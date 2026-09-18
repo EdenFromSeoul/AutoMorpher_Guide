@@ -1,14 +1,14 @@
 ---
-title: "Auto Fitting Mode"
+title: "衣装自動対応ガイド"
 slug: "auto-fitting"
 category: "使用ガイド"
-description: "衣装を対象アバターに合わせて自動変形する手順です。"
+description: "衣装を対象アバターに合わせて自動変形し、必要に応じて事前調整とMeshの追加補正を行う全体の手順です。"
 order: 20
 ---
 
 ```jsx
-⚫ 衣装を Target Avatar に合わせて自動的に調整し、変形を行うモードです。
-⚫ ボーンを調整する機能が必要な場合は、Manual Fitting Mode を使用してください。
+⚫ 衣装を**Target Avatarに合わせて自動対応する全体の手順**です。
+⚫ 基本的には**事前調整をスキップ**して進め、必要に応じて**事前調整を行う**を選択して、変形前にボーンとMeshを追加調整できます。
 ```
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/5f6d33328f9d377a.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
@@ -100,7 +100,7 @@ order: 20
 
 ### 4. きせった (Kisetter)の設定
 
-1. 「きせった (Kisetter)- Auto Fitting Mode」をクリックします。
+1. 「きせった (Kisetter)」で衣装自動対応を開始します。
 
 ![image.png]({{BASE_PATH}}/media/fa9c758660c7fc41.png)
 

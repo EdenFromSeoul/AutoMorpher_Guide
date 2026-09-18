@@ -1,14 +1,14 @@
 ---
-title: "Auto Fitting Mode"
+title: "Automatic Outfit Fitting Guide"
 slug: "auto-fitting"
 category: "User Guide"
-description: "Complete workflow for automatically fitting an outfit to a target avatar."
+description: "Complete workflow for automatically fitting an outfit to a target avatar, with optional pre-adjustment and additional Mesh editing."
 order: 20
 ---
 
 ```jsx
-⚫ This mode automatically adjusts and deforms the outfit to fit the Target Avatar.
-⚫ If you need to adjust bones manually, please use Manual Fitting Mode.
+⚫ This guide covers the **complete workflow for automatically fitting an outfit to the Target Avatar**.
+⚫ The default is **Skip Pre-adjustment**. When needed, select **Enable Pre-adjustment** to make additional bone and Mesh adjustments before the transformation.
 ```
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/f08250d6b8efb420.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
@@ -101,7 +101,7 @@ order: 20
 
 ### 4. きせった (Kisetter) Setup
 
-1. Click きせった (Kisetter) - Auto Fitting Mode.
+1. Start Automatic Outfit Fitting in きせった (Kisetter).
 
 ![image.png]({{BASE_PATH}}/media/fa9c758660c7fc41.png)
 

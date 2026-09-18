@@ -35,9 +35,9 @@ before proceeding with the deformation.
 
 ### Adjustments using mesh editing tools
 
-**Alternatively, if you first adjust areas with significant body shape differences in [Manual Mode], you can achieve a more natural fitting result.**
+**Select [Enable Pre-adjustment] to adjust areas with significant body shape differences first and achieve a more natural fitting result.**
 
-- First, run **[Auto Setup]**in**[Manual Fitting Mode]**.
+- Select **[Enable Pre-adjustment]**, then adjust the clothing shape with Bone Adjustment and additional Mesh editing.
 - Then, use **a mesh editing tool such as Mesh Studio**to further adjust **the Target Clothes Object**.
     - In particular, adjust areas with significant body shape differences, such as the chest, to match the shape of the Source Clothes Object.
 - Adjusting in this way will yield results that fit the avatar’s body shape more naturally overall.
@@ -73,20 +73,20 @@ we recommend**adjusting the foot shapes of the Source Avatar and Target Avatar**
 
 If the shoes appear squashed or distorted even after adjusting the foot shape,
 
-please**enable "`Skip Foot Fitting`"in the Advanced Options** .
+please select **`Preserve Shoe Shape` in the Basic Option**.
 
-Using this option **applies only**foot **position and size adjustments**,
+This option keeps the shape of meshes around the feet,
 
-skipping the shape deformation to prevent the shoe from becoming distorted.
+helping prevent the shoes from becoming squashed or losing their original shape.
 
 <div class="doc-media-grid doc-media-grid-2">
   <figure>
-    <figcaption>Default shoe fitting result (option not applied)</figcaption>
-    <img src="{{BASE_PATH}}/media/fccaf6469d47c205.png" alt="Default shoe fitting result (option not applied)" />
+    <figcaption>Result with "Fit to Feet" selected</figcaption>
+    <img src="{{BASE_PATH}}/media/fccaf6469d47c205.png" alt="Result with &quot;Fit to Feet&quot; selected" />
   </figure>
   <figure>
-    <figcaption>Result with "Skip Foot Fitting" applied (option enabled)</figcaption>
-    <img src="{{BASE_PATH}}/media/2386b5110acd4ad5.png" alt="Result with &quot;Skip Foot Fitting&quot; applied (option enabled)" />
+    <figcaption>Result with "Preserve Shoe Shape" selected</figcaption>
+    <img src="{{BASE_PATH}}/media/2386b5110acd4ad5.png" alt="Result with &quot;Preserve Shoe Shape&quot; selected" />
   </figure>
 </div>
 
@@ -107,9 +107,9 @@ skipping the shape deformation to prevent the shoe from becoming distorted.
 </div>
 
 
-### a. How to manually adjust the foot
+### a. How to adjust the foot with pre-adjustment
 
-- **After selecting [0. Auto Setup] in [Manual Fitting Mode], you can manually adjust the foot size.**
+- **After selecting [Enable Pre-adjustment], you can directly adjust the foot size.**
     - **A scaleSupportBone**for adjusting the shoe scale is created below the Target Clothes Object’s Armature, directly above the Foot bone.
     - **Adjusting the scale and position** of this bone allows you to fit the foot area more comfortably.
 
@@ -121,7 +121,7 @@ skipping the shape deformation to prevent the shoe from becoming distorted.
 
 Currently, きせった (Kisetter) **does not support automatic position adjustment for clothing bones attached to the head or hands.**
 
-1. After running **[0. Auto Setup]**in**[Manual Fitting Mode]**, please manually adjust the position of gloves or hats using the bones.
+1. After selecting **[Enable Pre-adjustment]**, adjust the position of gloves or hats using the bones.
 2. If you have disabled**[Advanced Option] - [Weighting] - [Transfer Weight To Avatar]**, you can manually adjust the bone positions after the transfer to achieve the desired placement.
 
 ---

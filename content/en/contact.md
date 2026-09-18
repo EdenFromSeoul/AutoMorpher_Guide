@@ -20,7 +20,7 @@ Providing as much of the following information as possible helps us investigate 
 
 - きせった (Kisetter) version
 - Unity version and environment (VRChat, Warudo, or a general Unity project)
-- Feature or mode used (Auto Fitting, Manual Fitting, BlendShape Generator, and so on)
+- Feature used (Automatic Outfit Fitting, Mesh Editing, BlendShape Generator, and so on)
 - Full error message shown in the Unity Console
 - Steps performed immediately before the issue occurred
 - Screenshots showing the きせった (Kisetter) settings and Hierarchy
@@ -34,7 +34,7 @@ Providing as much of the following information as possible helps us investigate 
 ```text
 Kisetter version: 3.1.1
 Unity version: 2022.3.22f1
-Feature: Auto Fitting Mode
+Feature: Automatic Outfit Fitting
 Issue: A Body Mesh not found message appears after clicking Run ALL
 What I tried: Disabled automatic Body Mesh assignment and assigned it manually
 Error message: (full error message from the Unity Console)

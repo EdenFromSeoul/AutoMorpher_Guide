@@ -35,9 +35,9 @@ order: 80
 
 ### Mesh 편집 툴을 활용한 대응
 
-**혹은 [Manual Mode]에서 체형 차이가 큰 부위를 먼저 맞춰주면, 더 자연스러운 피팅 결과를 얻을 수 있습니다.**
+**사전 조정 진행을 선택하면 체형 차이가 큰 부위를 먼저 맞춰 더 자연스러운 피팅 결과를 얻을 수 있습니다.**
 
-- **[Manual Fitting Mode]**에서 **[Auto Setup]**을 먼저 진행합니다.
+- **사전 조정 진행**을 선택한 뒤, Bone Adjustment와 Mesh 추가 보정 단계에서 의상 형태를 조정합니다.
 - 이후 **Mesh Studio 등 Mesh 편집 툴**을 사용해 **Target Clothes Object**를 추가 조정합니다.
     - 특히 가슴 등 체형 차이가 큰 부위를 Source Clothes Object와 유사한 형태로 맞춰주세요.
 - 이렇게 조정하면 전체적으로 아바타 체형에 더 자연스럽게 맞는 결과를 얻을 수 있습니다.
@@ -73,20 +73,20 @@ order: 80
 
 만약 발 형태를 맞춘 이후에도 신발이 뭉개지거나 형태가 깨지는 현상이 발생한다면,
 
-**Advanced Option의 `Skip Foot Fitting`을 활성화**해 주세요.
+**Basic Option의 `신발 형태 유지`를 선택**해 주세요.
 
-이 옵션을 사용하면 발의 **위치와 크기 조정만 적용**되며,
+이 옵션을 선택하면 발 주변 Mesh의 형태를 유지하며,
 
-형태 변형을 건너뛰어 신발이 뭉개지는 현상을 방지할 수 있습니다.
+신발이 뭉개지거나 원래 형태가 깨지는 현상을 방지할 수 있습니다.
 
 <div class="doc-media-grid doc-media-grid-2">
   <figure>
-    <figcaption>기본 신발 피팅 결과(옵션 미적용)</figcaption>
-    <img src="{{BASE_PATH}}/media/fccaf6469d47c205.png" alt="기본 신발 피팅 결과(옵션 미적용)" />
+    <figcaption>발에 맞추어 변형 결과(옵션 선택)</figcaption>
+    <img src="{{BASE_PATH}}/media/fccaf6469d47c205.png" alt="발에 맞추어 변형 결과(옵션 선택)" />
   </figure>
   <figure>
-    <figcaption>Skip Foot Fitting 적용 결과(옵션 적용)</figcaption>
-    <img src="{{BASE_PATH}}/media/2386b5110acd4ad5.png" alt="Skip Foot Fitting 적용 결과(옵션 적용)" />
+    <figcaption>신발 형태 유지 결과(옵션 선택)</figcaption>
+    <img src="{{BASE_PATH}}/media/2386b5110acd4ad5.png" alt="신발 형태 유지 결과(옵션 선택)" />
   </figure>
 </div>
 
@@ -107,9 +107,9 @@ order: 80
 </div>
 
 
-### a. 발 부분 수동 조절 방법
+### a. 사전 조정으로 발 부분 조정하는 방법
 
-- **[Manual Fitting Mode]에서 [0. Auto Setup]을 진행한 뒤, 발 크기를 수동으로 조정할 수 있습니다.**
+- **사전 조정 진행**을 선택하면 발 크기를 직접 조정할 수 있습니다.
     - Target Clothes Object의 Armature 아래, Foot 본 바로 위에 신발 Scale 조정을 위한 **scaleSupportBone**이 생성됩니다.
     - 해당 본의 **Scale과 Position을 조정하면** 발 부분을 더 편하게 맞출 수 있습니다.
 
@@ -121,7 +121,7 @@ order: 80
 
 현재 きせった (Kisetter)는 **머리나 손에 부착된 의상 본의 자동 위치 조정 기능을 지원하지 않습니다.**
 
-1. **[Manual Fitting Mode]**에서 장갑이나 모자의 위치를 본을 통해 수동으로 조정해 주세요.
+1. **사전 조정 진행**을 선택한 뒤, 장갑이나 모자의 위치를 본을 통해 조정해 주세요.
 
 ---
 

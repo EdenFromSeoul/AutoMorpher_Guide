@@ -20,8 +20,7 @@ Kisetter is a Unity Editor tool that automatically converts VRChat outfits desig
 
 ## Key Features
 
-- Auto Fitting: Automatically adapts outfit bones and mesh weights to match any target avatar
-- Manual Fitting Mode: Fine-tune bone and mesh adjustments manually for precise results
+- Automatic Outfit Fitting: Automatically adapts outfit bones and mesh weights to match a target avatar, with optional pre-adjustment and additional Mesh editing
 - Blendshape Generator: Generates blend shapes to accommodate outfit morphs
 - Blendshape Controller: Manage blendshapes across avatar and outfit simultaneously
 - Profiles: Save and reuse fitting configurations across projects
@@ -38,8 +37,7 @@ VRChat, non-compatible outfits, 非対応衣装, avatar outfit conversion, 衣�
 - [Home (English)](https://edenfromseoul.github.io/AutoMorpher_Guide/en/): English landing page
 - [User Reviews (Japanese)](https://edenfromseoul.github.io/AutoMorpher_Guide/ja/reviews/): Real user testimonials from VRChat community
 - [Getting Started](https://edenfromseoul.github.io/AutoMorpher_Guide/ja/docs/getting-started/): Installation and first-use guide
-- [Auto Fitting](https://edenfromseoul.github.io/AutoMorpher_Guide/ja/docs/auto-fitting/): How automatic outfit conversion works
-- [Manual Fitting](https://edenfromseoul.github.io/AutoMorpher_Guide/ja/docs/manual-fitting/): Guide to manual fitting mode
+- [Automatic Outfit Fitting](https://edenfromseoul.github.io/AutoMorpher_Guide/ja/docs/auto-fitting/): How automatic outfit conversion works, including optional pre-adjustment
 - [FAQ](https://edenfromseoul.github.io/AutoMorpher_Guide/ja/docs/faq/): Frequently asked questions
 
 ## Links

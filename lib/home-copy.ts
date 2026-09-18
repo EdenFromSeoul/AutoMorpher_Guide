@@ -55,10 +55,10 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "きせった (Kisetter)は、特定のアバター向けに制作された衣装を、\n対応していないアバターでも着られるように変換する\nUnity向けの非対応衣装変換ツールです。\n\n複雑な作業は必要ありません。\nアバターと衣装を用意し、数回クリックするだけで変換できます。",
       primary: "Boothで購入する",
       secondary: "仕組みを見る",
-      caption: "Unity Humanoid対応 · Windows / Linux · Auto Fitting",
+      caption: "Unity Humanoid対応 · Windows / Linux · 衣装自動対応",
       videoLabel: "きせったによる非対応衣装のフィッティングデモ",
     },
-    marquee: ["AUTO FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
+    marquee: ["OUTFIT FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
     reviews: {
       label: "ご利用者の声",
       heading: "実際に使った方の声から、使い心地をチェック。",
@@ -82,7 +82,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
         { title: "着せたい衣装", text: "自分のアバターに着せたい衣装を用意します。" },
         { title: "着せたいアバター", text: "衣装を着せたいアバターを用意します。Humanoid形式のアバターであれば、きせった（Kisetter）を使って非対応衣装をそのアバター向けに変換できます。" },
       ],
-      link: "Auto Fittingの詳しい手順を見る",
+      link: "衣装自動対応の詳しい手順を見る",
     },
     docs: {
       label: "ガイド・サポート",
@@ -90,7 +90,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "インストール方法から基本的な使い方、トラブルシューティングまで、多言語対応の公式ガイドをご用意しています。ガイドで解決しない場合は、Discordの専用サポートチャンネルから開発者に直接ご相談いただけます。",
       cards: [
         { title: "インストールと開始", text: "UnityPackageの導入と初回セットアップ", slug: "getting-started" },
-        { title: "Auto Fitting ガイド", text: "自動フィッティングの手順", slug: "auto-fitting" },
+        { title: "衣装自動対応ガイド", text: "自動で衣装を対応させる手順", slug: "auto-fitting" },
         { title: "メッシュ編集ガイド", text: "変換後のメッシュを直接調整する方法", slug: "mesh-editing" },
         { title: "パラメーター説明", text: "FittingとWeighting設定の詳細", slug: "parameters" },
         { title: "Q&A", text: "よくある疑問とエラーへの対応", slug: "faq" },
@@ -123,10 +123,10 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "きせった(Kisetter)는 특정 아바타용으로 제작된 의상을, 해당 의상에서 지원하지 않는 다른 아바타도 착용할 수 있도록 변환해 주는 Unity용 비전용 의상 변환 도구입니다.\n\n복잡한 작업은 필요하지 않습니다. 아바타와 의상만 있다면 바로 시작할 수 있습니다!",
       primary: "Booth에서 구매하기",
       secondary: "작동 방식 보기",
-      caption: "Unity Humanoid 지원 · Windows / Linux · Auto Fitting",
+      caption: "Unity Humanoid 지원 · Windows / Linux · 자동 의상 대응",
       videoLabel: "きせった를 이용한 비전용 의상 피팅 데모",
     },
-    marquee: ["AUTO FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
+    marquee: ["OUTFIT FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
     reviews: {
       label: "이용자 후기",
       heading: "사용한 사람의 말로 확인하세요.",
@@ -150,7 +150,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
         { title: "입힐 의상", text: "당신의 아바타에 입힐 의상을 준비합니다." },
         { title: "당신의 아바타", text: "Humanoid 아바타라면 어떤 아바타든 きせった(Kisetter)를 통해 의상을 입힐 수 있습니다." },
       ],
-      link: "Auto Fitting 상세 과정 보기",
+      link: "자동 의상 대응 상세 과정 보기",
     },
     docs: {
       label: "가이드 문서",
@@ -158,7 +158,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "설치부터 사용 방법과 문제 해결 방법까지 언어별 공식 가이드를 제공하며, Discord의 전용 문의 채널에서 개발자가 직접 문제 해결을 도와드립니다.",
       cards: [
         { title: "설치 및 시작", text: "UnityPackage 설치와 첫 설정", slug: "getting-started" },
-        { title: "Auto Fitting 가이드", text: "자동 의상 대응 과정과 사용 방법", slug: "auto-fitting" },
+        { title: "자동 의상 대응 가이드", text: "자동 의상 대응 과정과 사용 방법", slug: "auto-fitting" },
         { title: "Mesh 편집 가이드", text: "변환 후 Mesh를 직접 조정하는 방법", slug: "mesh-editing" },
         { title: "파라미터 설명", text: "Fitting과 Weighting 설정 상세", slug: "parameters" },
         { title: "Q&A", text: "자주 묻는 질문과 오류 해결 방법", slug: "faq" },
@@ -191,10 +191,10 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "Kisetter is a Unity tool that converts outfits made for a specific avatar so they can be worn by other avatars the outfit does not officially support.\n\nNo complicated workflow is required. If you have the avatar and the outfit, you can convert it.",
       primary: "Buy on Booth",
       secondary: "See how it works",
-      caption: "Unity Humanoid · Windows / Linux · Auto Fitting",
+      caption: "Unity Humanoid · Windows / Linux · Automatic Outfit Fitting",
       videoLabel: "Unsupported avatar clothing fitting demo with Kisetter",
     },
-    marquee: ["AUTO FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
+    marquee: ["OUTFIT FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
     reviews: {
       label: "Verified voices",
       heading: "See the workflow through the people who use it.",
@@ -218,7 +218,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
         { title: "Outfit to fit", text: "Prepare the outfit you want your avatar to wear." },
         { title: "Your avatar", text: "Any Humanoid avatar can be used as the target for outfit conversion with Kisetter." },
       ],
-      link: "View the full Auto Fitting guide",
+      link: "View the full Automatic Outfit Fitting guide",
     },
     docs: {
       label: "Documentation",
@@ -226,7 +226,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "Our official multilingual guides cover installation, usage, and troubleshooting. In the dedicated Discord support channel, the developer can help you resolve issues directly.",
       cards: [
         { title: "Install and start", text: "UnityPackage setup and your first workflow", slug: "getting-started" },
-        { title: "Auto Fitting guide", text: "Automatic fitting workflow and usage", slug: "auto-fitting" },
+        { title: "Automatic Outfit Fitting Guide", text: "Automatic outfit fitting workflow and usage", slug: "auto-fitting" },
         { title: "Mesh Editing Guide", text: "How to edit the mesh directly after conversion", slug: "mesh-editing" },
         { title: "Parameter guide", text: "Detailed Fitting and Weighting settings", slug: "parameters" },
         { title: "Q&A", text: "Common questions and troubleshooting", slug: "faq" },

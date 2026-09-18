@@ -70,7 +70,7 @@ order: 70
 
 ## 5. Preserve Shoe Shape
 
-![]({{BASE_PATH}}/media/f7fcadce704cdd10.png)
+![Pre-adjustment and shoe shape options]({{BASE_PATH}}/media/7120897a646cdfc4.png)
 
 - Select one of the following two options.
     - **Preserve Shoe Shape** (Default): keeps the shape of meshes around the feet.

@@ -76,7 +76,7 @@ order: 70
 
 ## 5. 신발 형태 유지
 
-![image.png]({{BASE_PATH}}/media/f7fcadce704cdd10.png)
+![사전 조정 및 신발 형태 옵션 화면]({{BASE_PATH}}/media/e5327b2834fca466.png)
 
 - 아래 두 옵션 중 하나를 선택합니다.
     - **신발 형태 유지** (기본 선택): 발 주변 Mesh의 형태를 유지합니다.
