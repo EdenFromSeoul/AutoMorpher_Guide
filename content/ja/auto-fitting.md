@@ -137,12 +137,63 @@ order: 20
 3. **Body Gap**
     - 衣装とボディの間の最小距離を設定するパラメータです。
     - ボディの貫通（穴あき）がひどい場合は、この値を大きくしてください。
-4. **Skip Foot Fitting**
-    - **靴にFitting（形状の変形）**を適用しないオプションです。（スケール調整はそのまま適用されます）
-    - 足の細かな形状に合わせて変形させたい場合は、このオプションを無効にしてください。
-5. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
+
+4. **事前調整**
+    - 変形前に衣装のボーンを調整するかどうかを選択するオプションです。
+    - 初期設定は **事前調整をスキップ** です。変形前にボーンを調整する場合は **事前調整を行う** を選択してください。
+
+<details class="doc-optional-step">
+<summary>「事前調整を行う」を選択した場合：ボーン調整方法を見る</summary>
+
+「事前調整を行う」を選択すると、Bone AdjustmentとMeshの追加補正で衣装の形状を手動で調整できます。
+
+![]({{BASE_PATH}}/media/300303c039d540ee.png)
+
+**操作方法**
+
+![]({{BASE_PATH}}/media/0403a56fedd1ed35.png)
+
+- 上部の **W: Move / E: Rotation / R: Scale** をクリックするか、キーボードの **W / E / R** キーを押すことで、操作モードを切り替えられます。
+    - **W: Move**: Position の移動
+    - **E: Rotation**: Rotation の回転
+    - **R: Scale**: Scale の調整
+
+**左右対称**
+
+![]({{BASE_PATH}}/media/7b0f0c16790de3d6.png)
+
+- 左右対称になるボーンがある場合、**Mirror** ボタンで一緒に動かすことができます。
+- **Mirror: On** の場合、アバター基準の X 軸で鏡のように動きます。
+
+**ボーンリスト**
+
+![]({{BASE_PATH}}/media/df7b1834b78e0a74.png)
+
+- 調整できるボーンの一覧です。
+- 調整可能なボーンが Bones List に表示されます。
+    - **Bone List: Humanoid Bone Only**
+        - Bone List に Hip や Chest などの Humanoid Bone のみが表示されます。
+    - **Bone List: Show Other Bones**
+        - Hip や Chest などの Humanoid Bone 以外にも、その子ボーンが Bone List に表示されます。
+- **Humanoid Bone Picker**
+    - 調整したい部位をクリックして、ボーンを選択できます。
+- 画面上のアバターに表示されている青い点をクリックしても、ボーンを選択して調整できます。
+- **帽子、手袋、靴などは、このオプションを使って細かく追加調整することをおすすめします。**
+
+![]({{BASE_PATH}}/media/4db99de895e9a2be.png)
+
+<button type="button" class="doc-details-close" data-details-close>事前調整の説明を閉じる</button>
+</details>
+
+5. **靴の形状を維持**
+    - 以下の2つのオプションから1つを選択します。
+    - **靴の形状を維持**（初期設定）
+        - 足周辺のMeshの形状を維持します。
+    - **足に合わせて変形**
+        - 足の形状に合わせて靴を細かく変形します。
+6. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
     - 有効にすると、変形結果をメッシュに直接反映せず、BlendShapeとして保存します。
-6. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
+7. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
     - 衣装メッシュのウェイトを、Target Avatarのアーマチュアを基準に再設定するオプションです。
     - Modular Avatarなどを使用せず、衣装をアバターのボーンに直接接続する必要がある場合のみ有効にしてください。
 - その他のパラメータに関する詳しい説明は、以下のドキュメントを参照してください。

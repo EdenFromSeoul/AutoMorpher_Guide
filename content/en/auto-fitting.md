@@ -139,13 +139,63 @@ order: 20
 3. **Body Gap**
     - This parameter sets the minimum distance between the garment and the body.
     - If the body is penetrating the garment significantly, increase this value.
-4. **Skip Foot Fitting**
-    - This option prevents **fitting(shape modification)** from being applied **to shoes**.
-    (Scale adjustments will still be applied.)
-    - To deform the shape according to the specific details of the foot, please disable this option.
-5. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
+
+4. **Pre-adjustment**
+    - This option lets you choose whether to adjust the outfit bones before the transformation.
+    - The default is **Skip Pre-adjustment**. Select **Enable Pre-adjustment** when you want to adjust the bones before the transformation.
+
+<details class="doc-optional-step">
+<summary>If you select “Enable Pre-adjustment”: View bone adjustment instructions</summary>
+
+Enable pre-adjustment to adjust the clothing shape with Bone Adjustment and additional Mesh editing during fitting.
+
+![]({{BASE_PATH}}/media/300303c039d540ee.png)
+
+**Bone Controls**
+
+![]({{BASE_PATH}}/media/0403a56fedd1ed35.png)
+
+- You can change the operation mode by clicking **W: Move / E: Rotation / R: Scale** at the top, or by pressing **W / E / R** on the keyboard.
+    - **W: Move**: Move the Position
+    - **E: Rotation**: Rotate the selected bone
+    - **R: Scale**: Adjust the Scale
+
+**Mirror**
+
+![]({{BASE_PATH}}/media/7b0f0c16790de3d6.png)
+
+- If there is a symmetrical bone on the opposite side, you can move both sides together using the **Mirror** button.
+- When **Mirror: On** is enabled, the movement is mirrored along the avatar’s X-axis.
+
+**Bone List**
+
+![]({{BASE_PATH}}/media/df7b1834b78e0a74.png)
+
+- This is the list of bones that can be adjusted.
+- Adjustable bones are displayed in the Bones List.
+    - **Bone List: Humanoid Bone Only**
+        - Only Humanoid Bones such as Hip and Chest are displayed in the Bone List.
+    - **Bone List: Show Other Bones**
+        - Child bones other than Humanoid Bones such as Hip and Chest are also displayed in the Bone List.
+- **Humanoid Bone Picker**
+    - You can select a bone by clicking the desired body part.
+- You can also select and adjust bones by clicking the blue points on the avatar in the Scene view.
+- **We recommend using this option to make additional detailed adjustments for items such as hats, gloves, and shoes.**
+
+![]({{BASE_PATH}}/media/4db99de895e9a2be.png)
+
+<button type="button" class="doc-details-close" data-details-close>Close pre-adjustment instructions</button>
+</details>
+
+5. **Preserve Shoe Shape**
+    - Select one of the following two options.
+    - **Preserve Shoe Shape** (Default)
+        - Keeps the shape of meshes around the feet.
+    - **Fit to Feet**
+        - Deforms the shoes to match the shape of the feet.
+6. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
     - When enabled, the transformed result is saved as a BlendShape rather than being applied directly to the mesh.
-6. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
+7. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
     - This option reassigns the weights of the clothing mesh based on the target avatar's armature.
     - Please enable this only when you need to connect the costume directly to the avatar's bones without using Modular Avatar or similar features.
 - For detailed explanations of other parameters, please refer to the following document.

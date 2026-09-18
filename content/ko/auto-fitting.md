@@ -141,12 +141,63 @@ order: 20
 3. **Body Gap**
     - 의상과 바디 사이의 최소 거리를 설정하는 파라미터입니다.
     - 바디 관통(뚫림)이 심하게 발생할 경우 해당 값을 높여주세요.
-4. **Skip Foot Fitting**
-    - 신발에 **Fitting(형태 변형)**을 적용하지 않는 옵션입니다. (스케일 조정은 그대로 적용됩니다)
-    - 발의 세부적인 형태에 맞춰 변형하려면 해당 옵션을 비활성화해주세요.
-5. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
+
+4. **사전 조정**
+    - 변형 전에 의상의 본을 미리 조정할지 선택하는 옵션입니다.
+    - 기본값은 **사전 조정 skip**이며, 본을 미리 조정하려는 경우 **사전 조정 진행**을 선택합니다.
+
+<details class="doc-optional-step">
+<summary>사전 조정 진행을 선택한 경우: 본 조정 방법 보기</summary>
+
+사전 조정 진행을 선택하면 Bone Adjustment와 Mesh 추가 보정 단계에서 의상 형태를 직접 조정할 수 있습니다.
+
+![image.png]({{BASE_PATH}}/media/300303c039d540ee.png)
+
+**조작 방식**
+
+![image.png]({{BASE_PATH}}/media/0403a56fedd1ed35.png)
+
+- 상단의 W:Move / E:Rotation / R:Scale을 누르거나 키보드의 W/E/R 버튼을 눌러 조작 방식을 변경할 수 있습니다.
+    - W:Move - Position 이동
+    - E:Rotation - Rotation 회전
+    - R:Scale - Scale 조정
+
+**좌우 대칭**
+
+![image.png]({{BASE_PATH}}/media/7b0f0c16790de3d6.png)
+
+- 좌우 대칭되는 본이 있을 경우, Mirror 버튼을 통해 같이 움직일 수 있습니다.
+- Mirror:On일 경우 아바타 기준 X축으로 거울처럼 움직입니다.
+
+**본 목록**
+
+![image.png]({{BASE_PATH}}/media/df7b1834b78e0a74.png)
+
+- 조작할 수 있는 본의 목록입니다.
+- 조작할 수 있는 Bones List에는 목록이 나열됩니다.
+    - Bone List:Humanoid Bone Only
+        - Bone List에 Hip, Chest 같은 Humanoid Bone만 표시됩니다.
+    - Bone List: Show Other Bones
+        - Bone List에 Hip, Chest 같은 Humanoid Bone 외에도 그 자식 본들이 표시됩니다.
+- Humanoid Bone Picker
+    - 원하는 부위를 클릭하여 본을 선택할 수 있습니다.
+- 화면에 있는 아바타의 푸른 점을 눌러서도 본을 선택하여 조정할 수 있습니다.
+- **모자, 장갑, 신발 등은 해당 옵션을 통해 세부적으로 추가 조정해 주시는 것을 권장드립니다.**
+
+![image.png]({{BASE_PATH}}/media/4db99de895e9a2be.png)
+
+<button type="button" class="doc-details-close" data-details-close>사전 조정 안내 닫기</button>
+</details>
+
+5. **신발 형태 유지**
+    - 아래 두 옵션 중 하나를 선택합니다.
+    - **신발 형태 유지** (기본 선택)
+        - 발 주변 Mesh의 형태를 유지합니다.
+    - **발에 맞추어 변형**
+        - 발의 형태에 맞춰 신발을 세부적으로 변형합니다.
+6. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
     - 활성화 시 변형된 결과를 Mesh에 바로 반영하지 않고 BlendShape로 저장합니다.
-6. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
+7. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
     - 의상 Mesh의 Weight를 Target Avatar의 Armature 기준으로 다시 연결하는 옵션입니다.
     - Modular Avatar 등을 사용하지 않고 의상을 아바타 본에 직접 연결해야 할 때만 활성화해주세요.
 - 그 외 다른 Parameter에 대한 자세한 설명은 다음의 문서를 참조해 주세요.
@@ -176,46 +227,3 @@ order: 20
 - 의상을 우클릭한 뒤 [Modular Avatar] - [Setup Outfit]을 선택하여, 의상의 본이 아바타를 따라 움직이도록 설정합니다.
 
 ![image.png]({{BASE_PATH}}/media/a477756018a1e22d.png)
-
-### 7. 본 조정 진행
-
-Manual Fitting Mode일 경우, 자동 대응된 의상에서 본을 조정할 수 있습니다.
-
-![image.png]({{BASE_PATH}}/media/300303c039d540ee.png)
-
-#### 조작 방식
-
-![image.png]({{BASE_PATH}}/media/0403a56fedd1ed35.png)
-
-- 상단의 W:Move / E:Rotation / R:Scale을 누르거나 키보드의 W/E/R 버튼을 눌러 조작 방식을 변경할 수 있습니다.
-    - W:Move - Position 이동
-    - E:Rotation - Rotation 회전
-    - R:Scale - Scale 조정
-
-#### 좌우 대칭
-
-![image.png]({{BASE_PATH}}/media/7b0f0c16790de3d6.png)
-
-- 좌우 대칭되는 본이 있을 경우, Mirror 버튼을 통해 같이 움직일 수 있습니다.
-- Mirror:On일 경우 아바타 기준 X축으로 거울처럼 움직입니다.
-
-#### 본 목록
-
-![image.png]({{BASE_PATH}}/media/df7b1834b78e0a74.png)
-
-- 조작할 수 있는 본의 목록입니다.
-- 조작할 수 있는 Bones List에는 목록이 나열됩니다.
-    - Bone List:Humanoid Bone Only
-        - Bone List에 Hip, Chest 같은 Humanoid Bone만 표시됩니다.
-    - Bone List: Show Other Bones
-        - Bone List에 Hip, Chest 같은 Humanoid Bone 외에도 그 자식 본들이 표시됩니다.
-- Humanoid Bone Picker
-    - 원하는 부위를 클릭하여 본을 선택할 수 있습니다.
-- 화면에 있는 아바타의 푸른 점을 눌러서도 본을 선택하여 조정할 수 있습니다.
-- **모자, 장갑, 신발 등은 해당 옵션을 통해 세부적으로 추가 조정해 주시는 것을 권장드립니다.**
-
-![image.png]({{BASE_PATH}}/media/4db99de895e9a2be.png)
-
-- 조정이 완료되면 아래 버튼을 눌러 대응을 진행해 주세요.
-
-- Table Of Content

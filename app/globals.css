@@ -300,6 +300,11 @@ kbd { border: 1px solid var(--line); background: var(--surface-soft); border-rad
 .doc-content video { display: block; width: 100%; margin: 22px 0; border: 1px solid var(--line); border-radius: 14px; background: #05090f; box-shadow: var(--small-shadow); }
 .doc-content blockquote { margin: 20px 0; padding: 14px 18px; border-left: 3px solid var(--blue-500); background: var(--blue-50); border-radius: 0 10px 10px 0; }
 .doc-content blockquote p { margin: 0; }
+.doc-content .doc-optional-step { margin: 18px 0 28px; padding: 0 18px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-soft); }
+.doc-content .doc-optional-step summary { padding: 16px 0; color: var(--ink); font-weight: 700; cursor: pointer; }
+.doc-content .doc-optional-step[open] > summary { margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.doc-content .doc-details-close { display: block; margin: 24px 0 0 auto; border: 1px solid var(--line); border-radius: 7px; padding: 8px 12px; background: var(--surface); color: var(--muted); font: inherit; font-size: 12px; cursor: pointer; }
+.doc-content .doc-details-close:hover { border-color: var(--blue-400); color: var(--blue-700); }
 .doc-content pre { position: relative; overflow-x: auto; margin: 22px 0; padding: 20px; border-radius: 13px; background: var(--code-bg); color: #dceaff; font-size: 12px; line-height: 1.65; }
 .doc-content code { padding: .15em .38em; border-radius: 5px; background: var(--blue-50); color: var(--blue-700); font-family: "SFMono-Regular", Consolas, monospace; font-size: .86em; }
 .doc-content pre code { padding: 0; background: none; color: inherit; }
