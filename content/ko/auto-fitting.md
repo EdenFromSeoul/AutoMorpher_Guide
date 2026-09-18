@@ -101,9 +101,10 @@ order: 20
 ### 3. きせった (Kisetter) 창 열기
 
 1. Unity 에디터 상단 메뉴 바에서 EDEN LABS > Eden Tools > きせった (Kisetter)를 선택합니다.
-2. きせった (Kisetter)가 별도 에디터 창으로 열립니다.
 
-![Unity 에디터 상단 메뉴 바의 きせった 실행 경로]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+   ![Unity 에디터 상단 메뉴 바의 きせった 실행 경로]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+
+2. きせった (Kisetter)가 별도 에디터 창으로 열립니다.
 
 ### 4. きせった (Kisetter) 설정
 
@@ -201,11 +202,12 @@ order: 20
 
 ### 6. 변형 진행
 
-**Run ALL**을 눌러서 변형을 진행합니다.
-
-![image.png]({{BASE_PATH}}/media/388999557ff08862.png)
+**입히기**를 눌러서 변형을 진행합니다.
 
 - Fitting과 Weighting을 단계별로 진행하려면 아래의 **Step-by-step Progress**를 사용합니다.
+
+!!! info "선택 사항 · 변환 후 추가 조정"
+    변환 후 추가 조정 버튼을 누르면 추가 Mesh 편집을 진행할 수 있습니다. 변환 후 추가로 조정하고 싶은 부분이 있을 때 사용하세요.
 
 ## [3] 결과 확인
 

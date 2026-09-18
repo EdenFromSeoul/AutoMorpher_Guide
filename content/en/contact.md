@@ -35,7 +35,7 @@ Providing as much of the following information as possible helps us investigate 
 Kisetter version: 3.1.1
 Unity version: 2022.3.22f1
 Feature: Automatic Outfit Fitting
-Issue: A Body Mesh not found message appears after clicking Run ALL
+Issue: A Body Mesh not found message appears after clicking Dress Avatar
 What I tried: Disabled automatic Body Mesh assignment and assigned it manually
 Error message: (full error message from the Unity Console)
 ```

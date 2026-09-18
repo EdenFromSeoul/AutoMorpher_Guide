@@ -35,7 +35,7 @@ order: 95
 Kisetter 버전: 3.1.1
 Unity 버전: 2022.3.22f1
 사용 기능: 자동 의상 대응
-증상: Run ALL 실행 후 Body Mesh를 찾을 수 없다는 메시지가 표시됨
+증상: 입히기 실행 후 Body Mesh를 찾을 수 없다는 메시지가 표시됨
 확인한 내용: Body Mesh 자동 할당을 해제하고 수동 지정해도 동일함
 오류 메시지: (Unity Console의 오류 전문)
 ```

@@ -98,9 +98,10 @@ order: 20
 ### 3. きせった (Kisetter)を起動する
 
 1. Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択します。
-2. きせった (Kisetter)が独立したエディターウィンドウで開きます。
 
-![Unityエディター上部メニューバーからきせったを起動する経路]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+   ![Unityエディター上部メニューバーからきせったを起動する経路]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+
+2. きせった (Kisetter)が独立したエディターウィンドウで開きます。
 
 ### 4. きせった (Kisetter)の設定
 
@@ -197,11 +198,12 @@ order: 20
 
 ### 6. 変形の実行
 
-「**Run ALL」を**押して、変形を進めます。
-
-![image.png]({{BASE_PATH}}/media/388999557ff08862.png)
+「**着せる**」を押して、変形を進めます。
 
 - FittingとWeightingをステップごとに実行する場合は、以下のStep-by-step Progressを使用します。
+
+!!! info "任意 · 変換後の追加調整"
+    「変換後の追加調整」ボタンを押すと、追加のMesh編集を行えます。変換後にさらに調整したい部分がある場合に使用してください。
 
 ## [3] 結果の確認
 

@@ -99,9 +99,10 @@ order: 20
 ### 3. Open きせった (Kisetter)
 
 1. From the Unity Editor menu bar, select EDEN LABS > Eden Tools > きせった (Kisetter).
-2. きせった (Kisetter) opens in a separate editor window.
 
-![Unity Editor menu path for opening きせった]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+   ![Unity Editor menu path for opening きせった]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+
+2. きせった (Kisetter) opens in a separate editor window.
 
 ### 4. きせった (Kisetter) Setup
 
@@ -199,11 +200,12 @@ Enable pre-adjustment to adjust the clothing shape with Bone Adjustment and addi
 
 ### 6. Performing the Transformation
 
-Click [**Run ALL]** to proceed with the transformation.
-
-![image.png]({{BASE_PATH}}/media/388999557ff08862.png)
+Click **Dress Avatar** to proceed with the transformation.
 
 - Use **the Step-by-Step Progress** below to proceed with Fitting and Weighting step by step.
+
+!!! info "Optional · Adjust After Conversion"
+    Click Adjust After Conversion to perform additional mesh editing. Use it when you want to make further adjustments after conversion.
 
 ## [3] Checking the Results
 
