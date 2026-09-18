@@ -38,6 +38,13 @@ order: 10
 Assets/@Eden_Tools/Eden_AutoMorpher
 ```
 
+## Start きせった (Kisetter)
+
+![Unity Editor menu path for opening きせった]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+
+1. From the Unity Editor menu bar, select EDEN LABS > Eden Tools > きせった (Kisetter).
+2. きせった (Kisetter) opens in a separate editor window.
+
 ## Updating to the Latest Version
 
 If an earlier version is already installed, import the new UnityPackage over the existing project without removing the old version first. Select every item in the Import window.
@@ -47,8 +54,8 @@ If an earlier version is already installed, import the new UnityPackage over the
 
 ## Choose Your First Task
 
-- For a fast automatic fitting, start with [Auto Fitting Mode](../auto-fitting/).
-- To adjust bones manually after the automatic fitting, use [Manual Fitting Mode](../manual-fitting/).
+- To automatically fit an outfit to the target avatar, see the [Automatic Outfit Fitting Guide](../auto-fitting/).
+- The bone adjustment feature from the former **Manual Fitting Mode** is available before the transformation when you select **Enable Pre-adjustment**.
 - To add an avatar's BlendShapes to clothing, see [BlendShape Generator](../blendshape-generator/).
 
 If you encounter a problem, check [Q&A and Troubleshooting](../faq/) or follow [How to Contact Support](../contact/).

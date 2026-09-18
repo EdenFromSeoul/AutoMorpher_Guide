@@ -22,6 +22,14 @@ export function ArticleEnhancements() {
           window.setTimeout(() => (button.textContent = "복사"), 1200);
         });
       }
+      const closeButton = target.closest<HTMLButtonElement>("[data-details-close]");
+      if (closeButton) {
+        const details = closeButton.closest<HTMLDetailsElement>("details");
+        if (details) {
+          details.open = false;
+          details.querySelector<HTMLElement>(":scope > summary")?.focus();
+        }
+      }
     };
 
     const blocks = article.querySelectorAll("pre");

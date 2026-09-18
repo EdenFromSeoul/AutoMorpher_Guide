@@ -6,9 +6,9 @@ description: "Create outfit mesh BlendShapes from the avatar's BlendShapes."
 order: 40
 ---
 
-```
-⚫ This feature adds BlendShapes from a specific mesh on the avatar to other meshes as well.
-```
+<div class="guide-intro">
+  <p>⚫ This feature adds BlendShapes from a specific mesh on the avatar to other meshes as well.</p>
+</div>
 
 <iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/xugZuRPVhkg" title="BlendShape Generator demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

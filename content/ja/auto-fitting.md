@@ -1,17 +1,20 @@
 ---
-title: "Auto Fitting Mode"
+title: "衣装自動対応ガイド"
 slug: "auto-fitting"
 category: "使用ガイド"
-description: "衣装を対象アバターに合わせて自動変形する手順です。"
+description: "衣装を対象アバターに合わせて自動変形し、必要に応じて事前調整とMeshの追加補正を行う全体の手順です。"
 order: 20
 ---
 
-```jsx
-⚫ 衣装を Target Avatar に合わせて自動的に調整し、変形を行うモードです。
-⚫ ボーンを調整する機能が必要な場合は、Manual Fitting Mode を使用してください。
-```
+<div class="guide-intro">
+  <p>⚫ 衣装を<strong>Target Avatarに合わせて自動対応する全体の手順</strong>です。</p>
+  <p>⚫ 基本的には<strong>事前調整をスキップ</strong>して進め、必要に応じて<strong>事前調整を行う</strong>を選択して、変形前にボーンとMeshを追加調整できます。</p>
+  <p>⚫ 以前の<strong>Manual Fitting Mode</strong>で使用していたボーン調整機能は、<strong>事前調整を行う</strong>を選択すると変形前に使用できます。</p>
+</div>
 
 <iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/WWmrMpkvZdM" title="Auto Fitting demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+> ⚠️ **注意！** この動画はアップデート前のバージョンを基にしています。現在のバージョンとは開始方法、オプション名、動作が異なる場合があります。更新版の動画は近日中に追加する予定です。
 
 ## [1] 準備
 
@@ -93,27 +96,22 @@ order: 20
 
 ## [2] 変形設定と実行
 
-### 3. 🔧きせった (Kisetter)の設定
+### 3. きせった (Kisetter)を起動する
 
-1. きせった (Kisetter)をHierarchyに配置します。
-    - Prefabのパス:`Assets\@Eden_Tools\Kisetter\Kisetter.prefab`
+1. Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択します。
+
+   ![Unityエディター上部メニューバーからきせったを起動する経路]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+
+2. きせった (Kisetter)が独立したエディターウィンドウで開きます。
 
 ### 4. きせった (Kisetter)の設定
 
-1. 「きせった (Kisetter)- Auto Fitting Mode」をクリックします。
-
-![image.png]({{BASE_PATH}}/media/fa9c758660c7fc41.png)
-
-1. 事前に用意した**アバターと** **衣装を きせった (Kisetter)** に割り当てます。
-
-    ![image.png]({{BASE_PATH}}/media/accec900aaa7f385.png)
+1. 開いたきせった (Kisetter)ウィンドウで、準備した**アバターと衣装**を割り当てます。
 
     - **Source Avatar Object**: 衣装の元となるアバターオブジェクト
     - **Source Clothes Object**: 衣装オブジェクト
     - **Target Avatar Object**: 衣装を対応させる対象のアバターオブジェクト
-2. Profile Mode の場合
-
-    ![image.png]({{BASE_PATH}}/media/bbdb578a05be2ec9.png)
+2. Profileを使用する場合
 
     - **Profile**: 使用する衣装に合った Profile
     - **Source Clothes Object**: 衣装オブジェクト
@@ -137,12 +135,63 @@ order: 20
 3. **Body Gap**
     - 衣装とボディの間の最小距離を設定するパラメータです。
     - ボディの貫通（穴あき）がひどい場合は、この値を大きくしてください。
-4. **Skip Foot Fitting**
-    - **靴にFitting（形状の変形）**を適用しないオプションです。（スケール調整はそのまま適用されます）
-    - 足の細かな形状に合わせて変形させたい場合は、このオプションを無効にしてください。
-5. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
+
+4. **事前調整**
+    - 変形前に衣装のボーンを調整するかどうかを選択するオプションです。
+    - 初期設定は **事前調整をスキップ** です。変形前にボーンを調整する場合は **事前調整を行う** を選択してください。
+
+<details class="doc-optional-step">
+<summary>「事前調整を行う」を選択した場合：ボーン調整方法を見る</summary>
+
+「事前調整を行う」を選択すると、Bone AdjustmentとMeshの追加補正で衣装の形状を手動で調整できます。
+
+![]({{BASE_PATH}}/media/300303c039d540ee.png)
+
+**操作方法**
+
+![]({{BASE_PATH}}/media/0403a56fedd1ed35.png)
+
+- 上部の **W: Move / E: Rotation / R: Scale** をクリックするか、キーボードの **W / E / R** キーを押すことで、操作モードを切り替えられます。
+    - **W: Move**: Position の移動
+    - **E: Rotation**: Rotation の回転
+    - **R: Scale**: Scale の調整
+
+**左右対称**
+
+![]({{BASE_PATH}}/media/7b0f0c16790de3d6.png)
+
+- 左右対称になるボーンがある場合、**Mirror** ボタンで一緒に動かすことができます。
+- **Mirror: On** の場合、アバター基準の X 軸で鏡のように動きます。
+
+**ボーンリスト**
+
+![]({{BASE_PATH}}/media/df7b1834b78e0a74.png)
+
+- 調整できるボーンの一覧です。
+- 調整可能なボーンが Bones List に表示されます。
+    - **Bone List: Humanoid Bone Only**
+        - Bone List に Hip や Chest などの Humanoid Bone のみが表示されます。
+    - **Bone List: Show Other Bones**
+        - Hip や Chest などの Humanoid Bone 以外にも、その子ボーンが Bone List に表示されます。
+- **Humanoid Bone Picker**
+    - 調整したい部位をクリックして、ボーンを選択できます。
+- 画面上のアバターに表示されている青い点をクリックしても、ボーンを選択して調整できます。
+- **帽子、手袋、靴などは、このオプションを使って細かく追加調整することをおすすめします。**
+
+![]({{BASE_PATH}}/media/4db99de895e9a2be.png)
+
+<button type="button" class="doc-details-close" data-details-close>事前調整の説明を閉じる</button>
+</details>
+
+5. **靴の形状を維持**
+    - 以下の2つのオプションから1つを選択します。
+    - **靴の形状を維持**（初期設定）
+        - 足周辺のMeshの形状を維持します。
+    - **足に合わせて変形**
+        - 足の形状に合わせて靴を細かく変形します。
+6. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
     - 有効にすると、変形結果をメッシュに直接反映せず、BlendShapeとして保存します。
-6. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
+7. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
     - 衣装メッシュのウェイトを、Target Avatarのアーマチュアを基準に再設定するオプションです。
     - Modular Avatarなどを使用せず、衣装をアバターのボーンに直接接続する必要がある場合のみ有効にしてください。
 - その他のパラメータに関する詳しい説明は、以下のドキュメントを参照してください。
@@ -150,11 +199,12 @@ order: 20
 
 ### 6. 変形の実行
 
-「**Run ALL」を**押して、変形を進めます。
-
-![image.png]({{BASE_PATH}}/media/388999557ff08862.png)
+「**着せる**」を押して、変形を進めます。
 
 - FittingとWeightingをステップごとに実行する場合は、以下のStep-by-step Progressを使用します。
+
+!!! info "任意 · 変換後の追加調整"
+    「変換後の追加調整」ボタンを押すと、追加のMesh編集を行えます。変換後にさらに調整したい部分がある場合に使用してください。
 
 ## [3] 結果の確認
 

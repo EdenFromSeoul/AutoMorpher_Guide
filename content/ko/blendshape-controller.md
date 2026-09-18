@@ -6,9 +6,9 @@ description: "여러 Mesh의 BlendShape를 한곳에서 확인하고 조정합�
 order: 50
 ---
 
-```jsx
-⚫ Object의 아래 모든 Mesh의 BlendShape를 한번에 조정하는 Tool 입니다.
-```
+<div class="guide-intro">
+  <p>⚫ Object의 아래 모든 Mesh의 BlendShape를 한번에 조정하는 Tool 입니다.</p>
+</div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/54a6d32ee890122e.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
 

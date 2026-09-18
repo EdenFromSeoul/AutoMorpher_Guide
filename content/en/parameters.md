@@ -60,14 +60,23 @@ order: 70
 
 ---
 
-## 4. Skip Foot Fitting
+## 4. Pre-adjustment
 
-![]({{BASE_PATH}}/media/f7fcadce704cdd10.png)
+- Choose whether to adjust the clothing shape before the transformation.
+    - **Skip Pre-adjustment** (Default): skips Bone Adjustment and additional Mesh editing before the transformation.
+    - **Enable Pre-adjustment**: lets you adjust the clothing shape with Bone Adjustment and additional Mesh editing during fitting.
 
-- This option determines **whether detailed fitting is applied**to the shoe mesh.
-    - When enabled, only resizing is applied to the shoes; detailed fitting that directly modifies the shape is not applied.
+---
+
+## 5. Preserve Shoe Shape
+
+![Pre-adjustment and shoe shape options]({{BASE_PATH}}/media/7120897a646cdfc4.png)
+
+- Select one of the following two options.
+    - **Preserve Shoe Shape** (Default): keeps the shape of meshes around the feet.
+    - **Fit to Feet**: deforms the shoes to match the shape of the feet.
 - Depending on the avatar, shoe fitting may not apply correctly, or the shoe shape may become distorted.
-    - If the shoe shape breaks or becomes awkwardly distorted after fitting, please enable this option.
+    - If the shoe shape breaks or becomes awkwardly distorted, select **Preserve Shoe Shape**.
 
 <div class="doc-media-grid doc-media-grid-2">
   <figure>
@@ -82,7 +91,7 @@ order: 70
 
 ---
 
-## 5. Remove AutoMorphed Other Clothes
+## 6. Remove AutoMorphed Other Clothes
 
 ![]({{BASE_PATH}}/media/f3189ed48074c5d2.png)
 

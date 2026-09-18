@@ -20,7 +20,7 @@ order: 95
 
 - きせった (Kisetter)のバージョン
 - Unityのバージョンと使用環境（VRChat、Warudo、または一般的なUnityプロジェクト）
-- 使用した機能またはモード（Auto Fitting、Manual Fitting、BlendShape Generatorなど）
+- 使用した機能（衣装自動対応、Mesh編集、BlendShape Generatorなど）
 - Unity Consoleに表示されたエラーメッセージ全文
 - 問題が発生する直前までに行った手順
 - きせった (Kisetter)の設定画面とHierarchyが確認できるスクリーンショット
@@ -34,8 +34,8 @@ order: 95
 ```text
 Kisetterバージョン: 3.1.1
 Unityバージョン: 2022.3.22f1
-使用機能: Auto Fitting Mode
-症状: Run ALL実行後にBody Meshが見つからないというメッセージが表示される
+使用機能: 衣装自動対応
+症状: 着せる実行後にBody Meshが見つからないというメッセージが表示される
 確認した内容: Body Meshの自動割り当てを無効にし、手動指定しても同じ症状が発生
 エラーメッセージ: (Unity Consoleのエラー全文)
 ```

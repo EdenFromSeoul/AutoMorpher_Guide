@@ -150,7 +150,7 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 - 문제가 지속적으로 발생할 경우
 
-    → **Advanced 옵션의 `Skip Foot Fitting`을 활성화**하여 발 보정 과정을 건너뛸 수 있습니다.
+    → **Basic 옵션의 `신발 형태 유지`를 선택**하여 발 주변 Mesh의 형태를 유지할 수 있습니다.
 
     [변형 품질을 높이는 팁](https://app.notion.com/p/34c1bca8582e81e08585f7820c82c01b?pvs=21)  의 **[발 변형을 안정적으로 진행하는 방법]** 를 참고해주세요.
 
@@ -194,7 +194,7 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 이 오류는 **Project 창에 있는 Prefab 원본 아바타/의상을 きせった (Kisetter)에 직접 할당했을 때** 발생할 수 있습니다.
 
-Project 창의 아바타/의상을 바로 할당하지 말고, 먼저 **Hierarchy에 배치한 뒤**, Hierarchy에 있는 오브젝트를 きせった (Kisetter)에 할당해 주세요.
+Project 창의 아바타/의상을 바로 할당하지 말고, 먼저 **Hierarchy에 배치해 주세요.** 그다음 Unity 에디터 상단 메뉴 바에서 EDEN LABS > Eden Tools > きせった (Kisetter)를 선택해 별도 창을 열고, Hierarchy의 오브젝트를 해당 창에 할당해 주세요.
 
 ---
 

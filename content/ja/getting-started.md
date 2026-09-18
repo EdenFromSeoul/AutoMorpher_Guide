@@ -38,6 +38,13 @@ order: 10
 Assets/@Eden_Tools/Eden_AutoMorpher
 ```
 
+## きせった (Kisetter)を起動する
+
+![Unityエディター上部メニューバーからきせったを起動する経路]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+
+1. Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択します。
+2. きせった (Kisetter)が独立したエディターウィンドウで開きます。
+
 ## 最新バージョンへのアップデート
 
 既存バージョンがインストールされている場合は、削除せずに新しいUnityPackageを既存プロジェクトへ上書きインポートします。Importウィンドウでは新しいパッケージの項目をすべて選択してください。
@@ -47,8 +54,8 @@ Assets/@Eden_Tools/Eden_AutoMorpher
 
 ## 最初の作業を選ぶ
 
-- すばやく自動で対応する場合は、[Auto Fitting Mode](../auto-fitting/)から開始してください。
-- 自動変形後にボーンを手動調整する場合は、[Manual Fitting Mode](../manual-fitting/)を使用してください。
+- 衣装を対象アバターに自動で対応させる場合は、[衣装自動対応ガイド](../auto-fitting/)を確認してください。
+- 以前の**Manual Fitting Mode**で使用していたボーン調整機能は、**事前調整を行う**を選択すると変形前に使用できます。
 - アバターのBlendShapeを衣装に追加する場合は、[BlendShapeの作成](../blendshape-generator/)を確認してください。
 
 問題が発生した場合は、[Q&A・トラブルシューティング](../faq/)を確認するか、[お問い合わせ方法](../contact/)をご覧ください。

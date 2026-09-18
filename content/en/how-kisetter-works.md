@@ -36,6 +36,8 @@ Assets/@Eden_Mesh/<Avatar Name>/<Clothing Name>
 !!! warning "If you cancel before completion"
     A mesh that is still being processed may not have been saved as an Asset. Restarting Unity or uploading to VRChat in this state can make the working mesh disappear. Run the process to completion so the result is saved.
 
+Kisetter automatically compensates for body-shape differences where possible. If you need to adjust the clothing bones before deformation, select **Enable Pre-adjustment** in the Fitting options.
+
 ## 1. Pose Setup
 
 Pose Setup is the process of fitting the clothing to the Target Avatar as closely as possible before deformation begins.
@@ -66,34 +68,31 @@ Fitting is the stage where the clothing is naturally deformed to fit the Target 
 
 <div class="stage-diagram" role="list" aria-label="Fitting process">
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">01</span><strong>Collect clothing Mesh data</strong></div>
-  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">02</span><strong>Adjust helper bones</strong><small>Manual</small></div>
+  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">02</span><strong>Adjust helper bones when enabled</strong><small>Optional</small></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">03</span><strong>Correct body-shape differences</strong><small>Optional</small></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">04</span><strong>Deform for each Fitting Iteration</strong></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">05</span><strong>Correct intersections for each Body Correlation Iteration</strong></div>
-  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">06</span><strong>Edit the Mesh</strong><small>Manual</small></div>
+  <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">06</span><strong>Additional Mesh editing when needed</strong><small>Optional</small></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">07</span><strong>Adjust bones, names, and PhysBones</strong></div>
   <div class="stage-diagram-node" role="listitem"><span class="stage-diagram-index">08</span><strong>Save the Mesh as an Asset</strong></div>
 </div>
 
-### Auto Fitting vs. Manual Fitting
+### Pre-adjustment (Optional)
 
-| Mode | Automatic processing | Manual control |
-| --- | --- | --- |
-| Auto Fitting | Body-shape correction, mesh deformation, intersection correction, saving | None |
-| Manual Fitting | The same core processing as Auto Fitting | Adjust helper bones before fitting and edit the mesh afterward |
+The default is **Skip Pre-adjustment**. Select **Enable Pre-adjustment** when you want to adjust the clothing bones before deformation.
 
 ### Processing Order
 
 1. **Collect Mesh data** — Read vertex positions and connectivity for each clothing mesh.
-2. **Adjust helper bones (Manual Fitting)** — Refine the overall silhouette before deformation begins.
+2. **Adjust bones when Pre-adjustment is enabled** — Refine the overall silhouette before deformation begins.
 3. **Correct body-shape differences** — When `Body Shape Matching` is enabled, reduce larger differences between the source and target bodies.
 4. **Deform the clothing** — Move vertices according to their relationship with the Body Mesh for the configured number of `Fitting Iteration` passes.
 5. **Correct body intersections** — Find clothing vertices inside the Body Mesh and reduce intersections for the configured number of `Body Correlation Iteration` passes.
-6. **Edit the Mesh (Manual Fitting)** — Repair exposed areas or restore distorted regions with the shape restoration tools.
+6. **Additional Mesh editing (when needed)** — Use Mesh editing to correct the result when additional adjustments are needed.
 7. **Finalize the bones** — Update Humanoid Bone names and positions for the target, then adjust PhysBone positions and Collider sizes.
 8. **Save the Mesh** — Store the result as a Mesh Asset for the Weighting stage.
 
-Kisetter automatically compensates for body-shape differences where possible, but some clothing structures or large differences still require manual correction. Use [Manual Fitting Mode](../manual-fitting/) to adjust the bones or mesh directly.
+Kisetter automatically compensates for body-shape differences where possible. When needed, select **Enable Pre-adjustment** for bone adjustments before deformation, or use Mesh editing for additional corrections.
 
 **Result of this stage:** a clothing mesh fitted to the target avatar and saved as an Asset.
 
@@ -124,4 +123,4 @@ Weighting makes the fitted clothing follow the target avatar's motion naturally.
 - Confirm that the converted clothing is placed correctly under the target avatar in the Hierarchy.
 - Pose major joints such as the arms and legs in the Scene and check for intersections or severe deformation.
 - Confirm that the result was created in `Assets/@Eden_Mesh/<Avatar Name>/<Clothing Name>`.
-- If correction is needed, use [Manual Fitting Mode](../manual-fitting/). For persistent quality issues, see [Tips for Improving Fit](../quality-tips/).
+- If correction is needed, use Pre-adjustment or Mesh editing. For persistent quality issues, see [Tips for Improving Fit](../quality-tips/).

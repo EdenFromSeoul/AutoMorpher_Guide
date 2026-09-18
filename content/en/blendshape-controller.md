@@ -6,9 +6,9 @@ description: "Review and adjust BlendShapes across multiple meshes in one place.
 order: 50
 ---
 
-```jsx
-⚫ 아바타의 아래 모든 Mesh의 BlendShape를 한번에 조정하는 Tool 입니다.
-```
+<div class="guide-intro">
+  <p>⚫ This tool lets you adjust the BlendShapes of all Meshes under an Object at once.</p>
+</div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/54a6d32ee890122e.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
 

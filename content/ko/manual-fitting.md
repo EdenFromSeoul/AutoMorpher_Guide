@@ -160,47 +160,6 @@ order: 30
 
 - Fitting과 Weighting을 단계별로 진행하려면 아래의 **Step-by-step Progress**를 사용합니다.
 
-### 7. 본 조정 진행
-
-Manual Fitting Mode일 경우, 자동 대응된 의상에서 본을 조정할 수 있습니다.
-
-![image.png]({{BASE_PATH}}/media/300303c039d540ee.png)
-
-#### 조작 방식
-
-![image.png]({{BASE_PATH}}/media/0403a56fedd1ed35.png)
-
-- 상단의 W:Move / E:Rotation / R:Scale을 누르거나 키보드의 W/E/R 버튼을 눌러 조작 방식을 변경할 수 있습니다.
-    - W:Move - Position 이동
-    - E:Rotation - Rotation 회전
-    - R:Scale - Scale 조정
-
-#### 좌우 대칭
-
-![image.png]({{BASE_PATH}}/media/7b0f0c16790de3d6.png)
-
-- 좌우 대칭되는 본이 있을 경우, Mirror 버튼을 통해 같이 움직일 수 있습니다.
-- Mirror:On일 경우 아바타 기준 X축으로 거울처럼 움직입니다.
-
-#### 본 목록
-
-![image.png]({{BASE_PATH}}/media/df7b1834b78e0a74.png)
-
-- 조작할 수 있는 본의 목록입니다.
-- 조작할 수 있는 Bones List에는 목록이 나열됩니다.
-    - Bone List:Humanoid Bone Only
-        - Bone List에 Hip, Chest 같은 Humanoid Bone만 표시됩니다.
-    - Bone List: Show Other Bones
-        - Bone List에 Hip, Chest 같은 Humanoid Bone 외에도 그 자식 본들이 표시됩니다.
-- Humanoid Bone Picker
-    - 원하는 부위를 클릭하여 본을 선택할 수 있습니다.
-- 화면에 있는 아바타의 푸른 점을 눌러서도 본을 선택하여 조정할 수 있습니다.
-- **모자, 장갑, 신발 등은 해당 옵션을 통해 세부적으로 추가 조정해 주시는 것을 권장드립니다.**
-
-![image.png]({{BASE_PATH}}/media/4db99de895e9a2be.png)
-
-- 조정이 완료되면 아래 버튼을 눌러 대응을 진행해 주세요.
-
 ### 8. 메시 편집 진행
 
 Manual Fitting Mode에서는 자동 피팅된 의상의 메시를 Scene View에서 직접 조정할 수 있습니다.

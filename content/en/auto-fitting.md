@@ -1,17 +1,20 @@
 ---
-title: "Auto Fitting Mode"
+title: "Automatic Outfit Fitting Guide"
 slug: "auto-fitting"
 category: "User Guide"
-description: "Complete workflow for automatically fitting an outfit to a target avatar."
+description: "Complete workflow for automatically fitting an outfit to a target avatar, with optional pre-adjustment and additional Mesh editing."
 order: 20
 ---
 
-```jsx
-⚫ This mode automatically adjusts and deforms the outfit to fit the Target Avatar.
-⚫ If you need to adjust bones manually, please use Manual Fitting Mode.
-```
+<div class="guide-intro">
+  <p>⚫ This guide covers the <strong>complete workflow for automatically fitting an outfit to the Target Avatar</strong>.</p>
+  <p>⚫ The default is <strong>Skip Pre-adjustment</strong>. When needed, select <strong>Enable Pre-adjustment</strong> to make additional bone and Mesh adjustments before the transformation.</p>
+  <p>⚫ The bone adjustment feature from the former <strong>Manual Fitting Mode</strong> is available before the transformation when you select <strong>Enable Pre-adjustment</strong>.</p>
+</div>
 
 <iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/NGmrRP2BJxk" title="Auto Fitting demo" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+> ⚠️ **Note!** This video was recorded for an earlier version. The startup procedure, option names, and behavior may differ from the current version. An updated video will be added soon.
 
 ## [1] Preparation
 
@@ -94,27 +97,22 @@ order: 20
 
 ## [2] Morphing in Progress
 
-### 3. 🔧きせった (Kisetter) Setup
+### 3. Open きせった (Kisetter)
 
-1. Place きせった (Kisetter) in the Hierarchy.
-    - Prefab path: `Assets\@Eden_Tools\Kisetter\Kisetter.prefab`
+1. From the Unity Editor menu bar, select EDEN LABS > Eden Tools > きせった (Kisetter).
+
+   ![Unity Editor menu path for opening きせった]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+
+2. きせった (Kisetter) opens in a separate editor window.
 
 ### 4. きせった (Kisetter) Setup
 
-1. Click きせった (Kisetter) - Auto Fitting Mode.
-
-![image.png]({{BASE_PATH}}/media/fa9c758660c7fc41.png)
-
-1. Assign **the** previously prepared **avatar and** **outfit** to the きせった (Kisetter).
-
-    ![image.png]({{BASE_PATH}}/media/accec900aaa7f385.png)
+1. In the opened きせった (Kisetter) window, assign the previously prepared **avatar and outfit**.
 
     - **Source Avatar Object**: The original avatar object for the outfit
     - **Source Clothes Object**: The outfit object
     - **Target Avatar Object**: The target avatar object
-2. When using Profile Mode
-
-    ![image.png]({{BASE_PATH}}/media/bbdb578a05be2ec9.png)
+2. When using a Profile
 
     - **Profile**: The Profile that matches the outfit you want to use
     - **Source Clothes Object**: The outfit object
@@ -139,13 +137,63 @@ order: 20
 3. **Body Gap**
     - This parameter sets the minimum distance between the garment and the body.
     - If the body is penetrating the garment significantly, increase this value.
-4. **Skip Foot Fitting**
-    - This option prevents **fitting(shape modification)** from being applied **to shoes**.
-    (Scale adjustments will still be applied.)
-    - To deform the shape according to the specific details of the foot, please disable this option.
-5. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
+
+4. **Pre-adjustment**
+    - This option lets you choose whether to adjust the outfit bones before the transformation.
+    - The default is **Skip Pre-adjustment**. Select **Enable Pre-adjustment** when you want to adjust the bones before the transformation.
+
+<details class="doc-optional-step">
+<summary>If you select “Enable Pre-adjustment”: View bone adjustment instructions</summary>
+
+Enable pre-adjustment to adjust the clothing shape with Bone Adjustment and additional Mesh editing during fitting.
+
+![]({{BASE_PATH}}/media/300303c039d540ee.png)
+
+**Bone Controls**
+
+![]({{BASE_PATH}}/media/0403a56fedd1ed35.png)
+
+- You can change the operation mode by clicking **W: Move / E: Rotation / R: Scale** at the top, or by pressing **W / E / R** on the keyboard.
+    - **W: Move**: Move the Position
+    - **E: Rotation**: Rotate the selected bone
+    - **R: Scale**: Adjust the Scale
+
+**Mirror**
+
+![]({{BASE_PATH}}/media/7b0f0c16790de3d6.png)
+
+- If there is a symmetrical bone on the opposite side, you can move both sides together using the **Mirror** button.
+- When **Mirror: On** is enabled, the movement is mirrored along the avatar’s X-axis.
+
+**Bone List**
+
+![]({{BASE_PATH}}/media/df7b1834b78e0a74.png)
+
+- This is the list of bones that can be adjusted.
+- Adjustable bones are displayed in the Bones List.
+    - **Bone List: Humanoid Bone Only**
+        - Only Humanoid Bones such as Hip and Chest are displayed in the Bone List.
+    - **Bone List: Show Other Bones**
+        - Child bones other than Humanoid Bones such as Hip and Chest are also displayed in the Bone List.
+- **Humanoid Bone Picker**
+    - You can select a bone by clicking the desired body part.
+- You can also select and adjust bones by clicking the blue points on the avatar in the Scene view.
+- **We recommend using this option to make additional detailed adjustments for items such as hats, gloves, and shoes.**
+
+![]({{BASE_PATH}}/media/4db99de895e9a2be.png)
+
+<button type="button" class="doc-details-close" data-details-close>Close pre-adjustment instructions</button>
+</details>
+
+5. **Preserve Shoe Shape**
+    - Select one of the following two options.
+    - **Preserve Shoe Shape** (Default)
+        - Keeps the shape of meshes around the feet.
+    - **Fit to Feet**
+        - Deforms the shoes to match the shape of the feet.
+6. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
     - When enabled, the transformed result is saved as a BlendShape rather than being applied directly to the mesh.
-6. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
+7. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
     - This option reassigns the weights of the clothing mesh based on the target avatar's armature.
     - Please enable this only when you need to connect the costume directly to the avatar's bones without using Modular Avatar or similar features.
 - For detailed explanations of other parameters, please refer to the following document.
@@ -153,11 +201,12 @@ order: 20
 
 ### 6. Performing the Transformation
 
-Click [**Run ALL]** to proceed with the transformation.
-
-![image.png]({{BASE_PATH}}/media/388999557ff08862.png)
+Click **Dress Avatar** to proceed with the transformation.
 
 - Use **the Step-by-Step Progress** below to proceed with Fitting and Weighting step by step.
+
+!!! info "Optional · Adjust After Conversion"
+    Click Adjust After Conversion to perform additional mesh editing. Use it when you want to make further adjustments after conversion.
 
 ## [3] Checking the Results
 

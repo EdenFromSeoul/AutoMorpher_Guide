@@ -133,7 +133,7 @@ Unity 2019ではツールが使用する一部機能に対応していないた�
 
   両方のAvatarのFoot BlendShapeが同じ形になるように調整してください。
 
-- 問題が続く場合は、Advanced Optionの `Skip Foot Fitting` を有効にして足の詳細フィッティングを省略できます。
+- 問題が続く場合は、Basic Optionの **「靴の形状を維持」** を選択して、足周辺のMeshの形状を維持できます。
 
 詳しくは[変形品質を向上させるヒント](../quality-tips/)の足に関する項目をご覧ください。
 
@@ -171,7 +171,7 @@ Unity 2019ではツールが使用する一部機能に対応していないた�
 
 Projectウィンドウにある元のAvatarまたは衣装Prefabを、きせった (Kisetter)へ直接割り当てた場合に発生することがあります。
 
-まずAvatarと衣装を **Hierarchy** へ配置し、Hierarchy上のオブジェクトをきせった (Kisetter)へ割り当ててください。
+まずAvatarと衣装を **Hierarchy** へ配置してください。その後、Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択して独立したウィンドウを開き、Hierarchy上のオブジェクトをそのウィンドウへ割り当ててください。
 
 ---
 
