@@ -6,12 +6,14 @@ description: "Complete workflow for automatically fitting an outfit to a target 
 order: 20
 ---
 
-```jsx
-⚫ This guide covers the **complete workflow for automatically fitting an outfit to the Target Avatar**.
-⚫ The default is **Skip Pre-adjustment**. When needed, select **Enable Pre-adjustment** to make additional bone and Mesh adjustments before the transformation.
-```
+<div class="guide-intro">
+  <p>⚫ This guide covers the <strong>complete workflow for automatically fitting an outfit to the Target Avatar</strong>.</p>
+  <p>⚫ The default is <strong>Skip Pre-adjustment</strong>. When needed, select <strong>Enable Pre-adjustment</strong> to make additional bone and Mesh adjustments before the transformation.</p>
+</div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/f08250d6b8efb420.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+
+> ⚠️ **Note!** This video was recorded for an earlier version. The startup procedure, option names, and behavior may differ from the current version. An updated video will be added soon.
 
 ## [1] Preparation
 
@@ -94,27 +96,21 @@ order: 20
 
 ## [2] Morphing in Progress
 
-### 3. 🔧きせった (Kisetter) Setup
+### 3. Open きせった (Kisetter)
 
-1. Place きせった (Kisetter) in the Hierarchy.
-    - Prefab path: `Assets\@Eden_Tools\Kisetter\Kisetter.prefab`
+1. From the Unity Editor menu bar, select EDEN LABS > Eden Tools > きせった (Kisetter).
+2. きせった (Kisetter) opens in a separate editor window.
+
+![Unity Editor menu path for opening きせった]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
 
 ### 4. きせった (Kisetter) Setup
 
-1. Start Automatic Outfit Fitting in きせった (Kisetter).
-
-![image.png]({{BASE_PATH}}/media/fa9c758660c7fc41.png)
-
-1. Assign **the** previously prepared **avatar and** **outfit** to the きせった (Kisetter).
-
-    ![image.png]({{BASE_PATH}}/media/accec900aaa7f385.png)
+1. In the opened きせった (Kisetter) window, assign the previously prepared **avatar and outfit**.
 
     - **Source Avatar Object**: The original avatar object for the outfit
     - **Source Clothes Object**: The outfit object
     - **Target Avatar Object**: The target avatar object
-2. When using Profile Mode
-
-    ![image.png]({{BASE_PATH}}/media/bbdb578a05be2ec9.png)
+2. When using a Profile
 
     - **Profile**: The Profile that matches the outfit you want to use
     - **Source Clothes Object**: The outfit object

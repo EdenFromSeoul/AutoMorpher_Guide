@@ -6,12 +6,14 @@ description: "의상을 대상 아바타에 맞게 자동으로 변형하고, �
 order: 20
 ---
 
-```jsx
-⚫ 의상을 **Target Avatar에 맞게 자동으로 대응하는 전체 작업 흐름**입니다.
-⚫ 기본적으로 **사전 조정 skip**으로 진행하며, 필요한 경우 **사전 조정 진행**을 선택해 변형 전에 본과 Mesh를 추가로 조정할 수 있습니다.
-```
+<div class="guide-intro">
+  <p>⚫ 의상을 <strong>Target Avatar에 맞게 자동으로 대응하는 전체 작업 흐름</strong>입니다.</p>
+  <p>⚫ 기본적으로 <strong>사전 조정 skip</strong>으로 진행하며, 필요한 경우 <strong>사전 조정 진행</strong>을 선택해 변형 전에 본과 Mesh를 추가로 조정할 수 있습니다.</p>
+</div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/64f241b81ab83929.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
+
+> ⚠️ **주의!** 이 영상은 업데이트 이전 버전 기준으로 제작되었습니다. 현재 버전과 시작 방법, 옵션명, 동작이 다를 수 있습니다. 업데이트 버전의 영상은 빠른 시일 내에 추가할 예정입니다.
 
 ## [1] 준비
 
@@ -96,27 +98,21 @@ order: 20
 
 ## [2] 변형 진행
 
-### 3. 🔧きせった (Kisetter)r Setup
+### 3. きせった (Kisetter) 창 열기
 
-1. きせった (Kisetter)를 Hierachy에 배치합니다.
-    - Prefab 경로: `Assets\@Eden_Tools\Kisetter\Kisetter.prefab`
+1. Unity 에디터 상단 메뉴 바에서 EDEN LABS > Eden Tools > きせった (Kisetter)를 선택합니다.
+2. きせった (Kisetter)가 별도 에디터 창으로 열립니다.
 
-### 4. きせった (Kisetter) Setup
+![Unity 에디터 상단 메뉴 바의 きせった 실행 경로]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
 
-1. きせった (Kisetter)에서 의상 자동 대응을 시작합니다.
+### 4. きせった (Kisetter) 설정
 
-![image.png]({{BASE_PATH}}/media/fa9c758660c7fc41.png)
-
-1. 앞서 준비한 **아바타**와 **의상**을 きせった (Kisetter)에 할당해 줍니다.
-
-    ![image.png]({{BASE_PATH}}/media/accec900aaa7f385.png)
+1. 열린 きせった (Kisetter) 창에서 앞서 준비한 **아바타**와 **의상**을 할당합니다.
 
     - **Source Avatar Object**: 의상의 원본 아바타 오브젝트
     - **Source Clothes Object**: 의상 오브젝트
     - **Target Avatar Object**: 대응할 아바타 오브젝트
-2. Profile Mode 일 경우
-
-    ![image.png]({{BASE_PATH}}/media/bbdb578a05be2ec9.png)
+2. Profile을 사용하는 경우
 
     - **Profile**: 사용할 의상에 맞는 Profile
     - **Source Clothes Object**: 의상 오브젝트

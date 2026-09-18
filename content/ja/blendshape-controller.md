@@ -6,9 +6,9 @@ description: "複数のMeshのBlendShapeを一か所で確認・調整します�
 order: 50
 ---
 
-```jsx
-⚫ Object配下のすべてのMeshのBlendShapeを一括で調整できるツールです。
-```
+<div class="guide-intro">
+  <p>⚫ Object配下のすべてのMeshのBlendShapeを一括で調整できるツールです。</p>
+</div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/54a6d32ee890122e.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
 

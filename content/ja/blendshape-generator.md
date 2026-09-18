@@ -6,9 +6,9 @@ description: "アバターのBlendShapeを衣装Meshに生成する方法です�
 order: 40
 ---
 
-```jsx
-⚫ アバター内の特定のMeshが持っているBlendShapeを、他のMeshにも追加する機能です。
-```
+<div class="guide-intro">
+  <p>⚫ アバター内の特定のMeshが持っているBlendShapeを、他のMeshにも追加する機能です。</p>
+</div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/f00f010315c1e2c6.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
 

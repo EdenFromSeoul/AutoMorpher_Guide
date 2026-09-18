@@ -194,7 +194,7 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 이 오류는 **Project 창에 있는 Prefab 원본 아바타/의상을 きせった (Kisetter)에 직접 할당했을 때** 발생할 수 있습니다.
 
-Project 창의 아바타/의상을 바로 할당하지 말고, 먼저 **Hierarchy에 배치한 뒤**, Hierarchy에 있는 오브젝트를 きせった (Kisetter)에 할당해 주세요.
+Project 창의 아바타/의상을 바로 할당하지 말고, 먼저 **Hierarchy에 배치해 주세요.** 그다음 Unity 에디터 상단 메뉴 바에서 EDEN LABS > Eden Tools > きせった (Kisetter)를 선택해 별도 창을 열고, Hierarchy의 오브젝트를 해당 창에 할당해 주세요.
 
 ---
 

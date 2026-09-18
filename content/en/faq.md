@@ -171,7 +171,7 @@ Check the following:
 
 This error may occur when an original avatar or clothing Prefab from the Project window is assigned directly to きせった (Kisetter).
 
-Place the avatar and clothing in the **Hierarchy** first, then assign the Hierarchy objects to きせった (Kisetter).
+Place the avatar and clothing in the **Hierarchy** first. Then select EDEN LABS > Eden Tools > きせった (Kisetter) from the Unity Editor menu bar to open the separate window, and assign the Hierarchy objects there.
 
 ---
 

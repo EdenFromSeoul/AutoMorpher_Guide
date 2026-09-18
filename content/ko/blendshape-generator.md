@@ -6,9 +6,9 @@ description: "아바타의 BlendShape를 의상 Mesh에 생성하는 방법입�
 order: 40
 ---
 
-```jsx
-⚫ 아바타의 특정 Mesh가 가지고 있는 BlendShape를 다른 Mesh에도 추가해주는 기능입니다.
-```
+<div class="guide-intro">
+  <p>⚫ 아바타의 특정 Mesh가 가지고 있는 BlendShape를 다른 Mesh에도 추가해주는 기능입니다.</p>
+</div>
 
 <video controls preload="metadata" src="{{BASE_PATH}}/media/f00f010315c1e2c6.mp4">이 브라우저는 동영상 재생을 지원하지 않습니다.</video>
 

@@ -171,7 +171,7 @@ Unity 2019ではツールが使用する一部機能に対応していないた�
 
 Projectウィンドウにある元のAvatarまたは衣装Prefabを、きせった (Kisetter)へ直接割り当てた場合に発生することがあります。
 
-まずAvatarと衣装を **Hierarchy** へ配置し、Hierarchy上のオブジェクトをきせった (Kisetter)へ割り当ててください。
+まずAvatarと衣装を **Hierarchy** へ配置してください。その後、Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択して独立したウィンドウを開き、Hierarchy上のオブジェクトをそのウィンドウへ割り当ててください。
 
 ---
 

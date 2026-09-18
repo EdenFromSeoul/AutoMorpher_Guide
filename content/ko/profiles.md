@@ -45,12 +45,8 @@ order: 60
     ![image.png]({{BASE_PATH}}/media/99347e5849f09c7b.png)
 
 2. きせった (Kisetter)에 Profile이 정상적으로 보이는지 확인합니다.
-    1. きせった (Kisetter)를 Hierarchy에 배치
-        - Prefab 경로: `Assets\@Eden_Tools\Kisetter\Kisetter.prefab`
-        - 또는 빈 게임 오브젝트에 きせった (Kisetter) Component를 추가합니다.
-    2. **프로필 모드** 를 클릭합니다.
-
-        ![image.png]({{BASE_PATH}}/media/f420e636785bfa85.png)
+    1. Unity 에디터 상단 메뉴 바에서 EDEN LABS > Eden Tools > きせった (Kisetter)를 선택합니다.
+    2. きせった (Kisetter)가 별도 에디터 창으로 열리면 **프로필 모드**를 클릭합니다.
 
     3. **Source Avatar - Profile에 추가한 Profile이 존재하는지 확인합니다.**
 

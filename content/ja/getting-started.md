@@ -38,6 +38,13 @@ order: 10
 Assets/@Eden_Tools/Eden_AutoMorpher
 ```
 
+## きせった (Kisetter)を起動する
+
+![Unityエディター上部メニューバーからきせったを起動する経路]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
+
+1. Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択します。
+2. きせった (Kisetter)が独立したエディターウィンドウで開きます。
+
 ## 最新バージョンへのアップデート
 
 既存バージョンがインストールされている場合は、削除せずに新しいUnityPackageを既存プロジェクトへ上書きインポートします。Importウィンドウでは新しいパッケージの項目をすべて選択してください。
