@@ -319,9 +319,10 @@ kbd { border: 1px solid var(--line); background: var(--surface-soft); border-rad
 .doc-content th, .doc-content td { padding: 11px 13px; border-bottom: 1px solid var(--line); text-align: left; }
 .doc-content th { background: var(--surface-soft); }
 .admonition { margin: 22px 0; padding: 16px 18px; border: 1px solid var(--blue-200); border-radius: 12px; background: var(--blue-50); }
-.admonition strong { display: block; margin-bottom: 5px; color: var(--blue-700); font-size: 12px; }
-.admonition p { margin: 0; font-size: 13px; }
+.admonition strong { display: block; margin-bottom: 5px; color: var(--blue-700); font-size: 15px; }
+.admonition p { margin: 0; font-size: 14px; line-height: 1.6; }
 .admonition.warning { border-color: #f3c770; background: color-mix(in srgb, #fff2cc 70%, var(--surface)); }
+.admonition.tip { border-color: #f3c770; background: color-mix(in srgb, #fff2cc 70%, var(--surface)); }
 .process-overview {
   display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: stretch; gap: 10px; margin: 26px 0 30px;

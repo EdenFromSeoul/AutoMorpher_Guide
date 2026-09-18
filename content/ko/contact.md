@@ -12,7 +12,7 @@ order: 95
 
 ## 문의 채널
 
-문제가 해결되지 않으면 [Eden Labs Discord](https://discord.com/invite/JFzDGrN2bF)의 **[❓｜help_質問]** 채널로 문의해 주세요.
+문제가 해결되지 않으면 [Eden Labs Discord](https://discord.com/invite/JFzDGrN2bF)의 **[❓🛠️｜tools-help・ツールの質問]** 채널로 문의해 주세요.
 
 ## 함께 보내면 좋은 정보
 

@@ -19,7 +19,7 @@ order: 60
     - 만들 Profile에 따라 👠**Foot Heel, 👙Breast** 등의 Shape Key를 조절합니다.
 5. **Kisetter – Kisetter_ProfileSaver** 를 **Hierarchy** 에 배치합니다.
 6. **Profile Name** 에 생성할 Profile의 이름을 입력합니다.
-7. **Source Avatar** 슬롯에 대상 아바타를 할당합니다.
+7. **원본 아바타** 슬롯에 대상 아바타를 할당합니다.
 8. **Source Body Mesh** 슬롯에 **Body Skinned Mesh Renderer** 를 할당합니다.
 
     ![image.png]({{BASE_PATH}}/media/d1548659e15d02f4.png)
@@ -45,10 +45,10 @@ order: 60
     ![image.png]({{BASE_PATH}}/media/99347e5849f09c7b.png)
 
 2. きせった (Kisetter)에 Profile이 정상적으로 보이는지 확인합니다.
-    1. Unity 에디터 상단 메뉴 바에서 EDEN LABS > Eden Tools > きせった (Kisetter)를 선택합니다.
-    2. きせった (Kisetter)가 별도 에디터 창으로 열리면 **프로필 모드**를 클릭합니다.
+    1. Unity 에디터 상단 메뉴 바에서 EDEN LABS > きせった (Kisetter)를 선택합니다.
+    2. きせった (Kisetter)가 별도 에디터 창으로 열리면 **변환 원본 프로필 사용**을 선택합니다.
 
-    3. **Source Avatar - Profile에 추가한 Profile이 존재하는지 확인합니다.**
+    3. **변환 원본 프로필 사용을 선택한 뒤, 추가한 Profile이 표시되는지 확인합니다.**
 
         ![image.png]({{BASE_PATH}}/media/2066d7a880e49364.png)
 

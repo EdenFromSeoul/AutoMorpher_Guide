@@ -6,7 +6,9 @@ description: "가슴·발·신발·모자·장갑 등 변형 품질을 개선하
 order: 80
 ---
 
----
+!!! tip "💡 변형 품질을 높이는 팁"
+    - 원본 아바타와 입힐 아바타의 체형이 비슷할수록 변형 품질이 좋아집니다.
+    - 특히 발의 각도, 가슴 크기처럼 체형 차이가 크게 나타나는 부위는 가능한 한 비슷하게 맞춘 후 변형을 진행하시는 것을 추천드립니다.
 
 ## 👚체형 차이로 인해 가슴 변형이 깨질 때 해결 방법
 
@@ -38,8 +40,8 @@ order: 80
 **사전 조정 진행을 선택하면 체형 차이가 큰 부위를 먼저 맞춰 더 자연스러운 피팅 결과를 얻을 수 있습니다.**
 
 - **사전 조정 진행**을 선택한 뒤, Bone Adjustment와 Mesh 추가 보정 단계에서 의상 형태를 조정합니다.
-- 이후 **Mesh Studio 등 Mesh 편집 툴**을 사용해 **Target Clothes Object**를 추가 조정합니다.
-    - 특히 가슴 등 체형 차이가 큰 부위를 Source Clothes Object와 유사한 형태로 맞춰주세요.
+- 이후 **Mesh Studio 등 Mesh 편집 툴**을 사용해 **변환된 의상**을 추가 조정합니다.
+    - 특히 가슴 등 체형 차이가 큰 부위를 입힐 의상과 유사한 형태로 맞춰주세요.
 - 이렇게 조정하면 전체적으로 아바타 체형에 더 자연스럽게 맞는 결과를 얻을 수 있습니다.
 
 ![image.png]({{BASE_PATH}}/media/4d7849ac3b32aab7.png)
@@ -54,7 +56,7 @@ order: 80
 
 따라서 변형을 진행하기 전,
 
-**Source Avatar와 Target Avatar 간의 발 형태를 가능한 한 동일하게 조정**하는 것을 권장합니다.
+**원본 아바타와 입힐 아바타 간의 발 형태를 가능한 한 동일하게 조정**하는 것을 권장합니다.
 
 <div class="doc-media-grid doc-media-grid-2">
   <figure>
@@ -94,7 +96,7 @@ order: 80
 
 ## 🥿 신발이 물 웅덩이처럼 납작해질 때
 
-- 만약 신발이 물 웅덩이처럼 납작해진다면, Source Avatar의 Foot 쪽에 Shrink가 걸려있지 않은 지를 확인해주세요.
+- 만약 신발이 물 웅덩이처럼 납작해진다면, 원본 아바타의 Foot 쪽에 Shrink가 걸려있지 않은 지를 확인해주세요.
 <div class="doc-media-grid doc-media-grid-2">
   <figure>
     <figcaption>Bad Case</figcaption>
@@ -110,7 +112,7 @@ order: 80
 ### a. 사전 조정으로 발 부분 조정하는 방법
 
 - **사전 조정 진행**을 선택하면 발 크기를 직접 조정할 수 있습니다.
-    - Target Clothes Object의 Armature 아래, Foot 본 바로 위에 신발 Scale 조정을 위한 **scaleSupportBone**이 생성됩니다.
+    - 변환된 의상의 Armature 아래, Foot 본 바로 위에 신발 Scale 조정을 위한 **scaleSupportBone**이 생성됩니다.
     - 해당 본의 **Scale과 Position을 조정하면** 발 부분을 더 편하게 맞출 수 있습니다.
 
 ![image.png]({{BASE_PATH}}/media/db67a2c69d60ef36.png)

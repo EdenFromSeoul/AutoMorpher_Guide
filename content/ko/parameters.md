@@ -52,7 +52,7 @@ order: 70
 
 ---
 
-## 3. Body Gap
+## 3. 신체 표면 간격
 
 ![image.png]({{BASE_PATH}}/media/c67a2ab5dcd06bd5.png)
 

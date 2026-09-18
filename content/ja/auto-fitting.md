@@ -7,7 +7,7 @@ order: 20
 ---
 
 <div class="guide-intro">
-  <p>⚫ 衣装を<strong>Target Avatarに合わせて自動対応する全体の手順</strong>です。</p>
+  <p>⚫ 衣装を<strong>変換先アバターに合わせて自動対応する全体の手順</strong>です。</p>
   <p>⚫ 基本的には<strong>事前調整をスキップ</strong>して進め、必要に応じて<strong>事前調整を行う</strong>を選択して、変形前にボーンとMeshを追加調整できます。</p>
   <p>⚫ 以前の<strong>Manual Fitting Mode</strong>で使用していたボーン調整機能は、<strong>事前調整を行う</strong>を選択すると変形前に使用できます。</p>
 </div>
@@ -16,9 +16,13 @@ order: 20
 
 > ⚠️ **注意！** この動画はアップデート前のバージョンを基にしています。現在のバージョンとは開始方法、オプション名、動作が異なる場合があります。更新版の動画は近日中に追加する予定です。
 
+!!! tip "💡 変形品質を高めるヒント"
+    - 変換元アバターと変換先アバターの体型が近いほど、変形品質が向上します。
+    - 特に足の角度や胸の大きさなど、体型差が出やすい部分は、できるだけ近い状態に合わせてから変形することをおすすめします。
+
 ## [1] 準備
 
-### 1. 🧍‍♂️Source Avatar Setup
+### 1. 🧍‍♂️変換元アバターの設定
 
 1. アバターを Scene に配置し、**Rotation** と **Scale** をリセットします。
 2. アバターに **Animator** と、身体に該当する **Skinned Mesh Renderer** が正しく存在しているか確認します。
@@ -29,13 +33,13 @@ order: 20
 
 ![]({{BASE_PATH}}/media/466cf73fc279e345.png)
 
-### 1. 👕Source Clothes Setup
+### 1. 👕着せる衣装の設定
 
-1. 衣装を Scene に配置し、**Source Avatar** の子オブジェクトにしたうえで、位置とサイズを調整します。
+1. 衣装を Scene に配置し、**変換元アバター** の子オブジェクトにしたうえで、位置とサイズを調整します。
 
     ![]({{BASE_PATH}}/media/e0968448f39f5435.png)
 
-2. Source Avatar に合わせて、衣装の **BlendShape** を調整します。
+2. 変換元アバターに合わせて、衣装の **BlendShape** を調整します。
 
     ![]({{BASE_PATH}}/media/d89034290e6953d7.png)
 
@@ -44,7 +48,12 @@ order: 20
     ![]({{BASE_PATH}}/media/ebdd8f821892ae10.png)
 
 
-### 1-2. 📄 Source Profile を使用する場合
+### 1-2. 📄 別途作成したProfileを使用する場合
+
+付属のProfileを使用する場合は、この準備手順は必要ありません。
+
+<details class="doc-optional-step">
+<summary>別途作成したProfileの準備と設定方法</summary>
 
 1. 📄 Profile を準備します。
 - Profile の保存先: `Assets\@Eden_Tools\Kisetter\Profiles`
@@ -59,10 +68,13 @@ order: 20
 
     ![image.png]({{BASE_PATH}}/media/1f6499e157008668.png)
 
-1. Profile が Foot_Heel を調整した Profile の場合は、Target Avatar もそれに合わせて近い足の形になるように BlendShape を調整してください。
+1. Profile が Foot_Heel を調整した Profile の場合は、変換先アバターもそれに合わせて近い足の形になるように BlendShape を調整してください。
     - **衣装に合わせて Foot_Heel または HighHeel Profile を使用してください。**
 
-### 2. 🧍Target Avatar Setup
+<button type="button" class="doc-details-close" data-details-close>プロファイル使用の説明を閉じる</button>
+</details>
+
+### 2. 🧍変換先アバターの設定
 
 1. アバターを Scene に配置し、**Rotation** と **Scale** をリセットします。
 2. アバターに **Animator** と、身体に該当する **Skinned Mesh Renderer** が正しく存在しているか確認します。
@@ -73,7 +85,7 @@ order: 20
 
     ![image.png]({{BASE_PATH}}/media/63feca0954364a0e.png)
 
-    - Source 側で Foot Heel を調整している場合は、Target Avatar も近い足の形になるように BlendShape を調整してください。
+    - 変換元アバター側で Foot Heel を調整している場合は、変換先アバターも近い足の形になるように BlendShape を調整してください。
 
 <div class="doc-media-grid doc-media-grid-2">
   <figure>
@@ -98,7 +110,7 @@ order: 20
 
 ### 3. きせった (Kisetter)を起動する
 
-1. Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択します。
+1. Unityエディター上部のメニューバーから EDEN LABS > きせった (Kisetter) を選択します。
 
    ![Unityエディター上部メニューバーからきせったを起動する経路]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
 
@@ -108,35 +120,23 @@ order: 20
 
 1. 開いたきせった (Kisetter)ウィンドウで、準備した**アバターと衣装**を割り当てます。
 
-    - **Source Avatar Object**: 衣装の元となるアバターオブジェクト
-    - **Source Clothes Object**: 衣装オブジェクト
-    - **Target Avatar Object**: 衣装を対応させる対象のアバターオブジェクト
-2. Profileを使用する場合
+    - **変換元アバター**: 衣装の元となるアバターオブジェクト
+    - **着せる衣装**: 衣装オブジェクト
+    - **変換先アバター**: 衣装を対応させる対象のアバターオブジェクト
+2. 変換元プロファイルを使用する場合
 
+    - **「変換元プロファイルを使用」** ボタンを選択します。
     - **Profile**: 使用する衣装に合った Profile
-    - **Source Clothes Object**: 衣装オブジェクト
-    - **Target Avatar Object**: 対応させるアバターオブジェクト
+    - **着せる衣装**: 衣装オブジェクト
+    - **変換先アバター**: 対応させるアバターオブジェクト
 
 ### 5. きせった (Kisetter) オプション設定
 
-1. **Body Meshを自動的に割り当てる**
-    1. チェックを入れると、アバターの胴体に該当するメッシュを自動的に検出します。
-    2. **Body Meshが自動的に検出されなかった場合、Body Meshの選択ウィンドウが表示されます。**
-        1. このウィンドウで**胴体に該当するメッシュを選択し、[Select]ボタンをクリックしてください。**
-
-    ![]({{BASE_PATH}}/media/c53593bfe1a40b1f.png)
-
-2. **Mesh List**
-
-    ![]({{BASE_PATH}}/media/96e934f55c9b6933.png)
-
-    - **[Refresh Mesh List]** ボタンを押して、メッシュリストを更新します。
-    - 変形させないメッシュがある場合は、該当する項目のチェックを外してください。
-3. **Body Gap**
+1. **体表面との間隔**
     - 衣装とボディの間の最小距離を設定するパラメータです。
     - ボディの貫通（穴あき）がひどい場合は、この値を大きくしてください。
 
-4. **事前調整**
+2. **事前調整**
     - 変形前に衣装のボーンを調整するかどうかを選択するオプションです。
     - 初期設定は **事前調整をスキップ** です。変形前にボーンを調整する場合は **事前調整を行う** を選択してください。
 
@@ -183,16 +183,16 @@ order: 20
 <button type="button" class="doc-details-close" data-details-close>事前調整の説明を閉じる</button>
 </details>
 
-5. **靴の形状を維持**
+3. **靴の形状を維持**
     - 以下の2つのオプションから1つを選択します。
     - **靴の形状を維持**（初期設定）
         - 足周辺のMeshの形状を維持します。
     - **足に合わせて変形**
         - 足の形状に合わせて靴を細かく変形します。
-6. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
+4. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
     - 有効にすると、変形結果をメッシュに直接反映せず、BlendShapeとして保存します。
-7. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
-    - 衣装メッシュのウェイトを、Target Avatarのアーマチュアを基準に再設定するオプションです。
+5. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
+    - 衣装メッシュのウェイトを、変換先アバターのアーマチュアを基準に再設定するオプションです。
     - Modular Avatarなどを使用せず、衣装をアバターのボーンに直接接続する必要がある場合のみ有効にしてください。
 - その他のパラメータに関する詳しい説明は、以下のドキュメントを参照してください。
     - [パラメータの説明](../parameters/)

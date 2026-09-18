@@ -19,7 +19,7 @@ order: 60
     - 作成するProfileに応じて 👠**Foot Heel、👙Breast** などのShape Keyを調整します。
 5. **Kisetter – Kisetter_ProfileSaver** を **Hierarchy** に配置します。
 6. **Profile Name** に作成するProfile名を入力します。
-7. **Source Avatar** スロットに対象のアバターを割り当てます。
+7. **変換元アバター** スロットに対象のアバターを割り当てます。
 8. **Source Body Mesh** スロットに **Body Skinned Mesh Renderer** を割り当てます。
 
     ![image.png]({{BASE_PATH}}/media/d1548659e15d02f4.png)
@@ -45,10 +45,10 @@ order: 60
     ![image.png]({{BASE_PATH}}/media/99347e5849f09c7b.png)
 
 2. きせった (Kisetter)に Profileが正常に表示されているか確認します。
-    1. Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択します。
-    2. きせった (Kisetter)が独立したエディターウィンドウで開いたら、**プロファイルモード**をクリックします。
+    1. Unityエディター上部のメニューバーから EDEN LABS > きせった (Kisetter) を選択します。
+    2. きせった (Kisetter)が独立したエディターウィンドウで開いたら、**「変換元プロファイルを使用」**を選択します。
 
-    3. Source Avatar - Profileに、追加したProfileが表示されているか確認します。
+    3. **「変換元プロファイルを使用」を選択した後、追加したProfileが表示されているか確認します。**
 
         ![image.png]({{BASE_PATH}}/media/2066d7a880e49364.png)
 

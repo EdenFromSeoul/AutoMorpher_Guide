@@ -42,7 +42,7 @@ Assets/@Eden_Tools/Eden_AutoMorpher
 
 ![Unityエディター上部メニューバーからきせったを起動する経路]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
 
-1. Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択します。
+1. Unityエディター上部のメニューバーから EDEN LABS > きせった (Kisetter) を選択します。
 2. きせった (Kisetter)が独立したエディターウィンドウで開きます。
 
 ## 最新バージョンへのアップデート

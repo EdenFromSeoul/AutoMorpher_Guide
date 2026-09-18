@@ -12,7 +12,7 @@ First, check [Q&A and Troubleshooting](../faq/) for the same symptom. You can se
 
 ## Support Channel
 
-If the problem remains unresolved, contact us in the **[❓｜help_質問]** channel on the [Eden Labs Discord](https://discord.com/invite/JFzDGrN2bF).
+If the problem remains unresolved, contact us in the **[❓🛠️｜tools-help・ツールの質問]** channel on the [Eden Labs Discord](https://discord.com/invite/JFzDGrN2bF).
 
 ## Information to Include
 

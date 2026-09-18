@@ -7,7 +7,7 @@ order: 20
 ---
 
 <div class="guide-intro">
-  <p>⚫ 의상을 <strong>Target Avatar에 맞게 자동으로 대응하는 전체 작업 흐름</strong>입니다.</p>
+  <p>⚫ 의상을 <strong>입힐 아바타에 맞게 자동으로 대응하는 전체 작업 흐름</strong>입니다.</p>
   <p>⚫ 기본적으로 <strong>사전 조정 skip</strong>으로 진행하며, 필요한 경우 <strong>사전 조정 진행</strong>을 선택해 변형 전에 본과 Mesh를 추가로 조정할 수 있습니다.</p>
   <p>⚫ 기존 <strong>Manual Fitting Mode</strong>에서 사용하던 본 조정 기능은 <strong>사전 조정 진행</strong>을 선택하면 변형 전에 사용할 수 있습니다.</p>
 </div>
@@ -16,9 +16,13 @@ order: 20
 
 > ⚠️ **주의!** 이 영상은 업데이트 이전 버전 기준으로 제작되었습니다. 현재 버전과 시작 방법, 옵션명, 동작이 다를 수 있습니다. 업데이트 버전의 영상은 빠른 시일 내에 추가할 예정입니다.
 
+!!! tip "💡 변형 품질을 높이는 팁"
+    - 원본 아바타와 입힐 아바타의 체형이 비슷할수록 변형 품질이 좋아집니다.
+    - 특히 발의 각도, 가슴 크기처럼 체형 차이가 크게 나타나는 부위는 가능한 한 비슷하게 맞춘 후 변형을 진행하시는 것을 추천드립니다.
+
 ## [1] 준비
 
-### 1. 🧍‍♂️Source Avatar Setup
+### 1. 🧍‍♂️원본 아바타 설정
 
 1. 아바타를 Scene에 배치한 뒤 **회전(Rotation)과 스케일(Scale)을 초기화**합니다.
 2. 아바타에 **Animator**와 몸통**에 해당하는 Skinned Mesh Renderer**가 정상적으로 존재하는지 확인합니다.
@@ -30,13 +34,13 @@ order: 20
     ![image.png]({{BASE_PATH}}/media/466cf73fc279e345.png)
 
 
-### 1. 👕Source Clothes Setup
+### 1. 👕입힐 의상 설정
 
-1. 의상을 Scene에 배치한 뒤 **Source Avatar의 자식으로 넣고 위치와 크기**를 맞춰줍니다.
+1. 의상을 Scene에 배치한 뒤 **원본 아바타의 자식으로 넣고 위치와 크기**를 맞춰줍니다.
 
     ![image.png]({{BASE_PATH}}/media/e0968448f39f5435.png)
 
-2. Source Avatar에 맞게 의상의 BlendShape**를 조절**합니다.
+2. 원본 아바타에 맞게 의상의 BlendShape**를 조절**합니다.
 
     ![image.png]({{BASE_PATH}}/media/d89034290e6953d7.png)
 
@@ -45,7 +49,12 @@ order: 20
     ![image.png]({{BASE_PATH}}/media/ebdd8f821892ae10.png)
 
 
-### 1-2. 📄 Source Profile 사용
+### 1-2. 📄 별도로 제작한 프로필을 사용하는 경우
+
+기본 제공 프로필을 사용하는 경우에는 이 준비 과정이 필요하지 않습니다.
+
+<details class="doc-optional-step">
+<summary>별도 제작 프로필 준비 및 설정 방법</summary>
 
 1. 📄 Profile 준비
 - Profile 경로: `Assets\@Eden_Tools\Kisetter\Profiles`
@@ -62,10 +71,13 @@ order: 20
 
 ![image.png]({{BASE_PATH}}/media/1f6499e157008668.png)
 
-1. 만약, Profile이 Foot_Heel을 조정한 Profile이라면, Target Avatar도 그에 맞춰 비슷한 발의 형태가 되도록 BlendShape를 조정해주세요.
+1. 만약, Profile이 Foot_Heel을 조정한 Profile이라면, 입힐 아바타도 그에 맞춰 비슷한 발의 형태가 되도록 BlendShape를 조정해주세요.
     1. **의상에 맞춰 Foot_Heel (or HighHeel) Profile을 사용해주세요.**
 
-### 2. 🧍Target Avatar Setup
+<button type="button" class="doc-details-close" data-details-close>프로필 사용 안내 닫기</button>
+</details>
+
+### 2. 🧍입힐 아바타 설정
 
 1. 아바타를 Scene에 배치한 뒤 **회전(Rotation)과 스케일(Scale)을 초기화**합니다.
 2. 아바타에 **Animator**와 몸통**에 해당하는 Skinned Mesh Renderer**가 정상적으로 존재하는지 확인합니다.
@@ -76,7 +88,7 @@ order: 20
 
     ![image.png]({{BASE_PATH}}/media/63feca0954364a0e.png)
 
-- 만약, Source의 Foot Heel을 조정한 경우 Target Avatar도 비슷한 발의 형태가 되도록 BlendShape를 조정해주세요.
+- 만약, 원본 아바타의 Foot Heel을 조정한 경우 입힐 아바타도 비슷한 발의 형태가 되도록 BlendShape를 조정해주세요.
 
 <div class="doc-media-grid doc-media-grid-2">
   <figure>
@@ -101,7 +113,7 @@ order: 20
 
 ### 3. きせった (Kisetter) 창 열기
 
-1. Unity 에디터 상단 메뉴 바에서 EDEN LABS > Eden Tools > きせった (Kisetter)를 선택합니다.
+1. Unity 에디터 상단 메뉴 바에서 EDEN LABS > きせった (Kisetter)를 선택합니다.
 
    ![Unity 에디터 상단 메뉴 바의 きせった 실행 경로]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
 
@@ -111,36 +123,24 @@ order: 20
 
 1. 열린 きせった (Kisetter) 창에서 앞서 준비한 **아바타**와 **의상**을 할당합니다.
 
-    - **Source Avatar Object**: 의상의 원본 아바타 오브젝트
-    - **Source Clothes Object**: 의상 오브젝트
-    - **Target Avatar Object**: 대응할 아바타 오브젝트
-2. Profile을 사용하는 경우
+    - **원본 아바타**: 의상의 원본 아바타 오브젝트
+    - **입힐 의상**: 의상 오브젝트
+    - **입힐 아바타**: 대응할 아바타 오브젝트
+2. 변환 원본 프로필을 사용하는 경우
 
+    - **변환 원본 프로필 사용** 버튼을 선택합니다.
     - **Profile**: 사용할 의상에 맞는 Profile
-    - **Source Clothes Object**: 의상 오브젝트
-    - **Target Avatar Object**: 대응할 아바타 오브젝트
+    - **입힐 의상**: 의상 오브젝트
+    - **입힐 아바타**: 대응할 아바타 오브젝트
 
 
 ### 5. きせった (Kisetter) Option Setup
 
-1. **Body Mesh 자동으로 할당하기**
-    1. 체크 시, 아바타의 몸통에 대한 Mesh를 자동으로 탐색합니다.
-    2. **Body Mesh를 자동으로 찾지 못한 경우, Body Mesh 선택 창이 표시됩니다.**
-        1. 이 창에서 **몸통에 해당하는 Mesh를 선택한 뒤 [Select] 버튼을 클릭해 주세요.**
-
-    ![image.png]({{BASE_PATH}}/media/c53593bfe1a40b1f.png)
-
-2. **Mesh List**
-
-    ![image.png]({{BASE_PATH}}/media/96e934f55c9b6933.png)
-
-    - **[Refresh Mesh List]** 버튼을 눌러 Mesh 리스트를 새로고침합니다.
-    - 변형하지 않을 Mesh가 있다면 해당 항목의 선택을 해제하세요.
-3. **Body Gap**
+1. **신체 표면 간격**
     - 의상과 바디 사이의 최소 거리를 설정하는 파라미터입니다.
     - 바디 관통(뚫림)이 심하게 발생할 경우 해당 값을 높여주세요.
 
-4. **사전 조정**
+2. **사전 조정**
     - 변형 전에 의상의 본을 미리 조정할지 선택하는 옵션입니다.
     - 기본값은 **사전 조정 skip**이며, 본을 미리 조정하려는 경우 **사전 조정 진행**을 선택합니다.
 
@@ -187,16 +187,16 @@ order: 20
 <button type="button" class="doc-details-close" data-details-close>사전 조정 안내 닫기</button>
 </details>
 
-5. **신발 형태 유지**
+3. **신발 형태 유지**
     - 아래 두 옵션 중 하나를 선택합니다.
     - **신발 형태 유지** (기본 선택)
         - 발 주변 Mesh의 형태를 유지합니다.
     - **발에 맞추어 변형**
         - 발의 형태에 맞춰 신발을 세부적으로 변형합니다.
-6. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
+4. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
     - 활성화 시 변형된 결과를 Mesh에 바로 반영하지 않고 BlendShape로 저장합니다.
-7. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
-    - 의상 Mesh의 Weight를 Target Avatar의 Armature 기준으로 다시 연결하는 옵션입니다.
+5. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
+    - 의상 Mesh의 Weight를 입힐 아바타의 Armature 기준으로 다시 연결하는 옵션입니다.
     - Modular Avatar 등을 사용하지 않고 의상을 아바타 본에 직접 연결해야 할 때만 활성화해주세요.
 - 그 외 다른 Parameter에 대한 자세한 설명은 다음의 문서를 참조해 주세요.
     - [파라미터 설명](../parameters/)

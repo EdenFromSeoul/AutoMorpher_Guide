@@ -91,12 +91,15 @@ function transformAdmonitions(markdown: string): string {
   return markdown.replace(
     /^!!!\s+(\w+)\s+"([^"]+)"\n((?: {4}.*(?:\n|$))+)/gm,
     (_match, kind: string, title: string, body: string) => {
-      const text = body
+      const lines = body
         .split("\n")
         .map((line: string) => line.replace(/^ {4}/, ""))
         .filter(Boolean)
-        .join(" ");
-      return `<aside class="admonition ${kind}"><strong>${title}</strong><p>${text}</p></aside>\n`;
+      const isList = lines.length > 0 && lines.every((line: string) => /^-\s+/.test(line));
+      const content = isList
+        ? `<ul>${lines.map((line: string) => `<li>${line.replace(/^-\s+/, "")}</li>`).join("")}</ul>`
+        : `<p>${lines.join(" ")}</p>`;
+      return `<aside class="admonition ${kind}"><strong>${title}</strong>${content}</aside>\n`;
     },
   );
 }

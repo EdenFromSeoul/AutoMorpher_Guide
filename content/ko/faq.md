@@ -24,13 +24,13 @@ Unity Humanoid로 자동 인식되지 않는 아바타를 사용하거나 Body M
 
 네, A Pose 형태의 아바타도 지원합니다.
 
-A Pose 아바타의 경우에는, 아래 사진처럼 아바타 할당하는 칸 옆에 [**A Pose Avatar를 체크]**해주세요.
+A Pose 아바타의 경우에는, 아래 사진처럼 아바타 할당하는 칸 옆에 **A 포즈 아바타**를 체크해 주세요.
 
 ![image.png]({{BASE_PATH}}/media/921efb52954f2edb.png)
 
 체크할 경우 프로그램이 자동으로 팔을 아래의 사진처럼 T Pose 형태로 변형시켜 대응을 진행합니다.
 
-- Source Avatar의 경우 의상도 자동으로 T Pose 형태에 맞춰 변형시켜 대응을 진행합니다.
+- 원본 아바타의 경우 의상도 자동으로 T Pose 형태에 맞춰 변형시켜 대응을 진행합니다.
 
 ![image.png]({{BASE_PATH}}/media/4bdf81298b21f9e3.png)
 
@@ -114,11 +114,11 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
     → Source Body Mesh의 BlendShape 상태를 확인하고, Shrink 관련 값이 적용되어 있는지 점검해 주세요.
 
-- **Source Avatar와 Source Clothes가 정확히 매칭되지 않은 경우**
+- **원본 아바타와 입힐 의상이 정확히 매칭되지 않은 경우**
 
     → 두 오브젝트의 **위치(Position), 회전(Rotation), 스케일(Scale)** 이 올바르게 맞춰져 있는지 확인해 주세요.
 
-- **Source Avatar와 Source Clothes의 BlendShape가 맞지 않은 경우**
+- **원본 아바타와 입힐 의상의 BlendShape가 맞지 않은 경우**
 
     → 아바타는 [Big_Breast : 0]인데 의상은 [Big_Breast : 100]일 경우 이 차이만큼 더 크게 매칭되기에 의상이 더 크게 변형될 수 있습니다.
 
@@ -144,7 +144,7 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 발 형태가 어색하게 변형되는 경우 아래 사항을 점검해 주세요.
 
-- **Source Avatar / Profile의 Foot BlendShape와 Target Avatar의 Foot BlendShape가 서로 다른 경우**
+- **원본 아바타 / 변환 원본 프로필의 Foot BlendShape와 입힐 아바타의 Foot BlendShape가 서로 다른 경우**
 
     → 두 Avatar의 Foot BlendShape가 **동일한 형태**를 가지도록 조절해 주세요.
 
@@ -177,14 +177,14 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 ## ⚠️ **[clothesHumanoidMatchedBones is null] 오류가 발생합니다.**
 
-이 오류는 **Source Avatar/Profile과 일치하는 Source Clothes의 본을 찾지 못했을 때** 발생합니다.
+이 오류는 **원본 아바타/변환 원본 프로필과 일치하는 입힐 의상의 본을 찾지 못했을 때** 발생합니다.
 
 다음 항목을 확인해 주세요.
 
-- **Source Clothes가 선택한 Source Avatar/Profile 전용 의상인지** 확인해 주세요.
-- 다른 아바타용 의상이거나, 의상의 본 이름/구조가 Source Avatar/Profile과 다를 경우 변형을 진행할 수 없습니다.
+- **입힐 의상이 선택한 원본 아바타/변환 원본 프로필 전용 의상인지** 확인해 주세요.
+- 다른 아바타용 의상이거나, 의상의 본 이름/구조가 원본 아바타/변환 원본 프로필과 다를 경우 변형을 진행할 수 없습니다.
     - 본의 이름과 위치가 일치하는지를 확인해주세요.
-- 의상을 **Source Avatar의 자식으로 배치한 뒤 Transform Reset**을 진행하고 다시 시도해 주세요.
+- 의상을 **원본 아바타의 자식으로 배치한 뒤 Transform Reset**을 진행하고 다시 시도해 주세요.
 
 ![image.png]({{BASE_PATH}}/media/f47b0548486bef92.png)
 
@@ -194,13 +194,13 @@ ex) https://x.com/EDEN_LABS_JP/status/2012466971267215649?s=20
 
 이 오류는 **Project 창에 있는 Prefab 원본 아바타/의상을 きせった (Kisetter)에 직접 할당했을 때** 발생할 수 있습니다.
 
-Project 창의 아바타/의상을 바로 할당하지 말고, 먼저 **Hierarchy에 배치해 주세요.** 그다음 Unity 에디터 상단 메뉴 바에서 EDEN LABS > Eden Tools > きせった (Kisetter)를 선택해 별도 창을 열고, Hierarchy의 오브젝트를 해당 창에 할당해 주세요.
+Project 창의 아바타/의상을 바로 할당하지 말고, 먼저 **Hierarchy에 배치해 주세요.** 그다음 Unity 에디터 상단 메뉴 바에서 EDEN LABS > きせった (Kisetter)를 선택해 별도 창을 열고, Hierarchy의 오브젝트를 해당 창에 할당해 주세요.
 
 ---
 
-## ⚠️ Profile Mode - [refBone transform is null (refBone = {Humanoid Bone})] 오류가 발생합니다.
+## ⚠️ 변환 원본 프로필 사용 - [refBone transform is null (refBone = {Humanoid Bone})] 오류가 발생합니다.
 
-이 오류는 Profile Mode에서 **포즈를 자동으로 조정할 때 기준으로 사용하는 본이 의상에 없을 경우** 발생합니다.
+이 오류는 변환 원본 프로필 사용 시 **포즈를 자동으로 조정할 때 기준으로 사용하는 본이 의상에 없을 경우** 발생합니다.
 
 같은 아바타 전용의 다른 의상이 있다면, 해당 의상에서 **오류에 표시된 refBone에 해당하는 본**을 복사하여 문제가 발생한 의상에 추가해 주세요.
 
@@ -243,7 +243,7 @@ Hip, Chest 등 **아바타 바디에 해당하는 본의 Weight가 Avatar의 Arm
 
 **[Basic Option] - Remove AutoMorphed Other Clothes** 옵션을 활성화한 상태로 대응을 진행하면,
 
-Target Avatar에 이미 존재하는 **きせった (Kisetter)로 대응된 의상**이 자동으로 삭제됩니다.
+입힐 아바타에 이미 존재하는 **きせった (Kisetter)로 대응된 의상**이 자동으로 삭제됩니다.
 
 한 아바타에 **두 개 이상의 의상**을 대응하고 싶으시다면, 해당 옵션을 **비활성화한 상태**로 사용해 주세요.
 
@@ -288,7 +288,7 @@ BlendShape Generator는 기본적으로 **단독으로 BlendShape를 상정하�
 
 변형 과정은 최소한의 입력만으로도 진행할 수 있도록 구성되어,
 
-- **Source Avatar와 Target Avatar만으로도** 변형을 시도할 수 있으며
-- **Source Avatar의 Profile이 존재할 경우**, Target Avatar만으로도 변형이 가능합니다.
+- **원본 아바타와 입힐 아바타만으로도** 변형을 시도할 수 있으며
+- **변환 원본 프로필이 존재할 경우**, 입힐 아바타만으로도 변형이 가능합니다.
 
 현재 변형 결과는 상황에 따라 추가 보정이 필요할 수 있으나, 이 부분은 사용 사례를 바탕으로 **지속적으로 개선해 나가고 있으며**, 궁극적으로는 **모든 사용자가 제약 없이 의상을 활용할 수 있는 환경**을 목표로 개발을 이어가고 있습니다.

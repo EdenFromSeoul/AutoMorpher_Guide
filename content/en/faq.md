@@ -171,13 +171,13 @@ Check the following:
 
 This error may occur when an original avatar or clothing Prefab from the Project window is assigned directly to きせった (Kisetter).
 
-Place the avatar and clothing in the **Hierarchy** first. Then select EDEN LABS > Eden Tools > きせった (Kisetter) from the Unity Editor menu bar to open the separate window, and assign the Hierarchy objects there.
+Place the avatar and clothing in the **Hierarchy** first. Then select EDEN LABS > きせった (Kisetter) from the Unity Editor menu bar to open the separate window, and assign the Hierarchy objects there.
 
 ---
 
-### ⚠️ Profile Mode: `refBone transform is null (refBone = {Humanoid Bone})`
+### ⚠️ Use Source Profile: `refBone transform is null (refBone = {Humanoid Bone})`
 
-This error occurs when the clothing does not contain the reference bone used for automatic pose adjustment in Profile Mode.
+This error occurs when the clothing does not contain the reference bone used for automatic pose adjustment with Use Source Profile.
 
 If you have other clothing made for the same avatar, copy the bone corresponding to the `refBone` named in the error and add it to the clothing with the problem. Match both the bone name and position.
 
@@ -247,6 +247,6 @@ This tool is designed to help users without professional modeling knowledge appl
 It automatically analyzes an avatar's physical features and adjusts clothing to the body shape of the target avatar. The process is designed to work with minimal input:
 
 - You can attempt fitting with only a Source Avatar and Target Avatar.
-- If a Source Avatar Profile is available, you can perform the fitting with only the Target Avatar and clothing.
+- If a Source Profile is available, you can perform the fitting with only the Target Avatar and clothing.
 
 Some results may still require additional correction depending on the avatars and clothing. The tool continues to improve based on actual use cases, with the goal of allowing everyone to use avatar clothing with fewer limitations.

@@ -129,7 +129,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
     marquee: ["OUTFIT FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
     reviews: {
       label: "이용자 후기",
-      heading: "사용한 사람의 말로 확인하세요.",
+      heading: "유저들의 리뷰로 확인하세요.",
       description: "X에 게시된 실제 사용 후기를 작성자, 본문, 사진·영상과 함께 확인할 수 있습니다. 카드를 선택하면 X의 원문으로 이동합니다.",
       previous: "이전 후기",
       next: "다음 후기",

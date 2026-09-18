@@ -42,7 +42,7 @@ Assets/@Eden_Tools/Eden_AutoMorpher
 
 ![Unity Editor menu path for opening きせった]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
 
-1. From the Unity Editor menu bar, select EDEN LABS > Eden Tools > きせった (Kisetter).
+1. From the Unity Editor menu bar, select EDEN LABS > きせった (Kisetter).
 2. きせった (Kisetter) opens in a separate editor window.
 
 ## Updating to the Latest Version

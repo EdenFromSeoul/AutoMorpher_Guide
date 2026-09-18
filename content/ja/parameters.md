@@ -46,7 +46,7 @@ order: 70
 
 ---
 
-## 3. Body Gap
+## 3. 体表面との間隔
 
 ![]({{BASE_PATH}}/media/c67a2ab5dcd06bd5.png)
 

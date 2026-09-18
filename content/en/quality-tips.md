@@ -6,7 +6,9 @@ description: "Improve fitting quality around the chest, feet, shoes, hats, and g
 order: 80
 ---
 
----
+!!! tip "💡 Tips for Improving Conversion Quality"
+    - The more similar the body shapes of the Source Avatar and Target Avatar are, the better the conversion quality will be.
+    - We especially recommend matching areas such as foot angle and breast size as closely as possible before conversion.
 
 ## 👚How to Fix Chest Deformation Caused by Body Shape Differences
 
@@ -38,7 +40,7 @@ before proceeding with the deformation.
 **Select [Enable Pre-adjustment] to adjust areas with significant body shape differences first and achieve a more natural fitting result.**
 
 - Select **[Enable Pre-adjustment]**, then adjust the clothing shape with Bone Adjustment and additional Mesh editing.
-- Then, use **a mesh editing tool such as Mesh Studio**to further adjust **the Target Clothes Object**.
+- Then, use **a mesh editing tool such as Mesh Studio**to further adjust **the converted clothing**.
     - In particular, adjust areas with significant body shape differences, such as the chest, to match the shape of the Source Clothes Object.
 - Adjusting in this way will yield results that fit the avatar’s body shape more naturally overall.
 
@@ -110,7 +112,7 @@ helping prevent the shoes from becoming squashed or losing their original shape.
 ### a. How to adjust the foot with pre-adjustment
 
 - **After selecting [Enable Pre-adjustment], you can directly adjust the foot size.**
-    - **A scaleSupportBone**for adjusting the shoe scale is created below the Target Clothes Object’s Armature, directly above the Foot bone.
+    - **A scaleSupportBone**for adjusting the shoe scale is created below the converted clothing’s Armature, directly above the Foot bone.
     - **Adjusting the scale and position** of this bone allows you to fit the foot area more comfortably.
 
 ![]({{BASE_PATH}}/media/db67a2c69d60ef36.png)

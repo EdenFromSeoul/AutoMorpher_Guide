@@ -48,10 +48,10 @@ order: 60
     ![image.png]({{BASE_PATH}}/media/99347e5849f09c7b.png)
 
 2. Verify that the Profile appears correctly in きせった (Kisetter).
-    1. From the Unity Editor menu bar, select EDEN LABS > Eden Tools > きせった (Kisetter).
-    2. When きせった (Kisetter) opens in a separate editor window, click **Profile Mode**.
+    1. From the Unity Editor menu bar, select EDEN LABS > きせった (Kisetter).
+    2. When きせった (Kisetter) opens in a separate editor window, select **Use Source Profile**.
 
-    3. Check that the added Profile appears under **Source Avatar – Profile**.
+    3. After selecting **Use Source Profile**, check that the added Profile appears.
 
         ![image.png]({{BASE_PATH}}/media/2066d7a880e49364.png)
 

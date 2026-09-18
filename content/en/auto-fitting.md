@@ -16,6 +16,10 @@ order: 20
 
 > ⚠️ **Note!** This video was recorded for an earlier version. The startup procedure, option names, and behavior may differ from the current version. An updated video will be added soon.
 
+!!! tip "💡 Tips for Improving Conversion Quality"
+    - The more similar the body shapes of the Source Avatar and Target Avatar are, the better the conversion quality will be.
+    - We especially recommend matching areas such as foot angle and breast size as closely as possible before conversion.
+
 ## [1] Preparation
 
 ### 1. 🧍‍♂️Source Avatar Setup
@@ -45,7 +49,12 @@ order: 20
     ![image.png]({{BASE_PATH}}/media/ebdd8f821892ae10.png)
 
 
-### 1-2. 📄 Using a Source Profile
+### 1-2. 📄 Using a Separately Created Profile
+
+You do not need to follow these preparation steps when using an included Profile.
+
+<details class="doc-optional-step">
+<summary>How to Prepare and Configure a Custom Profile</summary>
 
 1. Prepare the Profile.
 - Profile path: `Assets\@Eden_Tools\Kisetter\Profiles`
@@ -62,6 +71,9 @@ order: 20
 
 1. If the Profile uses a Foot_Heel adjustment, adjust the Target Avatar’s BlendShapes so that its foot shape is similar.
     - Please use a **Foot_Heel** or **HighHeel** Profile that matches the outfit.
+
+<button type="button" class="doc-details-close" data-details-close>Close profile instructions</button>
+</details>
 
 ### 2. 🧍Target Avatar Setup
 
@@ -99,7 +111,7 @@ order: 20
 
 ### 3. Open きせった (Kisetter)
 
-1. From the Unity Editor menu bar, select EDEN LABS > Eden Tools > きせった (Kisetter).
+1. From the Unity Editor menu bar, select EDEN LABS > きせった (Kisetter).
 
    ![Unity Editor menu path for opening きせった]({{BASE_PATH}}/media/c5c66a352ee78bc4.png)
 
@@ -114,6 +126,7 @@ order: 20
     - **Target Avatar Object**: The target avatar object
 2. When using a Profile
 
+    - Select the **Use Source Profile** button.
     - **Profile**: The Profile that matches the outfit you want to use
     - **Source Clothes Object**: The outfit object
     - **Target Avatar Object**: The avatar object to fit the outfit to
@@ -121,24 +134,11 @@ order: 20
 
 ### 5. きせった (Kisetter) Option Setup
 
-1. **Automatically Assign Body Mesh**
-    1. When checked, the system automatically searches for the mesh corresponding to the avatar's torso.
-    2. **If the Body Mesh cannot be found automatically, the Body Mesh selection window will appear.**
-        1. In this window, **select the mesh corresponding to the torso and click the [Select] button.**
-
-    ![]({{BASE_PATH}}/media/c53593bfe1a40b1f.png)
-
-2. **Mesh List**
-
-    ![]({{BASE_PATH}}/media/96e934f55c9b6933.png)
-
-    - Click the **[Refresh Mesh List]** button to refresh the mesh list.
-    - If there are any meshes you do not want to transform, deselect those items.
-3. **Body Gap**
+1. **Body Gap**
     - This parameter sets the minimum distance between the garment and the body.
     - If the body is penetrating the garment significantly, increase this value.
 
-4. **Pre-adjustment**
+2. **Pre-adjustment**
     - This option lets you choose whether to adjust the outfit bones before the transformation.
     - The default is **Skip Pre-adjustment**. Select **Enable Pre-adjustment** when you want to adjust the bones before the transformation.
 
@@ -185,15 +185,15 @@ Enable pre-adjustment to adjust the clothing shape with Bone Adjustment and addi
 <button type="button" class="doc-details-close" data-details-close>Close pre-adjustment instructions</button>
 </details>
 
-5. **Preserve Shoe Shape**
+3. **Preserve Shoe Shape**
     - Select one of the following two options.
     - **Preserve Shoe Shape** (Default)
         - Keeps the shape of meshes around the feet.
     - **Fit to Feet**
         - Deforms the shoes to match the shape of the feet.
-6. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
+4. **[Advanced Option] - [Save Settings] - Save Result As BlendShape**
     - When enabled, the transformed result is saved as a BlendShape rather than being applied directly to the mesh.
-7. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
+5. **[Advanced Option] - [Weighting Settings] - Transfer Weight To Avatar**
     - This option reassigns the weights of the clothing mesh based on the target avatar's armature.
     - Please enable this only when you need to connect the costume directly to the avatar's bones without using Modular Avatar or similar features.
 - For detailed explanations of other parameters, please refer to the following document.

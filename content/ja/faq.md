@@ -22,13 +22,13 @@ Humanoidとして自動認識されないアバターやBody Meshが複数ある
 
 はい、A Poseのアバターにも対応しています。
 
-A Poseアバターの場合は、下の画像のようにアバター割り当て欄の横にある **A Pose Avatar** を有効にしてください。
+A Poseアバターの場合は、下の画像のようにアバター割り当て欄の横にある **Aポーズアバター** を有効にしてください。
 
 ![image.png]({{BASE_PATH}}/media/921efb52954f2edb.png)
 
 有効にすると、プログラムが自動的に腕をT Poseへ変形して対応を進めます。
 
-- Source Avatarの場合は、衣装も自動的にT Poseに合わせて変形されます。
+- 変換元アバターの場合は、衣装も自動的にT Poseに合わせて変形されます。
 
 ![image.png]({{BASE_PATH}}/media/4bdf81298b21f9e3.png)
 
@@ -101,11 +101,11 @@ Unity 2019ではツールが使用する一部機能に対応していないた�
 
   Source Body MeshのBlendShapeを確認し、Shrink関連の値を解除してください。
 
-- **Source AvatarとSource Clothesが正しく一致していない**
+- **変換元アバターと着せる衣装が正しく一致していない**
 
   2つのオブジェクトの **Position、Rotation、Scale** が正しく合っているか確認してください。
 
-- **Source AvatarとSource ClothesのBlendShape状態が異なる**
+- **変換元アバターと着せる衣装のBlendShape状態が異なる**
 
   例えば、アバターが `Big_Breast: 0`、衣装が `Big_Breast: 100` の場合、その差分が含まれて衣装が大きく変形することがあります。
 
@@ -129,7 +129,7 @@ Unity 2019ではツールが使用する一部機能に対応していないた�
 
 足の形が不自然な場合は、次を確認してください。
 
-- **Source AvatarまたはProfileとTarget AvatarでFoot BlendShapeの形が異なる**
+- **変換元アバターまたは変換元プロファイルと変換先アバターでFoot BlendShapeの形が異なる**
 
   両方のAvatarのFoot BlendShapeが同じ形になるように調整してください。
 
@@ -155,13 +155,13 @@ Unity 2019ではツールが使用する一部機能に対応していないた�
 
 ### ⚠️ `clothesHumanoidMatchedBones is null` エラー
 
-選択したSource AvatarまたはProfileと一致するSource Clothesのボーンを見つけられない場合に発生します。
+選択した変換元アバターまたは変換元プロファイルと一致する着せる衣装のボーンを見つけられない場合に発生します。
 
 次を確認してください。
 
-- Source Clothesが選択したSource AvatarまたはProfile専用の衣装であること
+- 着せる衣装が選択した変換元アバターまたは変換元プロファイル専用の衣装であること
 - 別アバター用の衣装やボーン名・構造が異なる衣装は変形できません。ボーン名と位置が一致しているか確認してください。
-- 衣装をSource Avatarの子に配置し、Transformをリセットしてから再度お試しください。
+- 衣装を変換元アバターの子に配置し、Transformをリセットしてから再度お試しください。
 
 ![image.png]({{BASE_PATH}}/media/f47b0548486bef92.png)
 
@@ -171,13 +171,13 @@ Unity 2019ではツールが使用する一部機能に対応していないた�
 
 Projectウィンドウにある元のAvatarまたは衣装Prefabを、きせった (Kisetter)へ直接割り当てた場合に発生することがあります。
 
-まずAvatarと衣装を **Hierarchy** へ配置してください。その後、Unityエディター上部のメニューバーから EDEN LABS > Eden Tools > きせった (Kisetter) を選択して独立したウィンドウを開き、Hierarchy上のオブジェクトをそのウィンドウへ割り当ててください。
+まずAvatarと衣装を **Hierarchy** へ配置してください。その後、Unityエディター上部のメニューバーから EDEN LABS > きせった (Kisetter) を選択して独立したウィンドウを開き、Hierarchy上のオブジェクトをそのウィンドウへ割り当ててください。
 
 ---
 
-### ⚠️ Profile Mode: `refBone transform is null (refBone = {Humanoid Bone})`
+### ⚠️ 変換元プロファイルを使用: `refBone transform is null (refBone = {Humanoid Bone})`
 
-Profile Modeでポーズを自動調整する際に使用する基準ボーンが衣装に存在しない場合に発生します。
+変換元プロファイルを使用してポーズを自動調整する際に使用する基準ボーンが衣装に存在しない場合に発生します。
 
 同じアバター専用の別衣装がある場合は、エラーに表示された `refBone` に該当するボーンをコピーし、問題の衣装へ追加してください。ボーン名と位置を同じにします。
 
@@ -207,7 +207,7 @@ Profile Modeでポーズを自動調整する際に使用する基準ボーン�
 
 ### 🧥 対応すると既存の衣装が消えます
 
-**[Basic Option] - Remove AutoMorphed Other Clothes** を有効にしている場合、Target Avatarにすでに存在する、きせった (Kisetter)で対応済みの衣装が自動的に削除されます。
+**[Basic Option] - Remove AutoMorphed Other Clothes** を有効にしている場合、変換先アバターにすでに存在する、きせった (Kisetter)で対応済みの衣装が自動的に削除されます。
 
 同じアバターに2着以上の衣装を対応する場合は、このオプションを無効にしてください。
 
@@ -246,7 +246,7 @@ BlendShape Generatorは、基本的に各BlendShapeを単独で使用するこ�
 
 アバターの身体的特徴を自動で分析し、対応先アバターの体型に合わせて衣装を自動調整・変形します。少ない入力で作業できるよう構成されており、
 
-- Source AvatarとTarget Avatarだけでも変形を試すことができます。
-- Source AvatarのProfileがある場合は、Target Avatarと衣装だけで対応できます。
+- 変換元アバターと変換先アバターだけでも変形を試すことができます。
+- 変換元プロファイルがある場合は、変換先アバターと衣装だけで対応できます。
 
 組み合わせによっては追加の補正が必要な場合がありますが、実際の使用例をもとに継続して改善し、すべてのユーザーがより少ない制約で衣装を活用できる環境を目指しています。
