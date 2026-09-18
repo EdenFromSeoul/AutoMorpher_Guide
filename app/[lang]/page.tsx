@@ -5,6 +5,7 @@ import { LandingMotion } from "@/components/LandingMotion";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { HOME_COPY } from "@/lib/home-copy";
 import { homeMetadata, softwareApplicationJsonLd } from "@/lib/seo";
+import { isDocDisabled } from "@/lib/doc-status";
 import { BASE_PATH, LINKS, isLanguage, type Language } from "@/lib/site";
 import { X_REVIEW_POSTS } from "@/lib/x-review-posts";
 import { REVIEWS_COPY } from "@/lib/reviews-copy";
@@ -148,39 +149,6 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
         />
       </section>
 
-      <section className="landing-chapter manual-fitting-section" id="manual-fitting">
-        <div className="manual-fitting-heading" data-reveal-copy>
-          <p className="chapter-mark">{copy.manualFitting.label}</p>
-          <h2>
-            {copy.manualFitting.title.map((line, lineIndex) => (
-              <span className="manual-fitting-title-line" key={line}>
-                {revealSegments(line, lang).map((segment, segmentIndex) => (
-                  <span data-reveal-word key={lineIndex + "-" + segment + "-" + segmentIndex}>{segment}</span>
-                ))}
-              </span>
-            ))}
-          </h2>
-          <p>{copy.manualFitting.description}</p>
-        </div>
-
-        <div className="manual-fitting-grid">
-          {copy.manualFitting.items.map((item) => (
-            <article className="manual-fitting-card" key={item.kind} data-motion-card>
-              <div className="manual-fitting-media" data-motion-media>
-                <video data-landing-video autoPlay muted loop playsInline preload="metadata" aria-label={item.videoLabel}>
-                  <source src={BASE_PATH + "/media/" + item.video} type="video/mp4" />
-                </video>
-              </div>
-              <div className="manual-fitting-copy">
-                <p>{item.kind}</p>
-                <h3>{item.title}</h3>
-                <span>{item.text}</span>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="landing-chapter documentation-section">
         <div className="chapter-heading split-heading">
           <div>
@@ -192,11 +160,15 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
         <div className="resource-accordions">
           {copy.docs.cards.map((card) => {
             const isDiscord = card.slug === "discord";
+            const isDisabled = isDocDisabled(card.slug);
             return (
               <a
-                href={isDiscord ? LINKS.discord : `${BASE_PATH}/${lang}/docs/${card.slug}/`}
+                href={isDisabled ? undefined : isDiscord ? LINKS.discord : `${BASE_PATH}/${lang}/docs/${card.slug}/`}
                 key={card.slug}
-                data-motion-card
+                className={isDisabled ? "is-disabled" : undefined}
+                aria-disabled={isDisabled ? "true" : undefined}
+                tabIndex={isDisabled ? -1 : undefined}
+                data-motion-card={!isDisabled}
                 target={isDiscord ? "_blank" : undefined}
                 rel={isDiscord ? "noreferrer" : undefined}
               >

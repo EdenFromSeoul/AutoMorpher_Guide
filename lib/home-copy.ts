@@ -11,12 +11,6 @@ export type HomeCopy = {
     videoLabel: string;
   };
   marquee: string[];
-  manualFitting: {
-    label: string;
-    title: [string, string];
-    description: string;
-    items: Array<{ kind: string; title: string; text: string; video: string; videoLabel: string }>;
-  };
   reviews: {
     label: string;
     heading: string;
@@ -61,19 +55,10 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "きせった (Kisetter)は、特定のアバター向けに制作された衣装を、\n対応していないアバターでも着られるように変換する\nUnity向けの非対応衣装変換ツールです。\n\n複雑な作業は必要ありません。\nアバターと衣装を用意し、数回クリックするだけで変換できます。",
       primary: "Boothで購入する",
       secondary: "仕組みを見る",
-      caption: "Unity Humanoid対応 · Windows / Linux · Auto / Manual Fitting",
+      caption: "Unity Humanoid対応 · Windows / Linux · Auto Fitting",
       videoLabel: "きせったによる非対応衣装のフィッティングデモ",
     },
-    marquee: ["AUTO FITTING", "MANUAL FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
-    manualFitting: {
-      label: "Manual Fitting Mode",
-      title: ["変換後の仕上がりを、", "もっと自分好みに。"],
-      description: "Manual Fitting Modeなら、変換した衣装を簡単な操作で細かく調整できます。シルエットやフィット感を整えて、理想の仕上がりに近づけられます。",
-      items: [
-        { kind: "ボーン調整", title: "衣装のシルエットを、\n思いどおりに", text: "ボーンを直接調整して、袖の長さや靴のサイズ、衣装全体のシルエットを自分好みに整えられます。", video: "manual-bone-adjust.mp4", videoLabel: "Manual Fitting Modeで衣装のボーンとシルエットを調整するデモ" },
-        { kind: "メッシュ修正", title: "気になる部分を整えて、\nより自然な仕上がりに", text: "変換後に気になる貫通やメッシュの歪みも、専用ツールを使って手軽に修正できます。", video: "manual-mesh-edit.mp4", videoLabel: "Manual Fitting Modeで衣装メッシュの貫通や歪みを修正するデモ" },
-      ],
-    },
+    marquee: ["AUTO FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
     reviews: {
       label: "ご利用者の声",
       heading: "実際に使った方の声から、使い心地をチェック。",
@@ -106,7 +91,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       cards: [
         { title: "インストールと開始", text: "UnityPackageの導入と初回セットアップ", slug: "getting-started" },
         { title: "Auto Fitting ガイド", text: "自動フィッティングの手順", slug: "auto-fitting" },
-        { title: "Manual Fitting ガイド", text: "ボーンとメッシュを調整する方法", slug: "manual-fitting" },
+        { title: "メッシュ編集ガイド", text: "変換後のメッシュを直接調整する方法", slug: "mesh-editing" },
         { title: "パラメーター説明", text: "FittingとWeighting設定の詳細", slug: "parameters" },
         { title: "Q&A", text: "よくある疑問とエラーへの対応", slug: "faq" },
         { title: "Discord", text: "専用チャンネルで開発者に相談", slug: "discord" },
@@ -138,19 +123,10 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "きせった(Kisetter)는 특정 아바타용으로 제작된 의상을, 해당 의상에서 지원하지 않는 다른 아바타도 착용할 수 있도록 변환해 주는 Unity용 비전용 의상 변환 도구입니다.\n\n복잡한 작업은 필요하지 않습니다. 아바타와 의상만 있다면 바로 시작할 수 있습니다!",
       primary: "Booth에서 구매하기",
       secondary: "작동 방식 보기",
-      caption: "Unity Humanoid 지원 · Windows / Linux · Auto / Manual Fitting",
+      caption: "Unity Humanoid 지원 · Windows / Linux · Auto Fitting",
       videoLabel: "きせった를 이용한 비전용 의상 피팅 데모",
     },
-    marquee: ["AUTO FITTING", "MANUAL FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
-    manualFitting: {
-      label: "Manual Fitting Mode",
-      title: ["대응된 결과가 아쉬운가요?", "당신이 원하는 형태로 입히실 수 있습니다."],
-      description: "대응된 결과가 아쉬우셨나요? 당신이 원하는 모습으로 입혀보세요.\nManual Fitting Mode에서 간단하게 조작하여 당신이 원하는 형태로 의상을 수정할 수 있는 기능을 제공합니다.",
-      items: [
-        { kind: "Bone 조정", title: "의상을 원하는 형태로", text: "Bone을 직접 조정해 소매 길이, 신발 크기와 의상의 전체적인 실루엣을 원하는 형태로 다듬을 수 있습니다.", video: "manual-bone-adjust.mp4", videoLabel: "Manual Fitting Mode에서 Bone을 조정해 의상 실루엣을 변경하는 과정" },
-        { kind: "Mesh 수정", title: "간단하게 더 자연스럽게", text: "변환 후 발생할 수 있는 작은 뚫림이나 메시 왜곡을 전용 수정 도구로 손쉽게 보정할 수 있습니다.", video: "manual-mesh-edit.mp4", videoLabel: "Manual Fitting Mode에서 의상의 뚫림과 메시 왜곡을 수정하는 과정" },
-      ],
-    },
+    marquee: ["AUTO FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
     reviews: {
       label: "이용자 후기",
       heading: "사용한 사람의 말로 확인하세요.",
@@ -183,7 +159,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       cards: [
         { title: "설치 및 시작", text: "UnityPackage 설치와 첫 설정", slug: "getting-started" },
         { title: "Auto Fitting 가이드", text: "자동 의상 대응 과정과 사용 방법", slug: "auto-fitting" },
-        { title: "Manual Fitting 가이드", text: "Bone과 Mesh를 직접 조정하는 방법", slug: "manual-fitting" },
+        { title: "Mesh 편집 가이드", text: "변환 후 Mesh를 직접 조정하는 방법", slug: "mesh-editing" },
         { title: "파라미터 설명", text: "Fitting과 Weighting 설정 상세", slug: "parameters" },
         { title: "Q&A", text: "자주 묻는 질문과 오류 해결 방법", slug: "faq" },
         { title: "Discord", text: "전용 문의 채널에서 개발자에게 문의", slug: "discord" },
@@ -215,19 +191,10 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       description: "Kisetter is a Unity tool that converts outfits made for a specific avatar so they can be worn by other avatars the outfit does not officially support.\n\nNo complicated workflow is required. If you have the avatar and the outfit, you can convert it.",
       primary: "Buy on Booth",
       secondary: "See how it works",
-      caption: "Unity Humanoid · Windows / Linux · Auto / Manual Fitting",
+      caption: "Unity Humanoid · Windows / Linux · Auto Fitting",
       videoLabel: "Unsupported avatar clothing fitting demo with Kisetter",
     },
-    marquee: ["AUTO FITTING", "MANUAL FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
-    manualFitting: {
-      label: "Manual Fitting Mode",
-      title: ["Want to refine the fitted result?", "Make the outfit look the way you want."],
-      description: "Want to take the fitted result a little further? Shape the outfit around the look you want.\nManual Fitting Mode provides simple controls for refining the outfit directly.",
-      items: [
-        { kind: "Bone adjustment", title: "Shape the outfit your way", text: "Adjust bones directly to refine sleeve length, shoe size, and the outfit’s overall silhouette.", video: "manual-bone-adjust.mp4", videoLabel: "Adjusting outfit bones and silhouette in Manual Fitting Mode" },
-        { kind: "Mesh editing", title: "Small edits, a more natural fit", text: "Use dedicated editing tools to correct small clipping areas or mesh distortion after conversion.", video: "manual-mesh-edit.mp4", videoLabel: "Correcting clipping and mesh distortion in Manual Fitting Mode" },
-      ],
-    },
+    marquee: ["AUTO FITTING", "BLENDSHAPE", "AVATAR PROFILE", "FBX EXPORT"],
     reviews: {
       label: "Verified voices",
       heading: "See the workflow through the people who use it.",
@@ -260,7 +227,7 @@ export const HOME_COPY: Record<Language, HomeCopy> = {
       cards: [
         { title: "Install and start", text: "UnityPackage setup and your first workflow", slug: "getting-started" },
         { title: "Auto Fitting guide", text: "Automatic fitting workflow and usage", slug: "auto-fitting" },
-        { title: "Manual Fitting guide", text: "Adjust bones and meshes directly", slug: "manual-fitting" },
+        { title: "Mesh Editing Guide", text: "How to edit the mesh directly after conversion", slug: "mesh-editing" },
         { title: "Parameter guide", text: "Detailed Fitting and Weighting settings", slug: "parameters" },
         { title: "Q&A", text: "Common questions and troubleshooting", slug: "faq" },
         { title: "Discord", text: "Ask the developer in the support channel", slug: "discord" },

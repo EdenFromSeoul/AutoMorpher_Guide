@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { marked } from "marked";
+import { filterEnabledDocs, isDocDisabled } from "./doc-status";
 import { BASE_PATH, VERSION, type Language } from "./site";
 
 export type TocItem = { depth: number; id: string; text: string };
@@ -100,6 +101,17 @@ function transformAdmonitions(markdown: string): string {
   );
 }
 
+function disableDisabledDocLinks(markdown: string): string {
+  return markdown.replace(
+    /\[([^\]]+)\]\(\.\.\/([^\s/)]+)\/?(#[^)]+)?\)/g,
+    (match, label: string, slug: string) => (
+      isDocDisabled(slug)
+        ? `<span class="disabled-doc-link" aria-disabled="true">${label}</span>`
+        : match
+    ),
+  );
+}
+
 function renderMarkdown(markdown: string): { html: string; toc: TocItem[] } {
   const toc: TocItem[] = [];
   const occurrences = new Map<string, number>();
@@ -118,7 +130,7 @@ function renderMarkdown(markdown: string): { html: string; toc: TocItem[] } {
     });
   }
 
-  const resolvedMarkdown = transformAdmonitions(markdown)
+  const resolvedMarkdown = disableDisabledDocLinks(transformAdmonitions(markdown))
     .replaceAll("{{BASE_PATH}}", BASE_PATH)
     .replaceAll("{{VERSION}}", VERSION);
   let html = marked.parse(resolvedMarkdown, {
@@ -186,11 +198,11 @@ function readDocs(lang: Language): Doc[] {
 }
 
 export function getDocs(lang: Language): Doc[] {
-  return readDocs(lang);
+  return filterEnabledDocs(readDocs(lang));
 }
 
 export function getDoc(lang: Language, slug: string): Doc | undefined {
-  return readDocs(lang).find((doc) => doc.slug === slug);
+  return getDocs(lang).find((doc) => doc.slug === slug);
 }
 
 function getSearchSections(doc: Doc): SearchIndexItem[] {
@@ -233,7 +245,7 @@ function getSearchSections(doc: Doc): SearchIndexItem[] {
 }
 
 export function getSearchIndex(lang: Language): SearchIndexItem[] {
-  return readDocs(lang).flatMap((doc) => [
+  return getDocs(lang).flatMap((doc) => [
     {
       id: doc.slug,
       title: doc.title,
