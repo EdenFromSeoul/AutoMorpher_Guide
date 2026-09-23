@@ -159,7 +159,7 @@ export function softwareApplicationJsonLd(lang: Language) {
   };
 }
 
-export function breadcrumbJsonLd(lang: Language, title: string, slug: string) {
+export function breadcrumbJsonLd(lang: Language, title: string, slug: string, parent?: { title: string; slug: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -170,9 +170,15 @@ export function breadcrumbJsonLd(lang: Language, title: string, slug: string) {
         name: PRODUCT_NAME,
         item: absoluteUrl(localizedPath(lang)),
       },
-      {
+      ...(parent ? [{
         "@type": "ListItem",
         position: 2,
+        name: parent.title,
+        item: absoluteUrl(localizedPath(lang, `docs/${parent.slug}`)),
+      }] : []),
+      {
+        "@type": "ListItem",
+        position: parent ? 3 : 2,
         name: title,
         item: absoluteUrl(localizedPath(lang, `docs/${slug}`)),
       },

@@ -73,6 +73,7 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
   const index = docs.findIndex((item) => item.slug === slug);
   const previous = docs[index - 1];
   const next = docs[index + 1];
+  const parent = docs.find((item) => item.slug === doc.parent);
   const ui = UI_COPY[lang];
 
   const faqItems = slug === "faq" ? parseFaqItems(doc.markdown) : null;
@@ -85,7 +86,7 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd(lang, doc.title, slug)) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbJsonLd(lang, doc.title, slug, parent)) }}
       />
       {faqItems && faqItems.length > 0 && (
         <script
@@ -101,10 +102,13 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
         <aside className="sidebar-column"><DocSidebar docs={docs} lang={lang} activeSlug={slug} /></aside>
         <article className="doc-article">
           <header className="doc-header">
+            {parent && (
+              <a className="doc-parent-link" href={`${BASE_PATH}/${lang}/docs/${parent.slug}/`}>← {parent.title}</a>
+            )}
             <span>{doc.category}</span>
             <h1>{doc.title}</h1>
             <p>{doc.description}</p>
-            <small>きせった (Kisetter) {VERSION} {ui.basedOn}</small>
+            <small>きせった (Kisetter) {doc.version ?? VERSION} {ui.basedOn}</small>
           </header>
           <div className="doc-content" dangerouslySetInnerHTML={{ __html: doc.html }} />
           <nav className="doc-pagination" aria-label={ui.pagination}>

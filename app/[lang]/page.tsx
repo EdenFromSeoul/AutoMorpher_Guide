@@ -160,10 +160,11 @@ export default async function LanguageHomePage({ params }: { params: Promise<{ l
         <div className="resource-accordions">
           {copy.docs.cards.map((card) => {
             const isDiscord = card.slug === "discord";
-            const isDisabled = isDocDisabled(card.slug);
+            const docSlug = card.slug;
+            const isDisabled = isDocDisabled(docSlug);
             return (
               <a
-                href={isDisabled ? undefined : isDiscord ? LINKS.discord : `${BASE_PATH}/${lang}/docs/${card.slug}/`}
+                href={isDisabled ? undefined : isDiscord ? LINKS.discord : `${BASE_PATH}/${lang}/docs/${docSlug}/`}
                 key={card.slug}
                 className={isDisabled ? "is-disabled" : undefined}
                 aria-disabled={isDisabled ? "true" : undefined}

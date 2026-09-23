@@ -21,6 +21,14 @@ pnpm install
 pnpm dev
 ```
 
+개발 모드에서는 홈의 **Mesh 편집 가이드**가 새 **Mesh Studio 가이드**로 연결됩니다. 한국어 미리보기 주소는 `http://localhost:3000/ko/docs/mesh-editing/`이며, `/ja/`와 `/en/`에서도 같은 문서를 확인할 수 있습니다. 문서 메뉴와 검색에서도 접근할 수 있으며, 배포용 빌드에서는 비활성화됩니다. 이전 `manual-fitting` 문서는 비활성 상태로 보관합니다.
+
+Windows에서 기본 개발 서버의 문서 경로가 404를 반환하면, 서버를 종료한 뒤 아래 명령으로 Webpack 개발 서버를 실행합니다. 이 PC에서만 접속할 수 있습니다.
+
+```bash
+node node_modules/next/dist/bin/next dev --webpack --hostname 127.0.0.1 --port 3000
+```
+
 정적 배포 결과는 다음 명령으로 `out/` 폴더에 생성됩니다.
 
 ```bash
@@ -38,8 +46,20 @@ slug: "url-slug"
 category: "카테고리"
 description: "문서 설명"
 order: 10
+# 하위 문서인 경우 상위 문서의 slug를 지정합니다.
+# parent: "mesh-editing"
 ---
 ```
+
+### Mesh Studio 가이드 원고
+
+[Notion 편집 원고](https://app.notion.com/p/3e3350ff24be8064b9eeeedcbaa23367)를 읽어 `content/ko/mesh-editing.md`, `content/ja/mesh-editing.md`, `content/en/mesh-editing.md`에 반영합니다. 원본 Notion 페이지는 수정하지 않습니다. 페이지 상단의 편집 안내 상자와 집필용 개요는 사이트 본문에서 제외하며, UI 명칭은 Kisetter의 `Language_MeshEditor` 및 `Language_Kisetter` 언어 파일과 실제 사용 키를 기준으로 맞춥니다.
+
+원고의 이미지 25개와 동영상 6개는 사용자가 제공한 `MeshStudio Guide.zip`에서 `public/media/mesh-studio/`로 가져왔습니다. 각 언어 문서는 동일한 미디어를 공유합니다. 문서별 frontmatter의 선택 항목 `version`으로 설명 기준 버전을 지정할 수 있으며, Mesh Studio 원고는 확인한 Unity UI의 `3.4.1`을 사용합니다. 지정하지 않은 문서는 기존 공통 버전을 표시합니다.
+
+공통 준비·설정·저장은 `mesh-editing.md`에, 정점 편집·복원·뚫림 해소·밀착·릴랙스·Shrink의 상세 설명은 `mesh-editing-*.md` 하위 문서에 둡니다. 하위 문서는 `parent: "mesh-editing"`으로 왼쪽 메뉴에 묶이며, 상단에서 메인 가이드로 돌아갈 수 있습니다. 세 언어의 메인 문서와 하위 문서 모두 개발 모드에서만 표시됩니다. 문서 이미지·영상의 크기는 화면 폭에 맞추되 원본 가로세로 비율을 유지합니다.
+
+Notion 접근 시에는 `회사 업무 정리용 페이지` → `Kisetter 업무 문서` → `Mesh Studio 가이드 문서`의 실제 하위 페이지 관계를 다시 확인합니다. 이미지와 동영상도 원고에 포함되며, 사이트 반영 시 기존 미디어는 공유 base-path 설정을 사용하고 새 첨부 파일은 정적 미디어로 저장합니다. 공개 활성화와 배포는 별도 요청에 따라 진행합니다.
 
 미디어 파일은 `public/media/`, 브랜드 이미지는 `public/assets/brand/`에 보관합니다. GitHub의 일반 저장소 단일 파일 제한을 고려해 미디어 파일 하나가 100MB를 넘지 않도록 합니다.
 

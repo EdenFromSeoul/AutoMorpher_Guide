@@ -10,7 +10,7 @@ export function DocSidebar({ docs, lang, activeSlug }: { docs: DocMeta[]; lang: 
         <section key={category}>
           <h2>{category}</h2>
           <ul>
-            {items.map((doc) => (
+            {items.filter((doc) => !doc.parent).map((doc) => (
               <li key={doc.slug}>
                 <a
                   href={`${BASE_PATH}/${lang}/docs/${doc.slug}/`}
@@ -18,6 +18,20 @@ export function DocSidebar({ docs, lang, activeSlug }: { docs: DocMeta[]; lang: 
                 >
                   {doc.title}
                 </a>
+                {items.some((child) => child.parent === doc.slug) && (
+                  <ul className="doc-subpages">
+                    {items.filter((child) => child.parent === doc.slug).map((child) => (
+                      <li key={child.slug}>
+                        <a
+                          href={`${BASE_PATH}/${lang}/docs/${child.slug}/`}
+                          aria-current={activeSlug === child.slug ? "page" : undefined}
+                        >
+                          {child.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>

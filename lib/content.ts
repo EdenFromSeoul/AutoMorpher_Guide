@@ -11,6 +11,8 @@ export type DocMeta = {
   category: string;
   description: string;
   order: number;
+  version?: string;
+  parent?: string;
 };
 export type Doc = DocMeta & {
   markdown: string;
@@ -64,6 +66,8 @@ function parseFrontmatter(source: string): { meta: DocMeta; markdown: string } {
       category: values.category,
       description: values.description.replaceAll("{{VERSION}}", VERSION),
       order: Number(values.order),
+      version: values.version,
+      parent: values.parent,
     },
     markdown: match[2].trim(),
   };
