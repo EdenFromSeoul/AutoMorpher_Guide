@@ -205,7 +205,7 @@ function readDocs(lang: Language): Doc[] {
 }
 
 export function getDocs(lang: Language): Doc[] {
-  return filterEnabledDocs(readDocs(lang));
+  return filterEnabledDocs(readDocs(lang), lang);
 }
 
 export function getDoc(lang: Language, slug: string): Doc | undefined {

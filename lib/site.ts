@@ -52,16 +52,23 @@ export function localizedPath(lang: Language, suffix = ""): string {
   return `/${lang}${normalizedSuffix}/`;
 }
 
-export function languageAlternates(suffix = ""): Record<string, string> {
+export function languageAlternates(
+  suffix = "",
+  languages: readonly Language[] = SUPPORTED_LANGUAGES,
+): Record<string, string> {
+  if (!languages.length) return {};
   const alternates = Object.fromEntries(
-    SUPPORTED_LANGUAGES.map((lang) => [
+    languages.map((lang) => [
       lang,
       absoluteUrl(localizedPath(lang, suffix)),
     ]),
   );
   return {
     ...alternates,
-    "x-default": absoluteUrl(localizedPath(DEFAULT_LANGUAGE, suffix)),
+    "x-default": absoluteUrl(localizedPath(
+      languages.includes(DEFAULT_LANGUAGE) ? DEFAULT_LANGUAGE : languages[0],
+      suffix,
+    )),
   };
 }
 

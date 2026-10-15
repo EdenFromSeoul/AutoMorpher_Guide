@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getDocLanguages } from "./doc-status";
 import {
   COMPANY_NAME,
   PRODUCT_NAME,
@@ -105,7 +106,7 @@ export function docMetadata(
     description,
     alternates: {
       canonical,
-      languages: languageAlternates(suffix),
+      languages: languageAlternates(suffix, getDocLanguages(slug)),
     },
     openGraph: {
       title: localizedTitle,

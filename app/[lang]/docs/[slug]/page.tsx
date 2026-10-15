@@ -110,7 +110,7 @@ export default async function DocPage({ params }: { params: Promise<{ lang: stri
             <p>{doc.description}</p>
             <small>きせった (Kisetter) {doc.version ?? VERSION} {ui.basedOn}</small>
           </header>
-          <div className="doc-content" dangerouslySetInnerHTML={{ __html: doc.html }} />
+          <div className="doc-content" data-doc-slug={slug} dangerouslySetInnerHTML={{ __html: doc.html }} />
           <nav className="doc-pagination" aria-label={ui.pagination}>
             {previous ? (
               <a href={`${BASE_PATH}/${lang}/docs/${previous.slug}/`}><small>{ui.previous}</small><strong>← {previous.title}</strong></a>

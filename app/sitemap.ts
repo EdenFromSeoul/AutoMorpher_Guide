@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getDocs } from "@/lib/content";
+import { getDocLanguages } from "@/lib/doc-status";
 import {
   SUPPORTED_LANGUAGES,
   absoluteUrl,
@@ -29,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: absoluteUrl(localizedPath(lang, suffix)),
         changeFrequency: "monthly" as const,
         priority: 0.7,
-        alternates: { languages: languageAlternates(suffix) },
+        alternates: { languages: languageAlternates(suffix, getDocLanguages(doc.slug)) },
       };
     });
     return [landingPage, reviewsPage, ...docs];

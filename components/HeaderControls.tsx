@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { HOME_COPY } from "@/lib/home-copy";
+import { getDocLanguages } from "@/lib/doc-status";
 import {
   BASE_PATH,
   LANGUAGE_LABELS,
@@ -193,6 +194,11 @@ export function HeaderControls({
     const withoutBase = BASE_PATH && pathname.startsWith(BASE_PATH)
       ? pathname.slice(BASE_PATH.length)
       : pathname;
+    const docSlug = withoutBase.match(/^\/(ko|ja|en)\/docs\/([^/]+)\/?$/)?.[2];
+    // A language without this guide opens its own getting-started page, not a 404.
+    if (docSlug && !getDocLanguages(docSlug).includes(target)) {
+      return `${BASE_PATH}/${target}/docs/getting-started/`;
+    }
     const nextPath = withoutBase.match(/^\/(ko|ja|en)(\/|$)/)
       ? withoutBase.replace(/^\/(ko|ja|en)/, `/${target}`)
       : `/${target}/`;
