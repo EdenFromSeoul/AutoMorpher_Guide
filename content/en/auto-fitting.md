@@ -132,6 +132,9 @@ You do not need to follow these preparation steps when using an included Profile
     - **Target Avatar Object**: The avatar object to fit the outfit to
 
 
+!!! info "Optional · Use a preset"
+    After assigning the avatars and outfit, click Load in the Preset section to apply saved adjustments. See the <a href="../presets/">Preset Guide</a> to reuse settings for the same avatar pair. If you are not using a preset, continue to the option setup below.
+
 ### 5. きせった (Kisetter) Option Setup
 
 1. **Body Gap**

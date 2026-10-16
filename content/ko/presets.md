@@ -14,6 +14,8 @@ version: "3.4.1"
   <p>⚫ 프리셋을 사용해도 의상 대응에는 원본 아바타 또는 변환 원본 프로필(Profile)이 필요합니다.</p>
 </div>
 
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/1y4bThRyBIw" title="프리셋 사용 가이드 영상" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## 1. 사용 전 준비
 
 **원본 아바타**, **입힐 의상**, **입힐 아바타**를 모두 할당해야 프리셋 기능을 사용할 수 있습니다. 원본 아바타 대신 변환 원본 프로필을 사용하는 경우에는 **Profile**을 지정합니다.
@@ -27,7 +29,13 @@ version: "3.4.1"
 ## 2. 프리셋 불러오기
 
 1. **프리셋** 영역에서 **불러오기**를 누릅니다.
+
+   ![프리셋 영역의 불러오기 버튼 위치]({{BASE_PATH}}/media/presets/load-preset.png)
+
 2. **Source Avatar**(원본 아바타)와 **Target Avatar**(입힐 아바타) 이름으로 목록을 필터링합니다.
+
+   ![프리셋 불러오기 창에서 원본 아바타와 입힐 아바타 이름으로 목록 필터링]({{BASE_PATH}}/media/presets/filter-avatars.png)
+
    - 미리 정해진 목록이 아니라, 제작자가 프리셋을 만들거나 저장할 때 직접 지정·수정한 이름입니다.
 3. **Preset 목록**에서 원하는 프리셋을 선택한 뒤 **적용하기**를 누릅니다.
 4. 프리셋 적용 후 **BlendShape**가 의상에 맞게 조정되어 있는지 확인한 뒤 **입히기**로 변형을 진행해 주세요. 수정이 필요하면 [**프리셋 편집 기능**](#4-새-프리셋-만들기-기존-프리셋-편집하기)을 활용하세요.
@@ -41,6 +49,9 @@ version: "3.4.1"
 
 1. 변형이 완료된 후에만 해당 버튼이 활성화되므로, 먼저 **입히기**로 전체 변형을 완료합니다. 단계별로 진행한 경우에는 **Weighting**까지 완료합니다.
 2. **프리셋** 영역의 **직전 변형값을 프리셋으로 저장**을 누릅니다.
+
+   ![직전 변형값을 프리셋으로 저장 버튼 위치]({{BASE_PATH}}/media/presets/save-last-conversion.png)
+
 3. 저장 창에서 아래 항목을 확인하고, 필요한 경우 원하는 이름으로 수정합니다.
 
    | 항목 | 입력할 내용 |
@@ -48,6 +59,8 @@ version: "3.4.1"
    | **Preset 이름** | 나중에 구분하기 쉬운 프리셋 이름 |
    | **Source Avatar 이름** | 원본 아바타를 구분할 이름 |
    | **Target Avatar 이름** | 입힐 아바타를 구분할 이름 |
+
+   ![프리셋 이름과 원본 및 입힐 아바타 이름을 입력하는 저장 창]({{BASE_PATH}}/media/presets/save-preset-dialog.png)
 
 4. **저장하기**를 누르고, 저장 확인 창에서 **확인**을 선택합니다.
 5. 저장 완료 안내가 나타나면 프리셋이 생성되고 Kisetter 창에서 자동 선택됩니다.
@@ -67,6 +80,9 @@ version: "3.4.1"
 변형을 실행하지 않고 새로운 프리셋을 만들거나, 기존에 불러온 프리셋을 추가로 수정하고 싶을 때 사용합니다.
 
 1. Kisetter 창에서 **프리셋 만들기·편집** 토글을 펼치고 목적에 맞는 버튼을 선택합니다.
+
+   ![새 프리셋 만들기와 불러온 프리셋 편집 버튼 위치]({{BASE_PATH}}/media/presets/create-edit-preset.png)
+
    - **새 프리셋 만들기**: 현재 아바타 조합으로 새로운 프리셋을 만듭니다.
    - **불러온 프리셋 편집**: 기존에 불러온 프리셋을 추가로 편집합니다.
 2. 편집 화면에서 필요한 항목을 조정합니다.
@@ -83,6 +99,8 @@ version: "3.4.1"
    <summary>아바타 보기 및 표시 설정</summary>
 
    화면 상단에서 아바타와 의상을 보기 편한 상태로 설정합니다.
+
+   ![아바타 보기와 간격, 불투명도 및 의상 표시 설정 화면]({{BASE_PATH}}/media/presets/avatar-view-settings.png)
 
    **아바타 보기**: 나란히 보기는 두 아바타를 좌우로 배치하고, 겹쳐 보기는 겹쳐 표시하여 체형 차이를 비교합니다.
 
@@ -104,6 +122,8 @@ version: "3.4.1"
    <details class="doc-optional-step">
    <summary>체형 차이 보정 및 미리보기</summary>
 
+   ![체형 차이 보정과 미리보기 및 갱신 버튼 설정 화면]({{BASE_PATH}}/media/presets/body-shape-preview.png)
+
    **체형 차이 보정**: 원본 아바타와 입힐 아바타의 체형 차이를 보정하는 기능입니다. 아바타끼리 가슴 크기 차이가 많이 나는 경우, 이 옵션을 사용하는 것을 추천합니다. 가슴 매칭 조정은 이 옵션이 켜져 있을 때만 사용할 수 있습니다.
 
    **미리보기**: 켜기를 선택하면 대략적인 체형 보정 결과를 미리 확인할 수 있습니다.
@@ -115,6 +135,8 @@ version: "3.4.1"
 
    <details class="doc-optional-step">
    <summary>BlendShape 조정탭</summary>
+
+   ![BlendShape 조정탭과 Bone Pose 갱신 버튼 화면]({{BASE_PATH}}/media/presets/blendshape-adjustment.png)
 
    **현재 BlendShape에 맞춰 Bone Pose 갱신**: 변경한 BlendShape에 맞춰 본 대응 포즈를 다시 계산합니다. 블렌드쉐이프를 변경하면 갱신을 진행해주시는 것이 좋습니다.
 
@@ -134,6 +156,8 @@ version: "3.4.1"
 
    본과 가슴의 대응 위치를 사전에 조정할 때 사용합니다.
 
+   ![가슴과 본의 매칭 조정 및 본 선택 화면]({{BASE_PATH}}/media/presets/matching-adjustment.png)
+
    **매칭 조정 초기화**: 본·가슴 매칭 조정을 초기 상태로 되돌립니다.
 
    <br>
@@ -142,7 +166,7 @@ version: "3.4.1"
 
    ※ 상단의 체형 차이 보정이 활성화되어 있을 때만 사용할 수 있습니다.
 
-   **가슴 판 표시**: 켜기를 선택하면 가슴판과 기준점을 표시합니다.
+   **가슴 조정 표시**: 켜기를 선택하면 가슴판과 기준점을 표시합니다.
 
    **가슴 영역 조정**: Scene에서 판 중앙의 이동 도구(Gizmo)의 Y축을 움직여 윗가슴·밑가슴 위치에 맞춥니다.
 
@@ -166,6 +190,8 @@ version: "3.4.1"
 
    프리셋에 저장할 기본·고급 변형 옵션을 조정합니다.
 
+   ![신체 표면 간격과 스무딩 등 기본·고급 변형 옵션 조정 화면]({{BASE_PATH}}/media/presets/fitting-options.png)
+
    **신체 표면 간격**: 의상과 아바타 몸통 사이의 최소 간격을 설정합니다.
 
    **몸통 Mesh 자동 할당**: 아바타의 몸통 Mesh를 자동으로 탐색합니다. 몸통 Mesh를 직접 지정할 때는 자동 할당을 해제합니다.
@@ -174,7 +200,7 @@ version: "3.4.1"
 
    **스무딩**: 변형을 부드럽게 다듬는 강도를 조정합니다.
 
-   **변형 옵션**: 의상 변형과 몸통 대응 계산의 반복 횟수를 조정합니다.
+   **변형 옵션**: 변형 횟수와 신체 관통 보정 횟수를 조정합니다.
 
    <br>
 
@@ -192,6 +218,8 @@ version: "3.4.1"
    | **Source Avatar 이름** | 원본 아바타를 구분할 이름 |
    | **Target Avatar 이름** | 입힐 아바타를 구분할 이름 |
 
+   ![프리셋 이름과 원본 및 입힐 아바타 이름을 입력하는 저장 창]({{BASE_PATH}}/media/presets/save-preset-dialog.png)
+
 5. **저장하기**를 누르고, 저장 확인 창에서 **확인**을 선택합니다.
 6. 저장 완료 안내가 나타나면 Kisetter 화면으로 돌아오며, 저장한 프리셋이 자동 선택됩니다.
 
@@ -206,6 +234,8 @@ version: "3.4.1"
 - **계속 편집**: 편집 화면으로 돌아가 조정을 계속합니다.
 
 ## 5. 적용 전 상태로 되돌리기
+
+![프리셋을 적용하기 전 상태로 되돌리는 버튼 위치]({{BASE_PATH}}/media/presets/restore-previous.png)
 
 불러온 프리셋이 맞지 않으면 **적용 전으로 되돌리기**를 누릅니다. **마지막 프리셋 적용 직전의 설정과 BlendShape 값**으로 돌아가며, 프리셋 선택이 해제됩니다.
 

@@ -3,9 +3,7 @@ import { SUPPORTED_LANGUAGES, type Language } from "./site";
 const DISABLED_DOC_SLUGS = new Set(["manual-fitting"]);
 
 // Remove a restriction when the corresponding translations are ready.
-const DOC_LANGUAGES: Partial<Record<string, readonly Language[]>> = {
-  presets: ["ko"],
-};
+const DOC_LANGUAGES: Partial<Record<string, readonly Language[]>> = {};
 
 export function isDocDisabled(slug: string): boolean {
   return DISABLED_DOC_SLUGS.has(slug);
