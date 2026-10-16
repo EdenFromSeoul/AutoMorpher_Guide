@@ -14,6 +14,8 @@ version: "3.4.1"
   <p>⚫ Even when using a preset, you still need the source avatar or a source profile to fit an outfit.</p>
 </div>
 
+<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/1y4bThRyBIw" title="Preset guide video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## 1. Before you begin
 
 Assign the **Source Avatar**, **Source Clothes Object**, and **Target Avatar** before using presets. If you are using a source profile instead of the source avatar, assign the **Profile** instead.
@@ -27,7 +29,13 @@ If you have not assigned them yet, see [**4. きせった (Kisetter) Setup** in 
 ## 2. Load a preset
 
 1. Click **Load** in the **Preset** section.
+
+   ![Location of the Load button in the Preset section]({{BASE_PATH}}/media/presets/load-preset.png)
+
 2. Filter the list by **Source Avatar** and **Target Avatar** name.
+
+   ![Filtering the preset list by source and target avatar names]({{BASE_PATH}}/media/presets/filter-avatars.png)
+
    - These names are not predefined. The preset creator enters or edits them when creating or saving a preset.
 3. Select a preset from **Presets**, then click **Apply**.
 4. After applying the preset, check that the **BlendShape** values suit your outfit, then click **Dress Avatar** to run the conversion. If you need to change the values, use the [**preset editor**](#4-create-a-new-preset-or-edit-an-existing-one).
@@ -41,6 +49,9 @@ Use this to save the settings used in the conversion you just completed. Bone an
 
 1. This button is only enabled after a conversion is complete. First, finish the full conversion with **Dress Avatar**. If you are working step by step, complete **Weighting** as well.
 2. Click **Save Last Conversion as Preset** in the **Preset** section.
+
+   ![Location of the Save Last Conversion as Preset button]({{BASE_PATH}}/media/presets/save-last-conversion.png)
+
 3. Check the following fields in the save window and edit the names if needed.
 
    | Field | What to enter |
@@ -48,6 +59,8 @@ Use this to save the settings used in the conversion you just completed. Bone an
    | **Preset Name** | A name that will help you identify the preset later |
    | **Source Avatar Name** | A name that identifies the source avatar |
    | **Target Avatar Name** | A name that identifies the target avatar |
+
+   ![Save window with preset, source avatar, and target avatar name fields]({{BASE_PATH}}/media/presets/save-preset-dialog.png)
 
 4. Click **Save**, then confirm in the confirmation dialog.
 5. When the save completion message appears, the preset has been created and is automatically selected in the Kisetter window.
@@ -67,6 +80,9 @@ Use this to save the settings used in the conversion you just completed. Bone an
 Use this to create a new preset without running a conversion, or to make further changes to a preset you have loaded.
 
 1. Expand **Create / Edit Preset** in the Kisetter window and choose the button that matches your goal.
+
+   ![Locations of the Create New Preset and Edit Loaded Preset buttons]({{BASE_PATH}}/media/presets/create-edit-preset.png)
+
    - **Create New Preset**: Create a new preset for the current avatar pair.
    - **Edit Loaded Preset**: Make further changes to the preset you have loaded.
 2. Adjust the settings you need in the editor.
@@ -83,6 +99,8 @@ Use this to create a new preset without running a conversion, or to make further
    <summary>Avatar view and visibility settings</summary>
 
    Use the controls at the top of the editor to make the avatars and outfits easier to view.
+
+   ![Avatar view, spacing, opacity, and outfit visibility settings]({{BASE_PATH}}/media/presets/avatar-view-settings.png)
 
    **Avatar View**: Side by side places the two avatars next to each other. Overlay displays them in the same position so you can compare their body shapes.
 
@@ -104,6 +122,8 @@ Use this to create a new preset without running a conversion, or to make further
    <details class="doc-optional-step">
    <summary>Body Shape Matching and preview</summary>
 
+   ![Body Shape Matching and preview settings with the refresh button]({{BASE_PATH}}/media/presets/body-shape-preview.png)
+
    **Body Shape Matching**: Compensates for differences in body shape between the source and target avatars. We recommend enabling it when the avatars have noticeably different breast sizes. Breast Matching is only available while this option is enabled.
 
    **Preview**: Select On to see an approximate preview of the body shape matching result.
@@ -115,6 +135,8 @@ Use this to create a new preset without running a conversion, or to make further
 
    <details class="doc-optional-step">
    <summary>BlendShape tab</summary>
+
+   ![BlendShape tab and the Update Bone Pose button]({{BASE_PATH}}/media/presets/blendshape-adjustment.png)
 
    **Update Bone Pose for Current BlendShapes**: Recalculates the bone matching pose based on the current BlendShape values. We recommend updating it after changing BlendShapes.
 
@@ -133,6 +155,8 @@ Use this to create a new preset without running a conversion, or to make further
    <summary>Matching tab</summary>
 
    Use this tab to adjust bone and breast reference positions before conversion.
+
+   ![Breast and bone matching controls with the bone selection panel]({{BASE_PATH}}/media/presets/matching-adjustment.png)
 
    **Reset Matching**: Returns bone and breast matching adjustments to their initial state.
 
@@ -166,6 +190,8 @@ Use this to create a new preset without running a conversion, or to make further
 
    Adjust the basic and advanced fitting options to store in the preset.
 
+   ![Basic and advanced fitting options, including Body Gap and Smooth]({{BASE_PATH}}/media/presets/fitting-options.png)
+
    **Body Gap**: Sets the minimum gap between the outfit and the avatar's body.
 
    **Automatically Assign Torso Mesh**: Automatically finds the avatar's body mesh. Disable this option to assign body meshes manually.
@@ -192,6 +218,8 @@ Use this to create a new preset without running a conversion, or to make further
    | **Source Avatar Name** | A name that identifies the source avatar |
    | **Target Avatar Name** | A name that identifies the target avatar |
 
+   ![Save window with preset, source avatar, and target avatar name fields]({{BASE_PATH}}/media/presets/save-preset-dialog.png)
+
 5. Click **Save**, then confirm in the confirmation dialog.
 6. When the save completion message appears, you return to Kisetter with the saved preset automatically selected.
 
@@ -206,6 +234,8 @@ Click **Return to Kisetter** to go back to the previous screen. If you have unsa
 - **Continue Editing**: Return to the editor and keep adjusting.
 
 ## 5. Restore the state before applying a preset
+
+![Location of the Restore Previous button]({{BASE_PATH}}/media/presets/restore-previous.png)
 
 If a loaded preset does not suit your needs, click **Restore Previous**. This restores **the settings and BlendShape values from immediately before the last preset was applied** and clears the preset selection.
 
