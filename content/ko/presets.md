@@ -260,4 +260,29 @@ version: "3.4.1"
 - **프리셋이 목록에 나타나지 않는 경우**: 프리셋의 `.asset` 파일이 `Assets/@Eden_Tools/Kisetter/Presets` 폴더 아래에 있는지 확인한 뒤 **새로고침**을 눌러 주세요. **Source Avatar / Target Avatar** 필터 때문에 목록에서 제외된 것은 아닌지도 확인해 주세요.
 - **프리셋을 적용할 수 없다는 안내가 나타나는 경우**: 선택한 프리셋과 의상이 현재 원본 아바타에 맞는지 확인해 주세요. 본 구조가 호환되지 않는 프리셋은 아바타 이름만 바꾸는 것으로는 적용할 수 없습니다.
 
+## 8. 프리셋 내보내기
+
+만든 프리셋을 다른 사람에게 공유하거나 다른 Unity 프로젝트로 옮길 때는 **Export Package**로 내보냅니다.
+
+1. Preset은 `Assets/@Eden_Tools/Kisetter/Presets` 폴더에 저장되어 있습니다.
+
+   ![Unity Project 창의 Assets, @Eden_Tools, Kisetter, Presets 폴더와 저장된 프리셋 목록]({{BASE_PATH}}/media/presets/preset-folder.png)
+
+2. 내보낼 프리셋을 선택합니다. 여러 프리셋을 함께 선택해 한 번에 내보낼 수도 있습니다.
+3. 선택한 프리셋을 **우클릭**한 뒤 <strong>Export Package...</strong>를 선택합니다.
+
+   ![여러 프리셋을 선택하고 우클릭 메뉴에서 Export Package를 선택하는 화면]({{BASE_PATH}}/media/presets/export-package.png)
+
+4. 내보내기 창에서 포함할 파일을 확인하고 <strong>Export...</strong>를 누른 뒤, 파일 이름과 저장 위치를 지정합니다.
+5. 저장된 **`.unitypackage` 파일**을 공유하면 됩니다.
+
+## 9. 프리셋 추가하기
+
+받은 프리셋은 Unity 프로젝트의 **`Assets/@Eden_Tools/Kisetter/Presets` 폴더에 넣으면 추가됩니다.** 위 사진과 같은 폴더를 사용하세요.
+
+- **`.unitypackage` 파일로 받은 경우**: 사용할 Unity 프로젝트를 연 상태에서 파일을 더블클릭하고 **Import**를 누릅니다. 가져온 프리셋이 위 폴더 아래에 있는지 확인해 주세요.
+- **프리셋 `.asset` 파일로 받은 경우**: `Assets/@Eden_Tools/Kisetter/Presets` 폴더를 열어, 여기에 `.asset` 파일을 옮겨 줍니다.
+
+추가한 뒤 Kisetter의 **프리셋 → 불러오기**를 열고 **새로고침**을 누릅니다. **Source Avatar / Target Avatar** 필터에서 해당 아바타 조합을 선택한 뒤, 원하는 프리셋을 선택하고 **적용하기**를 눌러 주세요. 자세한 적용 순서는 [프리셋 불러오기](#2-프리셋-불러오기)를 참고하세요.
+
 설정을 마쳤다면 [의상 자동 대응 가이드](../auto-fitting/)로 돌아가 옵션을 확인하고 변형을 진행하세요.
