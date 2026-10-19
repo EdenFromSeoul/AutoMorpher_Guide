@@ -46,7 +46,7 @@ for (const lang of languages) {
 
   // Preserve the Korean guide's sections, tables, collapsed details, and step numbering.
   const source = fs.readFileSync(path.resolve("content", lang, "presets.md"), "utf8").replace(/\r\n/g, "\n");
-  assert.deepEqual([...source.matchAll(/^## (\d+)\./gm)].map((match) => Number(match[1])), [1, 2, 3, 4, 5, 6, 7]);
+  assert.deepEqual([...source.matchAll(/^## (\d+)\./gm)].map((match) => Number(match[1])), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
   assert.equal((article.match(/<details class="doc-optional-step">/g) ?? []).length, 5, `${lang}: Expected five collapsed detail sections`);
   assert.equal((article.match(/data-details-close/g) ?? []).length, 5, `${lang}: Missing close controls`);
   assert.equal((article.match(/<table>/g) ?? []).length, 4, `${lang}: Expected four tables`);

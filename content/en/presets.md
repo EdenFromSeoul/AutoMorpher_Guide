@@ -260,4 +260,29 @@ A preset **does not store every Kisetter setting or your complete work results**
 - **A preset does not appear in the list**: Check that its `.asset` file is under `Assets/@Eden_Tools/Kisetter/Presets`, then click **Refresh**. Also check whether the **Source Avatar / Target Avatar** filters are excluding it.
 - **A message says the preset cannot be applied**: Check that the selected preset and outfit are compatible with the current source avatar. Renaming an avatar does not make a preset with an incompatible bone structure usable.
 
+## 8. Export presets
+
+Use **Export Package** to share presets you have made or transfer them to another Unity project.
+
+1. Presets are saved in the `Assets/@Eden_Tools/Kisetter/Presets` folder.
+
+   ![The Assets, @Eden_Tools, Kisetter, Presets folder and saved presets in Unity's Project window]({{BASE_PATH}}/media/presets/preset-folder.png)
+
+2. Select the presets you want to export. You can select multiple presets and export them together.
+3. **Right-click** the selected presets and choose <strong>Export Package...</strong>.
+
+   ![Selecting multiple presets and choosing Export Package from the context menu]({{BASE_PATH}}/media/presets/export-package.png)
+
+4. Check the files to include in the export window, click <strong>Export...</strong>, then choose a file name and save location.
+5. Share the saved **`.unitypackage` file**.
+
+## 9. Add presets
+
+To add a preset you received, **place it in your Unity project's `Assets/@Eden_Tools/Kisetter/Presets` folder.** Use the folder shown above.
+
+- **If you received a `.unitypackage` file**: With the Unity project you want to use open, double-click the file and click **Import**. Check that the imported presets are under the folder above.
+- **If you received a preset `.asset` file**: Open the `Assets/@Eden_Tools/Kisetter/Presets` folder and move the `.asset` file there.
+
+After adding the files, open **Preset → Load** in Kisetter and click **Refresh**. Choose the avatar combination in the **Source Avatar / Target Avatar** filters, select the preset, and click **Apply**. For the detailed steps, see [Load a preset](#2-load-a-preset).
+
 When you are ready, return to the [Automatic Outfit Fitting Guide](../auto-fitting/) to check your options and run the conversion.
