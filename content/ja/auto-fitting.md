@@ -218,6 +218,9 @@ order: 20
 - 変形結果がアバターに合わせて正しく適用されているかを確認します。
 - 意図しない形に変形された場合、**[Advanced Option] - [Save Settings] - Save Result As BlendShape**を有効にしていた場合は、衣装に追加されたKisetter_fit BlendShapeの値を調整することで、元の形に戻すことができます。
 
+!!! info "📦 FBX出力に対応"
+    変形結果はFBX形式で出力でき、Blenderなどの3Dツールで追加編集も可能です。外部ツールで編集する場合は、変形を実行する前にFBX出力オプションを有効にしてください。
+
 ### 7-2. VRChat - Modular Avatar
 
 - Modular Avatarはあくまで一例であり、VRCFuryなどの他のツールを使用して、衣装のボーンがアバターの動きに追従するように設定しても問題ありません。

@@ -69,7 +69,11 @@ If you performed the fitting with **[Advanced Option] - [Weighting Settings] - T
 
 ### 📤 Can I export the fitted clothing as an FBX?
 
-The tool does not currently provide a function for exporting fitted clothing as an FBX.
+Yes, you can **export fitted clothing in FBX format.**
+
+Enable the FBX export option to save the result as an FBX file when the conversion is complete. You can **import the saved file into Blender or other 3D tools for further editing.**
+
+Save location: `Assets/@Eden_Mesh/<Avatar Name>/<Clothing Name>`
 
 ---
 
