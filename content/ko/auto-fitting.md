@@ -222,6 +222,9 @@ order: 20
 - 변형된 결과물이 아바타에 맞게 적용되었는지 확인합니다.
 - 원치 않는 형태로 변형된 경우, **[Advanced Option] - [Save Settings] - Save Result As BlendShape**를 활성화했다면 의상에 추가된 Kisetter_fit BlendShape 값을 조절해 원래 형태로 되돌릴 수 있습니다.
 
+!!! info "📦 FBX 내보내기 지원"
+    변형 결과를 FBX 형식으로 내보내 Blender 등 3D 툴에서 추가로 편집할 수 있습니다. 외부 툴에서 편집하려면 변형 전에 FBX 내보내기 옵션을 활성화해 주세요.
+
 ### 7-2. VRChat - Modular Avatar
 
 - Modular Avatar는 예시일 뿐이며, VRCFury 등 다른 툴을 사용해 의상의 본이 아바타를 따라 움직이도록 설정해도 괜찮습니다.

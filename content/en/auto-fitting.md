@@ -220,6 +220,9 @@ Click **Dress Avatar** to proceed with the transformation.
 - Check whether the morphed result has been applied correctly to the avatar.
 - If the transformation resulted in an undesired shape, and you enabled **[Advanced Option] - [Save Settings] - Save Result As BlendShape**, you can adjust the Kisetter_fit BlendShape values added to the outfit to restore the original shape.
 
+!!! info "📦 FBX export supported"
+    Export your conversion results in FBX format for further editing in Blender or other 3D tools. To edit the results in an external tool, enable the FBX export option before running the conversion.
+
 ### 7-2. VRChat - Modular Avatar
 
 - The Modular Avatar is merely an example; you may use other tools, such as VRCFury, to configure the outfit’s bones to follow the avatar’s movements.
