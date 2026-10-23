@@ -274,7 +274,8 @@ kbd { border: 1px solid var(--line); background: var(--surface-soft); border-rad
 .doc-content { padding: 30px 0 10px; color: var(--ink); }
 .doc-content [id], .doc-content summary { scroll-margin-top: 112px; }
 .doc-content .doc-anchor-alias { display: block; height: 0; }
-.doc-content[data-doc-slug="presets"] :not(pre) > code { overflow-wrap: anywhere; }
+.doc-content[data-doc-slug="presets"] :not(pre) > code,
+.doc-content[data-doc-slug="api"] :not(pre) > code { overflow-wrap: anywhere; }
 .doc-content .preset-file-types th:first-child, .doc-content .preset-file-types td:first-child { min-width: 112px; white-space: nowrap; }
 .doc-content .disabled-doc-link {
   color: var(--muted);

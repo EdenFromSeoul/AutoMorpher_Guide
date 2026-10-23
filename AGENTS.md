@@ -1,5 +1,18 @@
 # Project instructions
 
+## Images containing authored text (all languages)
+
+- For future images that need newly authored text (titles, descriptions, UI guidance, labels, step numbers, or comparison captions), use Figma rather than image generation. This is a standing rule for new and revised images throughout this project, not only the current Texture Studio work.
+- Author newly created or revised guide illustrations, explanatory labels, step numbers, arrows, and comparison layouts in Figma. Keep added text as editable TEXT layers and shapes as editable vector layers; do not use image generation or raster text drawing for these assets.
+- Use the existing `Kisetter Guide` section in the user-selected file: https://www.figma.com/design/roNL2bOGVEJo1pA7xuMGx3/-EDEN--Flowchart---Wireframe?node-id=986-4552 . Do not create a separate file without a request.
+- Apply this workflow to Korean, Japanese, and English guides. Match explanatory copy and button names to each guide's language. Preserve the language and appearance of actual captured application UI unless recapture is requested.
+- Place original application screenshots into Figma as image layers, add annotations there, then use the actual Figma capture/export in the guide. Lossless format conversion is allowed; do not redraw exported text locally.
+- Verify fonts, wrapping, clipping, callout positions, and desktop/mobile display. Record the Figma frame URL and corresponding public asset in the guide documentation.
+- Unannotated application screenshots and HTML page captions may stay in their native form. Do not mistake text already inside the captured application UI for newly authored labels.
+- Current Figma frames and export workflow are documented in `docs/texture-studio-figma-annotations.md`.
+- The current Figma migration is limited to Texture Studio. Preserve existing Mesh Studio, clothing auto-fitting, Preset, and other guide images and document references; the user identified the older clothing guide images as their own work.
+- Keep current guide work in local preview. Do not commit, push, or publish it without an explicit user request.
+
 ## Deployment compatibility
 
 - Keep the guide compatible with both GitHub Pages and a future Cloudflare Pages deployment.
