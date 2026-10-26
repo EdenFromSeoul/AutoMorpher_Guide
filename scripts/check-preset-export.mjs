@@ -13,22 +13,71 @@ const copy = {
   ko: {
     title: "프리셋 사용 가이드",
     note: "선택 사항 · 프리셋 사용",
+    loadHeading: "불러와 적용하기",
+    finishId: "편집을-마치거나-취소하기",
+    namesId: "저장-이름과-위치",
+    videoTitle: "프리셋 사용 가이드 영상",
+    guidelines: "포스트 가이드라인",
+    visibleText: ["적용 안내를 확인해 주세요", "현재 화면의 값이 아니라 직전 변형에 사용한 값을 저장합니다", "만족스러운 변환 결과를 얻었다면"],
+    aliases: {
+      "2-프리셋-불러오기": "2-프리셋-불러와-사용하기",
+      "3-직전-변형값을-프리셋으로-저장하기": "3-내-프리셋-저장-공유하기",
+      "4-새-프리셋-만들기-기존-프리셋-편집하기": "4-프리셋-만들기-편집하기",
+      "5-적용-전-상태로-되돌리기": "preset-restore",
+      "6-저장되는-내용과-주의-사항": "preset-contents",
+      "7-버튼이-비활성화되거나-목록에-보이지-않는-경우": "5-문제-해결",
+      "8-프리셋-내보내기": "preset-share",
+      "9-프리셋-추가하기": "preset-download",
+    },
     labels: ["불러오기", "적용하기", "직전 변형값을 프리셋으로 저장", "새 프리셋 만들기", "불러온 프리셋 편집", "적용 전으로 되돌리기", "가슴 조정 표시", "신체 관통 보정 횟수"],
   },
   ja: {
     title: "プリセット使用ガイド",
     note: "任意 · プリセットを使用する",
+    loadHeading: "読み込んで適用する",
+    finishId: "編集を終了-キャンセルする",
+    namesId: "保存名と保存先",
+    videoTitle: "プリセット使用ガイド動画",
+    guidelines: "投稿ガイドライン",
+    visibleText: ["適用時のメッセージを確認してください", "現在の値ではなく、直前の変形に使用した値を保存します", "満足のいく変換結果が得られたら"],
+    aliases: {
+      "2-プリセットを読み込む": "2-プリセットを読み込んで使う",
+      "3-直前の変形に使った設定をプリセットとして保存する": "3-プリセットを保存-共有する",
+      "4-新しいプリセットを作成する-既存のプリセットを編集する": "4-プリセットを作成-編集する",
+      "5-適用前の状態に戻す": "preset-restore",
+      "6-保存される内容と注意事項": "preset-contents",
+      "7-ボタンが無効-プリセットが一覧に表示されない場合": "5-トラブルシューティング",
+      "8-プリセットを書き出す": "preset-share",
+      "9-プリセットを追加する": "preset-download",
+    },
     labels: ["読み込み", "適用", "直前の変形をプリセット保存", "新しいプリセットを作成", "読み込んだプリセットを編集", "適用前に戻す", "元のアバター名", "対象のアバター名", "胸調整を表示", "身体との貫通補正回数", "保存して戻る", "保存せずに戻る", "編集を続ける"],
   },
   en: {
     title: "Preset Guide",
     note: "Optional · Use a preset",
+    loadHeading: "Load and apply",
+    finishId: "finish-or-cancel-editing",
+    namesId: "preset-names-and-save-location",
+    videoTitle: "Preset guide video",
+    guidelines: "post guidelines",
+    visibleText: ["Check any messages shown when applying a preset", "Saves the settings from the last conversion, not the current values", "Got a conversion result you are happy with?"],
+    aliases: {
+      "2-load-a-preset": "2-load-and-use-presets",
+      "3-save-the-last-conversion-as-a-preset": "3-save-and-share-your-presets",
+      "4-create-a-new-preset-or-edit-an-existing-one": "4-create-and-edit-presets",
+      "5-restore-the-state-before-applying-a-preset": "preset-restore",
+      "6-what-presets-save-and-important-notes": "preset-contents",
+      "7-unavailable-buttons-or-missing-presets": "5-troubleshooting",
+      "8-export-presets": "preset-share",
+      "9-add-presets": "preset-download",
+    },
     labels: ["Load", "Apply", "Save Last Conversion as Preset", "Create New Preset", "Edit Loaded Preset", "Restore Previous", "Source Avatar Name", "Target Avatar Name", "Breast Guides", "Body Penetration Correction Iterations", "Save and Return", "Return Without Saving", "Continue Editing"],
   },
 };
 const presetEntries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)]
   .map((match) => match[1]).filter((entry) => entry.includes("/docs/presets/"));
 assert.equal(presetEntries.length, languages.length, "Each language needs a preset sitemap entry");
+let koreanLayout;
 
 for (const lang of languages) {
   const preset = readPage(lang, "presets");
@@ -44,22 +93,21 @@ for (const lang of languages) {
     assert.ok(!/[\uac00-\ud7a3]/u.test(article.replace(/<[^>]*>/g, "")), `${lang}: Korean text remains in the translated article`);
   }
 
-  // Korean uses the task-oriented structure; the translations retain their existing layout.
+  // Every language follows the Korean guide's task-oriented structure.
   const source = fs.readFileSync(path.resolve("content", lang, "presets.md"), "utf8").replace(/\r\n/g, "\n");
-  const isRestructured = lang === "ko";
-  assert.deepEqual([...source.matchAll(/^## (\d+)\./gm)].map((match) => Number(match[1])), isRestructured ? [1, 2, 3, 4, 5] : [1, 2, 3, 4, 5, 6, 7, 8, 9]);
-  const detailsCount = isRestructured ? 16 : 5;
+  assert.deepEqual([...source.matchAll(/^## (\d+)\./gm)].map((match) => Number(match[1])), [1, 2, 3, 4, 5]);
+  const detailsCount = 16;
   assert.equal((article.match(/<details\b/g) ?? []).length, detailsCount, `${lang}: Incorrect number of disclosures`);
   const openDetails = [...article.matchAll(/<details\b[^>]*>/g)]
     .map(([tag]) => tag).filter((tag) => /\sopen(?:\s|=|>)/.test(tag))
     .map((tag) => tag.match(/\bid="([^"]+)"/)?.[1]);
-  assert.deepEqual(openDetails, isRestructured ? ["preset-download", "preset-restore", "preset-share", "편집을-마치거나-취소하기"] : [], `${lang}: Incorrect default-open disclosures`);
+  assert.deepEqual(openDetails, ["preset-download", "preset-restore", "preset-share", copy[lang].finishId], `${lang}: Incorrect default-open disclosures`);
   assert.equal((article.match(/data-details-close/g) ?? []).length, detailsCount, `${lang}: Missing close controls`);
   assert.equal((article.match(/<table>/g) ?? []).length, 4, `${lang}: Expected four tables`);
   const sections = source.split(/^## /m).slice(1);
-  for (const [section, count] of (isRestructured ? [[2, 5], [3, 5], [4, 4]] : [[2, 4], [3, 5], [4, 6]])) {
+  for (const [section, count] of [[2, 5], [3, 5], [4, 4]]) {
     let body = sections[section - 1].slice(sections[section - 1].indexOf("\n") + 1);
-    if (isRestructured && section === 2) body = body.split("### 불러와 적용하기\n")[1];
+    if (section === 2) body = body.split(`### ${copy[lang].loadHeading}\n`)[1];
     const list = marked.lexer(body).find((token) => token.type === "list" && token.ordered);
     assert.equal(list?.items.length, count, `${lang}: Incorrect step numbering in section ${section}`);
     if (section === 4) {
@@ -67,7 +115,7 @@ for (const lang of languages) {
     }
   }
 
-  if (isRestructured) {
+  {
     const details = [...article.matchAll(/<details\b[^>]*>[\s\S]*?<\/details>/g)].map(([block]) => block);
     assert.ok(details.every((block) => (block.match(/<details\b/g) ?? []).length === 1), "Do not nest disclosures");
     assert.ok(details.every((block) => !block.includes('class="doc-anchor-alias"')), "Keep aliases outside disclosures to avoid native fragment expansion before hydration");
@@ -84,33 +132,31 @@ for (const lang of languages) {
       assert.ok(block.includes("ZIP") && block.includes(".unitypackage"));
     }
     assert.ok(download.includes(".asset") && download.includes("Import"));
-    assert.ok(share.includes("Export Package") && share.includes("포스트 가이드라인"));
+    assert.ok(share.includes("Export Package") && share.includes(copy[lang].guidelines));
     assert.ok(!share.includes("<table>"), "Sharing must not include a post-writing form table");
+    detail(copy[lang].namesId);
+    detail(copy[lang].finishId);
     const expandedContent = article.replace(/<details\b[^>]*>[\s\S]*?<\/details>/g, "");
-    for (const text of ["불러와 적용하기", "적용 안내를 확인해 주세요", "현재 화면의 값이 아니라 직전 변형에 사용한 값을 저장합니다", "만족스러운 변환 결과를 얻었다면"]) {
+    for (const text of [copy[lang].loadHeading, ...copy[lang].visibleText]) {
       assert.ok(expandedContent.includes(text), `Essential instructions hidden: ${text}`);
     }
     const video = expandedContent.match(/<iframe\b[^>]*\bid="preset-video"[^>]*>/)?.[0];
-    assert.ok(video?.includes('title="프리셋 사용 가이드 영상"'), "Video must be visible outside disclosures");
+    assert.ok(video?.includes(`title="${copy[lang].videoTitle}"`), "Video must be visible outside disclosures");
     assert.ok(video.includes("youtube-nocookie.com/embed/1y4bThRyBIw"));
-    assert.ok(article.includes("기능입니다.<br>자주 쓰는 변환 설정"), "Intro needs an explicit line break");
-    assert.match(article, /<aside class="admonition tip">\s*<strong>다른 유저의 프리셋을 사용하고, 나만의 프리셋도 공유해 보세요!<\/strong>/, "Community invitation should use the yellow tip box");
-    assert.ok(!/아바타\((?:Source|Target)\)|Source Avatar의 BlendShape|Source \/ Target \/ Preset 이름/.test(article), "Use Korean avatar terms outside UI labels");
+    const intro = article.match(/<div class="guide-intro">([\s\S]*?)<\/div>/)?.[1];
+    assert.ok(intro?.includes("<br>"), "Intro needs an explicit line break");
+    const community = article.match(/<aside class="admonition tip">([\s\S]*?)<\/aside>/)?.[0];
+    assert.ok(community?.includes('href="https://discord.gg/Czuxfw8ng8"') && community.includes("💾｜preset-share"), "Community invitation should use the yellow tip box");
+    assert.ok(article.indexOf(community) < article.indexOf(video), "Community box must precede the video");
+    assert.ok(!article.includes("preset-shortcuts"), "Do not restore the removed intro shortcuts");
+    if (lang === "ko") {
+      assert.ok(!/아바타\((?:Source|Target)\)|Source Avatar의 BlendShape|Source \/ Target \/ Preset 이름/.test(article), "Use Korean avatar terms outside UI labels");
+    }
     assert.ok(!article.includes("EDEN SPECTRUM"), "Use the shortened Discord server label");
-    assert.match(expandedContent, /<a\b[^>]*href="https:\/\/discord\.gg\/Czuxfw8ng8"[^>]*><strong>💾｜preset-share<\/strong> 채널<\/a>/, "Sharing invitation needs a linked channel label");
+    assert.match(expandedContent, /<a\b[^>]*href="https:\/\/discord\.gg\/Czuxfw8ng8"[^>]*><strong>💾｜preset-share<\/strong>[^<]*<\/a>/, "Sharing invitation needs a linked channel label");
     assert.equal((article.match(/save-preset-dialog\.png/g) ?? []).length, 1, "Show the save dialog only once");
     assert.equal((article.match(/<img\b/g) ?? []).length, 13, "Preserve all screenshots, including the two export screenshots");
-    const aliases = {
-      "2-프리셋-불러오기": "2-프리셋-불러와-사용하기",
-      "3-직전-변형값을-프리셋으로-저장하기": "3-내-프리셋-저장-공유하기",
-      "4-새-프리셋-만들기-기존-프리셋-편집하기": "4-프리셋-만들기-편집하기",
-      "5-적용-전-상태로-되돌리기": "preset-restore",
-      "6-저장되는-내용과-주의-사항": "preset-contents",
-      "7-버튼이-비활성화되거나-목록에-보이지-않는-경우": "5-문제-해결",
-      "8-프리셋-내보내기": "preset-share",
-      "9-프리셋-추가하기": "preset-download",
-    };
-    for (const [alias, target] of Object.entries(aliases)) {
+    for (const [alias, target] of Object.entries(copy[lang].aliases)) {
       assert.ok(article.includes(`id="${alias}" class="doc-anchor-alias" data-anchor-target="${target}"`), `Missing old anchor: ${alias}`);
       assert.ok(article.includes(`id="${target}"`), `Missing alias destination: ${target}`);
     }
@@ -120,6 +166,13 @@ for (const lang of languages) {
       assert.ok(src.startsWith(`${basePath}/media/`), `Image escaped base path: ${src}`);
       assert.ok(fs.existsSync(path.join(output, src.slice(basePath.length))), `Missing exported image: ${src}`);
     }
+    const layout = [...article.matchAll(/<(h[23]|details|img|table|iframe)\b([^>]*)>/g)].map(([, tag, attributes]) => {
+      if (tag === "img" || tag === "iframe") return `${tag}:${attributes.match(/\bsrc="([^"]+)"/)?.[1]}`;
+      if (tag === "details") return `${tag}:${/\sopen(?:\s|=|$)/.test(attributes)}`;
+      return tag;
+    });
+    if (lang === "ko") koreanLayout = layout;
+    else assert.deepEqual(layout, koreanLayout, `${lang}: Headings, disclosure states, tables, and media must match the Korean layout`);
   }
 
   const autoFitting = readPage(lang, "auto-fitting");

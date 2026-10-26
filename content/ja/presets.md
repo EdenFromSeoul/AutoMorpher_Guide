@@ -8,13 +8,15 @@ version: "3.4.1"
 ---
 
 <div class="guide-intro">
-  <p>⚫ <strong>プリセット（Preset）</strong>は、アバターの組み合わせに合わせたBlendShape・ボーン・胸の対応位置や、一部の変形オプションを保存して再利用できる機能です。</p>
-  <p>⚫ <strong>よく使う変換設定</strong>をプリセットに保存して、必要なときに手軽に読み込んで適用しましょう。</p>
-  <p>⚫ 満足のいく変換結果が得られたプリセットを、ほかのきせったユーザーと<strong>共有</strong>してみましょう！</p>
-  <p>⚫ プリセットを使用する場合も、衣装の対応には変換元アバターまたは変換元プロファイル（Profile）が必要です。</p>
+  <p><strong>プリセット（Preset）</strong>は、アバターの組み合わせに合わせたBlendShape・ボーン・胸の対応位置や、一部の変形オプションを保存して再利用できる機能です。<br>よく使う変換設定を保存したり、ほかのユーザーが作成したプリセットを読み込んで活用したりできます。</p>
 </div>
 
-<iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/1y4bThRyBIw" title="プリセット使用ガイド動画" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<aside class="admonition tip">
+  <strong>ほかのユーザーのプリセットを使って、自分のプリセットも共有しましょう！</strong>
+  <p><a href="https://discord.gg/Czuxfw8ng8"><b>Discordサーバー</b></a>の<b>💾｜preset-share</b>チャンネルでは、ほかのきせったユーザーが作成したプリセットをダウンロードできます。サーバーに参加し、使いたいアバターの組み合わせに合うプリセットを探してみてください。満足のいく変換結果が得られたプリセットがあれば、ぜひ共有してください。</p>
+</aside>
+
+<iframe class="youtube-embed" id="preset-video" src="https://www.youtube-nocookie.com/embed/1y4bThRyBIw" title="プリセット使用ガイド動画" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## 1. 使用前の準備
 
@@ -26,24 +28,77 @@ version: "3.4.1"
     Profileは、変換元アバターの代わりに使用できる変換元データです。<br>
     Presetは、変形に使用する調整値を保存した設定です。プロファイルを使用する場合も、プリセットを併用できます。
 
-## 2. プリセットを読み込む
+<span id="2-プリセットを読み込む" class="doc-anchor-alias" data-anchor-target="2-プリセットを読み込んで使う" aria-hidden="true"></span>
+
+## 2. プリセットを読み込んで使う
+
+Unityプロジェクトにすでに入っているプリセットを使う場合は、下の[**読み込んで適用する**](#読み込んで適用する)へ進んでください。ほかのユーザーのプリセットを使いたい場合や、受け取ったファイルを追加する場合は、次の手順を確認してください。
+
+<span id="9-プリセットを追加する" class="doc-anchor-alias" data-anchor-target="preset-download" aria-hidden="true"></span>
+
+<details class="doc-optional-step" id="preset-download" open>
+<summary>ほかのユーザーのプリセットをダウンロード・追加する</summary>
+
+ほかのユーザーが作成したプリセットは、[**Discordサーバー**](https://discord.gg/Czuxfw8ng8)の<strong>💾｜preset-share</strong>チャンネルで入手できます。すでにファイルを受け取っている場合は、Unityに追加する手順から進めてください。別の場所で入手したプリセットも、同じ方法で追加できます。
+
+1. サーバーに参加し、**💾｜preset-share**チャンネルを開きます。
+2. **変換先アバター**の名前で投稿を探し、本文に記載された**変換元アバター → 変換先アバター**の組み合わせと使用条件を確認します。
+3. 添付されたプリセットをダウンロードします。ZIPファイルの場合は、先に解凍してください。
+4. ダウンロードしたファイル、または解凍したファイルの形式に合わせて、Unityプロジェクトに追加します。
+
+<div class="preset-file-types">
+
+| ファイル形式 | 追加方法 |
+| --- | --- |
+| `.unitypackage` | 使用するUnityプロジェクトを開いた状態でファイルをダブルクリックし、**Import**を押します。取り込んだプリセットが下記フォルダー内にあることを確認してください。 |
+| `.asset` | `Assets/@Eden_Tools/Kisetter/Presets`フォルダー内に、プリセットの`.asset`ファイルを入れます。 |
+
+</div>
+
+プリセットの保存先: `Assets/@Eden_Tools/Kisetter/Presets`
+
+追加できたら、下の[**読み込んで適用する**](#読み込んで適用する)へ進んでください。読み込みウィンドウの**更新**を押すと、追加したプリセットが一覧に反映されます。
+
+<button type="button" class="doc-details-close" data-details-close>ダウンロード・追加の説明を閉じる</button>
+</details>
+
+### 読み込んで適用する
 
 1. **プリセット**欄の**読み込み**を押します。
 
    ![プリセット欄の読み込みボタンの位置]({{BASE_PATH}}/media/presets/load-preset.png)
 
-2. **変換元アバター**と**変換先アバター**の名前で一覧を絞り込みます。
+2. 新しいプリセットを追加した場合は、読み込みウィンドウで**更新**を押します。
+3. **変換元アバター**と**変換先アバター**の名前で一覧を絞り込みます。
 
    ![変換元アバターと変換先アバターの名前でプリセット一覧を絞り込む画面]({{BASE_PATH}}/media/presets/filter-avatars.png)
 
    - 名前はあらかじめ決められたものではなく、プリセットの作成者が作成時や保存時に自由に指定・変更したものです。
-3. **プリセット一覧**から使いたいプリセットを選び、**適用**を押します。
-4. 適用後は、**BlendShape**が衣装に合うように調整されているか確認してから、**着せる**を押して変形を進めてください。調整が必要な場合は、[**プリセットの編集機能**](#4-新しいプリセットを作成する-既存のプリセットを編集する)を活用できます。
+4. **プリセット一覧**から使いたいプリセットを選び、**適用**を押します。
+5. 適用後は、**BlendShape**や必要な設定が衣装に合っているか確認してから、**着せる**を押して変形を進めてください。調整が必要な場合は、[**プリセットを作成・編集する**](#4-プリセットを作成-編集する)を確認してください。
 
 !!! warning "適用時のメッセージを確認してください"
     プリセットと現在のアバターのボーン構成が合わない場合は、適用できないことがあります。変換先アバターのボーン設定が保存時と異なるというメッセージが表示されたら、適用結果を確認し、必要に応じてボーンを調整してください。同じアバターの組み合わせでも、衣装や体型の設定によって結果は変わることがあります。
 
-## 3. 直前の変形に使った設定をプリセットとして保存する
+<span id="5-適用前の状態に戻す" class="doc-anchor-alias" data-anchor-target="preset-restore" aria-hidden="true"></span>
+
+<details class="doc-optional-step" id="preset-restore" open>
+<summary>適用前の状態に戻す</summary>
+
+![プリセットの適用前の状態に戻すボタンの位置]({{BASE_PATH}}/media/presets/restore-previous.png)
+
+読み込んだプリセットが合わない場合は、**適用前に戻す**を押します。**最後にプリセットを適用する直前の設定とBlendShape値**に戻り、プリセットの選択が解除されます。
+
+この機能は、変換元アバターまたはプロファイル、着せる衣装、変換先アバターが適用時と同じ場合に使用できます。アバターや衣装の組み合わせを変更した後は、適用前の状態に戻せません。
+
+プリセットファイルを削除したり、すでに生成された変形結果をすべて元に戻したりする機能ではありません。
+
+<button type="button" class="doc-details-close" data-details-close>適用前に戻す説明を閉じる</button>
+</details>
+
+<span id="3-直前の変形に使った設定をプリセットとして保存する" class="doc-anchor-alias" data-anchor-target="3-プリセットを保存-共有する" aria-hidden="true"></span>
+
+## 3. プリセットを保存・共有する
 
 直前に完了した変形で使用した設定値を保存するときに使います。事前調整で変更したボーン・胸のマッチング調整値もプリセットに含まれます。
 
@@ -68,14 +123,58 @@ version: "3.4.1"
 !!! info "現在の値ではなく、直前の変形に使用した値を保存します"
     変形完了後に設定値を変更しても、保存されるのは直前の変形時の設定値です。変更後の値を保存するには、もう一度変形を完了するか、以下のプリセット作成・編集機能を使ってください。同じ変形結果の設定を一度保存するとボタンは無効になり、再度変形を完了すると保存できるようになります。
 
-### 保存名と保存先
+満足のいく変換結果が得られたら、保存したプリセットを[**💾｜preset-share**チャンネル](https://discord.gg/Czuxfw8ng8)で共有してみてください。ほかのきせったユーザーの衣装対応にも役立ちます。
+
+<span id="8-プリセットを書き出す" class="doc-anchor-alias" data-anchor-target="preset-share" aria-hidden="true"></span>
+
+<details class="doc-optional-step" id="preset-share" open>
+<summary>自分のプリセットをDiscordで共有する</summary>
+
+1. UnityのProjectウィンドウで`Assets/@Eden_Tools/Kisetter/Presets`フォルダーを開き、共有するプリセットを選びます。複数のプリセットをまとめて選ぶこともできます。
+
+   ![UnityのProjectウィンドウにあるAssets、@Eden_Tools、Kisetter、Presetsフォルダーと保存済みプリセットの一覧]({{BASE_PATH}}/media/presets/preset-folder.png)
+
+2. <strong>右クリック → Export Package…</strong>を選び、含めるファイルを確認してから<strong>Export…</strong>を押し、ファイル名と保存先を指定します。
+
+   ![複数のプリセットを選択し、右クリックメニューからExport Packageを選ぶ画面]({{BASE_PATH}}/media/presets/export-package.png)
+
+3. 書き出した`.unitypackage`ファイルを**ZIP形式で圧縮**します。
+4. [**Discordサーバー**](https://discord.gg/Czuxfw8ng8)に参加し、**💾｜preset-share**チャンネルで**新しい投稿**を作成してZIPファイルを添付します。投稿内容は、チャンネルの**投稿ガイドライン**に沿って記入してください。
+
+書き出した`.unitypackage`ファイルは、プリセットを別のUnityプロジェクトへ移す場合にも使えます。
+
+<button type="button" class="doc-details-close" data-details-close>共有の説明を閉じる</button>
+</details>
+
+<details class="doc-optional-step" id="保存名と保存先">
+<summary>保存名と保存先</summary>
 
 - **元のアバター名**と**対象のアバター名**には、英字・数字・空白と`_ - . ( ) [ ] +`のみ使用できます。この名前が読み込みウィンドウのアバター一覧に表示されます。
 - **プリセット名**には、ファイル名に使用できない文字を入力しないでください。名前の末尾にピリオドは使用できません。
-- プリセットは、Unityプロジェクトの`Assets/@Eden_Tools/Kisetter/Presets`内に、**Source / Target / プリセット名**ごとのフォルダーと`.asset`ファイルとして保存されます。
+- プリセットは、Unityプロジェクトの`Assets/@Eden_Tools/Kisetter/Presets`内に、**変換元アバター / 変換先アバター / プリセット名**ごとのフォルダーと`.asset`ファイルとして保存されます。
 - 同じアバターの組み合わせで同名のプリセットがある場合、上書き確認が表示されます。既存のプリセットを残すには、キャンセルして別のプリセット名で保存してください。
 
-## 4. 新しいプリセットを作成する・既存のプリセットを編集する
+<button type="button" class="doc-details-close" data-details-close>保存名と保存先の説明を閉じる</button>
+</details>
+
+<span id="6-保存される内容と注意事項" class="doc-anchor-alias" data-anchor-target="preset-contents" aria-hidden="true"></span>
+
+<details class="doc-optional-step" id="preset-contents">
+<summary>保存される内容と保存されない内容</summary>
+
+| 区分 | 内容 |
+| --- | --- |
+| **保存される調整値** | アバターの胴体MeshのBlendShape値、アバターボーンの位置・回転・大きさの調整値、胸の対応位置情報、プリセットが対応している変形オプション |
+| **保存されない内容** | 衣装自体の調整値、Scene内のアバター・衣装オブジェクトそのもの、完成した衣装のPrefabやMeshファイル |
+
+プリセットは、**Kisetterのすべての設定や作業結果を丸ごと保存する機能ではありません。** 成果物のファイルは、通常の保存・エクスポート機能で別途保存してください。
+
+<button type="button" class="doc-details-close" data-details-close>保存内容の説明を閉じる</button>
+</details>
+
+<span id="4-新しいプリセットを作成する-既存のプリセットを編集する" class="doc-anchor-alias" data-anchor-target="4-プリセットを作成-編集する" aria-hidden="true"></span>
+
+## 4. プリセットを作成・編集する
 
 変形を実行せずに新しいプリセットを作成したいときや、読み込んだプリセットをさらに調整したいときに使います。
 
@@ -140,7 +239,7 @@ version: "3.4.1"
 
    **現在のBlendShapeに合わせてボーンポーズを更新**: 変更したBlendShapeに合わせて、マッチングに使うボーンのポーズを再計算します。BlendShapeを変更した後は、更新することをおすすめします。
 
-   変換元アバターまたは変換先アバターを選び、一覧のBlendShape値をスライダーや数値入力で調整します。
+   **変換元アバター**または**変換先アバター**を選び、一覧のBlendShape値をスライダーや数値入力で調整します。
 
    変換元アバターのBlendShapeを調整すると、着せる衣装にも同じ名前のBlendShapeがある場合、その値も連動して変更されます。名前が異なる場合や、該当する項目がない場合は連動しません。
 
@@ -209,23 +308,13 @@ version: "3.4.1"
    <button type="button" class="doc-details-close" data-details-close>オプション調整の説明を閉じる</button>
    </details>
 
-3. 編集画面の**保存**を押して、保存ウィンドウを開きます。
-4. 以下の項目を確認し、必要に応じて名前を変更します。
-
-   | 項目 | 入力する内容 |
-   | --- | --- |
-   | **プリセット名** | 後から見分けやすいプリセットの名前 |
-   | **元のアバター名** | 変換元アバターを識別する名前 |
-   | **対象のアバター名** | 変換先アバターを識別する名前 |
-
-   ![プリセット名と元・対象のアバター名を入力する保存ウィンドウ]({{BASE_PATH}}/media/presets/save-preset-dialog.png)
-
-5. **保存**を押し、確認ダイアログで保存を確定します。
-6. 保存完了のメッセージが表示されるとKisetter画面に戻り、保存したプリセットが自動的に選択されます。
+3. 編集画面の**保存**を押し、**プリセット名**・**元のアバター名**・**対象のアバター名**を確認してから、**保存**を押して確認ダイアログで確定します。名前のルールや保存先は、[**保存名と保存先**](#保存名と保存先)を確認してください。
+4. 保存完了のメッセージが表示されるとKisetter画面に戻り、保存したプリセットが自動的に選択されます。
 
 この設定で衣装を対応させるには、**着せる**を押して変形を進めてください。
 
-### 編集を終了・キャンセルする
+<details class="doc-optional-step" id="編集を終了-キャンセルする" open>
+<summary>編集を終了・キャンセルする</summary>
 
 **Kisetterに戻る**を押すと、前の画面に戻ります。未保存の変更がある場合は、以下のいずれかを選んでください。
 
@@ -233,56 +322,53 @@ version: "3.4.1"
 - **保存せずに戻る**: 今回の編集内容を破棄して戻ります。
 - **編集を続ける**: 編集画面に戻り、調整を続けます。
 
-## 5. 適用前の状態に戻す
+<button type="button" class="doc-details-close" data-details-close>編集終了の説明を閉じる</button>
+</details>
 
-![プリセットの適用前の状態に戻すボタンの位置]({{BASE_PATH}}/media/presets/restore-previous.png)
+保存したプリセットを共有する場合は、[**自分のプリセットをDiscordで共有する**](#preset-share)を確認してください。
 
-読み込んだプリセットが合わない場合は、**適用前に戻す**を押します。**最後にプリセットを適用する直前の設定とBlendShape値**に戻り、プリセットの選択が解除されます。
+<span id="7-ボタンが無効-プリセットが一覧に表示されない場合" class="doc-anchor-alias" data-anchor-target="5-トラブルシューティング" aria-hidden="true"></span>
 
-この機能は、変換元アバターまたはプロファイル、着せる衣装、変換先アバターが適用時と同じ場合に使用できます。アバターや衣装の組み合わせを変更した後は、適用前の状態に戻せません。
+## 5. トラブルシューティング
 
-プリセットファイルを削除したり、すでに生成された変形結果をすべて元に戻したりする機能ではありません。
+<details class="doc-optional-step">
+<summary>「読み込み」または「新しいプリセットを作成」が無効な場合</summary>
 
-## 6. 保存される内容と注意事項
+変換元アバター（または変換元プロファイル）、着せる衣装、変換先アバターがすべて指定されているか確認してください。Unityが再生中の場合は再生を停止し、変形やプリセットの編集・保存が進行中の場合は、先に完了させてください。
 
-| 区分 | 内容 |
-| --- | --- |
-| **保存される調整値** | アバターの胴体MeshのBlendShape値、アバターボーンの位置・回転・大きさの調整値、胸の対応位置情報、プリセットが対応している変形オプション |
-| **保存されない内容** | 衣装自体の調整値、Scene内のアバター・衣装オブジェクトそのもの、完成した衣装のPrefabやMeshファイル |
+<button type="button" class="doc-details-close" data-details-close>解決方法を閉じる</button>
+</details>
 
-プリセットは、**Kisetterのすべての設定や作業結果を丸ごと保存する機能ではありません。** 成果物のファイルは、通常の保存・エクスポート機能で別途保存してください。
+<details class="doc-optional-step">
+<summary>「読み込んだプリセットを編集」が無効な場合</summary>
 
-## 7. ボタンが無効・プリセットが一覧に表示されない場合
+まず**読み込み**で編集したいプリセットを選び、**適用**を押してください。
 
-- **「読み込み」または「新しいプリセットを作成」が無効な場合**: 変換元アバター（または変換元プロファイル）、着せる衣装、変換先アバターがすべて指定されているか確認してください。Unityが再生中の場合は再生を停止し、変形やプリセットの編集・保存が進行中の場合は、先に完了させてください。
-- **「読み込んだプリセットを編集」が無効な場合**: まず**読み込み**で編集したいプリセットを選び、**適用**を押してください。
-- **「直前の変形をプリセット保存」が無効な場合**: 現在の作業で、**着せる**による変形を最後まで完了したか確認してください。段階的に進めた場合は、**Weighting**まで完了する必要があります。変形完了時と同じ変換元・変換先アバターの組み合わせで保存できます。同じ変形結果をすでに保存した場合は、再度変形を完了するとボタンが有効になります。
-- **プリセットが一覧に表示されない場合**: プリセットの`.asset`ファイルが`Assets/@Eden_Tools/Kisetter/Presets`フォルダー内にあることを確認し、**更新**を押してください。**変換元アバター / 変換先アバター**の絞り込みによって表示されていない可能性も確認してください。
-- **プリセットを適用できないというメッセージが表示される場合**: 選択したプリセットと衣装が、現在の変換元アバターに対応しているか確認してください。ボーン構造に互換性がないプリセットは、アバター名を変えるだけでは適用できません。
+<button type="button" class="doc-details-close" data-details-close>解決方法を閉じる</button>
+</details>
 
-## 8. プリセットを書き出す
+<details class="doc-optional-step">
+<summary>「直前の変形をプリセット保存」が無効な場合</summary>
 
-作成したプリセットをほかの人に共有したり、別のUnityプロジェクトに移したりする場合は、**Export Package**で書き出します。
+現在の作業で、**着せる**による変形を最後まで完了したか確認してください。段階的に進めた場合は、**Weighting**まで完了する必要があります。変形完了時と同じ変換元・変換先アバターの組み合わせで保存できます。同じ変形結果をすでに保存した場合は、再度変形を完了するとボタンが有効になります。
 
-1. プリセットは`Assets/@Eden_Tools/Kisetter/Presets`フォルダーに保存されています。
+<button type="button" class="doc-details-close" data-details-close>解決方法を閉じる</button>
+</details>
 
-   ![UnityのProjectウィンドウにあるAssets、@Eden_Tools、Kisetter、Presetsフォルダーと保存済みプリセットの一覧]({{BASE_PATH}}/media/presets/preset-folder.png)
+<details class="doc-optional-step">
+<summary>プリセットが一覧に表示されない場合</summary>
 
-2. 書き出すプリセットを選択します。複数のプリセットを選択して、まとめて書き出すこともできます。
-3. 選択したプリセットを**右クリック**し、<strong>Export Package...</strong>を選びます。
+プリセットの`.asset`ファイルが`Assets/@Eden_Tools/Kisetter/Presets`フォルダー内にあることを確認し、**更新**を押してください。**変換元アバター / 変換先アバター**の絞り込みによって表示されていない可能性も確認してください。
 
-   ![複数のプリセットを選択し、右クリックメニューからExport Packageを選ぶ画面]({{BASE_PATH}}/media/presets/export-package.png)
+<button type="button" class="doc-details-close" data-details-close>解決方法を閉じる</button>
+</details>
 
-4. 書き出しウィンドウで含めるファイルを確認し、<strong>Export...</strong>を押して、ファイル名と保存先を指定します。
-5. 保存された<strong><code>.unitypackage</code>ファイル</strong>を共有します。
+<details class="doc-optional-step">
+<summary>プリセットを適用できないというメッセージが表示される場合</summary>
 
-## 9. プリセットを追加する
+選択したプリセットと衣装が、現在の変換元アバターに対応しているか確認してください。ボーン構造に互換性がないプリセットは、アバター名を変えるだけでは適用できません。
 
-受け取ったプリセットは、Unityプロジェクトの<strong><code>Assets/@Eden_Tools/Kisetter/Presets</code>フォルダーに入れると追加されます。</strong> 上の画像と同じフォルダーを使用してください。
-
-- **`.unitypackage`ファイルで受け取った場合**: 使用するUnityプロジェクトを開いた状態でファイルをダブルクリックし、**Import**を押します。取り込んだプリセットが上記フォルダー内にあることを確認してください。
-- **プリセットの`.asset`ファイルで受け取った場合**: `Assets/@Eden_Tools/Kisetter/Presets`フォルダーを開き、そこに`.asset`ファイルを移動します。
-
-追加したら、Kisetterの**プリセット → 読み込み**を開き、**更新**を押します。**変換元アバター / 変換先アバター**の絞り込みで該当する組み合わせを選び、使用するプリセットを選択して**適用**を押してください。詳しい手順は[プリセットを読み込む](#2-プリセットを読み込む)を参照してください。
+<button type="button" class="doc-details-close" data-details-close>解決方法を閉じる</button>
+</details>
 
 準備ができたら、[衣装自動対応ガイド](../auto-fitting/)に戻ってオプションを確認し、変形を進めてください。
