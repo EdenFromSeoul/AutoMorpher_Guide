@@ -8,182 +8,107 @@ version: "3.4.1"
 ---
 
 <div class="guide-intro">
-  <p><strong>프리셋(Preset)</strong>은 아바타 조합에 맞춘 BlendShape·본·가슴 대응 위치와 일부 변형 옵션을 저장해 다시 사용하는 기능입니다.<br>자주 쓰는 변환 설정을 저장하거나, 다른 유저가 만든 프리셋을 불러와 활용할 수 있습니다.</p>
+  <p><strong>프리셋(Preset)</strong>은 아바타 조합에 맞춘 조정값을 저장해 다시 사용하는 기능입니다.<br>자주 쓰는 설정을 저장하거나, 다른 유저와 설정을 공유해 보세요.</p>
 </div>
 
 <aside class="admonition tip">
   <strong>다른 유저의 프리셋을 사용하고, 나만의 프리셋도 공유해 보세요!</strong>
-  <p><a href="https://discord.gg/Czuxfw8ng8"><b>디스코드 서버</b></a>의 <b>💾｜preset-share</b> 채널에서 다른 키셋타 유저들이 만든 프리셋을 다운로드할 수 있습니다. 서버에 참여한 뒤 해당 채널에서 원하는 아바타 조합의 프리셋을 찾아보세요. 만족스러운 변환 결과를 만든 프리셋이 있다면 여러분도 공유해 주세요.</p>
+  <p><a href="https://discord.gg/Czuxfw8ng8"><b>디스코드 서버</b></a>의 <b>💾｜preset-share</b> 채널에서 프리셋을 받거나 공유할 수 있습니다.</p>
 </aside>
 
 <iframe class="youtube-embed" id="preset-video" src="https://www.youtube-nocookie.com/embed/1y4bThRyBIw" title="프리셋 사용 가이드 영상" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## 1. 사용 전 준비
 
-**원본 아바타**, **입힐 의상**, **입힐 아바타**를 모두 할당해야 프리셋 기능을 사용할 수 있습니다. 원본 아바타 대신 변환 원본 프로필을 사용하는 경우에는 **Profile**을 지정합니다.
+프리셋을 **직접 만들거나 적용·편집하려면** **원본 아바타**, **입힐 의상**, **입힐 아바타**를 할당합니다. 
 
-아직 할당하지 않았다면 [의상 자동 대응 가이드의 **4. きせった (Kisetter) 설정**](../auto-fitting/#4-きせった-kisetter-설정)을 확인해 주세요.
+  - 원본 아바타 대신 변환 원본 프로필을 사용하는 경우에는 **Profile**을 지정합니다.
 
-!!! info "Profile과 Preset은 다른 기능입니다"
-    Profile은 원본 아바타 대신 사용할 변환 원본 데이터입니다.<br>
-    Preset은 변형에 사용할 조정값을 저장한 설정입니다. 프로필을 사용하는 경우에도 프리셋을 함께 사용할 수 있습니다.
 
-<span id="2-프리셋-불러오기" class="doc-anchor-alias" data-anchor-target="2-프리셋-불러와-사용하기" aria-hidden="true"></span>
 
-## 2. 프리셋 불러와 사용하기
+## 2. Preset 준비하기
 
-이미 Unity 프로젝트에 저장된 프리셋을 사용한다면 아래 [**불러와 적용하기**](#불러와-적용하기)를 진행하세요. 다른 유저의 프리셋을 사용하고 싶거나 받은 파일을 추가하려면 다음 안내를 확인해 주세요.
+**다른 유저의 Preset을 불러오거나, 직접 Preset을 만들 수 있습니다.**
+
+이미 사용할 Preset이 추가되어있다면 [**3. Preset 적용하기**](#3-preset-적용하기)로 이동하세요.
+
+<span id="2-프리셋-불러오기" class="doc-anchor-alias" data-anchor-target="2-1-preset-불러오기" aria-hidden="true"></span>
+
+<span id="2-프리셋-불러와-사용하기" class="doc-anchor-alias" data-anchor-target="2-1-preset-불러오기" aria-hidden="true"></span>
+
+<span id="2-프리셋-파일-추가하기" class="doc-anchor-alias" data-anchor-target="2-1-preset-불러오기" aria-hidden="true"></span>
+
+### 2-1. Preset 불러오기
 
 <span id="9-프리셋-추가하기" class="doc-anchor-alias" data-anchor-target="preset-download" aria-hidden="true"></span>
 
-<details class="doc-optional-step" id="preset-download" open>
+<details class="doc-optional-step" id="preset-download">
 <summary>다른 유저의 프리셋 다운로드·추가하기</summary>
 
-다른 유저가 만든 프리셋은 [**디스코드 서버**](https://discord.gg/Czuxfw8ng8)의 **💾｜preset-share** 채널에서 받을 수 있습니다. 이미 파일을 받았다면 Unity에 추가하는 단계부터 진행하세요. 다른 곳에서 받은 프리셋도 같은 방법으로 추가할 수 있습니다.
+배포처나 다른 유저에게 **원본 아바타 → 입힐 아바타** 조합에 맞는 프리셋을 받습니다.
 
-1. 서버에 참여한 뒤 **💾｜preset-share** 채널을 엽니다.
-2. **입힐 아바타** 이름으로 게시글을 찾아, 본문에 적힌 **원본 아바타 → 입힐 아바타** 조합과 적용 조건을 확인합니다.
-3. 첨부된 프리셋을 다운로드합니다. ZIP 파일이면 먼저 압축을 풀어 주세요.
-4. 받은 파일 또는 압축을 푼 파일의 형식에 따라 Unity 프로젝트에 추가합니다.
+[**디스코드 서버**](https://discord.gg/Czuxfw8ng8)에서도 프리셋을 공유할 수 있는 **💾｜preset-share** 채널을 운영하고 있습니다.
+
+1. `.ksPreset` 파일을 준비합니다.
+
+    - `.asset`이나 `.unitypackage`로 받았다면 [**Unity에서 직접 추가하기**](#preset-unity-import)를 확인하세요.
+
+2. **프리셋 파일로 불러오기 / 내보내기**를 펼치고 **불러오기**를 누릅니다.
+
+   ![파일 항목과 불러오기 버튼의 빨간 외곽선]({{BASE_PATH}}/media/presets/file-import-open-figma.webp)
+
+3. 파일 선택창에서 `.ksPreset` 파일 하나를 선택합니다.
+4. **불러오기에 성공하였습니다.** 안내에서 **확인**을 누릅니다.
+
+   ![프리셋 파일 불러오기 완료와 확인 버튼]({{BASE_PATH}}/media/presets/file-import-complete-figma.webp)
+
+
+<h4 id="preset-import-conflict">같은 이름의 Preset이 있는 경우</h4>
+
+**Preset 이름 중복** 창이 나타나면 다음 중 하나를 선택합니다.
+
+![Preset 이름 중복 창의 덮어쓰기와 이름 변경 버튼]({{BASE_PATH}}/media/presets/file-import-conflict-figma.webp)
+
+- **덮어쓰기**: 기존 프리셋을 받은 내용으로 교체합니다.
+- **이름 바꿔서 저장하기**: 새 Preset 이름을 입력하고 **저장하기**를 눌러 별도로 추가합니다.
+
+![새 Preset 이름 입력과 저장 버튼]({{BASE_PATH}}/media/presets/file-import-rename-figma.webp)
+
+<button type="button" class="doc-details-close" data-details-close>안내 닫기</button>
+</details>
+
+<details class="doc-optional-step" id="preset-unity-import">
+<summary>Unity에서 직접 추가하기 (.asset / .unitypackage)</summary>
 
 <div class="preset-file-types">
 
 | 받은 파일 형식 | 추가 방법 |
 | --- | --- |
-| `.unitypackage` | 사용할 Unity 프로젝트를 연 상태에서 파일을 더블클릭하고 **Import**합니다. 가져온 프리셋이 아래 저장 폴더 안에 있는지 확인해 주세요. |
-| `.asset` | `Assets/@Eden_Tools/Kisetter/Presets` 폴더 아래에 프리셋 `.asset` 파일을 넣습니다. |
+| `.unitypackage` | 사용할 Unity 프로젝트를 연 상태에서 파일을 더블클릭하고 **Import**합니다. |
+| `.asset` | `Assets/@Eden_Tools/Kisetter/Presets` 폴더를 열어 여기에 파일을 옮깁니다. |
 
 </div>
 
-프리셋 저장 폴더: `Assets/@Eden_Tools/Kisetter/Presets`
+**Preset 선택하기** 창이 열려 있다면 **새로고침**을 누릅니다.
+  - Assets/@Eden_Tools/Kisetter/Presets 폴더에 정상적으로 파일이 추가되었는지 확인해주세요.
 
-추가가 끝났다면 아래 [**불러와 적용하기**](#불러와-적용하기)를 진행하세요. 불러오기 창에서 **새로고침**을 눌러 추가한 프리셋을 목록에 반영해 주세요.
-
-<button type="button" class="doc-details-close" data-details-close>다운로드·추가 안내 닫기</button>
+<button type="button" class="doc-details-close" data-details-close>안내 닫기</button>
 </details>
 
-### 불러와 적용하기
+<span id="4-새-프리셋-만들기-기존-프리셋-편집하기" class="doc-anchor-alias" data-anchor-target="2-2-preset-직접-만들기" aria-hidden="true"></span>
 
-1. **프리셋** 영역에서 **불러오기**를 누릅니다.
+<span id="4-프리셋-만들기-편집하기" class="doc-anchor-alias" data-anchor-target="2-2-preset-직접-만들기" aria-hidden="true"></span>
 
-   ![프리셋 영역의 불러오기 버튼 위치]({{BASE_PATH}}/media/presets/load-preset.png)
+### 2-2. Preset 직접 만들기
 
-2. 새 프리셋을 추가했다면 불러오기 창에서 **새로고침**을 누릅니다.
-3. **Source Avatar**(원본 아바타)와 **Target Avatar**(입힐 아바타) 이름으로 목록을 필터링합니다.
+**직접 조정해서 만들기**와 **직전 변형에 사용한 값으로 만들기** 중 원하는 방법을 선택하세요.
 
-   ![프리셋 불러오기 창에서 원본 아바타와 입힐 아바타 이름으로 목록 필터링]({{BASE_PATH}}/media/presets/filter-avatars.png)
+#### 직접 조정해서 만들기
 
-   - 미리 정해진 목록이 아니라, 제작자가 프리셋을 만들거나 저장할 때 직접 지정·수정한 이름입니다.
-4. **Preset 목록**에서 원하는 프리셋을 선택한 뒤 **적용하기**를 누릅니다.
-5. 프리셋 적용 후 **BlendShape**와 필요한 설정이 의상에 맞게 조정되어 있는지 확인한 뒤 **입히기**로 변형을 진행해 주세요. 수정이 필요하면 [**프리셋 만들기·편집하기**](#4-프리셋-만들기-편집하기)를 활용하세요.
-
-!!! warning "적용 안내를 확인해 주세요"
-    프리셋과 현재 아바타의 본 구성이 맞지 않으면 적용되지 않을 수 있습니다. 입힐 아바타의 본 설정이 저장 당시와 다르다는 안내가 표시되면, 적용 결과를 확인하고 필요한 본 조정을 진행하세요. 같은 아바타 조합이라도 의상이나 체형 설정에 따라 결과가 달라질 수 있습니다.
-
-<span id="5-적용-전-상태로-되돌리기" class="doc-anchor-alias" data-anchor-target="preset-restore" aria-hidden="true"></span>
-
-<details class="doc-optional-step" id="preset-restore" open>
-<summary>적용 전으로 되돌리기</summary>
-
-![프리셋을 적용하기 전 상태로 되돌리는 버튼 위치]({{BASE_PATH}}/media/presets/restore-previous.png)
-
-불러온 프리셋이 맞지 않으면 **적용 전으로 되돌리기**를 누릅니다. **마지막 프리셋 적용 직전의 설정과 BlendShape 값**으로 돌아가며, 프리셋 선택이 해제됩니다.
-
-이 기능은 원본 아바타 또는 프로필, 입힐 의상, 입힐 아바타가 적용 당시와 같을 때 사용할 수 있습니다. 아바타·의상 조합을 변경한 뒤에는 이전 적용 상태로 되돌릴 수 없습니다.
-
-프리셋 파일을 삭제하거나, 이미 생성된 변형 결과물 전체를 되돌리는 기능은 아닙니다.
-
-<button type="button" class="doc-details-close" data-details-close>되돌리기 안내 닫기</button>
-</details>
-
-<span id="3-직전-변형값을-프리셋으로-저장하기" class="doc-anchor-alias" data-anchor-target="3-내-프리셋-저장-공유하기" aria-hidden="true"></span>
-
-## 3. 내 프리셋 저장·공유하기
-
-방금 완료한 변형에 사용한 설정값을 저장할 때 사용합니다. 사전 조정에서 수정한 본·가슴 매칭 조정값도 프리셋에 포함됩니다.
-
-1. 변형이 완료된 후에만 해당 버튼이 활성화되므로, 먼저 **입히기**로 전체 변형을 완료합니다. 단계별로 진행한 경우에는 **Weighting**까지 완료합니다.
-2. **프리셋** 영역의 **직전 변형값을 프리셋으로 저장**을 누릅니다.
-
-   ![직전 변형값을 프리셋으로 저장 버튼 위치]({{BASE_PATH}}/media/presets/save-last-conversion.png)
-
-3. 저장 창에서 아래 항목을 확인하고, 필요한 경우 원하는 이름으로 수정합니다.
-
-   | 항목 | 입력할 내용 |
-   | --- | --- |
-   | **Preset 이름** | 나중에 구분하기 쉬운 프리셋 이름 |
-   | **Source Avatar 이름** | 원본 아바타를 구분할 이름 |
-   | **Target Avatar 이름** | 입힐 아바타를 구분할 이름 |
-
-   ![프리셋 이름과 원본 및 입힐 아바타 이름을 입력하는 저장 창]({{BASE_PATH}}/media/presets/save-preset-dialog.png)
-
-4. **저장하기**를 누르고, 저장 확인 창에서 **확인**을 선택합니다.
-5. 저장 완료 안내가 나타나면 프리셋이 생성되고 Kisetter 창에서 자동 선택됩니다.
-
-!!! info "현재 화면의 값이 아니라 직전 변형에 사용한 값을 저장합니다"
-    변형 완료 후 설정값을 수정해도, 직전 변형 당시의 설정값이 저장됩니다. 바꾼 값으로 저장하려면 변형을 다시 완료하거나, 아래의 프리셋 만들기·편집 기능을 사용하세요. 동일한 변형 결과의 설정은 한 번 저장하면 버튼이 비활성화되며, 다시 변형을 완료하면 저장할 수 있습니다.
-
-만족스러운 변환 결과를 얻었다면, 저장한 프리셋을 [**💾｜preset-share** 채널](https://discord.gg/Czuxfw8ng8)에 공유해 보세요. 다른 키셋타 유저의 의상 대응에도 도움이 될 수 있습니다.
-
-<span id="8-프리셋-내보내기" class="doc-anchor-alias" data-anchor-target="preset-share" aria-hidden="true"></span>
-
-<details class="doc-optional-step" id="preset-share" open>
-<summary>디스코드에 내 프리셋 공유하기</summary>
-
-1. Unity Project 창에서 `Assets/@Eden_Tools/Kisetter/Presets` 폴더를 열고 공유할 프리셋을 선택합니다. 여러 프리셋을 함께 선택할 수도 있습니다.
-
-   ![Unity Project 창의 Assets, @Eden_Tools, Kisetter, Presets 폴더와 저장된 프리셋 목록]({{BASE_PATH}}/media/presets/preset-folder.png)
-
-2. <strong>우클릭 → Export Package…</strong>를 선택하고, 포함할 파일을 확인한 뒤 <strong>Export…</strong>를 눌러 파일 이름과 저장 위치를 지정합니다.
-
-   ![여러 프리셋을 선택하고 우클릭 메뉴에서 Export Package를 선택하는 화면]({{BASE_PATH}}/media/presets/export-package.png)
-
-3. 내보낸 `.unitypackage` 파일을 **ZIP으로 압축**합니다.
-4. [**디스코드 서버**](https://discord.gg/Czuxfw8ng8)에 참여한 뒤 **💾｜preset-share** 채널에서 **새 게시물**을 작성하고 ZIP 파일을 첨부합니다. 게시글은 채널의 **포스트 가이드라인**에 맞춰 작성해 주세요.
-
-내보낸 `.unitypackage` 파일은 다른 Unity 프로젝트로 프리셋을 옮길 때도 사용할 수 있습니다.
-
-<button type="button" class="doc-details-close" data-details-close>공유 안내 닫기</button>
-</details>
-
-<details class="doc-optional-step" id="저장-이름과-위치">
-<summary>저장 이름과 위치</summary>
-
-- **Source Avatar 이름**과 **Target Avatar 이름**에는 영문, 숫자, 공백과 `_ - . ( ) [ ] +`만 사용할 수 있습니다. 이 이름은 불러오기 창의 아바타 목록에 표시될 명칭입니다.
-- **Preset 이름**에는 파일 이름으로 사용할 수 없는 문자를 넣지 마세요. 이름 끝에 마침표를 사용할 수 없습니다.
-- 프리셋은 Unity 프로젝트의 `Assets/@Eden_Tools/Kisetter/Presets` 아래에 **원본 아바타 / 입힐 아바타 / 프리셋 이름**별 폴더와 `.asset` 파일로 저장됩니다.
-- 같은 아바타 조합에 같은 이름의 프리셋이 있으면 덮어쓰기 확인 창이 표시됩니다. 기존 프리셋을 보존하려면 취소한 뒤 다른 Preset 이름으로 저장하세요.
-
-<button type="button" class="doc-details-close" data-details-close>저장 이름·위치 안내 닫기</button>
-</details>
-
-<span id="6-저장되는-내용과-주의-사항" class="doc-anchor-alias" data-anchor-target="preset-contents" aria-hidden="true"></span>
-
-<details class="doc-optional-step" id="preset-contents">
-<summary>저장되는 내용과 저장되지 않는 내용</summary>
-
-| 구분 | 내용 |
-| --- | --- |
-| **저장되는 조정값** | 아바타 몸통 Mesh의 BlendShape 값, 아바타 본의 위치·회전·크기 조정값, 가슴 대응 위치 정보, 프리셋에서 지원하는 변형 옵션 |
-| **저장되지 않는 내용** | 의상 자체의 조정값, Scene의 아바타·의상 오브젝트 자체, 완성된 의상 Prefab이나 Mesh 파일 |
-
-프리셋은 **모든 Kisetter 설정이나 작업 결과를 통째로 보관하는 기능이 아닙니다.** 결과물 파일은 기존 저장·내보내기 기능으로 별도 보관하세요.
-
-<button type="button" class="doc-details-close" data-details-close>저장 내용 안내 닫기</button>
-</details>
-
-<span id="4-새-프리셋-만들기-기존-프리셋-편집하기" class="doc-anchor-alias" data-anchor-target="4-프리셋-만들기-편집하기" aria-hidden="true"></span>
-
-## 4. 프리셋 만들기·편집하기
-
-변형을 실행하지 않고 새로운 프리셋을 만들거나, 기존에 불러온 프리셋을 추가로 수정하고 싶을 때 사용합니다.
-
-1. Kisetter 창에서 **프리셋 만들기·편집** 토글을 펼치고 목적에 맞는 버튼을 선택합니다.
+1. Kisetter 창에서 **프리셋 만들기·편집**을 펼치고 **새 프리셋 만들기**를 누릅니다.
 
    ![새 프리셋 만들기와 불러온 프리셋 편집 버튼 위치]({{BASE_PATH}}/media/presets/create-edit-preset.png)
 
-   - **새 프리셋 만들기**: 현재 아바타 조합으로 새로운 프리셋을 만듭니다.
-   - **불러온 프리셋 편집**: 기존에 불러온 프리셋을 추가로 편집합니다.
 2. 편집 화면에서 필요한 항목을 조정합니다.
 
    | 탭 | 조정할 내용 |
@@ -192,24 +117,20 @@ version: "3.4.1"
    | **매칭 조정** | 본과 가슴 대응 위치를 조정합니다. |
    | **옵션 조정** | 키셋타의 기본·고급 변형 옵션(신체 표면 간격, 스무딩 등)을 조정합니다. |
 
-   기능별 상세 설명이 필요하면 아래 항목을 펼쳐 확인해 주세요.
-
    <details class="doc-optional-step">
    <summary>아바타 보기 및 표시 설정</summary>
-
-   화면 상단에서 아바타와 의상을 보기 편한 상태로 설정합니다.
 
    ![아바타 보기와 간격, 불투명도 및 의상 표시 설정 화면]({{BASE_PATH}}/media/presets/avatar-view-settings.png)
 
    **아바타 보기**: 나란히 보기는 두 아바타를 좌우로 배치하고, 겹쳐 보기는 겹쳐 표시하여 체형 차이를 비교합니다.
 
-   **아바타 간격**: 나란히 보기에서 두 아바타 사이의 표시 간격을 조절합니다. 겹쳐 보기에서는 사용할 수 없습니다.
+   **아바타 간격**: 나란히 보기에서 두 아바타 사이의 간격을 조절합니다.
 
    **Source 불투명도**: 원본 아바타의 불투명도를 조절합니다.
 
    **Target 불투명도**: 입힐 아바타의 불투명도를 조절합니다.
 
-   **작업 대상만 보기**: 작업 대상만 보기를 선택하면 작업과 관계없는 Scene 오브젝트를 잠시 숨깁니다.
+   **작업 대상만 보기**: 작업과 관계없는 Scene 오브젝트를 잠시 숨깁니다.
 
    **Source 의상 표시**: 원본 아바타 쪽 의상의 표시 여부를 변경합니다. 나란히 보기에서 사용할 수 있습니다.
 
@@ -223,11 +144,11 @@ version: "3.4.1"
 
    ![체형 차이 보정과 미리보기 및 갱신 버튼 설정 화면]({{BASE_PATH}}/media/presets/body-shape-preview.png)
 
-   **체형 차이 보정**: 원본 아바타와 입힐 아바타의 체형 차이를 보정하는 기능입니다. 아바타끼리 가슴 크기 차이가 많이 나는 경우, 이 옵션을 사용하는 것을 추천합니다. 가슴 매칭 조정은 이 옵션이 켜져 있을 때만 사용할 수 있습니다.
+   **체형 차이 보정**: 두 아바타의 체형 차이를 보정합니다. 가슴 크기 차이가 클 때 사용하면 좋습니다.
 
    **미리보기**: 켜기를 선택하면 대략적인 체형 보정 결과를 미리 확인할 수 있습니다.
 
-   **체형 보정 미리보기 갱신**: 변경한 설정을 미리보기에 반영합니다. 반영 시, 약간의 시간이 걸릴 수 있습니다.
+   **체형 보정 미리보기 갱신**: 변경한 설정을 미리보기에 반영합니다.
 
    <button type="button" class="doc-details-close" data-details-close>미리보기 설명 닫기</button>
    </details>
@@ -237,15 +158,15 @@ version: "3.4.1"
 
    ![BlendShape 조정탭과 Bone Pose 갱신 버튼 화면]({{BASE_PATH}}/media/presets/blendshape-adjustment.png)
 
-   **현재 BlendShape에 맞춰 Bone Pose 갱신**: 변경한 BlendShape에 맞춰 본 대응 포즈를 다시 계산합니다. 블렌드쉐이프를 변경하면 갱신을 진행해주시는 것이 좋습니다.
+   **현재 BlendShape에 맞춰 Bone Pose 갱신**: BlendShape 값을 변경한 뒤 눌러 본 대응 포즈를 갱신합니다.
 
    **Source Avatar** 또는 **Target Avatar**를 선택하고, 목록의 BlendShape 값을 슬라이더나 숫자 입력으로 조절합니다.
 
-   원본 아바타의 BlendShape를 조정하면, 입힐 의상에 같은 이름의 BlendShape가 있는 경우 해당 값도 함께 조정됩니다. 이름이 다르거나 해당 항목이 없으면 연동되지 않습니다.
+   원본 아바타의 BlendShape를 조정하면, 의상에 같은 이름의 BlendShape가 있을 때 함께 조정됩니다.
 
    <br>
 
-   **원본 몸통 Mesh / 입힐 몸통 Mesh**: 몸통 Mesh 자동 할당이 활성화되어 있으면 자동으로 탐색한 몸통 Mesh가 표시됩니다. 잘못된 Mesh가 선택되었거나 몸통이 여러 Mesh로 구성되어 있다면 직접 지정할 수 있습니다.
+   **원본 몸통 Mesh / 입힐 몸통 Mesh**: 잘못된 Mesh가 선택되었거나 몸통이 여러 Mesh로 구성되어 있다면 직접 지정합니다.
 
    <button type="button" class="doc-details-close" data-details-close>BlendShape 설명 닫기</button>
    </details>
@@ -253,15 +174,13 @@ version: "3.4.1"
    <details class="doc-optional-step">
    <summary>매칭 조정탭</summary>
 
-   본과 가슴의 대응 위치를 사전에 조정할 때 사용합니다.
-
    ![가슴과 본의 매칭 조정 및 본 선택 화면]({{BASE_PATH}}/media/presets/matching-adjustment.png)
 
    **매칭 조정 초기화**: 본·가슴 매칭 조정을 초기 상태로 되돌립니다.
 
    <br>
 
-   **가슴 매칭 조정**: 원본 아바타와 입힐 아바타의 가슴 영역이 서로 올바르게 대응하도록 기준 위치를 조정합니다. 자동으로 잡힌 위치가 실제 체형과 다를 때 수정해 주세요.
+   **가슴 매칭 조정**: 자동으로 잡힌 기준 위치가 실제 가슴 위치와 다를 때 조정합니다.
 
    ※ 상단의 체형 차이 보정이 활성화되어 있을 때만 사용할 수 있습니다.
 
@@ -269,9 +188,9 @@ version: "3.4.1"
 
    **가슴 영역 조정**: Scene에서 판 중앙의 이동 도구(Gizmo)의 Y축을 움직여 윗가슴·밑가슴 위치에 맞춥니다.
 
-   ※ 두 아바타의 가슴판을 같은 높이에 맞추는 것이 아니라, 각 아바타의 실제 가슴 위치에 맞춰 주세요.
+   ※ 가슴판은 각 아바타의 실제 가슴 위치에 맞춥니다. 두 아바타의 판을 같은 높이에 맞추지 마세요.
 
-   **유두 조정**: 해당 몸통 Mesh의 좌우 가슴 앞면에서 가장 돌출된 부분을 마우스로 드래그해 지정합니다. 취소하려면 Esc를 누릅니다. 유두 위치는 가슴의 돌출부가 어디에 대응해야 하는지 정하는 기준점으로 사용됩니다.
+   **유두 조정**: 몸통 Mesh의 좌우 가슴에서 가장 돌출된 부분을 마우스로 드래그해 지정합니다. Esc로 취소합니다.
 
    <br>
 
@@ -287,15 +206,13 @@ version: "3.4.1"
    <details class="doc-optional-step">
    <summary>옵션 조정탭</summary>
 
-   프리셋에 저장할 기본·고급 변형 옵션을 조정합니다.
-
    ![신체 표면 간격과 스무딩 등 기본·고급 변형 옵션 조정 화면]({{BASE_PATH}}/media/presets/fitting-options.png)
 
    **신체 표면 간격**: 의상과 아바타 몸통 사이의 최소 간격을 설정합니다.
 
    **몸통 Mesh 자동 할당**: 아바타의 몸통 Mesh를 자동으로 탐색합니다. 몸통 Mesh를 직접 지정할 때는 자동 할당을 해제합니다.
 
-   **체형 차이 보정**: 원본 아바타와 입힐 아바타의 체형 차이를 보정합니다. 편집 화면 상단의 같은 옵션과 연동됩니다.
+   **체형 차이 보정**: 원본 아바타와 입힐 아바타의 체형 차이를 보정합니다.
 
    **스무딩**: 변형을 부드럽게 다듬는 강도를 조정합니다.
 
@@ -303,20 +220,20 @@ version: "3.4.1"
 
    <br>
 
-   참고 사항: 각 옵션의 기본 개념은 [**파라미터 설명**](../parameters/)을 참고해 주세요.
+   각 옵션의 기본 개념은 [**파라미터 설명**](../parameters/)을 참고해 주세요.
 
    <button type="button" class="doc-details-close" data-details-close>옵션 조정 설명 닫기</button>
    </details>
 
-3. 편집 화면의 **저장하기**를 누르고 **Preset 이름**, **Source Avatar 이름**, **Target Avatar 이름**을 확인한 뒤, **저장하기 → 확인**을 선택합니다. 이름 규칙과 저장 경로는 [**저장 이름과 위치**](#저장-이름과-위치)를 참고하세요.
-4. 저장 완료 안내가 나타나면 Kisetter 화면으로 돌아오며, 저장한 프리셋이 자동 선택됩니다.
+3. 편집 화면의 **저장하기**를 눌러 저장 창을 엽니다. **Preset 이름**, **Source Avatar 이름**, **Target Avatar 이름**을 확인한 뒤 **저장하기 → 확인**을 누릅니다.
+4. 저장한 프리셋이 선택된 상태로 Kisetter 화면으로 돌아옵니다.
 
-해당 설정으로 변형을 진행하고 싶다면, **입히기**를 눌러 의상 대응을 진행합니다.
+기존 Preset을 수정하려면 **Preset 선택하기**에서 프리셋을 선택하고 **적용하기**를 누른 뒤, **불러온 프리셋 편집**을 누릅니다. 이후 조정·저장 방법은 같습니다.
 
 <details class="doc-optional-step" id="편집을-마치거나-취소하기" open>
 <summary>편집을 마치거나 취소하기</summary>
 
-**Kisetter로 돌아가기**를 누르면 이전 화면으로 돌아갑니다. 저장하지 않은 변경 사항이 있으면 다음 중 하나를 선택합니다.
+**Kisetter로 돌아가기**를 눌렀을 때 저장하지 않은 변경 사항이 있으면 다음 중 하나를 선택합니다.
 
 - **저장하고 돌아가기**: 저장 창에서 이름을 확인하고 프리셋을 저장합니다.
 - **저장하지 않고 돌아가기**: 이번 편집 내용을 버리고 돌아갑니다.
@@ -325,14 +242,176 @@ version: "3.4.1"
 <button type="button" class="doc-details-close" data-details-close>편집 종료 안내 닫기</button>
 </details>
 
-저장한 프리셋을 공유하려면 [**내 프리셋 공유하기**](#preset-share)를 확인하세요.
+<span id="3-직전-변형값을-프리셋으로-저장하기" class="doc-anchor-alias" data-anchor-target="직전-변형에-사용한-값으로-만들기" aria-hidden="true"></span>
+
+<span id="완료한-변형값으로-만들기" class="doc-anchor-alias" data-anchor-target="직전-변형에-사용한-값으로-만들기" aria-hidden="true"></span>
+
+#### 직전 변형에 사용한 값으로 만들기
+
+1. **입히기**로 변형을 완료합니다. 단계별로 진행한다면 **Weighting**까지 완료합니다.
+2. **프리셋** 영역의 **직전 변형값을 프리셋으로 저장**을 누릅니다.
+
+   ![직전 변형값을 프리셋으로 저장 버튼 위치]({{BASE_PATH}}/media/presets/save-last-conversion.png)
+
+3. 저장 창에서 아래 항목을 확인하고, 필요한 경우 원하는 이름으로 수정합니다.
+
+   | 항목 | 입력할 내용 |
+   | --- | --- |
+   | **Preset 이름** | 프리셋 이름 |
+   | **Source Avatar 이름** | 원본 아바타를 이름 |
+   | **Target Avatar 이름** | 입힐 아바타를 이름 |
+
+   ![프리셋 이름과 원본 및 입힐 아바타 이름을 입력하는 저장 창]({{BASE_PATH}}/media/presets/save-preset-dialog.png)
+
+4. **저장하기**를 누르고, 저장 확인 창에서 **확인**을 선택합니다.
+5. 저장 완료 안내가 나타나면 프리셋이 생성되고 Kisetter 창에서 자동 선택됩니다.
+
+!!! info "현재 화면의 값이 아니라 직전 변형에 사용한 값을 저장합니다"
+    변형 후 바꾼 값을 저장하려면 변형을 다시 완료하거나 <strong>직접 조정해서 만들기</strong>를 사용하세요.
+
+<details class="doc-optional-step" id="저장-이름과-위치">
+<summary>저장 이름과 위치</summary>
+
+- 프리셋은 `Assets/@Eden_Tools/Kisetter/Presets` 폴더에 저장됩니다.
+- 같은 아바타 조합에 같은 이름으로 저장하면 덮어쓰기 확인 창이 나타납니다. 기존 프리셋을 남기려면 다른 이름으로 저장하세요.
+
+<button type="button" class="doc-details-close" data-details-close>저장 이름·위치 안내 닫기</button>
+</details>
+
+<span id="6-저장되는-내용과-주의-사항" class="doc-anchor-alias" data-anchor-target="preset-contents" aria-hidden="true"></span>
+
+<details class="doc-optional-step" id="preset-contents">
+<summary>저장되는 내용과 저장되지 않는 내용</summary>
+
+| 구분 | 내용 |
+| --- | --- |
+| **저장되는 조정값** | 아바타 몸통 Mesh의 BlendShape 값, 아바타 본의 위치·회전·크기 조정값, 가슴 대응 위치 정보, 프리셋에서 지원하는 변형 옵션 |
+| **저장되지 않는 내용** | 의상 자체의 조정값, Scene의 아바타·의상 오브젝트 자체, 완성된 의상 Prefab이나 Mesh 파일 |
+
+<button type="button" class="doc-details-close" data-details-close>저장 내용 안내 닫기</button>
+</details>
+
+<span id="불러와-적용하기" class="doc-anchor-alias" data-anchor-target="3-preset-적용하기" aria-hidden="true"></span>
+
+<span id="프리셋-적용하기" class="doc-anchor-alias" data-anchor-target="3-preset-적용하기" aria-hidden="true"></span>
+
+## 3. Preset 적용하기
+
+1. **프리셋** 영역에서 **Preset 선택하기**를 누릅니다.
+
+   ![Preset 선택하기 버튼의 빨간 외곽선]({{BASE_PATH}}/media/presets/file-select-open-figma.webp)
+
+2. **원본 아바타**와 **입힐 아바타** 이름으로 사용할 아바타에 맞는 Preset을 검색합니다.
+
+   ![아바타 필터와 프리셋 선택 및 적용 버튼]({{BASE_PATH}}/media/presets/file-select-list-figma.webp)
+
+3. **Preset 목록**에서 원하는 프리셋을 선택한 뒤 **적용하기**를 누릅니다.
+4. 적용된 **BlendShape** 값과 설정이 의상에 맞는지 확인합니다. 수정이 필요하면 **불러온 프리셋 편집**에서 조정하고 저장합니다. 설정을 확인한 뒤 **입히기**로 변형을 진행합니다.
+
+!!! warning "적용 안내를 확인해 주세요"
+    본 설정이 다르다는 안내가 표시되면 적용 결과를 확인하고, 필요한 부분을 <strong>불러온 프리셋 편집</strong>에서 조정하세요.
+
+<span id="5-적용-전-상태로-되돌리기" class="doc-anchor-alias" data-anchor-target="preset-restore" aria-hidden="true"></span>
+
+<details class="doc-optional-step" id="preset-restore" open>
+<summary>적용 전으로 되돌리기</summary>
+
+![프리셋을 적용하기 전 상태로 되돌리는 버튼 위치]({{BASE_PATH}}/media/presets/restore-previous.png)
+
+**적용 전으로 되돌리기**를 누르면 마지막 프리셋 적용 직전의 설정과 BlendShape 값으로 돌아갑니다.
+
+프리셋을 적용한 뒤 원본 아바타·프로필, 입힐 의상, 입힐 아바타를 변경했다면 되돌릴 수 없습니다.
+
+이미 생성된 변형 결과물은 되돌리지 않습니다.
+
+<button type="button" class="doc-details-close" data-details-close>되돌리기 안내 닫기</button>
+</details>
+
+<span id="3-내-프리셋-저장-공유하기" class="doc-anchor-alias" data-anchor-target="4-preset-내보내기-공유하기" aria-hidden="true"></span>
+
+## 4. Preset 내보내기·공유하기
+
+만족스러운 변환 결과를 얻었다면, 프리셋을 [**💾｜preset-share** 채널](https://discord.gg/Czuxfw8ng8)에 공유해 보세요.
+
+<span id="8-프리셋-내보내기" class="doc-anchor-alias" data-anchor-target="preset-share" aria-hidden="true"></span>
+
+<details class="doc-optional-step" id="preset-share" open>
+<summary>Kisetter에서 내보내고 공유하기</summary>
+
+1. **프리셋 파일로 불러오기 / 내보내기**를 펼치고 **내보내기**를 누릅니다.
+
+   ![파일 항목과 내보내기 버튼의 빨간 외곽선]({{BASE_PATH}}/media/presets/file-export-open-figma.webp)
+
+2. **원본 아바타**와 **입힐 아바타** 이름으로 목록을 정렬하고, 내보낼 프리셋을 선택한 뒤 **내보내기**를 누릅니다.
+
+   ![내보낼 프리셋 선택과 내보내기 버튼]({{BASE_PATH}}/media/presets/file-export-list-figma.webp)
+
+3. 저장 위치와 파일 이름을 정해 `.ksPreset` 파일로 저장합니다.
+4. **내보내기가 완료되었습니다.** 안내에서 **확인**을 누릅니다.
+
+   ![프리셋 내보내기 완료와 확인 버튼]({{BASE_PATH}}/media/presets/file-export-complete-figma.webp)
+
+프리셋을 공유하려면 각각 내보낸 뒤 파일 그대로 혹은 ZIP으로 묶어 공유합니다.
+
+[**디스코드 서버**](https://discord.gg/Czuxfw8ng8)의 **💾｜preset-share** 채널에 공유하실 경우, 채널의 **포스트 가이드라인**에 맞춰 게시글을 작성해 주세요.
+
+<button type="button" class="doc-details-close" data-details-close>안내 닫기</button>
+</details>
+
+<details class="doc-optional-step" id="preset-unity-export">
+<summary>Unity에서 직접 내보내기 (.unitypackage)</summary>
+
+1. Unity Project 창에서 `Assets/@Eden_Tools/Kisetter/Presets` 폴더를 열고 공유할 프리셋을 선택합니다. 여러 프리셋을 함께 선택할 수도 있습니다.
+
+   ![Unity Project 창의 Presets 폴더와 저장된 프리셋 목록]({{BASE_PATH}}/media/presets/preset-folder.png)
+
+2. <strong>우클릭 → Export Package…</strong>를 선택하고, 포함할 파일을 확인한 뒤 <strong>Export…</strong>를 눌러 파일 이름과 저장 위치를 지정합니다.
+
+   ![프리셋을 선택하고 우클릭 메뉴에서 Export Package를 선택하는 화면]({{BASE_PATH}}/media/presets/export-package.png)
+
+받은 `.unitypackage` 파일은 사용할 프로젝트에서 열어 **Import**합니다.
+
+<button type="button" class="doc-details-close" data-details-close>안내 닫기</button>
+</details>
 
 <span id="7-버튼이-비활성화되거나-목록에-보이지-않는-경우" class="doc-anchor-alias" data-anchor-target="5-문제-해결" aria-hidden="true"></span>
 
 ## 5. 문제 해결
 
+<details class="doc-optional-step" id="preset-file-help-1">
+<summary>파일 불러오기·내보내기 버튼이 보이지 않거나 비활성화된 경우</summary>
+
+**프리셋 파일로 불러오기 / 내보내기**를 펼칩니다. 버튼이 비활성화되어 있다면 진행 중인 변형·편집·저장을 마치고, Unity가 재생 중이면 재생을 멈춥니다.
+
+<button type="button" class="doc-details-close" data-details-close>안내 닫기</button>
+</details>
+
+<details class="doc-optional-step" id="preset-file-help-2">
+<summary>파일을 불러올 수 없거나 지원하지 않는 버전인 경우</summary>
+
+Kisetter에서 내보낸 `.ksPreset` 파일인지 확인합니다. 지원하지 않는 버전이라는 안내가 나오면 파일을 만든 Kisetter 버전을 확인하세요.
+
+<button type="button" class="doc-details-close" data-details-close>안내 닫기</button>
+</details>
+
+<details class="doc-optional-step" id="preset-file-help-3">
+<summary>이름 중복 창에서 덮어쓰기를 선택할 수 없는 경우</summary>
+
+**이름 바꿔서 저장하기**를 선택하고 다른 Preset 이름으로 저장합니다.
+
+<button type="button" class="doc-details-close" data-details-close>안내 닫기</button>
+</details>
+
+<details class="doc-optional-step" id="preset-file-help-4">
+<summary>불러오기는 성공했지만 적용할 수 없는 경우</summary>
+
+**Preset 선택하기**에서 현재 아바타 조합에 맞는 프리셋을 선택하고 **적용하기**를 누릅니다. 적용 시 표시되는 안내를 확인하세요.
+
+<button type="button" class="doc-details-close" data-details-close>안내 닫기</button>
+</details>
+
 <details class="doc-optional-step">
-<summary>불러오기 또는 새 프리셋 만들기 버튼이 비활성화된 경우</summary>
+<summary>Preset 선택하기 또는 새 프리셋 만들기 버튼이 비활성화된 경우</summary>
 
 원본 아바타(또는 변환 원본 프로필), 입힐 의상, 입힐 아바타가 모두 지정되어 있는지 확인해 주세요. Unity가 재생 중이라면 재생을 멈추고, 변형이나 프리셋 편집·저장 작업이 진행 중이라면 먼저 마쳐 주세요.
 
@@ -342,7 +421,7 @@ version: "3.4.1"
 <details class="doc-optional-step">
 <summary>불러온 프리셋 편집 버튼이 비활성화된 경우</summary>
 
-먼저 **불러오기**에서 편집할 프리셋을 선택한 뒤 **적용하기**를 눌러 주세요.
+먼저 **Preset 선택하기**에서 편집할 프리셋을 선택한 뒤 **적용하기**를 눌러 주세요.
 
 <button type="button" class="doc-details-close" data-details-close>해결 방법 닫기</button>
 </details>
@@ -358,7 +437,7 @@ version: "3.4.1"
 <details class="doc-optional-step">
 <summary>프리셋이 목록에 나타나지 않는 경우</summary>
 
-프리셋의 `.asset` 파일이 `Assets/@Eden_Tools/Kisetter/Presets` 폴더 아래에 있는지 확인한 뒤 **새로고침**을 눌러 주세요. **Source Avatar / Target Avatar** 필터 때문에 목록에서 제외된 것은 아닌지도 확인해 주세요.
+**원본 아바타 / 입힐 아바타** 필터를 확인합니다. Unity에서 직접 추가했다면 `.asset`을 Presets 폴더 바로 아래에 넣고 **새로고침**을 누릅니다.
 
 <button type="button" class="doc-details-close" data-details-close>해결 방법 닫기</button>
 </details>
@@ -366,7 +445,7 @@ version: "3.4.1"
 <details class="doc-optional-step">
 <summary>프리셋을 적용할 수 없다는 안내가 나타나는 경우</summary>
 
-선택한 프리셋과 의상이 현재 원본 아바타에 맞는지 확인해 주세요. 본 구조가 호환되지 않는 프리셋은 아바타 이름만 바꾸는 것으로는 적용할 수 없습니다.
+현재 원본 아바타·입힐 아바타 조합에 맞는 프리셋인지 확인하세요.
 
 <button type="button" class="doc-details-close" data-details-close>해결 방법 닫기</button>
 </details>
